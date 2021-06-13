@@ -1,74 +1,80 @@
 <template>
    <div>
       <v-app id="inspire">
-         <v-app-bar app color="white" flat elevation="3" dense>
-            <v-app-bar-nav-icon @click="toggleSidebar = !toggleSidebar" class="hidden-md-and-up"></v-app-bar-nav-icon>
-            <v-tabs centered color="grey darken-1">
-               <v-tab to="/" exact class="deep-purple--text">
-                  <v-icon left color="deep-purple">mdi-home</v-icon>
-                  <!-- v-for="link in links" :key="link" -->
-                  Home
-               </v-tab>
-               <v-tab to="/about">
-                  <v-icon left>mdi-information</v-icon>About
-               </v-tab>
-               <v-tab>Link 1</v-tab>
-               <v-tab>Logout</v-tab>
-            </v-tabs>
-         </v-app-bar>
+         <v-card class="blue darken-4 d-flex pl-4 pl-sm-6 pl-md-16 rounded-0" fluid>
+            <v-img
+               src="images/logo.png"
+               width="auto"
+               height="auto"
+               min-width="50px"
+               min-height="50px"
+               max-width="100px"
+               max-height="100px"
+               contain
+               class="my-3 ml-2 mr-0"
+            ></v-img>
+            <v-content class="my-auto">
+               <div class="font-weight-light white--text text-body-2 text-sm-subtitle-1 text-md-h4-subtitle-1 pl-md-2">
+                  DEPARTMENT OF</div>
+               <div class="font-weight-bold white--text text-h6 text-sm-h5 text-md-h5 pl-md-2">
+                  INSTITUTIONAL QUALITY</div>
+               <div class="font-weight-bold white--text text-h6 text-sm-h5 text-md-h5 pl-md-2">
+                  ASSURANCE CELL</div>
+            </v-content>
+         </v-card>
+         <!-- height props available -->
+         <v-card class="hidden-sm-and-down">
+            <v-app-bar flat dense>
+               <v-tabs centered color="white" class="text-white" background-color="blue lighten-3">
+                     <!-- <v-icon
+                        @click="toggleSidebar = !toggleSidebar"
+                        class="hidden-md-and-up"
+                        right
+                        v-show="false"
+                     >  
+                     mdi
+                     </v-icon>                   -->
+                  <v-tab to="/" exact class="white--text">
+                        <v-icon left color="white">mdi-home</v-icon>
+                        <!-- v-for="link in links" :key="link" -->
+                        Home
+                  </v-tab>
+                  <v-tab to="/about" exact  class="white--text">
+                     <v-icon color="white" left>mdi-information</v-icon>
+                     About
+                  </v-tab>
+                  <v-tab to="/members" exact class="white--text">
+                     <v-icon color="white" left>mdi-information</v-icon>
+                     Members
+                  </v-tab>
+                  <v-tab to="/events" exact class="white--text">
+                     <v-icon color="white" left>mdi-information</v-icon>
+                     Events
+                  </v-tab>
+                  <v-tab to="/news" exact class="white--text">
+                     <v-icon color="white" left>mdi-information</v-icon>
+                     News
+                  </v-tab>
+                  <v-tab to="/resources" exact class="white--text">
+                     <v-icon color="white" left>mdi-information</v-icon>
+                     Resources
+                  </v-tab>
+               </v-tabs>
+            </v-app-bar>
+         </v-card>
+         <v-card class="hidden-md-and-up">
+            <v-app-bar flat dense>
+               Hamburger Menu goes here
+            </v-app-bar>
+         </v-card>
          <!-- v-main is the main content area e.g background -->
          <v-main class="grey lighten-3">
-            <v-navigation-drawer v-model="toggleSidebar" absolute temporary>
-               <v-list nav dense>
-                  <v-list-item-group
-                     v-model="group"
-                     active-class="deep-purple--text text--accent-4"
-                  >
-                     <v-list-item>
-                        <v-list-item-title>Sidebar Item 1</v-list-item-title>
-                     </v-list-item>
-
-                     <v-list-item>
-                        <v-list-item-title>Sidebar item 2</v-list-item-title>
-                     </v-list-item>
-                  </v-list-item-group>
-               </v-list>
-            </v-navigation-drawer>
             <v-container>
-               <v-row>
-                  <v-col cols="12" md="3" lg="2" class="hidden-sm-and-down">
-                     <v-sheet rounded="lg" height="auto" elevation="5">
-                        <div class="px-2 py-2">
-                           <v-list nav dense>
-                              <v-list-item-group active-class="deep-purple--text text--accent-4">
-                                 <v-list-item>
-                                    <v-list-item-title class="text-center">Sidebar Item 1</v-list-item-title>
-                                 </v-list-item>
-
-                                 <v-list-item>
-                                    <v-list-item-title class="text-center">Sidebar item 2</v-list-item-title>
-                                 </v-list-item>
-                              </v-list-item-group>
-                           </v-list>
-                        </div>
-                     </v-sheet>
-                  </v-col>
-
-                  <v-col cols="12" sm="12" md="9" lg="10">
-                     <v-sheet rounded="lg" height="auto" class="purple lighten-4" elevation="5">
-                        <router-view class="px-5 py-5"></router-view>
-                     </v-sheet>
-                  </v-col>
-               </v-row>
+               <v-sheet>
+                  <router-view>  </router-view>
+               </v-sheet>
             </v-container>
          </v-main>
-         <!-- <v-footer app height="100px" color="white">
-            <v-row justify="center">
-               <v-col align="center" text="grey darken-1">
-                  <h6 class="display-1">Footer</h6>
-               </v-col>
-            </v-row>
-         </v-footer>-->
       </v-app>
    </div>
 </template>
@@ -78,6 +84,7 @@
 export default {
    data: () => ({
       toggleSidebar: false,
+      //logo: require('./logo.png')
    }),
 };
 </script>
