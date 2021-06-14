@@ -1,6 +1,16 @@
 <template>
    <div>
-      <v-card class="mx-auto mt-2" color="purple darken-1" height="auto">
+      <v-carousel>
+         <v-carousel-item
+            v-for="(item,i) in items"
+            :key="i"
+            :src="item.src"
+            reverse-transition="fade-transition"
+            transition="fade-transition"
+         ></v-carousel-item>
+      </v-carousel>
+
+      <v-card class="mx-auto my-3" color="purple darken-1" height="auto">
          <v-col align="center">
             <v-card-text
                class="text-h2 font-weight-bold teal--text text--accent-3"
@@ -109,7 +119,25 @@
 </template>
 
 <script>
-export default {};
+// import TopNav from './topnav'
+export default {
+    data: () => ({              
+      items: [
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+          },
+        ],
+    })
+};
 </script>
 
 <style></style>

@@ -47,10 +47,5 @@ export default{
          component: Resources,
          meta: { title: 'Resources' }
       },
-      {
-         path: '/topnav',
-         component: Topnav,
-         meta: { title: 'sadaw' }
-      },
    ]
 }
