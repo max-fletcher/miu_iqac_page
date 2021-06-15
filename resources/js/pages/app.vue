@@ -130,23 +130,8 @@
 
             <!-- Navbar -->
             <!-- height props available -->
-            <v-card class="hidden-sm-and-down" rounded="0" height="40">
-                <v-tabs centered background-color="#4270A9" height="40">
-                    <v-tab
-                        v-for="item in linkItems"
-                        :key="item.title"
-                        :to="item.link"
-                        exact
-                        class="white--text"
-                    >
-                        <v-icon left color="white">{{ item.icon }}</v-icon>
-                        <!-- v-for="link in links" :key="link" -->
-                        {{ item.title }}
-                    </v-tab>
-                </v-tabs>
-            </v-card>
             <v-card class="hidden-md-and-up" rounded="0" height="40">
-                <v-tabs background-color="#4270A9">
+                    <v-tabs background-color="#4270A9">
                     <v-tab
                         class="white--text"
                         @click.stop="toggleNavSidebar = !toggleNavSidebar"
@@ -158,70 +143,17 @@
                     <v-tab
                         class="white--text"
                         @click.stop="
-                            toggleQuickLinksSidebar = !toggleQuickLinksSidebar
+                                toggleQuickLinksSidebar = !toggleQuickLinksSidebar
                         "
                     >
                         <v-icon left color="white"> mdi-menu </v-icon>
                         Quick Links
                     </v-tab>
-                </v-tabs>
-            </v-card>
-            <!-- Testing New Navbar -->
+                    </v-tabs>
+            </v-card>    
+
             <v-card class="hidden-sm-and-down">
                 <v-card class="d-flex justify-center" rounded="0" height="40" color="#4270A9">
-                    <v-menu open-on-hover bottom offset-y>
-                        <template v-slot:activator="{ on, attrs }">
-                            <v-btn
-                                color="#4270A9"
-                                v-bind="attrs"
-                                v-on="on"
-                                tile
-                                class="white--text"
-                                height="40"
-                                text
-                            >
-                                Dropdown
-                            </v-btn>
-                        </template>
-
-                        <v-list>
-                            <v-list-item
-                                v-for="(item, index) in linkItems"
-                                :key="index"
-                            >
-                                <v-list-item-title>{{
-                                    item.title
-                                }}</v-list-item-title>
-                            </v-list-item>
-                        </v-list>
-                    </v-menu>
-
-                    <v-menu open-on-hover bottom offset-y>
-                        <template v-slot:activator="{ on, attrs }">
-                            <v-btn
-                                color="#4270A9"
-                                v-bind="attrs"
-                                v-on="on"
-                                tile
-                                class="white--text"
-                                height="40"
-                                text
-                            >
-                                Dropdown
-                            </v-btn>
-                        </template>
-
-                        <v-list>
-                            <v-list-item
-                                v-for="(item, index) in linkItems"
-                                :key="index"
-                            >
-                                <v-list-item-title>{{
-                                    item.title
-                                }}</v-list-item-title>
-                            </v-list-item>
-                        </v-list>
-                    </v-menu>
                     <v-btn
                         color="#4270A9"
                         v-bind="attrs"
@@ -229,32 +161,116 @@
                         tile
                         class="white--text"
                         height="40"
-                        text                    
+                        text
+                        to="/"
+                        exact-active-class="light"
                     >
                     <v-icon left>
-                        mdi-pencil
+                        mdi-home
                     </v-icon>
-                        Button
+                        Home
+                    </v-btn>
+                    <v-btn
+                        color="#4270A9"
+                        v-bind="attrs"
+                        v-on="on"
+                        tile
+                        class="white--text"
+                        height="40"
+                        text
+                        to="/about"
+                        exact-active-class="light"
+                    >
+                    <v-icon left>
+                        mdi-information-outline
+                    </v-icon>
+                        About
+                    </v-btn>
+                    <v-menu open-on-hover bottom offset-y>
+                        <template v-slot:activator="{ on, attrs }">
+                                <!-- exact-path for later -->
+                                <v-btn
+                                color="#4270A9"
+                                v-bind="attrs"
+                                v-on="on"
+                                tile
+                                class="white--text"
+                                height="40"
+                                text
+                                exact-path=""
+                                >
+                                <v-icon left>
+                                    mdi-account
+                                </v-icon>
+                                People
+                                <v-icon small>
+                                    mdi-chevron-down
+                                </v-icon>
+                                </v-btn>
+                        </template>
+
+                        <v-list>
+                            <v-list-item>
+                                <v-list-item-title> Some Link </v-list-item-title>
+                            </v-list-item>
+                        </v-list>
+                    </v-menu>                    
+                    <v-btn
+                        color="#4270A9"
+                        v-bind="attrs"
+                        v-on="on"
+                        tile
+                        class="white--text"
+                        height="40"
+                        text
+                        to="/events"
+                        exact-active-class="light"
+                    >
+                    <v-icon left>
+                        mdi-calendar-clock-outline
+                    </v-icon>
+                        Events
+                    </v-btn>
+                    <v-btn
+                        color="#4270A9"
+                        v-bind="attrs"
+                        v-on="on"
+                        tile
+                        class="white--text"
+                        height="40"
+                        text
+                        to="/news"
+                        exact-active-class="light"
+                    >
+                    <v-icon left>
+                        mdi-newspaper-variant-outline
+                    </v-icon>
+                        News
+                    </v-btn>
+                    <v-btn
+                        color="#4270A9"
+                        v-bind="attrs"
+                        v-on="on"
+                        tile
+                        class="white--text"
+                        height="40"
+                        text
+                        to="/resources"
+                        exact-active-class="light"
+                    >
+                    <v-icon left>
+                        mdi-archive-outline
+                    </v-icon>
+                        Resources
                     </v-btn>
                 </v-card>
-            </v-card>                                            
-            <!-- End Testing New Navbar -->
+            </v-card>
             <!--End Navbar -->
 
             <!-- v-main is the main content area e.g background -->
             <v-main class="grey lighten-3">
                 <v-sheet class="mx-4 my-5">
                     <router-view />
-                    <!-- <v-row>
-                    <v-col cols="9">
-                        <v-card flat>
-                            <router-view></router-view>
-                        </v-card>
-                    </v-col> -->
-                    <!-- Quick Links Accordion -->
-                    <!-- <QuickLinks /> -->
-                    <!-- End Quick Links Accordion -->
-                    <!-- </v-row> -->
                 </v-sheet>
             </v-main>
         </v-app>
@@ -262,23 +278,16 @@
 </template>
 
 <script>
+// import Navbar from "./components/navbar.vue"
 import QuickLinks from "./components/quicklinks";
 export default {
     data: () => ({
         toggleNavSidebar: false,
-        toggleQuickLinksSidebar: false,
-        //logo: require('./logo.png')
-        linkItems: [
-            { title: "Home", icon: "mdi-home", link: "/" },
-            { title: "About", icon: "mdi-information", link: "/about" },
-            { title: "Members", icon: "mdi-account", link: "/members" },
-            { title: "Events", icon: "mdi-home", link: "/events" },
-            { title: "News", icon: "mdi-home", link: "/news" },
-            { title: "Resources", icon: "mdi-home", link: "/resources" }
-        ]
+        toggleQuickLinksSidebar: false,        
     }),
     components: {
-        QuickLinks
+        QuickLinks,
+        // Navbar
     }
 };
 </script>

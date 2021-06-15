@@ -6,6 +6,7 @@ import News from "./pages/news";
 import Resources from "./pages/resources";
 import NotFound from "./pages/notfound";
 import Topnav from "./pages/components/topnav";
+import Tabsnav from "./pages/components/tabsnav";
 
 export default{
    mode: 'history',
@@ -46,6 +47,16 @@ export default{
          path: '/resources',
          component: Resources,
          meta: { title: 'Resources' }
+      },
+      {
+         path: '/topnav',
+         component: Topnav,
+         meta: { title: 'Topnav' }
+      },
+      {
+         path: '/tabsnav',
+         component: Tabsnav,
+         meta: { title: 'Tabsnav' }
       },
    ]
 }
