@@ -4,7 +4,7 @@ import Vue from "vue";
 import Vuetify from "./plugins/vuetify";
 import VueRouter from 'vue-router';
 import routes from "./routes";
-import App from "./components/app"
+import App from "./pages/app"
 
 Vue.use(VueRouter);
 Vue.use(Vuetify)

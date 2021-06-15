@@ -1,11 +1,11 @@
-import Home from "./components/home";
-import About from "./components/about";
-import Members from "./components/members";
-import Events from "./components/events";
-import News from "./components/news";
-import Resources from "./components/resources";
-import NotFound from "./components/notfound";
-import Topnav from "./components/topnav";
+import Home from "./pages/home";
+import About from "./pages/about";
+import Members from "./pages/members";
+import Events from "./pages/events";
+import News from "./pages/news";
+import Resources from "./pages/resources";
+import NotFound from "./pages/notfound";
+import Topnav from "./pages/components/topnav";
 
 export default{
    mode: 'history',
