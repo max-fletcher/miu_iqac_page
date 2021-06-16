@@ -1,6 +1,6 @@
 <template>     
-   <!-- Quicllinks accordion used in pages -->
-   <v-card class="ml-3 hidden-sm-and-down" color="#002147">
+   <!-- Quicklinks accordion used in pages -->
+   <v-card class="hidden-sm-and-down" color="#002147">
       <v-card-title class="white--text"> Quick Links </v-card-title>
       <!-- <v-divider style="height: 100px; width: 500px"></v-divider> -->
       <!-- <div class="" style="width: 10px; height: 10px; color: black"></div> -->

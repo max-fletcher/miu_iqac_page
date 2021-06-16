@@ -16,35 +16,118 @@
 
                 <v-divider></v-divider>
 
-                <v-list dense nav>
-                    <v-list-item
-                        v-for="item in linkItems"
-                        :key="item.title"
-                        :to="item.link"
-                        link
-                    >
-                        <v-list-item-icon>
-                            <v-icon>{{ item.icon }}</v-icon>
-                        </v-list-item-icon>
-
-                        <v-list-item-content>
-                            <v-list-item-title>{{
-                                item.title
-                            }}</v-list-item-title>
-                        </v-list-item-content>
+                <!-- Style One -->
+                <!-- <v-list nav flat tile>
+                    <v-list-item to="/">                        
+                        <v-icon left>mdi-home</v-icon>                        
+                        <v-list-item-title>
+                            Home
+                        </v-list-item-title>                        
                     </v-list-item>
-                </v-list>
-                <v-expansion-panels accordion>
-                    <v-expansion-panel
-                        v-for="(item,i) in 5"
-                        :key="i"
+                </v-list> -->
+
+                <!-- Style Two -->
+                <v-card rounded="0" flat>
+                    <v-btn                                
+                        color="#4270A9"
+                        height="40"                        
+                        text
+                        exact-path=""
+                        block
                     >
-                        <v-expansion-panel-header>Item</v-expansion-panel-header>
-                        <v-expansion-panel-content>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </v-expansion-panel-content>
-                    </v-expansion-panel>
-                </v-expansion-panels>
+                        <v-icon left>
+                            mdi-home
+                        </v-icon>
+                        Home
+                        <v-spacer></v-spacer>
+                    </v-btn>
+                    <v-btn                                
+                        color="#4270A9"
+                        height="40"
+                        text
+                        exact-path=""
+                        block
+                    >
+                        <v-icon left>
+                            mdi-information-outline
+                        </v-icon>
+                        About
+                        <v-spacer></v-spacer>
+                    </v-btn>
+                    <v-menu open-on-hover bottom offset-y transition="scale-transition">
+                        <template v-slot:activator="{ on, attrs }">
+                            <!-- exact-path for later -->
+                            <v-card rounded="0" flat>
+                                <v-btn                                
+                                    color="#4270A9"
+                                    v-bind="attrs"
+                                    v-on="on"                                                                  
+                                    height="40"
+                                    text
+                                    exact-path=""
+                                    block
+                                >
+                                    <v-icon left>
+                                        mdi-account
+                                    </v-icon>
+                                    People
+                                    <v-spacer></v-spacer>
+                                    <v-icon small right>
+                                        mdi-chevron-down
+                                    </v-icon>
+                                </v-btn>
+                            </v-card>
+                        </template>
+                        <v-list>
+                            <v-list-item to="/about">
+                                <v-list-item-title> IQAC </v-list-item-title>
+                            </v-list-item>
+                            <v-list-item to="/about">
+                                <v-list-item-title> SAC </v-list-item-title>
+                            </v-list-item>                            
+                        </v-list>
+                    </v-menu>
+                    <v-btn                                
+                        color="#4270A9"
+                        height="40"                        
+                        text
+                        exact-path=""
+                        block
+                    >
+                        <v-icon left>
+                            mdi-calendar-clock
+                        </v-icon>
+                        Events
+                        <v-spacer></v-spacer>
+                    </v-btn>
+                    <v-btn                                
+                        color="#4270A9"
+                        height="40"                        
+                        text
+                        exact-path=""
+                        block
+                    >
+                        <v-icon left>
+                            mdi-newspaper-variant
+                        </v-icon>
+                        News
+                        <v-spacer></v-spacer>
+                    </v-btn>
+                    <v-btn
+                        color="#4270A9"
+                        height="40"                        
+                        text
+                        exact-path=""
+                        block
+                    >
+                        <v-icon left>
+                            mdi-archive
+                        </v-icon>
+                        Resources
+                        <v-spacer></v-spacer>
+                    </v-btn>                
+                </v-card>                
+
             </v-navigation-drawer>
             <!-- End Nav Drawer -->
 
@@ -68,24 +151,18 @@
 
                 <v-divider></v-divider>
 
-                <v-list dense nav>
-                    <v-list-item
-                        v-for="item in linkItems"
-                        :key="item.title"
-                        :to="item.link"
-                        link
-                    >
-                        <v-list-item-icon>
-                            <v-icon>{{ item.icon }}</v-icon>
-                        </v-list-item-icon>
-
-                        <v-list-item-content>
-                            <v-list-item-title>
-                                {{ item.title }}
-                            </v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>
-                </v-list>
+                <v-expansion-panels accordion>
+                    <v-expansion-panel v-for="(item, i) in 5" :key="i">
+                        <v-expansion-panel-header >Item </v-expansion-panel-header>
+                        <v-expansion-panel-content>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco laboris nisi ut aliquip
+                            ex ea commodo consequat.
+                        </v-expansion-panel-content>
+                    </v-expansion-panel>
+                </v-expansion-panels>
             </v-navigation-drawer>
             <!-- End Quick Links Drawer -->
 
@@ -131,7 +208,7 @@
             <!-- Navbar -->
             <!-- height props available -->
             <v-card class="hidden-md-and-up" rounded="0" height="40">
-                    <v-tabs background-color="#4270A9">
+                <v-tabs background-color="#4270A9">
                     <v-tab
                         class="white--text"
                         @click.stop="toggleNavSidebar = !toggleNavSidebar"
@@ -143,17 +220,22 @@
                     <v-tab
                         class="white--text"
                         @click.stop="
-                                toggleQuickLinksSidebar = !toggleQuickLinksSidebar
+                            toggleQuickLinksSidebar = !toggleQuickLinksSidebar
                         "
                     >
                         <v-icon left color="white"> mdi-menu </v-icon>
                         Quick Links
                     </v-tab>
-                    </v-tabs>
-            </v-card>    
+                </v-tabs>
+            </v-card>
 
             <v-card class="hidden-sm-and-down">
-                <v-card class="d-flex justify-center" rounded="0" height="40" color="#4270A9">
+                <v-card
+                    class="d-flex justify-center"
+                    rounded="0"
+                    height="40"
+                    color="#4270A9"
+                >
                     <v-btn
                         color="#4270A9"
                         v-bind="attrs"
@@ -165,9 +247,9 @@
                         to="/"
                         exact-active-class="light"
                     >
-                    <v-icon left>
-                        mdi-home
-                    </v-icon>
+                        <v-icon left>
+                            mdi-home
+                        </v-icon>
                         Home
                     </v-btn>
                     <v-btn
@@ -181,15 +263,15 @@
                         to="/about"
                         exact-active-class="light"
                     >
-                    <v-icon left>
-                        mdi-information-outline
-                    </v-icon>
+                        <v-icon left>
+                            mdi-information-outline
+                        </v-icon>
                         About
                     </v-btn>
-                    <v-menu open-on-hover bottom offset-y>
+                    <v-menu open-on-hover bottom offset-y transition="scale-transition">
                         <template v-slot:activator="{ on, attrs }">
-                                <!-- exact-path for later -->
-                                <v-btn
+                            <!-- exact-path for later -->
+                            <v-btn
                                 color="#4270A9"
                                 v-bind="attrs"
                                 v-on="on"
@@ -198,7 +280,7 @@
                                 height="40"
                                 text
                                 exact-path=""
-                                >
+                            >
                                 <v-icon left>
                                     mdi-account
                                 </v-icon>
@@ -206,15 +288,17 @@
                                 <v-icon small>
                                     mdi-chevron-down
                                 </v-icon>
-                                </v-btn>
+                            </v-btn>
                         </template>
-
                         <v-list>
-                            <v-list-item>
-                                <v-list-item-title> Some Link </v-list-item-title>
+                            <v-list-item to="/about">
+                                <v-list-item-title> IQAC </v-list-item-title>
                             </v-list-item>
+                            <v-list-item to="/about">
+                                <v-list-item-title> SAC </v-list-item-title>
+                            </v-list-item>                            
                         </v-list>
-                    </v-menu>                    
+                    </v-menu>
                     <v-btn
                         color="#4270A9"
                         v-bind="attrs"
@@ -226,9 +310,9 @@
                         to="/events"
                         exact-active-class="light"
                     >
-                    <v-icon left>
-                        mdi-calendar-clock-outline
-                    </v-icon>
+                        <v-icon left>
+                            mdi-calendar-clock-outline
+                        </v-icon>
                         Events
                     </v-btn>
                     <v-btn
@@ -242,9 +326,9 @@
                         to="/news"
                         exact-active-class="light"
                     >
-                    <v-icon left>
-                        mdi-newspaper-variant-outline
-                    </v-icon>
+                        <v-icon left>
+                            mdi-newspaper-variant-outline
+                        </v-icon>
                         News
                     </v-btn>
                     <v-btn
@@ -256,11 +340,11 @@
                         height="40"
                         text
                         to="/resources"
-                        exact-active-class="light"
+                        exact-active-class="light"                        
                     >
-                    <v-icon left>
-                        mdi-archive-outline
-                    </v-icon>
+                        <v-icon left>
+                            mdi-archive-outline
+                        </v-icon>
                         Resources
                     </v-btn>
                 </v-card>
@@ -278,16 +362,14 @@
 </template>
 
 <script>
-// import Navbar from "./components/navbar.vue"
-import QuickLinks from "./components/quicklinks";
+
 export default {
     data: () => ({
         toggleNavSidebar: false,
-        toggleQuickLinksSidebar: false,        
+        toggleQuickLinksSidebar: false
     }),
     components: {
-        QuickLinks,
-        // Navbar
+                
     }
 };
 </script>
