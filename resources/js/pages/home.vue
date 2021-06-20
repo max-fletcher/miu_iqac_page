@@ -1,5 +1,5 @@
 <template>
-    <v-card flat class="px-3">
+    <v-card flat class="mx-3">
         <v-row>
             <v-col cols="12">
                 <v-carousel>
@@ -13,14 +13,14 @@
                 </v-carousel>
             </v-col>
         </v-row>
-        <v-row>
-            <v-col cols="3">
+        <v-row class="green" justify="space-around mx-3">
+            <v-col cols="3" class="">
                 <QuickLinks />
             </v-col>
-            <v-col>
-                
-                  Missing Content Here
-                
+            <v-col cols="12" md="9" class="black">
+                <v-card>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut eaque eius alias fugit cum obcaecati aliquam nihil facilis itaque dignissimos quis explicabo, voluptatem repudiandae et! Quod hic architecto fugit qui.
+                </v-card>
             </v-col>
         </v-row>
     </v-card>

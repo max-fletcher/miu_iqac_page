@@ -4,9 +4,12 @@ import Members from "./pages/members";
 import Events from "./pages/events";
 import News from "./pages/news";
 import Resources from "./pages/resources";
+import IQAC from "./pages/iqac";
+import SAC from "./pages/sac";
 import NotFound from "./pages/notfound";
-import Topnav from "./pages/components/topnav";
-import Tabsnav from "./pages/components/tabsnav";
+import Topnav from "./pages/components/scrapped/topnav";
+import Tabsnav from "./pages/components/scrapped/tabsnav";
+import QuickLinksAccordion from "./pages/components/scrapped/quicklinksaccordion";
 
 export default{
    mode: 'history',
@@ -49,14 +52,29 @@ export default{
          meta: { title: 'Resources' }
       },
       {
+         path: '/people/iqac',
+         component: IQAC,
+         meta: { title: 'IQAC' }
+      },
+      {
+         path: '/people/sac',
+         component: SAC,
+         meta: { title: 'SAC' }
+      },
+      {
          path: '/topnav',
          component: Topnav,
-         meta: { title: 'Topnav' }
+         meta: { title: 'Scrapped Topnav' }
       },
       {
          path: '/tabsnav',
          component: Tabsnav,
-         meta: { title: 'Tabsnav' }
+         meta: { title: 'Scrapped Tabsnav' }
+      },
+      {
+         path: '/quicklinksaccordion',
+         component: QuickLinksAccordion,
+         meta: { title: 'Scrapped Quick Links Accordion' }
       },
    ]
 }

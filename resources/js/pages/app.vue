@@ -32,8 +32,9 @@
                         color="#4270A9"
                         height="40"                        
                         text
-                        exact-path=""
                         block
+                        to="/"
+                        exact-active-class="darken-1"
                     >
                         <v-icon left>
                             mdi-home
@@ -44,9 +45,10 @@
                     <v-btn                                
                         color="#4270A9"
                         height="40"
-                        text
-                        exact-path=""
+                        text                        
                         block
+                        to="/about"
+                        exact-active-class="darken-1"
                     >
                         <v-icon left>
                             mdi-information-outline
@@ -64,9 +66,10 @@
                                     v-on="on"                                                                  
                                     height="40"
                                     text
-                                    exact-path=""
-                                    block
+                                    block                                    
+                                    exact-path-active-class="lighten-1"                                    
                                 >
+                                <!-- path class not working -->
                                     <v-icon left>
                                         mdi-account
                                     </v-icon>
@@ -79,20 +82,21 @@
                             </v-card>
                         </template>
                         <v-list>
-                            <v-list-item to="/about">
-                                <v-list-item-title> IQAC </v-list-item-title>
+                            <v-list-item to="/people/iqac" color="#4270A9">
+                                <v-list-item-title class="font-weight-bold"> IQAC </v-list-item-title>
                             </v-list-item>
-                            <v-list-item to="/about">
-                                <v-list-item-title> SAC </v-list-item-title>
-                            </v-list-item>                            
+                            <v-list-item to="/people/sac" color="#4270A9">
+                                <v-list-item-title class="font-weight-bold"> SAC </v-list-item-title>
+                            </v-list-item>
                         </v-list>
                     </v-menu>
                     <v-btn                                
                         color="#4270A9"
                         height="40"                        
                         text
-                        exact-path=""
                         block
+                        to="/events"
+                        exact-active-class="darken-1"
                     >
                         <v-icon left>
                             mdi-calendar-clock
@@ -104,8 +108,9 @@
                         color="#4270A9"
                         height="40"                        
                         text
-                        exact-path=""
                         block
+                        to="/news"
+                        exact-active-class="darken-1"
                     >
                         <v-icon left>
                             mdi-newspaper-variant
@@ -117,8 +122,9 @@
                         color="#4270A9"
                         height="40"                        
                         text
-                        exact-path=""
                         block
+                        to="/resources"
+                        exact-active-class="darken-1"
                     >
                         <v-icon left>
                             mdi-archive
@@ -141,10 +147,10 @@
                 <v-list-item>
                     <v-list-item-content>
                         <v-list-item-title class="text-h6">
-                            Navigation
+                            Quick Links
                         </v-list-item-title>
                         <v-list-item-subtitle class="mt-1">
-                            Click to navigate to a page
+                            Click to Expand Links
                         </v-list-item-subtitle>
                     </v-list-item-content>
                 </v-list-item>
@@ -152,8 +158,18 @@
                 <v-divider></v-divider>
 
                 <v-expansion-panels accordion>
-                    <v-expansion-panel v-for="(item, i) in 5" :key="i">
-                        <v-expansion-panel-header >Item </v-expansion-panel-header>
+                    <v-expansion-panel>
+                        <v-expansion-panel-header > Publications </v-expansion-panel-header>
+                        <v-expansion-panel-content>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco laboris nisi ut aliquip
+                            ex ea commodo consequat.                            
+                        </v-expansion-panel-content>
+                    </v-expansion-panel>
+                    <v-expansion-panel>
+                        <v-expansion-panel-header > Archive </v-expansion-panel-header>
                         <v-expansion-panel-content>
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit, sed do eiusmod tempor incididunt ut labore et
@@ -162,6 +178,27 @@
                             ex ea commodo consequat.
                         </v-expansion-panel-content>
                     </v-expansion-panel>
+                    <v-expansion-panel>
+                        <v-expansion-panel-header > Gallery </v-expansion-panel-header>
+                        <v-expansion-panel-content>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco laboris nisi ut aliquip
+                            ex ea commodo consequat.
+                        </v-expansion-panel-content>
+                    </v-expansion-panel>
+                    <v-expansion-panel>
+                        <v-expansion-panel-header > Contact Us </v-expansion-panel-header>
+                        <v-expansion-panel-content>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco laboris nisi ut aliquip
+                            ex ea commodo consequat.
+                        </v-expansion-panel-content>
+                    </v-expansion-panel>
+                    
                 </v-expansion-panels>
             </v-navigation-drawer>
             <!-- End Quick Links Drawer -->
@@ -173,6 +210,7 @@
                 fluid
                 width="auto"
                 height="110"
+                to="/"
             >
                 <v-img
                     src="images/logo.png"
@@ -183,8 +221,9 @@
                     max-width="100px"
                     max-height="100px"
                     contain
-                    class="my-3 ml-2 mr-0"
-                ></v-img>
+                    class="my-3 ml-2 mr-0"                    
+                >
+                </v-img>
                 <v-content class="my-auto">
                     <div
                         class="font-weight-light white--text text-body-2 text-sm-subtitle-1 text-md-h4-subtitle-1 pl-md-2"
@@ -279,7 +318,7 @@
                                 class="white--text"
                                 height="40"
                                 text
-                                exact-path=""
+                                exact-active-class=""
                             >
                                 <v-icon left>
                                     mdi-account
@@ -291,12 +330,12 @@
                             </v-btn>
                         </template>
                         <v-list>
-                            <v-list-item to="/about">
-                                <v-list-item-title> IQAC </v-list-item-title>
+                            <v-list-item to="/people/iqac" color="#4270A9">
+                                <v-list-item-title class="font-weight-bold"> IQAC </v-list-item-title>
                             </v-list-item>
-                            <v-list-item to="/about">
-                                <v-list-item-title> SAC </v-list-item-title>
-                            </v-list-item>                            
+                            <v-list-item to="/people/sac" color="#4270A9">
+                                <v-list-item-title class="font-weight-bold"> SAC </v-list-item-title>
+                            </v-list-item>
                         </v-list>
                     </v-menu>
                     <v-btn
@@ -353,7 +392,7 @@
 
             <!-- v-main is the main content area e.g background -->
             <v-main class="grey lighten-3">
-                <v-sheet class="mx-4 my-5">
+                <v-sheet class="mx-4 mb-5 mt-7 mb-sm-5">
                     <router-view />
                 </v-sheet>
             </v-main>
@@ -362,7 +401,6 @@
 </template>
 
 <script>
-
 export default {
     data: () => ({
         toggleNavSidebar: false,
