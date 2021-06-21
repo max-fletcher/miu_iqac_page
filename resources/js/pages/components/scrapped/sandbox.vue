@@ -1,22 +1,21 @@
 <template>
   <div class="hidden-sm-and-down">
         <v-btn
-            color="#002147"
+            color="#4270A9"
             dark
             v-bind="attrs"
             v-on="on"
             block
             tile
-            class="text-center"
             >
-            Quick Links            
-        </v-btn>        
+            Publications
+        </v-btn>
         <v-menu
             open-on-hover
             bottom
             offset-x
             v-for="(item, index) in expansionPanelitems"
-            :key="index"            
+            :key="index"
             >
             <template v-slot:activator="{ on, attrs }">
                 <v-btn
@@ -26,15 +25,9 @@
                 v-on="on"
                 block
                 tile
-                icon
-                class="pl-3"                
                 >
-                {{ item.title }}
-                <v-spacer></v-spacer>
-                <v-icon>
-                    mdi-chevron-right
-                </v-icon>
-                </v-btn>                
+                Publications
+                </v-btn>
             </template>
 
             <v-list>
@@ -50,17 +43,11 @@
 </template>
 
 <script>
-// import TopNav from './topnav'
 export default {
-    data: () => ({
-        expansionPanelitems: [
-            { title: "Publications", content: "Some Content" },
-            { title: "Archive", content: "Some Content" },
-            { title: "Gallery", content: "Some Content" },
-            { title: "Contact Us", content: "Some Content" }
-        ]
-    })
-};
+
+}
 </script>
 
-<style scoped></style>
+<style>
+
+</style>

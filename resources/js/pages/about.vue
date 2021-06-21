@@ -1,6 +1,6 @@
 <template>    
     <v-row class="pl-4 pt-3">
-        <v-col cols="2" class="pt-md-6 pl-md-6 pt-sm-3 px-0 py-0">
+        <v-col cols="2" class="pt-md-4 pl-md-4 pt-sm-3 px-0 py-0">
             <QuickLinks />
         </v-col>
         <v-col cols="12" md="10">
