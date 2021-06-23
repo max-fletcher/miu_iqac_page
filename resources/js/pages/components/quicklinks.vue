@@ -1,22 +1,23 @@
 <template>
   <div class="hidden-sm-and-down">
-        <v-btn
-            color="#002147"
-            dark
-            v-bind="attrs"
-            v-on="on"
-            block
+        <v-card
+            color="#002147" 
+            block            
+            class="text-center white--text"
             tile
-            class="text-center"
+            min-width="143"
             >
-            Quick Links            
-        </v-btn>        
+            <v-card-title class="px-3 py-2 text-center">
+                Quick Links
+            </v-card-title>
+        </v-card>
         <v-menu
             open-on-hover
-            bottom
+            right
             offset-x
+            transition="scale-transition"
             v-for="(item, index) in expansionPanelitems"
-            :key="index"            
+            :key="index"
             >
             <template v-slot:activator="{ on, attrs }">
                 <v-btn
@@ -27,13 +28,13 @@
                 block
                 tile
                 icon
-                class="pl-3"                
+                class="pl-3 font-weight-bold text-subtitle-2"
                 >
-                {{ item.title }}
-                <v-spacer></v-spacer>
-                <v-icon>
-                    mdi-chevron-right
-                </v-icon>
+                    {{ item.title }}
+                    <v-spacer></v-spacer>
+                    <v-icon>
+                        mdi-chevron-right
+                    </v-icon>
                 </v-btn>                
             </template>
 
@@ -41,11 +42,12 @@
                 <v-list-item
                 v-for="(item, index) in expansionPanelitems"
                 :key="index"
+                to="/"
                 >
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
                 </v-list-item>
             </v-list>
-        </v-menu>        
+        </v-menu>
     </div>
 </template>
 

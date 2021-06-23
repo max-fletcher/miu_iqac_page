@@ -10,6 +10,7 @@ import NotFound from "./pages/notfound";
 import Topnav from "./pages/components/scrapped/topnav";
 import Tabsnav from "./pages/components/scrapped/tabsnav";
 import QuickLinksAccordion from "./pages/components/scrapped/quicklinksaccordion";
+import CarouselText from "./pages/components/scrapped/carouseltext";
 
 export default{
    mode: 'history',
@@ -61,6 +62,7 @@ export default{
          component: SAC,
          meta: { title: 'SAC' }
       },
+      // Scrapped Components pages
       {
          path: '/topnav',
          component: Topnav,
@@ -75,6 +77,11 @@ export default{
          path: '/quicklinksaccordion',
          component: QuickLinksAccordion,
          meta: { title: 'Scrapped Quick Links Accordion' }
+      },
+      {
+         path: '/carouseltext',
+         component: CarouselText,
+         meta: { title: 'Scrapped Carousel Text' }
       },
    ]
 }
