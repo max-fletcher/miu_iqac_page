@@ -1901,6 +1901,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -1924,6 +1926,101 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2487,6 +2584,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2881,6 +3010,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
  // import TopNav from './topnav'
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2915,6 +3066,67 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2997,6 +3209,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -3012,6 +3273,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3055,6 +3325,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -22111,125 +22395,141 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-row",
-    { staticClass: "pl-4 pt-3" },
+    "div",
+    { staticClass: "pt-5" },
     [
       _c(
-        "v-col",
-        {
-          staticClass: "pt-md-4 pl-md-4 pt-sm-3 px-0 py-0",
-          attrs: { cols: "2" }
-        },
-        [_c("QuickLinks")],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "v-col",
-        { attrs: { cols: "12", md: "10" } },
+        "v-row",
+        { staticClass: "pl-4" },
         [
           _c(
-            "v-card",
-            { staticClass: "mx-0 my-0", attrs: { flat: "" } },
-            [
-              _c(
-                "v-card-title",
-                {
-                  staticClass:
-                    "text-h5 font-weight-bold grey--text text--darken-2 pb-0 pl-md-2 pt-md-1 pl-sm-5 pt-sm-0 pr-sm-4 mb-md-0"
-                },
-                [
-                  _c(
-                    "v-icon",
-                    { attrs: { large: "", left: "", color: "grey darken-1" } },
-                    [_vm._v("mdi-information")]
-                  ),
-                  _vm._v("About Us\n            ")
-                ],
-                1
-              )
-            ],
+            "v-col",
+            {
+              staticClass: "pt-md-4 pl-md-4 pt-sm-3 px-0 py-0",
+              attrs: { cols: "2" }
+            },
+            [_c("QuickLinks")],
             1
           ),
           _vm._v(" "),
           _c(
-            "v-card",
-            { staticClass: "my-md-1 ml-md-0 mr-3 mt-1", attrs: { flat: "" } },
+            "v-col",
+            { attrs: { cols: "12", md: "10" } },
             [
               _c(
-                "v-card-text",
-                {
-                  staticClass:
-                    "text-h5 font-weight-bold pb-0 grey--text text--darken-2 ml-2 ml-sm-3"
-                },
+                "v-card",
+                { staticClass: "mx-0 my-0", attrs: { flat: "" } },
                 [
                   _c(
-                    "v-icon",
-                    { attrs: { left: "", large: "", color: "grey darken-2" } },
+                    "v-card-title",
+                    {
+                      staticClass:
+                        "text-h5 font-weight-bold grey--text text--darken-2 pb-0 pl-md-2 pt-md-1 pl-sm-5 pt-sm-0 pr-sm-4 mb-md-0"
+                    },
                     [
-                      _vm._v(
-                        "\n                    mdi-target\n                "
-                      )
-                    ]
-                  ),
-                  _vm._v("Mission\n            ")
+                      _c(
+                        "v-icon",
+                        {
+                          attrs: { large: "", left: "", color: "grey darken-1" }
+                        },
+                        [_vm._v("mdi-information")]
+                      ),
+                      _vm._v("About Us\n                ")
+                    ],
+                    1
+                  )
                 ],
                 1
               ),
               _vm._v(" "),
               _c(
-                "v-card-text",
+                "v-card",
                 {
-                  staticClass: "text-h5 font-weight-regular ml-7 ml-md-10 pr-16"
-                },
-                [
-                  _vm._v(
-                    "\n                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint\n                facilis maiores fugiat eius culpa reiciendis. Molestias\n                obcaecati inventore dolorum dolor consequatur temporibus\n                voluptatem voluptates quisquam quam distinctio. Inventore,\n                laboriosam accusamus?\n            "
-                  )
-                ]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-card",
-            { staticClass: "my-md-1 ml-md-0 mr-3", attrs: { flat: "" } },
-            [
-              _c(
-                "v-card-text",
-                {
-                  staticClass:
-                    "text-h5 font-weight-bold pb-0 grey--text text--darken-2 ml-2 ml-sm-3"
+                  staticClass: "my-md-1 ml-md-0 mr-3 mt-1",
+                  attrs: { flat: "" }
                 },
                 [
                   _c(
-                    "v-icon",
+                    "v-card-text",
                     {
-                      staticClass: "ml-1",
-                      attrs: { left: "", large: "", color: "grey darken-2" }
+                      staticClass:
+                        "text-h5 font-weight-bold pb-0 grey--text text--darken-2 ml-2 ml-sm-3"
+                    },
+                    [
+                      _c(
+                        "v-icon",
+                        {
+                          attrs: { left: "", large: "", color: "grey darken-2" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        mdi-target\n                    "
+                          )
+                        ]
+                      ),
+                      _vm._v("Mission\n                ")
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-text",
+                    {
+                      staticClass:
+                        "text-h5 font-weight-regular ml-7 ml-md-10 pr-16"
                     },
                     [
                       _vm._v(
-                        "\n                    mdi-eye-outline\n                "
+                        "\n                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint\n                    facilis maiores fugiat eius culpa reiciendis. Molestias\n                    obcaecati inventore dolorum dolor consequatur temporibus\n                    voluptatem voluptates quisquam quam distinctio. Inventore,\n                    laboriosam accusamus?\n                "
                       )
                     ]
-                  ),
-                  _vm._v("\n                Vision\n            ")
+                  )
                 ],
                 1
               ),
               _vm._v(" "),
               _c(
-                "v-card-text",
-                {
-                  staticClass: "text-h5 font-weight-regular ml-7 ml-md-10 pr-16"
-                },
+                "v-card",
+                { staticClass: "my-md-1 ml-md-0 mr-3", attrs: { flat: "" } },
                 [
-                  _vm._v(
-                    "\n                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint\n                facilis maiores fugiat eius culpa reiciendis. Molestias\n                obcaecati inventore dolorum dolor consequatur temporibus\n                voluptatem voluptates quisquam quam distinctio. Inventore,\n                laboriosam accusamus?\n            "
+                  _c(
+                    "v-card-text",
+                    {
+                      staticClass:
+                        "text-h5 font-weight-bold pb-0 grey--text text--darken-2 ml-2 ml-sm-3"
+                    },
+                    [
+                      _c(
+                        "v-icon",
+                        {
+                          staticClass: "ml-1",
+                          attrs: { left: "", large: "", color: "grey darken-2" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        mdi-eye-outline\n                    "
+                          )
+                        ]
+                      ),
+                      _vm._v("\n                    Vision\n                ")
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-card-text",
+                    {
+                      staticClass:
+                        "text-h5 font-weight-regular ml-7 ml-md-10 pr-16"
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint\n                    facilis maiores fugiat eius culpa reiciendis. Molestias\n                    obcaecati inventore dolorum dolor consequatur temporibus\n                    voluptatem voluptates quisquam quam distinctio. Inventore,\n                    laboriosam accusamus?\n                "
+                      )
+                    ]
                   )
-                ]
+                ],
+                1
               )
             ],
             1
@@ -22487,27 +22787,149 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c(
-                    "v-btn",
+                    "v-menu",
                     {
                       attrs: {
-                        color: "#4270A9",
-                        height: "40",
-                        text: "",
-                        block: "",
-                        to: "/events",
-                        "exact-active-class": "darken-1"
-                      }
+                        "open-on-hover": "",
+                        bottom: "",
+                        "offset-y": "",
+                        transition: "scale-transition",
+                        rounded: "0"
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "activator",
+                          fn: function(ref) {
+                            var on = ref.on
+                            var attrs = ref.attrs
+                            return [
+                              _c(
+                                "v-card",
+                                { attrs: { rounded: "0", flat: "" } },
+                                [
+                                  _c(
+                                    "v-btn",
+                                    _vm._g(
+                                      _vm._b(
+                                        {
+                                          attrs: {
+                                            color: "#4270A9",
+                                            height: "40",
+                                            text: "",
+                                            block: "",
+                                            "exact-path-active-class":
+                                              "lighten-1"
+                                          }
+                                        },
+                                        "v-btn",
+                                        attrs,
+                                        false
+                                      ),
+                                      on
+                                    ),
+                                    [
+                                      _c("v-icon", { attrs: { left: "" } }, [
+                                        _vm._v(
+                                          "\n                                    mdi-calendar-clock\n                                "
+                                        )
+                                      ]),
+                                      _vm._v(
+                                        "\n                                Events\n                                "
+                                      ),
+                                      _c("v-spacer"),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-icon",
+                                        { attrs: { small: "", right: "" } },
+                                        [
+                                          _vm._v(
+                                            "\n                                    mdi-chevron-down\n                                "
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ]
+                          }
+                        }
+                      ])
                     },
                     [
-                      _c("v-icon", { attrs: { left: "" } }, [
-                        _vm._v(
-                          "\n                        mdi-calendar-clock\n                    "
-                        )
-                      ]),
-                      _vm._v(
-                        "\n                    Events\n                    "
-                      ),
-                      _c("v-spacer")
+                      _vm._v(" "),
+                      _c(
+                        "v-list",
+                        [
+                          _c(
+                            "v-list-item",
+                            { attrs: { to: "/people/iqac", color: "#4270A9" } },
+                            [
+                              _c("v-list-item-title", [
+                                _vm._v(
+                                  "\n                                WORKSHOP\n                            "
+                                )
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item",
+                            { attrs: { to: "/people/sac", color: "#4270A9" } },
+                            [
+                              _c("v-list-item-title", [
+                                _vm._v(
+                                  "\n                                SEMINAR\n                            "
+                                )
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item",
+                            { attrs: { to: "/people/sac", color: "#4270A9" } },
+                            [
+                              _c("v-list-item-title", [
+                                _vm._v(
+                                  "\n                                CONFERANCE\n                            "
+                                )
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item",
+                            { attrs: { to: "/people/sac", color: "#4270A9" } },
+                            [
+                              _c("v-list-item-title", [
+                                _vm._v(
+                                  "\n                                TRAINING\n                            "
+                                )
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item",
+                            { attrs: { to: "/people/sac", color: "#4270A9" } },
+                            [
+                              _c("v-list-item-title", [
+                                _vm._v(
+                                  "\n                                PEER REVIEW\n                            "
+                                )
+                              ])
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
                     ],
                     1
                   ),
@@ -22749,11 +23171,11 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "font-weight-light white--text text-body-2 text-sm-subtitle-1 text-md-h4-subtitle-1 pl-md-2"
+                      "font-weight-bold white--text text-h6 text-sm-h5 text-md-h4 pl-md-2 hidden-sm-and-down"
                   },
                   [
                     _vm._v(
-                      "\n                    DEPARTMENT OF\n                "
+                      "\n                    INSTITUTIONAL QUALITY ASSURANCE CELL\n                "
                     )
                   ]
                 ),
@@ -22762,7 +23184,7 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "font-weight-bold white--text text-h6 text-sm-h5 text-md-h5 pl-md-2"
+                      "font-weight-bold white--text text-h6 text-sm-h5 text-md-h5 pl-md-2 hidden-md-and-up"
                   },
                   [
                     _vm._v(
@@ -22775,7 +23197,7 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "font-weight-bold white--text text-h6 text-sm-h5 text-md-h5 pl-md-2"
+                      "font-weight-bold white--text text-h6 text-sm-h5 text-md-h5 pl-md-2 hidden-md-and-up"
                   },
                   [
                     _vm._v(
@@ -23015,7 +23437,41 @@ var render = function() {
                                 { staticClass: "font-weight-bold" },
                                 [
                                   _vm._v(
-                                    "\n                                SAC\n                            "
+                                    "\n                                SAC(BBA)\n                            "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item",
+                            { attrs: { to: "/people/sac", color: "#4270A9" } },
+                            [
+                              _c(
+                                "v-list-item-title",
+                                { staticClass: "font-weight-bold" },
+                                [
+                                  _vm._v(
+                                    "\n                                SAC(EEE)\n                            "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item",
+                            { attrs: { to: "/people/sac", color: "#4270A9" } },
+                            [
+                              _c(
+                                "v-list-item-title",
+                                { staticClass: "font-weight-bold" },
+                                [
+                                  _vm._v(
+                                    "\n                                SAC(CSE)\n                            "
                                   )
                                 ]
                               )
@@ -23030,33 +23486,155 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c(
-                    "v-btn",
-                    _vm._g(
-                      _vm._b(
+                    "v-menu",
+                    {
+                      attrs: {
+                        "open-on-hover": "",
+                        bottom: "",
+                        "offset-y": "",
+                        transition: "scale-transition"
+                      },
+                      scopedSlots: _vm._u([
                         {
-                          staticClass: "white--text",
-                          attrs: {
-                            color: "#4270A9",
-                            tile: "",
-                            height: "40",
-                            text: "",
-                            to: "/events",
-                            "exact-active-class": "light"
+                          key: "activator",
+                          fn: function(ref) {
+                            var on = ref.on
+                            var attrs = ref.attrs
+                            return [
+                              _c(
+                                "v-btn",
+                                _vm._g(
+                                  _vm._b(
+                                    {
+                                      staticClass: "white--text",
+                                      attrs: {
+                                        color: "#4270A9",
+                                        tile: "",
+                                        height: "40",
+                                        text: "",
+                                        "exact-active-class": ""
+                                      }
+                                    },
+                                    "v-btn",
+                                    attrs,
+                                    false
+                                  ),
+                                  on
+                                ),
+                                [
+                                  _c("v-icon", { attrs: { left: "" } }, [
+                                    _vm._v(
+                                      "\n                                mdi-calendar-clock-outline\n                            "
+                                    )
+                                  ]),
+                                  _vm._v(
+                                    "\n                            Events\n                            "
+                                  ),
+                                  _c("v-icon", { attrs: { small: "" } }, [
+                                    _vm._v(
+                                      "\n                                mdi-chevron-down\n                            "
+                                    )
+                                  ])
+                                ],
+                                1
+                              )
+                            ]
                           }
-                        },
-                        "v-btn",
-                        _vm.attrs,
-                        false
-                      ),
-                      _vm.on
-                    ),
+                        }
+                      ])
+                    },
                     [
-                      _c("v-icon", { attrs: { left: "" } }, [
-                        _vm._v(
-                          "\n                        mdi-calendar-clock-outline\n                    "
-                        )
-                      ]),
-                      _vm._v("\n                    Events\n                ")
+                      _vm._v(" "),
+                      _c(
+                        "v-list",
+                        [
+                          _c(
+                            "v-list-item",
+                            { attrs: { to: "/events", color: "#4270A9" } },
+                            [
+                              _c(
+                                "v-list-item-title",
+                                { staticClass: "font-weight-bold" },
+                                [
+                                  _vm._v(
+                                    "\n                                WORKSHOP\n                            "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item",
+                            { attrs: { to: "/events", color: "#4270A9" } },
+                            [
+                              _c(
+                                "v-list-item-title",
+                                { staticClass: "font-weight-bold" },
+                                [
+                                  _vm._v(
+                                    "\n                                SEMINAR\n                            "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item",
+                            { attrs: { to: "/events", color: "#4270A9" } },
+                            [
+                              _c(
+                                "v-list-item-title",
+                                { staticClass: "font-weight-bold" },
+                                [
+                                  _vm._v(
+                                    "\n                                CONFERANCE\n                            "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item",
+                            { attrs: { to: "/events", color: "#4270A9" } },
+                            [
+                              _c(
+                                "v-list-item-title",
+                                { staticClass: "font-weight-bold" },
+                                [
+                                  _vm._v(
+                                    "\n                                TRAINING\n                            "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item",
+                            { attrs: { to: "/events", color: "#4270A9" } },
+                            [
+                              _c(
+                                "v-list-item-title",
+                                { staticClass: "font-weight-bold" },
+                                [
+                                  _vm._v(
+                                    "\n                                PEER REVIEW\n                            "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
                     ],
                     1
                   ),
@@ -23139,7 +23717,7 @@ var render = function() {
             [
               _c(
                 "v-sheet",
-                { staticClass: "mx-4 mb-5 mt-7 mb-sm-5" },
+                { staticClass: "mx-4 mb-5 mt-3 mb-sm-5" },
                 [_c("router-view")],
                 1
               )
@@ -23304,83 +23882,104 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
-    { attrs: { id: "app" } },
+    "v-card",
+    { staticClass: "mx-3", attrs: { flat: "" } },
     [
       _c(
-        "v-app",
-        { attrs: { id: "inspire" } },
+        "v-row",
         [
           _c(
-            "v-container",
-            { attrs: { fluid: "" } },
+            "v-col",
+            { attrs: { cols: "12" } },
             [
               _c(
-                "v-layout",
-                { attrs: { row: "", wrap: "", "justify-center": "" } },
-                [
-                  _c(
-                    "v-flex",
-                    { attrs: { xs6: "" } },
+                "v-carousel",
+                {
+                  attrs: {
+                    height: "auto",
+                    "show-arrows-on-hover": "",
+                    "hide-delimiters": ""
+                  }
+                },
+                _vm._l(_vm.items, function(item, i) {
+                  return _c(
+                    "v-carousel-item",
+                    { key: i },
                     [
                       _c(
-                        "v-carousel",
-                        _vm._l(_vm.items, function(item, i) {
-                          return _c(
-                            "v-carousel-item",
-                            { key: i, attrs: { src: item.src } },
+                        "v-img",
+                        {
+                          attrs: {
+                            src: item.src,
+                            "aspect-ratio": "1.77",
+                            "max-height": "500"
+                          }
+                        },
+                        [
+                          _c(
+                            "v-container",
+                            {
+                              staticClass: "px-0 py-0",
+                              attrs: { "fill-height": "", fluid: "" }
+                            },
                             [
                               _c(
-                                "v-container",
+                                "v-layout",
                                 {
-                                  attrs: {
-                                    "fill-height": "",
-                                    fluid: "",
-                                    "pa-0": "",
-                                    "ma-0": "",
-                                    "pb-3": ""
-                                  }
+                                  attrs: { "fill-height": "", "align-end": "" }
                                 },
                                 [
                                   _c(
-                                    "v-row",
-                                    {
-                                      attrs: {
-                                        "fill-height": "",
-                                        "align-end": "",
-                                        "pb-4": "",
-                                        "mb-4": ""
-                                      }
-                                    },
+                                    "v-flex",
                                     [
                                       _c(
-                                        "v-col",
-                                        { attrs: { xs12: "" } },
+                                        "v-alert",
+                                        {
+                                          staticClass:
+                                            "font-weight-bold text-h6 mb-0 hidden-xs-only",
+                                          attrs: {
+                                            text: "",
+                                            color: "info darken-2",
+                                            tile: "",
+                                            "max-height": "100"
+                                          }
+                                        },
                                         [
                                           _c(
-                                            "v-card",
-                                            {
-                                              staticClass: "pa-2",
-                                              attrs: { color: "red" }
-                                            },
+                                            "div",
+                                            { staticClass: "text-center" },
                                             [
-                                              _c(
-                                                "span",
-                                                {
-                                                  staticClass:
-                                                    "headline white--text",
-                                                  domProps: {
-                                                    textContent: _vm._s(
-                                                      item.src
-                                                    )
-                                                  }
-                                                },
-                                                [_vm._v(" Some Text ")]
+                                              _vm._v(
+                                                "\n                                            Lorem ipsum dolor sit amet\n                                            consectetur adipisicing.\n                                        "
                                               )
                                             ]
                                           )
-                                        ],
-                                        1
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-alert",
+                                        {
+                                          staticClass:
+                                            "font-weight-small text-h6 mb-0 hidden-sm-and-up py-1",
+                                          attrs: {
+                                            text: "",
+                                            color: "success darken-2",
+                                            tile: "",
+                                            "max-height": "100"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "text-center" },
+                                            [
+                                              _vm._v(
+                                                "\n                                            Lorem ipsum dolor sit amet\n                                            consectetur adipisicing.\n                                        "
+                                              )
+                                            ]
+                                          )
+                                        ]
                                       )
                                     ],
                                     1
@@ -23391,15 +23990,40 @@ var render = function() {
                             ],
                             1
                           )
-                        }),
+                        ],
                         1
                       )
                     ],
                     1
                   )
-                ],
+                }),
                 1
               )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-row",
+        { attrs: { justify: "space-around ml-1 ml-md-0 mr-1 mr-md-3" } },
+        [
+          _c("v-col", { attrs: { cols: "3" } }, [_c("QuickLinks")], 1),
+          _vm._v(" "),
+          _c(
+            "v-col",
+            {
+              staticClass: "black mt-0 mt-md-3",
+              attrs: { cols: "12", md: "9" }
+            },
+            [
+              _c("v-card", { staticClass: "pl-0 ml-0 mt-md-0" }, [
+                _vm._v(
+                  "\n                Lorem ipsum dolor sit, amet consectetur adipisicing elit.\n                Aut eaque eius alias fugit cum obcaecati aliquam nihil\n                facilis itaque dignissimos quis explicabo, voluptatem\n                repudiandae et! Quod hic architecto fugit qui.\n            "
+                )
+              ])
             ],
             1
           )
@@ -24001,7 +24625,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-card",
-    { staticClass: "mx-3", attrs: { flat: "" } },
+    { staticClass: "mx-3 pt-3", attrs: { flat: "" } },
     [
       _c(
         "v-row",
@@ -24012,7 +24636,13 @@ var render = function() {
             [
               _c(
                 "v-carousel",
-                { attrs: { height: "auto", "show-arrows-on-hover": "" } },
+                {
+                  attrs: {
+                    height: "auto",
+                    "show-arrows-on-hover": "",
+                    "hide-delimiters": ""
+                  }
+                },
                 _vm._l(_vm.items, function(item, i) {
                   return _c(
                     "v-carousel-item",
@@ -24029,18 +24659,78 @@ var render = function() {
                         },
                         [
                           _c(
-                            "v-alert",
+                            "v-container",
                             {
-                              staticClass: "font-weight-medium text-h6",
-                              attrs: { text: "", color: "info darken-2" }
+                              staticClass: "px-0 py-0",
+                              attrs: { "fill-height": "", fluid: "" }
                             },
                             [
-                              _c("div", { staticClass: "text-center" }, [
-                                _vm._v(
-                                  "                         \n                            Proin magna. Vivamus in erat ut urna cursus vestibulum. Etiam imperdiet imperdiet orci.  \n                        "
-                                )
-                              ])
-                            ]
+                              _c(
+                                "v-layout",
+                                {
+                                  attrs: { "fill-height": "", "align-end": "" }
+                                },
+                                [
+                                  _c(
+                                    "v-flex",
+                                    [
+                                      _c(
+                                        "v-alert",
+                                        {
+                                          staticClass:
+                                            "font-weight-bold text-h6 mb-0 hidden-xs-only",
+                                          attrs: {
+                                            text: "",
+                                            color: "info darken-2",
+                                            tile: "",
+                                            "max-height": "100"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "text-center" },
+                                            [
+                                              _vm._v(
+                                                "\n                                            Lorem ipsum dolor sit amet\n                                            consectetur adipisicing.\n                                        "
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-alert",
+                                        {
+                                          staticClass:
+                                            "font-weight-small text-h6 mb-0 hidden-sm-and-up py-1",
+                                          attrs: {
+                                            text: "",
+                                            color: "success darken-2",
+                                            tile: "",
+                                            "max-height": "100"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "text-center" },
+                                            [
+                                              _vm._v(
+                                                "\n                                            Lorem ipsum dolor sit amet\n                                            consectetur adipisicing.\n                                        "
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
                           )
                         ],
                         1
@@ -24111,45 +24801,64 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "pt-3" },
     [
       _c(
         "v-row",
+        { staticClass: "mx-4 py-4" },
         [
           _c(
             "v-col",
+            { attrs: { cols: "12", sm: "6", md: "4" } },
             [
               _c(
                 "v-card",
-                { attrs: { "max-height": "600", to: "/" } },
+                { attrs: { "min-height": "450", to: "/", elevation: "10" } },
                 [
                   _c("v-img", {
                     staticClass: "mx-auto",
                     attrs: {
-                      height: "450",
+                      height: "400",
                       width: "auto",
-                      "max-width": "400",
-                      src: "/images/index.jpg"
+                      src: "/images/index.jpg",
+                      alt: "",
+                      position: "center center"
                     }
                   }),
                   _vm._v(" "),
                   _c("v-card-title", [
-                    _c("div", { staticClass: "mx-auto" }, [
-                      _vm._v(
-                        "\n                Name Lorem, ipsum dolor.\n            "
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("v-card-text", [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "text-subtitle-1 font-weight-bold black-text"
+                      },
+                      [
+                        _vm._v(
+                          "\n                       Name: Lorem ipsum dolor, sit amet consectetur adipisg.\n                   "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "text-subtitle-1 font-weight-bold" },
+                      [
+                        _vm._v(
+                          "\n                       Designation: Lorem ipsum dolor sit amet, consectetur adipisicing.\n                   "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
                     _c("div", { staticClass: "text-subtitle-1" }, [
                       _vm._v(
-                        "\n                Position: Position Lorem ipsum dolor sit.\n            "
+                        "\n                       Contact No.: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, aliquam!\n                   "
                       )
                     ]),
                     _vm._v(" "),
-                    _c("div", [
+                    _c("div", { staticClass: "text-subtitle-1" }, [
                       _vm._v(
-                        "\n                Contact: Contact Lorem ipsum dolor sit.\n            "
+                        "\n                       E-mail: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, aliquam!\n                   "
                       )
                     ])
                   ])
@@ -24160,9 +24869,111 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c("v-col"),
+          _c(
+            "v-col",
+            { attrs: { cols: "12", sm: "6", md: "4" } },
+            [
+              _c(
+                "v-card",
+                { attrs: { "min-height": "450", to: "/", elevation: "10" } },
+                [
+                  _c("v-img", {
+                    staticClass: "mx-auto",
+                    attrs: {
+                      height: "400",
+                      width: "auto",
+                      src: "/images/eee.jpg",
+                      alt: "",
+                      position: "center center"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("v-card-title", [
+                    _c("div", { staticClass: "mx-auto" }, [
+                      _vm._v(
+                        "\n                       Department of EEE\n                   "
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("v-card-text", [
+                    _c("div", { staticClass: "text-subtitle-1" }, [
+                      _vm._v(
+                        "\n                       Name: Lorem ipsum dolor, sit amet consectetur adipisg.\n                   "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-subtitle-1" }, [
+                      _vm._v(
+                        "\n                       Position: Lorem ipsum dolor sit amet, consectetur adipisicing.\n                   "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-subtitle-1" }, [
+                      _vm._v(
+                        "\n                       Contact: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, aliquam!\n                   "
+                      )
+                    ])
+                  ])
+                ],
+                1
+              )
+            ],
+            1
+          ),
           _vm._v(" "),
-          _c("v-col")
+          _c(
+            "v-col",
+            { attrs: { cols: "12", sm: "6", md: "4" } },
+            [
+              _c(
+                "v-card",
+                { attrs: { "min-height": "450", to: "/", elevation: "10" } },
+                [
+                  _c("v-img", {
+                    staticClass: "mx-auto",
+                    attrs: {
+                      height: "400",
+                      width: "auto",
+                      src: "/images/cse.jpg",
+                      alt: "",
+                      position: "center center"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("v-card-title", [
+                    _c("div", { staticClass: "mx-auto" }, [
+                      _vm._v(
+                        "\n                       Department of CSE\n                   "
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("v-card-text", [
+                    _c("div", { staticClass: "text-subtitle-1" }, [
+                      _vm._v(
+                        "\n                       Name: Lorem ipsum dolor, sit amet consectetur adipisg.\n                   "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-subtitle-1" }, [
+                      _vm._v(
+                        "\n                       Position: Lorem ipsum dolor sit amet, consectetur adipisicing.\n                   "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-subtitle-1" }, [
+                      _vm._v(
+                        "\n                       Contact: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, aliquam!\n                   "
+                      )
+                    ])
+                  ])
+                ],
+                1
+              )
+            ],
+            1
+          )
         ],
         1
       )
@@ -24218,7 +25029,138 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n   News Page\n")])
+  return _c(
+    "v-sheet",
+    { staticClass: "grey lighten-3" },
+    [
+      _c(
+        "v-card",
+        {
+          staticClass: "mt-2",
+          attrs: { width: "auto", outlined: "", to: "/" }
+        },
+        [
+          _c(
+            "v-list-item",
+            [
+              _c(
+                "v-list-item-avatar",
+                { attrs: { tile: "", width: "90", height: "100" } },
+                [
+                  _c("v-img", {
+                    attrs: {
+                      height: "auto",
+                      width: "auto",
+                      src: "/images/index.jpg",
+                      alt: "",
+                      position: "center center"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-list-item-content",
+                [
+                  _c(
+                    "div",
+                    { staticClass: "text-body-2 mt-1 font-weight-bold" },
+                    [
+                      _vm._v(
+                        " Lorem ipsum dolor sit amet consectetur adipisicing elit. In, id! "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-title",
+                    { staticClass: "text-subtitle-2 mt-1 font-weight-regular" },
+                    [
+                      _vm._v(
+                        "Subtext Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, unde."
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("v-list-item-subtitle", { staticClass: "mb-1" }, [
+                    _vm._v(" Date : 10 Feb 2021, 03:28 AM ")
+                  ])
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-card",
+        {
+          staticClass: "mt-2",
+          attrs: { width: "auto", outlined: "", to: "/" }
+        },
+        [
+          _c(
+            "v-list-item",
+            [
+              _c(
+                "v-list-item-avatar",
+                { attrs: { tile: "", width: "90", height: "100" } },
+                [
+                  _c("v-img", {
+                    attrs: {
+                      height: "auto",
+                      width: "auto",
+                      src: "/images/index.jpg",
+                      alt: "",
+                      position: "center center"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-list-item-content",
+                [
+                  _c(
+                    "div",
+                    { staticClass: "text-body-2 mt-1 font-weight-bold" },
+                    [
+                      _vm._v(
+                        " Lorem ipsum dolor sit amet consectetur adipisicing elit. In, id! "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-title",
+                    { staticClass: "text-subtitle-2 mt-1 font-weight-regular" },
+                    [
+                      _vm._v(
+                        "Subtext Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, unde."
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("v-list-item-subtitle", { staticClass: "mb-1" }, [
+                    _vm._v(" Date : 10 Feb 2021, 03:28 AM ")
+                  ])
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -24243,7 +25185,33 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n   Page Not Found !\n    404 Error !!\n")])
+  return _c(
+    "div",
+    [
+      _c(
+        "v-card",
+        { attrs: { height: "480", "min-height": "300" } },
+        [
+          _c(
+            "v-container",
+            { attrs: { "fill-height": "", fluid: "" } },
+            [
+              _c("v-row", { attrs: { align: "center", justify: "center" } }, [
+                _c("div", { staticClass: "text-center" }, [
+                  _c("h1", [_vm._v("404 Error !")]),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Page Not Found !!")])
+                ])
+              ])
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -24294,135 +25262,174 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-row",
-    { staticClass: "mx-4 py-4" },
+    "div",
+    { staticClass: "pt-3" },
     [
       _c(
-        "v-col",
-        { attrs: { cols: "12", md: "4" } },
+        "v-row",
+        { staticClass: "mx-4 py-4" },
         [
           _c(
-            "v-card",
-            { attrs: { "max-height": "450", to: "/" } },
+            "v-col",
+            { attrs: { cols: "12", sm: "6", md: "4" } },
             [
-              _c("v-img", {
-                staticClass: "mx-auto",
-                attrs: {
-                  height: "300",
-                  width: "auto",
-                  "max-width": "400",
-                  src: "/images/bba.jpg"
-                }
-              }),
-              _vm._v(" "),
-              _c("v-card-title", [
-                _c("div", { staticClass: "mx-auto" }, [
-                  _vm._v(
-                    "\n                    Department of BBA\n                "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("v-card-text", [
-                _c("div", { staticClass: "text-subtitle-1" }, [
-                  _vm._v(
-                    "\n                    $ • Italian, Cafe\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _vm._v(
-                    "\n                    Small plates, salads & sandwiches - an intimate setting\n                    with 12 indoor seats plus patio seating.\n                "
-                  )
-                ])
-              ])
+              _c(
+                "v-card",
+                { attrs: { "min-height": "450", to: "/", elevation: "10" } },
+                [
+                  _c("v-img", {
+                    staticClass: "mx-auto",
+                    attrs: {
+                      height: "400",
+                      width: "auto",
+                      src: "/images/index.jpg",
+                      alt: "",
+                      position: "center center"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("v-card-text", [
+                    _c(
+                      "div",
+                      { staticClass: "text-subtitle-1 font-weight-bold" },
+                      [
+                        _vm._v(
+                          "\n                       Name: Lorem ipsum dolor, sit amet consectetur adipisg.\n                   "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "text-subtitle-1 font-weight-bold" },
+                      [
+                        _vm._v(
+                          "\n                       Designation: Lorem ipsum dolor sit amet, consectetur adipisicing.\n                   "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-subtitle-1" }, [
+                      _vm._v(
+                        "\n                       Contact No.: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, aliquam!\n                   "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-subtitle-1" }, [
+                      _vm._v(
+                        "\n                       E-mail: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, aliquam!\n                   "
+                      )
+                    ])
+                  ])
+                ],
+                1
+              )
             ],
             1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "v-col",
-        { attrs: { cols: "12", md: "4" } },
-        [
+          ),
+          _vm._v(" "),
           _c(
-            "v-card",
-            { attrs: { "max-height": "450", to: "/" } },
+            "v-col",
+            { attrs: { cols: "12", sm: "6", md: "4" } },
             [
-              _c("v-img", {
-                staticClass: "mx-auto",
-                attrs: {
-                  height: "300",
-                  width: "auto",
-                  "max-width": "400",
-                  src: "/images/eee.jpg"
-                }
-              }),
-              _vm._v(" "),
-              _c("v-card-title", [
-                _c("div", { staticClass: "mx-auto" }, [
-                  _vm._v(
-                    "\n                    Department of EEE\n                "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("v-card-text", [
-                _c("div", { staticClass: "text-subtitle-1" }, [
-                  _vm._v(
-                    "\n                    $ • Italian, Cafe\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _vm._v(
-                    "\n                    Small plates, salads & sandwiches - an intimate setting\n                    with 12 indoor seats plus patio seating.\n                "
-                  )
-                ])
-              ])
+              _c(
+                "v-card",
+                { attrs: { "min-height": "450", to: "/", elevation: "10" } },
+                [
+                  _c("v-img", {
+                    staticClass: "mx-auto",
+                    attrs: {
+                      height: "400",
+                      width: "auto",
+                      src: "/images/eee.jpg",
+                      alt: "",
+                      position: "center center"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("v-card-title", [
+                    _c("div", { staticClass: "mx-auto" }, [
+                      _vm._v(
+                        "\n                       Department of EEE\n                   "
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("v-card-text", [
+                    _c("div", { staticClass: "text-subtitle-1" }, [
+                      _vm._v(
+                        "\n                       Name: Lorem ipsum dolor, sit amet consectetur adipisg.\n                   "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-subtitle-1" }, [
+                      _vm._v(
+                        "\n                       Position: Lorem ipsum dolor sit amet, consectetur adipisicing.\n                   "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-subtitle-1" }, [
+                      _vm._v(
+                        "\n                       Contact: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, aliquam!\n                   "
+                      )
+                    ])
+                  ])
+                ],
+                1
+              )
             ],
             1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "v-col",
-        { attrs: { cols: "12", md: "4" } },
-        [
+          ),
+          _vm._v(" "),
           _c(
-            "v-card",
-            { attrs: { "max-height": "450", to: "/" } },
+            "v-col",
+            { attrs: { cols: "12", sm: "6", md: "4" } },
             [
-              _c("v-img", {
-                staticClass: "mx-auto",
-                attrs: { height: "300", width: "auto", src: "/images/cse.jpg" }
-              }),
-              _vm._v(" "),
-              _c("v-card-title", [
-                _c("div", { staticClass: "mx-auto" }, [
-                  _vm._v(
-                    "\n                    Department of CSE\n                "
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("v-card-text", [
-                _c("div", { staticClass: "text-subtitle-1" }, [
-                  _vm._v(
-                    "\n                    Lorem ipsum dolor sit amet.\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _vm._v(
-                    "\n                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, culpa!\n                "
-                  )
-                ])
-              ])
+              _c(
+                "v-card",
+                { attrs: { "min-height": "450", to: "/", elevation: "10" } },
+                [
+                  _c("v-img", {
+                    staticClass: "mx-auto",
+                    attrs: {
+                      height: "400",
+                      width: "auto",
+                      src: "/images/cse.jpg",
+                      alt: "",
+                      position: "center center"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("v-card-title", [
+                    _c("div", { staticClass: "mx-auto" }, [
+                      _vm._v(
+                        "\n                       Department of CSE\n                   "
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("v-card-text", [
+                    _c("div", { staticClass: "text-subtitle-1" }, [
+                      _vm._v(
+                        "\n                       Name: Lorem ipsum dolor, sit amet consectetur adipisg.\n                   "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-subtitle-1" }, [
+                      _vm._v(
+                        "\n                       Position: Lorem ipsum dolor sit amet, consectetur adipisicing.\n                   "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-subtitle-1" }, [
+                      _vm._v(
+                        "\n                       Contact: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, aliquam!\n                   "
+                      )
+                    ])
+                  ])
+                ],
+                1
+              )
             ],
             1
           )
@@ -40921,15 +41928,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 /* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/vuetify-loader/lib/runtime/installComponents.js */ "./node_modules/vuetify-loader/lib/runtime/installComponents.js");
 /* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var vuetify_lib_components_VApp__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VApp */ "./node_modules/vuetify/lib/components/VApp/VApp.js");
+/* harmony import */ var vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VAlert */ "./node_modules/vuetify/lib/components/VAlert/VAlert.js");
 /* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/VCard.js");
 /* harmony import */ var vuetify_lib_components_VCarousel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VCarousel */ "./node_modules/vuetify/lib/components/VCarousel/VCarousel.js");
 /* harmony import */ var vuetify_lib_components_VCarousel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VCarousel */ "./node_modules/vuetify/lib/components/VCarousel/VCarouselItem.js");
 /* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VCol.js");
 /* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VContainer.js");
 /* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VFlex.js");
-/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VLayout.js");
-/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
+/* harmony import */ var vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/components/VImg */ "./node_modules/vuetify/lib/components/VImg/VImg.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VLayout.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
 
 
 
@@ -40959,7 +41967,8 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 
 
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VApp: vuetify_lib_components_VApp__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCarousel: vuetify_lib_components_VCarousel__WEBPACK_IMPORTED_MODULE_6__.default,VCarouselItem: vuetify_lib_components_VCarousel__WEBPACK_IMPORTED_MODULE_7__.default,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__.default,VContainer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__.default,VFlex: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__.default,VLayout: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_11__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_12__.default})
+
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VAlert: vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCarousel: vuetify_lib_components_VCarousel__WEBPACK_IMPORTED_MODULE_6__.default,VCarouselItem: vuetify_lib_components_VCarousel__WEBPACK_IMPORTED_MODULE_7__.default,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__.default,VContainer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__.default,VFlex: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__.default,VImg: vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_11__.default,VLayout: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_12__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_13__.default})
 
 
 /* hot reload */
@@ -41228,8 +42237,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuetify_lib_components_VCarousel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VCarousel */ "./node_modules/vuetify/lib/components/VCarousel/VCarousel.js");
 /* harmony import */ var vuetify_lib_components_VCarousel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VCarousel */ "./node_modules/vuetify/lib/components/VCarousel/VCarouselItem.js");
 /* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VCol.js");
-/* harmony import */ var vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VImg */ "./node_modules/vuetify/lib/components/VImg/VImg.js");
-/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VContainer.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VFlex.js");
+/* harmony import */ var vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/components/VImg */ "./node_modules/vuetify/lib/components/VImg/VImg.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VLayout.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
 
 
 
@@ -41257,7 +42269,10 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 
 
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VAlert: vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCarousel: vuetify_lib_components_VCarousel__WEBPACK_IMPORTED_MODULE_6__.default,VCarouselItem: vuetify_lib_components_VCarousel__WEBPACK_IMPORTED_MODULE_7__.default,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__.default,VImg: vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_9__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__.default})
+
+
+
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VAlert: vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCarousel: vuetify_lib_components_VCarousel__WEBPACK_IMPORTED_MODULE_6__.default,VCarouselItem: vuetify_lib_components_VCarousel__WEBPACK_IMPORTED_MODULE_7__.default,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__.default,VContainer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__.default,VFlex: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__.default,VImg: vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_11__.default,VLayout: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_12__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_13__.default})
 
 
 /* hot reload */
@@ -41377,6 +42392,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _news_vue_vue_type_template_id_1261303c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./news.vue?vue&type=template&id=1261303c& */ "./resources/js/pages/news.vue?vue&type=template&id=1261303c&");
 /* harmony import */ var _news_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./news.vue?vue&type=script&lang=js& */ "./resources/js/pages/news.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vuetify-loader/lib/runtime/installComponents.js */ "./node_modules/vuetify-loader/lib/runtime/installComponents.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/VCard.js");
+/* harmony import */ var vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VImg */ "./node_modules/vuetify/lib/components/VImg/VImg.js");
+/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/VListItem.js");
+/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/VListItemAvatar.js");
+/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/index.js");
+/* harmony import */ var vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VSheet */ "./node_modules/vuetify/lib/components/VSheet/VSheet.js");
 
 
 
@@ -41394,6 +42417,19 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
   null
   
 )
+
+/* vuetify-loader */
+;
+
+
+
+
+
+
+
+
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__.default,VImg: vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_5__.default,VListItem: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_6__.default,VListItemAvatar: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_7__.default,VListItemContent: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_8__.VListItemContent,VListItemSubtitle: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_8__.VListItemSubtitle,VListItemTitle: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_8__.VListItemTitle,VSheet: vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_9__.default})
+
 
 /* hot reload */
 if (false) { var api; }
@@ -41416,6 +42452,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _notfound_vue_vue_type_template_id_2d8c8f78___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./notfound.vue?vue&type=template&id=2d8c8f78& */ "./resources/js/pages/notfound.vue?vue&type=template&id=2d8c8f78&");
 /* harmony import */ var _notfound_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./notfound.vue?vue&type=script&lang=js& */ "./resources/js/pages/notfound.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vuetify-loader/lib/runtime/installComponents.js */ "./node_modules/vuetify-loader/lib/runtime/installComponents.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/VCard.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VContainer.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
 
 
 
@@ -41433,6 +42474,14 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
   null
   
 )
+
+/* vuetify-loader */
+;
+
+
+
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__.default,VContainer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_5__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__.default})
+
 
 /* hot reload */
 if (false) { var api; }
