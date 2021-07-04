@@ -31,3 +31,11 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::post('/register', [App\Http\Controllers\RegisterController::class, 'register']);
 Route::post('/login', [App\Http\Controllers\LoginController::class, 'login']);
 Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout']);
+
+
+// Back End
+Route::get('/people/index', [App\Http\Controllers\PeopleController::class, 'index']);
+
+Route::get('/people/members/all_members', [App\Http\Controllers\PeopleController::class, 'all_people_member']);
+Route::get('/people/members/show/{id}', [App\Http\Controllers\PeopleController::class, 'show_people_member']);
+Route::get('/people/members/{id}', [App\Http\Controllers\PeopleController::class, 'find_people_member']);
