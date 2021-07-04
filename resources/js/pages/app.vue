@@ -7,7 +7,7 @@
 
          <!-- v-main is the main content area e.g background -->
          <v-main class="grey lighten-3">
-            <v-sheet class="mx-4 mb-5 mt-3 mb-sm-5">                
+            <v-sheet class="mx-4 mb-5 mt-1">
                <router-view />
             </v-sheet>
          </v-main>
@@ -24,17 +24,24 @@ export default {
    }),
    components: {TopBar},
    mounted(){
-        //console.log(this.$route.name)
+    console.log(this.$route.name)
    },
    watch: {
       $route(to, from) {
          document.title = to.meta.title || "MIU IQAC";
       },      
    },
-   created(){
-       if(this.$route.name != 'AdminPanel'){
+   created() {
+   // Created method for disabling TopBar when name of component is AdminPanel
+    const unwatch = this.$watch(
+      () => this.$route,
+      (route, prevRoute) => {
+        console.log(this.$route)
+        if(this.$route.name == 'AdminPanel'){
            this.hideTopBar = false
-       }
+        }
+        unwatch();
+      });
    }
 };
 </script>

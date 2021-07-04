@@ -100,7 +100,7 @@ export default{
             .then(()=>{
                next()
             }).catch(()=>{
-               return next({path: '/login', 
+               return next({path: '/login',
                query: {
                   message: 'unauthenticated',
                }
