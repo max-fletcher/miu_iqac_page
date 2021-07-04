@@ -3411,10 +3411,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
  // import TopNav from './topnav'
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -25892,7 +25888,7 @@ var render = function() {
                                             { staticClass: "text-center" },
                                             [
                                               _vm._v(
-                                                "\n                                            Lorem ipsum dolor sit amet\n                                            consectetur adipisicing.\n                                        "
+                                                "\n                                 Lorem ipsum dolor sit amet\n                                 consectetur adipisicing.\n                              "
                                               )
                                             ]
                                           )
@@ -25917,7 +25913,7 @@ var render = function() {
                                             { staticClass: "text-center" },
                                             [
                                               _vm._v(
-                                                "\n                                            Lorem ipsum dolor sit amet\n                                            consectetur adipisicing.\n                                        "
+                                                "\n                                 Lorem ipsum dolor sit amet\n                                 consectetur adipisicing.\n                              "
                                               )
                                             ]
                                           )
@@ -25963,7 +25959,7 @@ var render = function() {
             [
               _c("v-card", { staticClass: "pl-0 ml-0 mt-md-0" }, [
                 _vm._v(
-                  "\n                Lorem ipsum dolor sit, amet consectetur adipisicing elit.\n                Aut eaque eius alias fugit cum obcaecati aliquam nihil\n                facilis itaque dignissimos quis explicabo, voluptatem\n                repudiandae et! Quod hic architecto fugit qui.\n            "
+                  "\n            Lorem ipsum dolor sit, amet consectetur adipisicing elit.\n            Aut eaque eius alias fugit cum obcaecati aliquam nihil\n            facilis itaque dignissimos quis explicabo, voluptatem\n            repudiandae et! Quod hic architecto fugit qui.\n         "
                 )
               ])
             ],
