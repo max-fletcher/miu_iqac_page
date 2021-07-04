@@ -7,6 +7,11 @@ import Resources from "./pages/resources";
 import IQAC from "./pages/iqac";
 import SAC from "./pages/sac";
 import NotFound from "./pages/notfound";
+//Auth components
+import Login from "./pages/auth/login";
+import Register from "./pages/auth/register";
+import AdminPanel from "./pages/auth/adminpanel";
+// scrapped components
 import Topnav from "./pages/components/scrapped/topnav";
 import Tabsnav from "./pages/components/scrapped/tabsnav";
 import QuickLinksAccordion from "./pages/components/scrapped/quicklinksaccordion";
@@ -16,51 +21,92 @@ export default{
    mode: 'history',
 
    routes: [
+      // Website Pages
       {
-         path: '*',
-         title: "Not Found",
+         path: '*',         
          component: NotFound,
+         name: 'NotFound',
          meta: { title: '404 Not Found' }
       },
       {
          path: '/',
          component: Home,
+         name: 'Home',
          meta: { title: 'Home' }
       },
       {
-         path: '/about',
+         path: '/about',         
          component: About,
+         name: 'About',
          meta: { title: 'About Us' }
       },
       {
-         path: '/members',
+         path: '/members',         
          component: Members,
+         name: 'Members',
          meta: { title: 'Members' }
       },
       {
-         path: '/events',
+         path: '/events',         
          component: Events,
+         name: 'Events',
          meta: { title: 'Events' }
       },
       {
-         path: '/news',
+         path: '/news',         
          component: News,
+         name: 'News',
          meta: { title: 'News' }
       },
       {
          path: '/resources',
          component: Resources,
+         name: 'Resources',
          meta: { title: 'Resources' }
       },
       {
          path: '/people/iqac',
          component: IQAC,
+         name: 'IQAC',
          meta: { title: 'IQAC' }
       },
       {
          path: '/people/sac',
          component: SAC,
+         name: 'SAC',
          meta: { title: 'SAC' }
+      },
+      // Admin Pages
+      {
+         path: '/login/:message?',
+         component: Login,
+         name: 'Login',
+         meta: { title: 'Login' }
+      },
+      {
+         path: '/register',
+         component: Register,
+         name: 'Register',
+         meta: { title: 'Register' }
+      },
+      {
+         path: '/adminpanel',
+         component: AdminPanel,
+         name: 'AdminPanel',
+         meta: { title: 'Admin Panel' },
+         // To confirm if user is logged in or not
+         beforeEnter: ( to, from, next) => {
+            axios.get('/api/authenticated')
+            .then(()=>{
+               next()
+            }).catch(()=>{
+               return next({path: '/login', 
+               query: {
+                  message: 'unauthenticated',
+               }
+            })
+            })
+         }
       },
       // Scrapped Components pages
       {
