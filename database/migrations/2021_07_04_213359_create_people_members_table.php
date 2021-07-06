@@ -20,6 +20,7 @@ class CreatePeopleMembersTable extends Migration
             $table->string('designation');
             $table->string('cell_number');
             $table->string('email');
+            $table->string('member_image')->nullable();
             $table->timestamps();
         });
     }

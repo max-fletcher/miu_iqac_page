@@ -33,9 +33,18 @@ Route::post('/login', [App\Http\Controllers\LoginController::class, 'login']);
 Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout']);
 
 
-// Back End
+    // Back End
+// People Controller
 Route::get('/people/index', [App\Http\Controllers\PeopleController::class, 'index']);
+Route::post('/people/store', [App\Http\Controllers\PeopleController::class, 'store']);
+Route::get('/people/show/{id}', [App\Http\Controllers\PeopleController::class, 'show']);
+Route::patch('/people/update/{id}', [App\Http\Controllers\PeopleController::class, 'update']);
+Route::delete('/people/delete/{id}', [App\Http\Controllers\PeopleController::class, 'destroy']);
 
-Route::get('/people/members/all_members', [App\Http\Controllers\PeopleController::class, 'all_people_member']);
-Route::get('/people/members/show/{id}', [App\Http\Controllers\PeopleController::class, 'show_people_member']);
-Route::get('/people/members/{id}', [App\Http\Controllers\PeopleController::class, 'find_people_member']);
+// Member Controller
+Route::get('/people/members/index', [App\Http\Controllers\MemberController::class, 'index']);
+Route::post('/people/members/store', [App\Http\Controllers\MemberController::class, 'store']);
+Route::get('/people/members/show/{id}', [App\Http\Controllers\MemberController::class, 'show']);
+Route::patch('/people/members/update/{id}', [App\Http\Controllers\MemberController::class, 'update']);
+Route::delete('/people/members/delete/{id}', [App\Http\Controllers\MemberController::class, 'destroy']);
+Route::get('/people/members/{id}', [App\Http\Controllers\MemberController::class, 'find_all_members_by_people_id']);
