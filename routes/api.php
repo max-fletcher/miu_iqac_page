@@ -34,6 +34,23 @@ Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout']);
 
 
     // Back End
+// Refactor Controller to use Restful Controllers later maybe
+
+// About Content Type Controller
+Route::get('/about/contenttype/index', [App\Http\Controllers\AboutContentTypeController::class, 'index']);
+Route::post('/about/contenttype/store', [App\Http\Controllers\AboutContentTypeController::class, 'store']);
+Route::get('/about/contenttype/show/{id}', [App\Http\Controllers\AboutContentTypeController::class, 'show']);
+Route::patch('/about/contenttype/update/{id}', [App\Http\Controllers\AboutContentTypeController::class, 'update']);
+Route::delete('/about/contenttype/delete/{id}', [App\Http\Controllers\AboutContentTypeController::class, 'destroy']);
+
+// About Content Controller
+Route::get('/about/content/index', [App\Http\Controllers\AboutContentController::class, 'index']);
+Route::post('/about/content/store', [App\Http\Controllers\AboutContentController::class, 'store']);
+Route::get('/about/content/show/{id}', [App\Http\Controllers\AboutContentController::class, 'show']);
+Route::patch('/about/content/update/{id}', [App\Http\Controllers\AboutContentController::class, 'update']);
+Route::delete('/about/content/delete/{id}', [App\Http\Controllers\AboutContentController::class, 'destroy']);
+Route::get('/about/content/{id}', [App\Http\Controllers\AboutContentController::class, 'find_all_content_by_type_id']);
+
 // People Controller
 Route::get('/people/index', [App\Http\Controllers\PeopleController::class, 'index']);
 Route::post('/people/store', [App\Http\Controllers\PeopleController::class, 'store']);
@@ -47,4 +64,4 @@ Route::post('/people/members/store', [App\Http\Controllers\MemberController::cla
 Route::get('/people/members/show/{id}', [App\Http\Controllers\MemberController::class, 'show']);
 Route::patch('/people/members/update/{id}', [App\Http\Controllers\MemberController::class, 'update']);
 Route::delete('/people/members/delete/{id}', [App\Http\Controllers\MemberController::class, 'destroy']);
-Route::get('/people/members/{id}', [App\Http\Controllers\MemberController::class, 'find_all_members_by_people_id']);
+Route::get('/people/members/membersbypeopleid/{id}', [App\Http\Controllers\MemberController::class, 'find_all_members_by_people_id']);

@@ -31,11 +31,10 @@ class PeopleController extends Controller
     public function show($id)
     {
         $people = People::find($id);
-
         if($people){
             return response()->json($people, 201);
         }
-
+        
         return response()->json('The Provided ID doesn\'t match any People Records !!', 404);
     }
 

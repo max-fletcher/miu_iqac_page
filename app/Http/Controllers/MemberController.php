@@ -55,13 +55,17 @@ class MemberController extends Controller
         ]);
 
         //$request->file('member_image')->store('public/member_images');
-
         return response()->json('Member Created Successfully !', 201);
     }
 
     public function show($id)
     {
-        return response()->json(PeopleMember::with('people')->where('id', $id)->get(), 200);
+        $people = PeopleMember::with('people')->where('id', $id)->first();
+        if($people){
+            return response()->json($people, 200);
+        }
+
+        return response()->json('The Provided ID doesn\'t match any Member Records !!', 404);
     }
 
     public function update(Request $request, $id)
@@ -126,7 +130,7 @@ class MemberController extends Controller
 
     public function find_all_members_by_people_id($id)
     {
-        $members = People::with('members')->where('id', $id)->first()->members;
-        return response()->json($members, 200);
+        $members = PeopleMember::with('people')->where('people_id', $id)->get();
+        return response()->json($members, 201);
     }
 }
