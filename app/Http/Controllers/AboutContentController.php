@@ -16,7 +16,7 @@ class AboutContentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'about_content_type_id' => ['required', 'numeric', 'integer'],
+            'about_content_type_id' => ['required', 'numeric', 'integer', 'unique:about_contents'],
             'content' => ['required', 'string'],
         ]);
 
@@ -30,9 +30,9 @@ class AboutContentController extends Controller
 
     public function show($id)
     {
-        $about_content = AboutContent::with('about_content_type')->where('id', $id)->first();
-        if($about_content){
-            return response()->json( $about_content, 200 );
+        $content = AboutContent::with('about_content_type')->where('id', $id)->first();
+        if($content){
+            return response()->json( $content, 200 );
         }
 
         return response()->json('The Provided ID doesn\'t match any Content Records !!', 404);
@@ -41,7 +41,7 @@ class AboutContentController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'about_content_type_id' => ['required', 'numeric', 'integer'],
+            'about_content_type_id' => ['required', 'numeric', 'integer', 'unique:about_content_types'],
             'content' => ['required', 'string'],
         ]);
 

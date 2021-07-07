@@ -42,6 +42,7 @@ Route::post('/about/contenttype/store', [App\Http\Controllers\AboutContentTypeCo
 Route::get('/about/contenttype/show/{id}', [App\Http\Controllers\AboutContentTypeController::class, 'show']);
 Route::patch('/about/contenttype/update/{id}', [App\Http\Controllers\AboutContentTypeController::class, 'update']);
 Route::delete('/about/contenttype/delete/{id}', [App\Http\Controllers\AboutContentTypeController::class, 'destroy']);
+Route::get('/about/contenttype/contenttypewithoutcontent', [App\Http\Controllers\AboutContentTypeController::class, 'content_type_without_content']);
 
 // About Content Controller
 Route::get('/about/content/index', [App\Http\Controllers\AboutContentController::class, 'index']);
@@ -49,7 +50,7 @@ Route::post('/about/content/store', [App\Http\Controllers\AboutContentController
 Route::get('/about/content/show/{id}', [App\Http\Controllers\AboutContentController::class, 'show']);
 Route::patch('/about/content/update/{id}', [App\Http\Controllers\AboutContentController::class, 'update']);
 Route::delete('/about/content/delete/{id}', [App\Http\Controllers\AboutContentController::class, 'destroy']);
-Route::get('/about/content/{id}', [App\Http\Controllers\AboutContentController::class, 'find_all_content_by_type_id']);
+Route::get('/about/content/contentbytypeid/{id}', [App\Http\Controllers\AboutContentController::class, 'find_all_content_by_type_id']);
 
 // People Controller
 Route::get('/people/index', [App\Http\Controllers\PeopleController::class, 'index']);

@@ -60,4 +60,11 @@ class AboutContentTypeController extends Controller
 
         return response()->json('Can\'t delete because provided ID doesn\'t match any Content Type Records !!', 404);
     }
+
+    public function content_type_without_content()
+    {
+        // return empty if all content types (model) are used at least once
+        $contents = AboutContentType::doesntHave('about_contents')->get();
+        return response()->json($contents, 201);
+    }
 }
