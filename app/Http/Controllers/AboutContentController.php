@@ -16,7 +16,7 @@ class AboutContentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'about_content_type_id' => ['required', 'numeric', 'integer', 'unique:about_contents'],
+            'about_content_type_id' => ['required', 'numeric', 'integer', 'unique:about_contents', 'exists:about_content_types,id'],
             'content' => ['required', 'string'],
         ]);
 
@@ -41,7 +41,7 @@ class AboutContentController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'about_content_type_id' => ['required', 'numeric', 'integer', 'unique:about_content_types'],
+            'about_content_type_id' => ['required', 'numeric', 'integer', 'unique:about_content_types', 'exists:about_content_types,id'],
             'content' => ['required', 'string'],
         ]);
 

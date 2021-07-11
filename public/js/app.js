@@ -3334,6 +3334,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -3683,6 +3685,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -23301,7 +23327,7 @@ var render = function() {
             [
               _c(
                 "v-sheet",
-                { staticClass: "mx-4 mb-5 mt-1" },
+                { staticClass: "mx-4 mb-5 mt-3" },
                 [_c("router-view")],
                 1
               )
@@ -25532,9 +25558,14 @@ var render = function() {
     "v-sheet",
     { staticClass: "px-2 py-2", attrs: { color: "grey lighten-3" } },
     [
+      _c("br"),
       _vm._v(
-        "\n\n  Upcoming Events\n  Ask Which is Better ??\n  What Colours to Use ??\n  How much elevation ??\n\n  "
+        "\n  Upcoming Events\n  Ask Which is Better ??\n  What Colours to Use ??\n  How much elevation ??      \n  "
       ),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
       _c(
         "v-card",
         { staticClass: "mb-4", attrs: { rounded: "0" } },
@@ -26264,7 +26295,7 @@ var render = function() {
                     { staticClass: "text-body-2 mt-1 font-weight-bold" },
                     [
                       _vm._v(
-                        " Lorem ipsum dolor sit amet consectetur adipisicing elit. In, id! "
+                        " \n               Lorem ipsum dolor sit amet consectetur adipisicing elit. In, id!\n            "
                       )
                     ]
                   ),
@@ -26274,7 +26305,7 @@ var render = function() {
                     { staticClass: "text-subtitle-2 mt-1 font-weight-regular" },
                     [
                       _vm._v(
-                        "Subtext Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, unde."
+                        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nisi laborum a officiis tempora maxime ratione. Voluptate laudantium labore, harum animi corrupti libero qui vero ad. Perferendis, est minima? Doloremque voluptatem suscipit quibusdam error quasi? Fugit, repellendus ea minus excepturi iure maiores quisquam deleniti corporis aliquid id, minima voluptate quaerat?"
                       )
                     ]
                   ),
@@ -26432,7 +26463,82 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n   Resources Page\n")])
+  return _c(
+    "div",
+    [
+      _c(
+        "v-sheet",
+        { staticClass: "px-2 py-2", attrs: { color: "grey lighten-3" } },
+        [
+          _c(
+            "v-card",
+            { staticClass: "mb-4", attrs: { rounded: "0" } },
+            [
+              _c(
+                "v-alert",
+                {
+                  staticClass: "px-0 py-0 mx-0 my-0",
+                  attrs: { color: "teal accent-4", rounded: "0", text: "" }
+                },
+                [
+                  _c(
+                    "v-card-title",
+                    { staticClass: "py-2 text-h6 font-weight-medium" },
+                    [
+                      _c(
+                        "v-icon",
+                        {
+                          attrs: { left: "", color: "teal accent-4", large: "" }
+                        },
+                        [_vm._v("\n            mdi-pdf-box\n          ")]
+                      ),
+                      _vm._v("\n            Some File\n        ")
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-card",
+            { staticClass: "mb-4", attrs: { rounded: "0" } },
+            [
+              _c(
+                "v-alert",
+                {
+                  staticClass: "px-0 py-0 mx-0 my-0",
+                  attrs: { color: "teal accent-4", rounded: "0", text: "" }
+                },
+                [
+                  _c(
+                    "v-card-title",
+                    { staticClass: "py-1 text-subtitle-1 font-weight-medium" },
+                    [
+                      _c(
+                        "v-icon",
+                        { attrs: { left: "", color: "teal accent-4" } },
+                        [_vm._v("\n            mdi-file-pdf-box\n          ")]
+                      ),
+                      _vm._v("\n            Some File\n        ")
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -44056,6 +44162,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_vue_vue_type_template_id_177766e8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./resources.vue?vue&type=template&id=177766e8& */ "./resources/js/pages/resources.vue?vue&type=template&id=177766e8&");
 /* harmony import */ var _resources_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./resources.vue?vue&type=script&lang=js& */ "./resources/js/pages/resources.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vuetify-loader/lib/runtime/installComponents.js */ "./node_modules/vuetify-loader/lib/runtime/installComponents.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VAlert */ "./node_modules/vuetify/lib/components/VAlert/VAlert.js");
+/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/VCard.js");
+/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/index.js");
+/* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/VIcon.js");
+/* harmony import */ var vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VSheet */ "./node_modules/vuetify/lib/components/VSheet/VSheet.js");
 
 
 
@@ -44073,6 +44186,16 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
   null
   
 )
+
+/* vuetify-loader */
+;
+
+
+
+
+
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VAlert: vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardTitle,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_7__.default,VSheet: vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_8__.default})
+
 
 /* hot reload */
 if (false) { var api; }

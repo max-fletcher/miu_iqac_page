@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PeopleMember;
-use App\Models\People;
 use Illuminate\Support\Str;
 Use Illuminate\Support\Facades\Storage;
 
@@ -19,12 +18,12 @@ class MemberController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'people_id' => ['required', 'integer', 'numeric'],
+            'people_id' => ['required', 'integer', 'numeric', 'exists:people,id'],
             'name' => ['required', 'string', 'max:255'],
             'designation' => ['required', 'string', 'max:255'],
             'cell_number' => ['required', 'numeric', 'string'],
             'email' => ['required', 'email', 'string', 'max:255'],
-            'member_image' => [ 'image', 'sometimes', 'max:5000']
+            'member_image' => [ 'image', 'sometimes', 'max:2000']
         ]);
 
         if($request->hasFile('member_image')) {
@@ -71,12 +70,12 @@ class MemberController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'people_id' => ['required', 'integer', 'numeric'],
+            'people_id' => ['required', 'integer', 'numeric', 'exists:people,id'],
             'name' => ['required', 'string', 'max:255'],
             'designation' => ['required', 'string', 'max:255'],
             'cell_number' => ['required', 'numeric', 'string'],
             'email' => ['required', 'email', 'string', 'max:255'],
-            'member_image' => [ 'image', 'sometimes', 'max:5000']
+            'member_image' => [ 'image', 'sometimes', 'max:2000']
         ]);
 
         if($request->hasFile('member_image')) {

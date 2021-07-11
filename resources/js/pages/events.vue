@@ -1,10 +1,12 @@
 <template>
     <v-sheet class="px-2 py-2" color="grey lighten-3">
-
+      <br>
       Upcoming Events
       Ask Which is Better ??
       What Colours to Use ??
-      How much elevation ??
+      How much elevation ??      
+      <br>
+      <br>
 
       <v-card rounded="0" class="mb-4">
         <v-alert color="green accent-4" class="px-0 py-0 mx-0 my-0" rounded="0" text>

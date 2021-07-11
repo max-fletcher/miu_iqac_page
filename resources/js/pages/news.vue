@@ -13,12 +13,12 @@
             </v-list-item-avatar>
 
             <v-list-item-content>
-               <div
-                  class="text-body-2 mt-1 font-weight-bold"
-               > Lorem ipsum dolor sit amet consectetur adipisicing elit. In, id! </div>
+               <div class="text-body-2 mt-1 font-weight-bold"> 
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. In, id!
+               </div>
                <v-list-item-title
                   class="text-subtitle-2 mt-1 font-weight-regular"
-               >Subtext Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, unde.</v-list-item-title>
+               >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nisi laborum a officiis tempora maxime ratione. Voluptate laudantium labore, harum animi corrupti libero qui vero ad. Perferendis, est minima? Doloremque voluptatem suscipit quibusdam error quasi? Fugit, repellendus ea minus excepturi iure maiores quisquam deleniti corporis aliquid id, minima voluptate quaerat?</v-list-item-title>
                <v-list-item-subtitle
                   class="mb-1"
                > Date : 10 Feb 2021, 03:28 AM </v-list-item-subtitle>
