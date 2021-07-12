@@ -16,8 +16,12 @@
                                  tile
                                  max-height="100"
                               >
-                                 <div class="text-center">
-                                    Lorem ipsum dolor sit amet
+                                 <div class="font-weight-bold text-center text-body-1">
+                                    111 Title Lorem ipsum dolor sit amet
+                                    consectetur adipisicing.
+                                 </div>
+                                 <div class="text-center text-subtitle-2">
+                                    111 Subtitle Lorem ipsum dolor sit amet
                                     consectetur adipisicing.
                                  </div>
                               </v-alert>
@@ -26,12 +30,16 @@
                               <v-alert
                                  text
                                  color="success darken-2"
-                                 class="font-weight-small text-h6 mb-0 hidden-sm-and-up py-1"
+                                 class="text-h6 mb-0 py-1 hidden-sm-and-up"
                                  tile
                                  max-height="100"
                               >
-                                 <div class="text-center">
-                                    Lorem ipsum dolor sit amet
+                                 <div class="text-center text-subtitle-2">
+                                    333 Lorem ipsum dolor sit amet
+                                    consectetur adipisicing.
+                                 </div>
+                                 <div class="text-center text-caption">
+                                    333 Subtitle Lorem ipsum dolor sit amet
                                     consectetur adipisicing.
                                  </div>
                               </v-alert>

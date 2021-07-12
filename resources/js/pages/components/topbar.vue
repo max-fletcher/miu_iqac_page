@@ -9,16 +9,6 @@
 
             <v-divider></v-divider>
 
-            <!-- Style One -->
-            <!-- <v-list nav flat tile>
-                    <v-list-item to="/">
-                        <v-icon left>mdi-home</v-icon>
-                        <v-list-item-title>
-                            Home
-                        </v-list-item-title>
-                    </v-list-item>
-            </v-list>-->
-
             <!-- Style Two -->
             <v-card rounded="0" flat>
                <v-btn color="#4270A9" height="40" text block to="/" exact-active-class="darken-1">
@@ -36,7 +26,7 @@
                   <v-icon left>mdi-information-outline</v-icon>About
                   <v-spacer></v-spacer>
                </v-btn>
-               <v-menu open-on-hover bottom offset-y transition="scale-transition" rounded="0">
+               <v-menu open-on-hover bottom offset-x transition="scale-transition" rounded="0">
                   <template v-slot:activator="{ on, attrs }">
                      <!-- exact-path for later -->
                      <v-card rounded="0" flat>
@@ -52,7 +42,7 @@
                            <!-- path class not working -->
                            <v-icon left>mdi-account</v-icon>People
                            <v-spacer></v-spacer>
-                           <v-icon small right>mdi-chevron-down</v-icon>
+                           <v-icon small right>mdi-chevron-right</v-icon>
                         </v-btn>
                      </v-card>
                   </template>
@@ -65,7 +55,7 @@
                      </v-list-item>
                   </v-list>
                </v-menu>
-               <v-menu open-on-hover bottom offset-y transition="scale-transition" rounded="0">
+               <v-menu open-on-hover bottom offset-x transition="scale-transition" rounded="0">
                   <template v-slot:activator="{ on, attrs }">
                      <!-- exact-path for later -->
                      <v-card rounded="0" flat>
@@ -81,7 +71,7 @@
                            <!-- path class not working -->
                            <v-icon left>mdi-calendar-clock</v-icon>Events
                            <v-spacer></v-spacer>
-                           <v-icon small right>mdi-chevron-down</v-icon>
+                           <v-icon small right>mdi-chevron-right</v-icon>
                         </v-btn>
                      </v-card>
                   </template>
@@ -123,6 +113,17 @@
                   exact-active-class="darken-1"
                >
                   <v-icon left>mdi-archive</v-icon>Resources
+                  <v-spacer></v-spacer>
+               </v-btn>
+                              <v-btn
+                  color="#4270A9"
+                  height="40"
+                  text
+                  block
+                  to="/contact-us"
+                  exact-active-class="darken-1"
+               >
+                  <v-icon left>mdi-phone</v-icon>Contact Us
                   <v-spacer></v-spacer>
                </v-btn>
             </v-card>
@@ -352,6 +353,20 @@
                   exact-active-class="light"
                >
                   <v-icon left>mdi-archive-outline</v-icon>Resources
+               </v-btn>
+
+               <v-btn
+                  color="#4270A9"
+                  v-bind="attrs"
+                  v-on="on"
+                  tile
+                  class="white--text"
+                  height="40"
+                  text
+                  to="/contact-us"
+                  exact-active-class="light"
+               >
+                  <v-icon left>mdi-phone</v-icon>Contact Us
                </v-btn>
             </v-card>
          </v-card>

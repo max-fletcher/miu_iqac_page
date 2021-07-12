@@ -22,7 +22,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-    Route::get('/authenticated', function(Request $request){
+    Route::get('/authenticated', function(){
         return true;
     });
 
@@ -35,6 +35,13 @@ Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout']);
 
     // Back End
 // Refactor Controller to use Restful Controllers later maybe
+
+// Carousel Content Controller
+Route::get('/carouselcontent/index', [App\Http\Controllers\CarouselContentController::class, 'index']);
+Route::post('/carouselcontent/store', [App\Http\Controllers\CarouselContentController::class, 'store']);
+Route::get('/carouselcontent/show/{id}', [App\Http\Controllers\CarouselContentController::class, 'show']);
+Route::patch('/carouselcontent/update/{id}', [App\Http\Controllers\CarouselContentController::class, 'update']);
+Route::delete('/carouselcontent/delete/{id}', [App\Http\Controllers\CarouselContentController::class, 'destroy']);
 
 // About Content Type Controller
 Route::get('/about/contenttype/index', [App\Http\Controllers\AboutContentTypeController::class, 'index']);
@@ -89,7 +96,7 @@ Route::get('/news/show/{id}', [App\Http\Controllers\NewsController::class, 'show
 Route::patch('/news/update/{id}', [App\Http\Controllers\NewsController::class, 'update']);
 Route::delete('/news/delete/{id}', [App\Http\Controllers\NewsController::class, 'destroy']);
 
-// News Controller
+// Resource Controller
 Route::get('/resource/index', [App\Http\Controllers\ResourceController::class, 'index']);
 Route::post('/resource/store', [App\Http\Controllers\ResourceController::class, 'store']);
 Route::get('/resource/show/{id}', [App\Http\Controllers\ResourceController::class, 'show']);

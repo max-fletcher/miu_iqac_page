@@ -1,3 +1,4 @@
+// Pages
 import Home from "./pages/home";
 import About from "./pages/about";
 import Members from "./pages/members";
@@ -6,8 +7,9 @@ import News from "./pages/news";
 import Resources from "./pages/resources";
 import IQAC from "./pages/iqac";
 import SAC from "./pages/sac";
+import ContactUs from "./pages/contactus";
 import NotFound from "./pages/notfound";
-//Auth components
+//Auth Pages
 import Login from "./pages/auth/login";
 import Register from "./pages/auth/register";
 import AdminPanel from "./pages/auth/adminpanel";
@@ -75,6 +77,12 @@ export default{
          component: SAC,
          name: 'SAC',
          meta: { title: 'SAC' }
+      },
+      {
+         path: '/contact-us',
+         component: ContactUs,
+         name: 'Contact Us',
+         meta: { title: 'Contact Us' }
       },
       // Admin Pages
       {
