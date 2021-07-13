@@ -3255,6 +3255,214 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -25689,7 +25897,443 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n   Contact Us Page\n")])
+  return _c(
+    "div",
+    [
+      _c(
+        "v-sheet",
+        { staticClass: "mt-6 pt-6 pb-2 px-8" },
+        [
+          _c(
+            "v-row",
+            [
+              _c(
+                "v-col",
+                [
+                  _c("v-row", [
+                    _c(
+                      "div",
+                      { staticClass: "mx-auto" },
+                      [
+                        _c(
+                          "v-card",
+                          { attrs: { flat: "" } },
+                          [
+                            _c(
+                              "v-card-title",
+                              {
+                                staticClass:
+                                  "\n                           text-h5\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
+                              },
+                              [
+                                _c(
+                                  "v-icon",
+                                  {
+                                    attrs: {
+                                      large: "",
+                                      left: "",
+                                      color: "grey darken-1"
+                                    }
+                                  },
+                                  [_vm._v("mdi-phone")]
+                                ),
+                                _vm._v(
+                                  "\n                        Contact Us\n                     "
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    [
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "hidden-xs-only",
+                          attrs: { cols: "12", sm: "6", md: "4", lg: "4" }
+                        },
+                        [
+                          _c(
+                            "v-card",
+                            {
+                              staticClass: "mx-auto",
+                              attrs: { flat: "", width: "300" }
+                            },
+                            [
+                              _c(
+                                "v-card-title",
+                                {
+                                  staticClass:
+                                    "\n                           text-body-h6\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        Gulshan Campus\n                     "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-card-text",
+                                {
+                                  staticClass:
+                                    "\n                           text-body-1\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        Plot # CEN-16, Road # 106 "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Gulshan 2, Dhaka-1212 "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Bangladesh "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Phone: +88-02-55060025, "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        9862251, 58817525 "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Mobile: 01780364414 "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Fax: +88-02-55059924 "
+                                  ),
+                                  _c("br")
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "hidden-sm-and-up",
+                          attrs: { cols: "12", sm: "6", md: "4", lg: "4" }
+                        },
+                        [
+                          _c(
+                            "v-card",
+                            { attrs: { flat: "", width: "300" } },
+                            [
+                              _c(
+                                "v-card-title",
+                                {
+                                  staticClass:
+                                    "\n                           text-body-h6\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        Gulshan Campus\n                     "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-card-text",
+                                {
+                                  staticClass:
+                                    "\n                           text-body-1\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        Plot # CEN-16, Road # 106 "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Gulshan 2, Dhaka-1212 "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Bangladesh "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Phone: +88-02-55060025, "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        9862251, 58817525 "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Mobile: 01780364414 "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Fax: +88-02-55059924 "
+                                  ),
+                                  _c("br")
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "mt-4",
+                          attrs: { cols: "12", sm: "6", md: "8", lg: "8" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "\n                        text-body-1\n                        font-weight-bold\n                        grey--text\n                        text--darken-2\n                     "
+                            },
+                            [
+                              _vm._v(
+                                "\n                     Gulshan Campus Location\n                  "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "pt-3" }, [
+                            _c("iframe", {
+                              staticStyle: { border: "0" },
+                              attrs: {
+                                src:
+                                  "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14603.046330302512!2d90.4146433!3d23.7915029!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x121a03a4382f1df4!2sManarat+International+University!5e0!3m2!1sen!2sbd!4v1545627074631",
+                                width: "100%",
+                                height: "400",
+                                allowfullscreen: "",
+                                loading: "eager"
+                              }
+                            })
+                          ])
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    [
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "hidden-xs-only",
+                          attrs: { cols: "12", sm: "6", md: "4", lg: "4" }
+                        },
+                        [
+                          _c(
+                            "v-card",
+                            {
+                              staticClass: "mx-auto",
+                              attrs: { flat: "", width: "300" }
+                            },
+                            [
+                              _c(
+                                "v-card-title",
+                                {
+                                  staticClass:
+                                    "\n                           text-body-h6\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        Ashulia Permanent "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Campus\n                     "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-card-text",
+                                {
+                                  staticClass:
+                                    "\n                           text-body-1\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        Ashulia Model Town, "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Khagan, Ashulia "
+                                  ),
+                                  _c("br"),
+                                  _vm._v("\n                        Dhaka "),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Phone: 09666911624, "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        09666911625, 09666911626, "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        09666911627 "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Mobile: 01819245895, "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        01780364415\n                     "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "hidden-sm-and-up",
+                          attrs: { cols: "12", sm: "6", md: "4", lg: "4" }
+                        },
+                        [
+                          _c(
+                            "v-card",
+                            { attrs: { flat: "", width: "300" } },
+                            [
+                              _c(
+                                "v-card-title",
+                                {
+                                  staticClass:
+                                    "\n                           text-body-h6\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        Ashulia Permanent "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Campus\n                     "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-card-text",
+                                {
+                                  staticClass:
+                                    "\n                           text-body-1\n                           font-weight-bold\n                           grey--text text--darken-2\n                        "
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        Ashulia Model Town, "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Khagan, Ashulia "
+                                  ),
+                                  _c("br"),
+                                  _vm._v("\n                        Dhaka "),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Phone: 09666911624, "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        09666911625, 09666911626, "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        09666911627 "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Mobile: 01819245895, "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        01780364415\n                     "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "mt-4",
+                          attrs: { cols: "12", sm: "6", md: "8", lg: "8" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "text-body-1 font-weight-bold grey--text text--darken-2"
+                            },
+                            [
+                              _vm._v(
+                                "\n                     Ashulia Permanent Campus Location\n                  "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "pt-3" }, [
+                            _c("iframe", {
+                              staticStyle: { border: "0" },
+                              attrs: {
+                                src:
+                                  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29186.769300654392!2d90.30785646504465!3d23.87734075018992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c213b785c80f%3A0x160471c997db5233!2sManarat%20International%20University!5e0!3m2!1sen!2sbd!4v1626133954937!5m2!1sen!2sbd",
+                                width: "100%",
+                                height: "400",
+                                allowfullscreen: "",
+                                loading: "eager"
+                              }
+                            })
+                          ])
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -44024,6 +44668,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _contactus_vue_vue_type_template_id_178c44a5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./contactus.vue?vue&type=template&id=178c44a5& */ "./resources/js/pages/contactus.vue?vue&type=template&id=178c44a5&");
 /* harmony import */ var _contactus_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./contactus.vue?vue&type=script&lang=js& */ "./resources/js/pages/contactus.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vuetify-loader/lib/runtime/installComponents.js */ "./node_modules/vuetify-loader/lib/runtime/installComponents.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/VCard.js");
+/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/index.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VCol.js");
+/* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/VIcon.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
+/* harmony import */ var vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VSheet */ "./node_modules/vuetify/lib/components/VSheet/VSheet.js");
 
 
 
@@ -44041,6 +44693,18 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
   null
   
 )
+
+/* vuetify-loader */
+;
+
+
+
+
+
+
+
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__.default,VCardText: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.VCardText,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_7__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__.default,VSheet: vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_9__.default})
+
 
 /* hot reload */
 if (false) { var api; }
