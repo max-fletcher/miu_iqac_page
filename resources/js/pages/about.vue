@@ -9,8 +9,8 @@
                     <v-card-title
                         class="text-h5 font-weight-bold grey--text text--darken-2 pb-0 pl-md-2 pt-md-1 pl-sm-5 pt-sm-0 pr-sm-4 mb-md-0"
                     >
-                        <v-icon large left color="grey darken-1">mdi-information</v-icon
-                        >About Us
+                        <v-icon large left color="grey darken-1">mdi-information</v-icon>
+                        About Us
                     </v-card-title>
                 </v-card>
                 <v-card flat class="my-md-1 ml-md-0 mr-3 mt-1">

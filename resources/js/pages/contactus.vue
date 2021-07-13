@@ -1,7 +1,13 @@
 <template>
    <div>
+      name: {{ name }} <br>
+      email: {{ email }} <br>
+      message: {{ message }} <br>
+      dummy: {{ dummy }} <br>
+      errors: {{ errors }}
+
       <v-sheet class="mt-6 pt-6 pb-2 px-8">
-         <v-row>
+         <v-row class="mb-4">
             <v-col>
                <v-row>
                   <div class="mx-auto">
@@ -15,12 +21,64 @@
                            "
                         >
                            <v-icon large left color="grey darken-1"
-                              >mdi-phone</v-icon
-                           >
+                              >mdi-phone
+                           </v-icon>
                            Contact Us
                         </v-card-title>
                      </v-card>
                   </div>
+               </v-row>
+               <v-row>
+                  <v-col class="mx-16 mb-3">
+                     <v-form ref="contact_us_form" lazy-validation>
+                        <v-text-field
+                           v-model="name"
+                           :rules="nameRules"
+                           label="Name"
+                           required
+                           outlined
+                        ></v-text-field>
+
+                        <v-text-field
+                           v-model="email"
+                           :rules="emailRules"
+                           label="E-mail"
+                           type="email"
+                           required
+                           outlined
+                        ></v-text-field>
+
+                        <v-textarea
+                           v-model="message"
+                           :rules="messageRules"
+                           label="Message"
+                           auto-grow
+                           placeholder="Enter Text Here"
+                           rows="1"
+                           outlined
+                        ></v-textarea>
+                        <!-- Validate and Submit -->
+                        <v-row class="mt-2">
+                           <div class="mx-auto">
+                              <v-btn
+                                 color="success"
+                                 class="mx-2"
+                                 @click.prevent="submitForm"
+                              >
+                                 Submit
+                              </v-btn>
+                              <!-- Reset From -->
+                              <v-btn color="error" class="mx-2" @click="reset">
+                                 Reset Form
+                              </v-btn>
+                              <!-- Reset validation -->
+                              <v-btn color="warning" class="mx-2" @click="resetValidation">
+                                 Reset Validation
+                              </v-btn>
+                           </div>
+                        </v-row>
+                     </v-form>
+                  </v-col>
                </v-row>
                <v-row>
                   <!-- Address For Md and Up -->
@@ -173,7 +231,8 @@
                            class="
                               text-body-1
                               font-weight-bold
-                              grey--text text--darken-2
+                              grey--text
+                              text--darken-2
                            "
                         >
                            Ashulia Model Town, <br />
@@ -190,7 +249,12 @@
                   <!-- Map Component -->
                   <v-col cols="12" sm="6" md="8" lg="8" class="mt-4">
                      <div
-                        class="text-body-1 font-weight-bold grey--text text--darken-2"
+                        class="
+                           text-body-1
+                           font-weight-bold
+                           grey--text
+                           text--darken-2
+                        "
                      >
                         Ashulia Permanent Campus Location
                      </div>
@@ -213,7 +277,54 @@
 </template>
 
 <script>
-export default {};
+export default {
+   data: () => ({
+      dummy:"",
+      errors:[],
+      name: "",
+      nameRules: [(v) => !!v || "Name is required"],
+      email: "",
+      emailRules: [
+         (v) => !!v || "E-mail is required",
+         (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+      ],
+      message: "",
+      messageRules: [(v) => !!v || "A message is required"],
+   }),
+
+   methods: {
+      submitForm() {
+         this.validation = this.$refs.contact_us_form.validate();
+         if (this.$refs.contact_us_form.validate()) {
+            axios.post("/api/", {
+                    // name: this.name
+                    // email: this.email,
+                    // message: this.message
+                })
+                .then((res) => {
+                    console.log(res)
+                    this.dummy = "Login Post Request Sent Successfully !!";
+                    // console.log(res);
+                    this.$router.push({ name: "AdminPanel" });
+                })
+                .catch((error) => {
+                    cosole.log(error)
+                    this.errors = error.response.data.errors;
+                    this.dummy = "Request Not Sent !!";
+                });            
+         } else {
+            //false
+            this.$refs.contact_us_form.validate();
+         }
+      },
+      reset() {
+         this.$refs.contact_us_form.reset();
+      },
+      resetValidation() {
+         this.$refs.contact_us_form.resetValidation();
+      },
+   },
+};
 </script>
 
 <style></style>

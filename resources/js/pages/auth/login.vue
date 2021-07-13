@@ -1,26 +1,29 @@
 <template>
    <div>
       <div v-if="unauthenticated"> You Are Not Authenticated !! </div>
-      <v-form ref="form" lazy-validation class="px-10 pt-5">
-         <v-text-field v-model="email" :rules="emailRules" label="E-mail" type="email" required></v-text-field>
+      <v-form ref="form" lazy-validation class="px-10 pt-8">
+         <v-text-field v-model="email" :rules="emailRules" label="E-mail" type="email" required outlined></v-text-field>
          <span v-if="errors.email">{{ errors.email[0] }}</span>
 
          <v-text-field
+            class="my-2"
             v-model="password"
             :rules="passwordRules"
             label="Password"
             type="password"
             required
+            outlined
          ></v-text-field>
          <span v-if="errors.password">{{ errors.password[0] }}</span>
+         <div class="mt-2">
+            <v-btn color="success" @click.prevent="submitForm" type="submit">Login</v-btn>
 
-         <v-btn color="success" class="mt-4" @click.prevent="submitForm" type="submit">Login</v-btn>
+            <v-btn color="success" @click="validate">Validate</v-btn>
 
-         <v-btn color="success" class="mt-4" @click="validate">Validate</v-btn>
+            <v-btn color="warning" @click="reset">Reset Form</v-btn>
 
-         <v-btn color="warning" class="mt-4" @click="reset">Reset Form</v-btn>
-
-         <v-btn color="info" class="mt-4" @click="resetValidation">Reset Validation</v-btn>
+            <v-btn color="info" @click="resetValidation">Reset Validation</v-btn>
+         </div>
          <br />
          <div>
             <span>{{ this.dummy }}</span>
@@ -41,8 +44,7 @@
 <script>
 export default {
    data: () => ({
-      unauthenticated: false,
-      message: '',
+      unauthenticated: false,      
       email: "",
       emailRules: [
          (v) => !!v || "E-mail is required",

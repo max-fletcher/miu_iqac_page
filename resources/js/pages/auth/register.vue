@@ -1,10 +1,10 @@
 <template>
    <div>
       <v-form ref="form" lazy-validation class="px-10 pt-5">
-         <v-text-field v-model="name" :rules="nameRules" label="Name" required></v-text-field>
+         <v-text-field v-model="name" :rules="nameRules" label="Name" required outlined></v-text-field>
          <span v-if="errors.name">{{ errors.name[0] }}</span>
 
-         <v-text-field v-model="email" :rules="emailRules" label="E-mail" type="email" required></v-text-field>
+         <v-text-field v-model="email" :rules="emailRules" label="E-mail" type="email" required outlined></v-text-field>
          <span v-if="errors.email">{{ errors.email[0] }}</span>
 
          <v-text-field
@@ -13,6 +13,7 @@
             label="Password"
             type="password"
             required
+            outlined
          ></v-text-field>
 
          <v-text-field
@@ -21,6 +22,7 @@
             label="Confirm Password"
             type="password"
             required
+            outlined
          ></v-text-field>
 
          <!-- Change Loading Spinner Color and Animation later -->

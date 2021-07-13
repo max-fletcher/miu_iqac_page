@@ -102,3 +102,10 @@ Route::post('/resource/store', [App\Http\Controllers\ResourceController::class, 
 Route::get('/resource/show/{id}', [App\Http\Controllers\ResourceController::class, 'show']);
 Route::patch('/resource/update/{id}', [App\Http\Controllers\ResourceController::class, 'update']);
 Route::delete('/resource/delete/{id}', [App\Http\Controllers\ResourceController::class, 'destroy']);
+
+// Contact Us Controller
+Route::get('/contact_us/index', [App\Http\Controllers\ContactUsController::class, 'index']);
+Route::post('/contact_us/store', [App\Http\Controllers\ContactUsController::class, 'store']);
+Route::get('/contact_us/show/{id}', [App\Http\Controllers\ContactUsController::class, 'show']);
+Route::patch('/contact_us/update/{id}', [App\Http\Controllers\ContactUsController::class, 'update']);
+Route::delete('/contact_us/delete/{id}', [App\Http\Controllers\ContactUsController::class, 'destroy']);
