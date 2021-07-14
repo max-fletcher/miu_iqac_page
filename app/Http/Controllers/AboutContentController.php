@@ -18,11 +18,13 @@ class AboutContentController extends Controller
         $request->validate([
             'about_content_type_id' => ['required', 'numeric', 'integer', 'unique:about_contents', 'exists:about_content_types,id'],
             'content' => ['required', 'string'],
+            'icon' => ['required', 'string'],
         ]);
 
         AboutContent::Create([
             'about_content_type_id' => $request->about_content_type_id,
             'content' => $request->content,
+            'icon' => $request->icon,
         ]);
 
         return response()->json('About Content Created Successfully !', 201);
@@ -43,12 +45,14 @@ class AboutContentController extends Controller
         $request->validate([
             'about_content_type_id' => ['required', 'numeric', 'integer', 'unique:about_content_types', 'exists:about_content_types,id'],
             'content' => ['required', 'string'],
+            'icon' => ['required', 'string'],
         ]);
 
         $content = AboutContent::find($id);
         if($content){
             $content->about_content_type_id = $request->about_content_type_id;
             $content->content = $request->content;
+            $content->icon = $request->icon;
             $content->save();
             return response()->json('About Content Updated Successfully !', 201);
         }

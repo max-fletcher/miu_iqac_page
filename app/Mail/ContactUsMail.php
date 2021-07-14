@@ -25,6 +25,6 @@ class ContactUsMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('MIU IQAC Contact Us')->view('email.contact_us');
+        return $this->subject('MIU IQAC Contact Us - '. $this->mail_data['name'])->view('email.contact_us');
     }
 }

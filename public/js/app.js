@@ -3457,80 +3457,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -27519,7 +27445,7 @@ var render = function() {
         [
           _c(
             "v-row",
-            { staticClass: "mb-4" },
+            { staticClass: "mb-4 mx-sm-10" },
             [
               _c(
                 "v-col",
@@ -27574,7 +27500,7 @@ var render = function() {
                     [
                       _c(
                         "v-col",
-                        { staticClass: "mx-16 mb-3" },
+                        { staticClass: "mb-3" },
                         [
                           _c(
                             "v-form",
@@ -27637,7 +27563,7 @@ var render = function() {
                               _c("v-row", { staticClass: "mt-2" }, [
                                 _c(
                                   "div",
-                                  { staticClass: "mx-auto" },
+                                  { staticClass: "d-flex flex-row mx-auto" },
                                   [
                                     _c(
                                       "v-btn",
@@ -27708,14 +27634,14 @@ var render = function() {
                       _c(
                         "v-col",
                         {
-                          staticClass: "hidden-xs-only",
-                          attrs: { cols: "12", sm: "6", md: "4", lg: "4" }
+                          staticClass: "mt-n2 mt-sm-n2 mt-md-0",
+                          attrs: { cols: "12", sm: "12", md: "4", lg: "4" }
                         },
                         [
                           _c(
                             "v-card",
                             {
-                              staticClass: "mx-auto",
+                              staticClass: "mx-auto mx-md-0",
                               attrs: { flat: "", width: "300" }
                             },
                             [
@@ -27779,83 +27705,15 @@ var render = function() {
                       _c(
                         "v-col",
                         {
-                          staticClass: "hidden-sm-and-up",
-                          attrs: { cols: "12", sm: "6", md: "4", lg: "4" }
-                        },
-                        [
-                          _c(
-                            "v-card",
-                            { attrs: { flat: "", width: "300" } },
-                            [
-                              _c(
-                                "v-card-title",
-                                {
-                                  staticClass:
-                                    "\n                           text-body-h6\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                        Gulshan Campus\n                     "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-card-text",
-                                {
-                                  staticClass:
-                                    "\n                           text-body-1\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                        Plot # CEN-16, Road # 106 "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        Gulshan 2, Dhaka-1212 "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        Bangladesh "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        Phone: +88-02-55060025, "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        9862251, 58817525 "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        Mobile: 01780364414 "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        Fax: +88-02-55059924 "
-                                  ),
-                                  _c("br")
-                                ]
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        {
-                          staticClass: "mt-4",
-                          attrs: { cols: "12", sm: "6", md: "8", lg: "8" }
+                          staticClass: "mt-md-4 mt-n4",
+                          attrs: { cols: "12", sm: "12", md: "8", lg: "8" }
                         },
                         [
                           _c(
                             "div",
                             {
                               staticClass:
-                                "\n                        text-body-1\n                        font-weight-bold\n                        grey--text\n                        text--darken-2\n                     "
+                                "\n                        text-body-1\n                        font-weight-bold\n                        grey--text\n                        text--darken-2\n                        text-center\n                        text-md-left\n                     "
                             },
                             [
                               _vm._v(
@@ -27889,14 +27747,14 @@ var render = function() {
                       _c(
                         "v-col",
                         {
-                          staticClass: "hidden-xs-only",
-                          attrs: { cols: "12", sm: "6", md: "4", lg: "4" }
+                          staticClass: "mt-n8 mt-md-0",
+                          attrs: { cols: "12", sm: "12", md: "4", lg: "4" }
                         },
                         [
                           _c(
                             "v-card",
                             {
-                              staticClass: "mx-auto",
+                              staticClass: "mx-auto mx-md-0",
                               attrs: { flat: "", width: "300" }
                             },
                             [
@@ -27965,81 +27823,8 @@ var render = function() {
                       _c(
                         "v-col",
                         {
-                          staticClass: "hidden-sm-and-up",
-                          attrs: { cols: "12", sm: "6", md: "4", lg: "4" }
-                        },
-                        [
-                          _c(
-                            "v-card",
-                            { attrs: { flat: "", width: "300" } },
-                            [
-                              _c(
-                                "v-card-title",
-                                {
-                                  staticClass:
-                                    "\n                           text-body-h6\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                        Ashulia Permanent "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        Campus\n                     "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-card-text",
-                                {
-                                  staticClass:
-                                    "\n                           text-body-1\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                        Ashulia Model Town, "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        Khagan, Ashulia "
-                                  ),
-                                  _c("br"),
-                                  _vm._v("\n                        Dhaka "),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        Phone: 09666911624, "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        09666911625, 09666911626, "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        09666911627 "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        Mobile: 01819245895, "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        01780364415\n                     "
-                                  )
-                                ]
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        {
-                          staticClass: "mt-4",
-                          attrs: { cols: "12", sm: "6", md: "8", lg: "8" }
+                          staticClass: "mt-md-4 mt-n4",
+                          attrs: { cols: "12", sm: "12", md: "8", lg: "8" }
                         },
                         [
                           _c(

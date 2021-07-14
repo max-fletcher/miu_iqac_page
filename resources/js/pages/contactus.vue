@@ -7,7 +7,7 @@
       errors: {{ errors }}
 
       <v-sheet class="mt-6 pt-6 pb-2 px-8">
-         <v-row class="mb-4">
+         <v-row class="mb-4 mx-sm-10">
             <v-col>
                <v-row>
                   <div class="mx-auto">
@@ -29,7 +29,7 @@
                   </div>
                </v-row>
                <v-row>
-                  <v-col class="mx-16 mb-3">
+                  <v-col class="mb-3">
                      <v-form ref="contact_us_form" lazy-validation>
                         <v-text-field
                            v-model="name"
@@ -59,7 +59,7 @@
                         ></v-textarea>
                         <!-- Validate and Submit -->
                         <v-row class="mt-2">
-                           <div class="mx-auto">
+                           <div class="d-flex flex-row mx-auto">
                               <v-btn
                                  color="success"
                                  class="mx-2"
@@ -80,10 +80,9 @@
                      </v-form>
                   </v-col>
                </v-row>
-               <v-row>
-                  <!-- Address For Md and Up -->
-                  <v-col cols="12" sm="6" md="4" lg="4" class="hidden-xs-only">
-                     <v-card flat class="mx-auto" width="300">
+               <v-row>                  
+                  <v-col cols="12" sm="12" md="4" lg="4" class="mt-n2 mt-sm-n2 mt-md-0">
+                     <v-card flat width="300" class="mx-auto mx-md-0">
                         <v-card-title
                            class="
                               text-body-h6
@@ -111,52 +110,18 @@
                            Fax: +88-02-55059924 <br />
                         </v-card-text>
                      </v-card>
-                  </v-col>
-                  <!-- Address For Sm and Down -->
-                  <v-col
-                     cols="12"
-                     sm="6"
-                     md="4"
-                     lg="4"
-                     class="hidden-sm-and-up"
-                  >
-                     <v-card flat width="300">
-                        <v-card-title
-                           class="
-                              text-body-h6
-                              font-weight-bold
-                              grey--text
-                              text--darken-2
-                           "
-                        >
-                           Gulshan Campus
-                        </v-card-title>
-                        <v-card-text
-                           class="
-                              text-body-1
-                              font-weight-bold
-                              grey--text
-                              text--darken-2
-                           "
-                        >
-                           Plot # CEN-16, Road # 106 <br />
-                           Gulshan 2, Dhaka-1212 <br />
-                           Bangladesh <br />
-                           Phone: +88-02-55060025, <br />
-                           9862251, 58817525 <br />
-                           Mobile: 01780364414 <br />
-                           Fax: +88-02-55059924 <br />
-                        </v-card-text>
-                     </v-card>
-                  </v-col>
+                  </v-col>                  
+
                   <!-- Map Component -->
-                  <v-col cols="12" sm="6" md="8" lg="8" class="mt-4">
+                  <v-col cols="12" sm="12" md="8" lg="8" class="mt-md-4 mt-n4">
                      <div
                         class="
                            text-body-1
                            font-weight-bold
                            grey--text
                            text--darken-2
+                           text-center
+                           text-md-left
                         "
                      >
                         Gulshan Campus Location
@@ -174,9 +139,8 @@
                   </v-col>
                </v-row>
                <v-row>
-                  <!-- Address For Md and Up -->
-                  <v-col cols="12" sm="6" md="4" lg="4" class="hidden-xs-only">
-                     <v-card flat class="mx-auto" width="300">
+                  <v-col cols="12" sm="12" md="4" lg="4" class="mt-n8 mt-md-0">
+                     <v-card flat width="300" class="mx-auto mx-md-0">
                         <v-card-title
                            class="
                               text-body-h6
@@ -207,47 +171,9 @@
                         </v-card-text>
                      </v-card>
                   </v-col>
-                  <!-- Address For Sm and Down -->
-                  <v-col
-                     cols="12"
-                     sm="6"
-                     md="4"
-                     lg="4"
-                     class="hidden-sm-and-up"
-                  >
-                     <v-card flat width="300">
-                        <v-card-title
-                           class="
-                              text-body-h6
-                              font-weight-bold
-                              grey--text
-                              text--darken-2
-                           "
-                        >
-                           Ashulia Permanent <br />
-                           Campus
-                        </v-card-title>
-                        <v-card-text
-                           class="
-                              text-body-1
-                              font-weight-bold
-                              grey--text
-                              text--darken-2
-                           "
-                        >
-                           Ashulia Model Town, <br />
-                           Khagan, Ashulia <br />
-                           Dhaka <br />
-                           Phone: 09666911624, <br />
-                           09666911625, 09666911626, <br />
-                           09666911627 <br />
-                           Mobile: 01819245895, <br />
-                           01780364415
-                        </v-card-text>
-                     </v-card>
-                  </v-col>
+
                   <!-- Map Component -->
-                  <v-col cols="12" sm="6" md="8" lg="8" class="mt-4">
+                  <v-col cols="12" sm="12" md="8" lg="8" class="mt-md-4 mt-n4">
                      <div
                         class="
                            text-body-1

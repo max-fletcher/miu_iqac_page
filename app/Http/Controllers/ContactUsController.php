@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewContactUsWasSubmittedEvent;
 use App\Mail\ContactUsMail;
 use Illuminate\Http\Request;
 use App\Models\ContactUs;
@@ -27,7 +28,7 @@ class ContactUsController extends Controller
             'message' => $request->message,
         ]);
 
-        Mail::to("amar.naam.machine@gmail.com")->send(new ContactUsMail($mail_data));
+        event(new NewContactUsWasSubmittedEvent($mail_data));        
 
         // Mail::send('email',
         // array(
