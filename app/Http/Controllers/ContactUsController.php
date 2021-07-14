@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactUsMail;
 use Illuminate\Http\Request;
 use App\Models\ContactUs;
+use Illuminate\Support\Facades\Mail;
 
 class ContactUsController extends Controller
 {
@@ -19,13 +21,25 @@ class ContactUsController extends Controller
             'message' => ['required', 'string'],
         ]);
 
-        ContactUs::Create([
+        $mail_data = ContactUs::Create([
             'name' => $request->name,
             'email' => $request->email,
             'message' => $request->message,
         ]);
 
-        return response()->json("Contact Us Stored Successfully !!", 201);
+        Mail::to("amar.naam.machine@gmail.com")->send(new ContactUsMail($mail_data));
+
+        // Mail::send('email',
+        // array(
+        //     'name' => $request->get('name'),
+        //     'email' => $request->get('email'),
+        //     'user_message' => $request->get('message')
+        // ), function($message){
+        //     $message->from($request->email);
+        //     $message->to('saquib.rizwan@cloudways.com', 'Admin')->subject('Cloudways Feedback');
+        // });
+
+        return response()->json("Mail Sent Successfully !!", 201);
     }
 
     public function show($id){
