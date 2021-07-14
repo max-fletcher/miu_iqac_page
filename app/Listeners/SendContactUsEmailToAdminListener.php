@@ -7,7 +7,7 @@ use Illuminate\Queue\InteractsWithQueue;
 Use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactUsMail;
 
-class SendContactUsEmailToAdminListener
+class SendContactUsEmailToAdminListener implements ShouldQueue
 {
     /**
      * Create the event listener.

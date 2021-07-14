@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\NewContactUsWasSubmittedEvent;
+// use App\Events\NewContactUsWasSubmittedEvent;
 use App\Mail\ContactUsMail;
 use Illuminate\Http\Request;
 use App\Models\ContactUs;
@@ -28,17 +28,11 @@ class ContactUsController extends Controller
             'message' => $request->message,
         ]);
 
-        event(new NewContactUsWasSubmittedEvent($mail_data));        
+        // This needs terminal in the server to run php artisan queue:work so its not gonna work for MIU server
+        // event(new NewContactUsWasSubmittedEvent($mail_data));
 
-        // Mail::send('email',
-        // array(
-        //     'name' => $request->get('name'),
-        //     'email' => $request->get('email'),
-        //     'user_message' => $request->get('message')
-        // ), function($message){
-        //     $message->from($request->email);
-        //     $message->to('saquib.rizwan@cloudways.com', 'Admin')->subject('Cloudways Feedback');
-        // });
+        // Send Mail To Admin
+        Mail::to("amar.naam.machine@gmail.com")->send(new ContactUsMail($mail_data));
 
         return response()->json("Mail Sent Successfully !!", 201);
     }
@@ -67,6 +61,10 @@ class ContactUsController extends Controller
             $contact_us->email = $request->email;
             $contact_us->message = $request->message;
             $contact_us->save();
+
+            // Resend Mail
+            $mail_data = $contact_us;
+            Mail::to("amar.naam.machine@gmail.com")->send(new ContactUsMail($mail_data));
             
             return response()->json("Contact Us Updated Successfully !!", 201);
         }
