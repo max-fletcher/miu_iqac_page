@@ -3457,11 +3457,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       dummy: "",
       errors: [],
+      form_disabled: false,
+      form_loading: false,
+      success_snackbar: false,
+      timeout: 40000,
       name: "",
       nameRules: [function (v) {
         return !!v || "Name is required";
@@ -3485,20 +3523,355 @@ __webpack_require__.r(__webpack_exports__);
       this.validation = this.$refs.contact_us_form.validate();
 
       if (this.$refs.contact_us_form.validate()) {
-        axios.post("/api/", {// name: this.name
-          // email: this.email,
-          // message: this.message
+        this.form_disabled = true;
+        this.form_loading = true;
+        axios.post("/api/contact_us/store", {
+          name: this.name,
+          email: this.email,
+          message: this.message
         }).then(function (res) {
           console.log(res);
-          _this.dummy = "Login Post Request Sent Successfully !!"; // console.log(res);
+          _this.dummy = "Login Post Request Sent Successfully !!";
+          _this.success_snackbar = true;
+          _this.form_disabled = false;
+          _this.form_loading = false;
 
-          _this.$router.push({
-            name: "AdminPanel"
-          });
+          _this.$refs.contact_us_form.reset();
         })["catch"](function (error) {
-          cosole.log(error);
+          console.log(error);
           _this.errors = error.response.data.errors;
           _this.dummy = "Request Not Sent !!";
+          _this.form_disabled = false;
+        });
+      } else {
+        //false
+        this.$refs.contact_us_form.validate();
+      }
+    },
+    reset: function reset() {
+      this.$refs.contact_us_form.reset();
+    },
+    resetValidation: function resetValidation() {
+      this.$refs.contact_us_form.resetValidation();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/contactus_copy.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/contactus_copy.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      dummy: "",
+      name_alert: false,
+      error_message: '',
+      errors: [],
+      form_disabled: false,
+      form_loading: false,
+      success_snackbar: true,
+      timeout: 40000,
+      name: "",
+      email: "",
+      message: ""
+    };
+  },
+  methods: {
+    submitForm: function submitForm() {
+      var _this = this;
+
+      this.validation = this.$refs.contact_us_form.validate();
+
+      if (this.$refs.contact_us_form.validate()) {
+        this.form_disabled = true;
+        this.form_loading = true;
+        axios.post("/api/contact_us/store", {
+          name: this.name,
+          email: this.email,
+          message: this.message
+        }).then(function (res) {
+          console.log(res);
+          _this.dummy = "Login Post Request Sent Successfully !!";
+          _this.success_snackbar = true;
+          _this.form_disabled = false;
+          _this.form_loading = false;
+
+          _this.$refs.contact_us_form.reset();
+        })["catch"](function (error) {
+          console.log(error.response.data.errors);
+          _this.errors = error.response.data.errors;
+          _this.error_message = error.response.data.message;
+          _this.dummy = "Request Not Sent !!";
+          _this.form_disabled = false;
+          _this.form_loading = false;
+          _this.name_alert = true;
         });
       } else {
         //false
@@ -4223,15 +4596,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_iqac__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/iqac */ "./resources/js/pages/iqac.vue");
 /* harmony import */ var _pages_sac__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/sac */ "./resources/js/pages/sac.vue");
 /* harmony import */ var _pages_contactus__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/contactus */ "./resources/js/pages/contactus.vue");
-/* harmony import */ var _pages_notfound__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/notfound */ "./resources/js/pages/notfound.vue");
-/* harmony import */ var _pages_auth_login__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/auth/login */ "./resources/js/pages/auth/login.vue");
-/* harmony import */ var _pages_auth_register__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/auth/register */ "./resources/js/pages/auth/register.vue");
-/* harmony import */ var _pages_auth_adminpanel__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/auth/adminpanel */ "./resources/js/pages/auth/adminpanel.vue");
-/* harmony import */ var _pages_components_scrapped_topnav__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/components/scrapped/topnav */ "./resources/js/pages/components/scrapped/topnav.vue");
-/* harmony import */ var _pages_components_scrapped_tabsnav__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/components/scrapped/tabsnav */ "./resources/js/pages/components/scrapped/tabsnav.vue");
-/* harmony import */ var _pages_components_scrapped_quicklinksaccordion__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/components/scrapped/quicklinksaccordion */ "./resources/js/pages/components/scrapped/quicklinksaccordion.vue");
-/* harmony import */ var _pages_components_scrapped_carouseltext__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/components/scrapped/carouseltext */ "./resources/js/pages/components/scrapped/carouseltext.vue");
+/* harmony import */ var _pages_contactus_copy__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/contactus_copy */ "./resources/js/pages/contactus_copy.vue");
+/* harmony import */ var _pages_notfound__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/notfound */ "./resources/js/pages/notfound.vue");
+/* harmony import */ var _pages_auth_login__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/auth/login */ "./resources/js/pages/auth/login.vue");
+/* harmony import */ var _pages_auth_register__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/auth/register */ "./resources/js/pages/auth/register.vue");
+/* harmony import */ var _pages_auth_adminpanel__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/auth/adminpanel */ "./resources/js/pages/auth/adminpanel.vue");
+/* harmony import */ var _pages_components_scrapped_topnav__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/components/scrapped/topnav */ "./resources/js/pages/components/scrapped/topnav.vue");
+/* harmony import */ var _pages_components_scrapped_tabsnav__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/components/scrapped/tabsnav */ "./resources/js/pages/components/scrapped/tabsnav.vue");
+/* harmony import */ var _pages_components_scrapped_quicklinksaccordion__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/components/scrapped/quicklinksaccordion */ "./resources/js/pages/components/scrapped/quicklinksaccordion.vue");
+/* harmony import */ var _pages_components_scrapped_carouseltext__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./pages/components/scrapped/carouseltext */ "./resources/js/pages/components/scrapped/carouseltext.vue");
 // Pages
+
 
 
 
@@ -4256,7 +4631,7 @@ __webpack_require__.r(__webpack_exports__);
   routes: [// Website Pages
   {
     path: '*',
-    component: _pages_notfound__WEBPACK_IMPORTED_MODULE_9__.default,
+    component: _pages_notfound__WEBPACK_IMPORTED_MODULE_10__.default,
     name: 'NotFound',
     meta: {
       title: '404 Not Found'
@@ -4324,24 +4699,31 @@ __webpack_require__.r(__webpack_exports__);
     meta: {
       title: 'Contact Us'
     }
+  }, {
+    path: '/contact-us-2',
+    component: _pages_contactus_copy__WEBPACK_IMPORTED_MODULE_9__.default,
+    name: 'Contact Us 2',
+    meta: {
+      title: 'Contact Us 2'
+    }
   }, // Admin Pages
   {
     path: '/login/:message?',
-    component: _pages_auth_login__WEBPACK_IMPORTED_MODULE_10__.default,
+    component: _pages_auth_login__WEBPACK_IMPORTED_MODULE_11__.default,
     name: 'Login',
     meta: {
       title: 'Login'
     }
   }, {
     path: '/register',
-    component: _pages_auth_register__WEBPACK_IMPORTED_MODULE_11__.default,
+    component: _pages_auth_register__WEBPACK_IMPORTED_MODULE_12__.default,
     name: 'Register',
     meta: {
       title: 'Register'
     }
   }, {
     path: '/adminpanel',
-    component: _pages_auth_adminpanel__WEBPACK_IMPORTED_MODULE_12__.default,
+    component: _pages_auth_adminpanel__WEBPACK_IMPORTED_MODULE_13__.default,
     name: 'AdminPanel',
     meta: {
       title: 'Admin Panel'
@@ -4362,25 +4744,25 @@ __webpack_require__.r(__webpack_exports__);
   }, // Scrapped Components pages
   {
     path: '/topnav',
-    component: _pages_components_scrapped_topnav__WEBPACK_IMPORTED_MODULE_13__.default,
+    component: _pages_components_scrapped_topnav__WEBPACK_IMPORTED_MODULE_14__.default,
     meta: {
       title: 'Scrapped Topnav'
     }
   }, {
     path: '/tabsnav',
-    component: _pages_components_scrapped_tabsnav__WEBPACK_IMPORTED_MODULE_14__.default,
+    component: _pages_components_scrapped_tabsnav__WEBPACK_IMPORTED_MODULE_15__.default,
     meta: {
       title: 'Scrapped Tabsnav'
     }
   }, {
     path: '/quicklinksaccordion',
-    component: _pages_components_scrapped_quicklinksaccordion__WEBPACK_IMPORTED_MODULE_15__.default,
+    component: _pages_components_scrapped_quicklinksaccordion__WEBPACK_IMPORTED_MODULE_16__.default,
     meta: {
       title: 'Scrapped Quick Links Accordion'
     }
   }, {
     path: '/carouseltext',
-    component: _pages_components_scrapped_carouseltext__WEBPACK_IMPORTED_MODULE_16__.default,
+    component: _pages_components_scrapped_carouseltext__WEBPACK_IMPORTED_MODULE_17__.default,
     meta: {
       title: 'Scrapped Carousel Text'
     }
@@ -5127,6 +5509,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".v-slide-group {\n  display: flex;\n}\n.v-slide-group:not(.v-slide-group--has-affixes) > .v-slide-group__prev,\n.v-slide-group:not(.v-slide-group--has-affixes) > .v-slide-group__next {\n  display: none;\n}\n.v-slide-group.v-item-group > .v-slide-group__next,\n.v-slide-group.v-item-group > .v-slide-group__prev {\n  cursor: pointer;\n}\n\n.v-slide-item {\n  display: inline-flex;\n  flex: 0 1 auto;\n}\n\n.v-slide-group__next,\n.v-slide-group__prev {\n  align-items: center;\n  display: flex;\n  flex: 0 1 52px;\n  justify-content: center;\n  min-width: 52px;\n}\n\n.v-slide-group__content {\n  display: flex;\n  flex: 1 0 auto;\n  position: relative;\n  transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);\n  white-space: nowrap;\n}\n\n.v-slide-group__wrapper {\n  contain: content;\n  display: flex;\n  flex: 1 1 auto;\n  overflow: hidden;\n}\n\n.v-slide-group__next--disabled,\n.v-slide-group__prev--disabled {\n  pointer-events: none;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[3]!./node_modules/vuetify/src/components/VSnackbar/VSnackbar.sass":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[3]!./node_modules/vuetify/src/components/VSnackbar/VSnackbar.sass ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".theme--light.v-snack__wrapper {\n  color: rgba(0, 0, 0, 0.87);\n}\n\n.theme--dark.v-snack__wrapper {\n  color: #FFFFFF;\n}\n\n.v-sheet.v-snack__wrapper {\n  border-radius: 4px;\n}\n.v-sheet.v-snack__wrapper:not(.v-sheet--outlined) {\n  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);\n}\n.v-sheet.v-snack__wrapper.v-sheet--shaped {\n  border-radius: 24px 4px;\n}\n\n.v-snack {\n  bottom: 0;\n  display: flex;\n  font-size: 0.875rem;\n  justify-content: center;\n  left: 0;\n  pointer-events: none;\n  right: 0;\n  top: 0;\n  width: 100%;\n}\n.v-snack:not(.v-snack--absolute) {\n  height: 100vh;\n  position: fixed;\n  z-index: 1000;\n}\n.v-snack:not(.v-snack--centered):not(.v-snack--top) {\n  align-items: flex-end;\n}\n.v-snack__wrapper {\n  align-items: center;\n  border-color: currentColor !important;\n  display: flex;\n  margin: 8px;\n  max-width: 672px;\n  min-height: 48px;\n  min-width: 344px;\n  padding: 0;\n  pointer-events: auto;\n  position: relative;\n  transition-duration: 0.15s;\n  transition-property: opacity, transform;\n  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);\n}\n.v-snack__wrapper.theme--dark {\n  background-color: #333333;\n  color: rgba(255, 255, 255, 0.87);\n}\n.v-snack__content {\n  flex-grow: 1;\n  font-size: 0.875rem;\n  font-weight: 400;\n  letter-spacing: 0.0178571429em;\n  line-height: 1.25rem;\n  margin-right: auto;\n  padding: 14px 16px;\n  text-align: initial;\n}\n.v-snack__action {\n  align-items: center;\n  align-self: center;\n  display: flex;\n}\n.v-snack__action .v-ripple__container {\n  display: none;\n}\n.v-application--is-ltr .v-snack__action {\n  margin-right: 8px;\n}\n.v-application--is-rtl .v-snack__action {\n  margin-left: 8px;\n}\n.v-snack__action > .v-snack__btn.v-btn {\n  padding: 0 8px;\n}\n.v-snack__btn {\n  margin-left: 0;\n  margin-right: 0;\n  margin: 0;\n  min-width: auto;\n}\n.v-snack--absolute {\n  height: 100%;\n  position: absolute;\n  z-index: 1;\n}\n.v-snack--centered {\n  align-items: center;\n}\n.v-snack--left {\n  justify-content: flex-start;\n  right: auto;\n}\n.v-snack--multi-line .v-snack__wrapper {\n  min-height: 68px;\n}\n.v-snack--right {\n  justify-content: flex-end;\n  left: auto;\n}\n.v-snack:not(.v-snack--has-background) .v-snack__wrapper {\n  box-shadow: none !important;\n}\n.v-snack--bottom {\n  top: auto;\n}\n.v-snack--text .v-snack__wrapper:before {\n  background-color: currentColor;\n  border-radius: inherit;\n  bottom: 0;\n  content: \"\";\n  left: 0;\n  opacity: 0.12;\n  pointer-events: none;\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n.v-snack--top {\n  align-items: flex-start;\n  bottom: auto;\n}\n.v-snack--vertical .v-snack__wrapper {\n  flex-direction: column;\n}\n.v-snack--vertical .v-snack__wrapper .v-snack__action {\n  align-self: flex-end;\n  margin-bottom: 8px;\n}\n\n.v-snack-transition-enter.v-snack__wrapper {\n  transform: scale(0.8);\n}\n.v-snack-transition-enter.v-snack__wrapper, .v-snack-transition-leave-to.v-snack__wrapper {\n  opacity: 0;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23750,6 +24156,36 @@ var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMP
 
 /***/ }),
 
+/***/ "./node_modules/vuetify/src/components/VSnackbar/VSnackbar.sass":
+/*!**********************************************************************!*\
+  !*** ./node_modules/vuetify/src/components/VSnackbar/VSnackbar.sass ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_loader_dist_cjs_js_clonedRuleSet_15_0_rules_0_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_15_0_rules_0_use_2_sass_loader_dist_cjs_js_clonedRuleSet_15_0_rules_0_use_3_VSnackbar_sass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../css-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[1]!../../../../postcss-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[2]!../../../../sass-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[3]!./VSnackbar.sass */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[3]!./node_modules/vuetify/src/components/VSnackbar/VSnackbar.sass");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_clonedRuleSet_15_0_rules_0_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_15_0_rules_0_use_2_sass_loader_dist_cjs_js_clonedRuleSet_15_0_rules_0_use_3_VSnackbar_sass__WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_clonedRuleSet_15_0_rules_0_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_15_0_rules_0_use_2_sass_loader_dist_cjs_js_clonedRuleSet_15_0_rules_0_use_3_VSnackbar_sass__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/vuetify/src/components/VSubheader/VSubheader.sass":
 /*!************************************************************************!*\
   !*** ./node_modules/vuetify/src/components/VSubheader/VSubheader.sass ***!
@@ -24461,6 +24897,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/contactus_copy.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/pages/contactus_copy.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_contactus_copy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./contactus_copy.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/contactus_copy.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_contactus_copy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/pages/events.vue?vue&type=script&lang=js&":
 /*!****************************************************************!*\
   !*** ./resources/js/pages/events.vue?vue&type=script&lang=js& ***!
@@ -24789,6 +25241,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contactus_vue_vue_type_template_id_178c44a5___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contactus_vue_vue_type_template_id_178c44a5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./contactus.vue?vue&type=template&id=178c44a5& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/contactus.vue?vue&type=template&id=178c44a5&");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/contactus_copy.vue?vue&type=template&id=6a907eff&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/pages/contactus_copy.vue?vue&type=template&id=6a907eff& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contactus_copy_vue_vue_type_template_id_6a907eff___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contactus_copy_vue_vue_type_template_id_6a907eff___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contactus_copy_vue_vue_type_template_id_6a907eff___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./contactus_copy.vue?vue&type=template&id=6a907eff& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/contactus_copy.vue?vue&type=template&id=6a907eff&");
 
 
 /***/ }),
@@ -27506,13 +27975,82 @@ var render = function() {
                             "v-form",
                             {
                               ref: "contact_us_form",
-                              attrs: { "lazy-validation": "" }
+                              attrs: {
+                                disabled: _vm.form_disabled,
+                                "lazy-validation": ""
+                              }
                             },
                             [
+                              _c(
+                                "v-snackbar",
+                                {
+                                  attrs: {
+                                    color: "green",
+                                    timeout: _vm.timeout,
+                                    top: "",
+                                    right: ""
+                                  },
+                                  scopedSlots: _vm._u([
+                                    {
+                                      key: "action",
+                                      fn: function(ref) {
+                                        var attrs = ref.attrs
+                                        return [
+                                          _c(
+                                            "v-btn",
+                                            _vm._b(
+                                              {
+                                                attrs: {
+                                                  color: "white",
+                                                  text: ""
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    _vm.success_snackbar = false
+                                                  }
+                                                }
+                                              },
+                                              "v-btn",
+                                              attrs,
+                                              false
+                                            ),
+                                            [
+                                              _vm._v(
+                                                "\n                        Close\n                     "
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      }
+                                    }
+                                  ]),
+                                  model: {
+                                    value: _vm.success_snackbar,
+                                    callback: function($$v) {
+                                      _vm.success_snackbar = $$v
+                                    },
+                                    expression: "success_snackbar"
+                                  }
+                                },
+                                [
+                                  _c("v-icon", { attrs: { left: "" } }, [
+                                    _vm._v(
+                                      "\n                     mdi-check-circle\n                  "
+                                    )
+                                  ]),
+                                  _vm._v(
+                                    "\n                     Message Sent Successfully !!\n\n                     "
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
                               _c("v-text-field", {
                                 attrs: {
                                   rules: _vm.nameRules,
                                   label: "Name",
+                                  placeholder: "Enter Name Here",
+                                  "prepend-inner-icon": "mdi-account-details",
                                   required: "",
                                   outlined: ""
                                 },
@@ -27530,6 +28068,8 @@ var render = function() {
                                   rules: _vm.emailRules,
                                   label: "E-mail",
                                   type: "email",
+                                  placeholder: "Enter Email Here",
+                                  "prepend-inner-icon": "mdi-email",
                                   required: "",
                                   outlined: ""
                                 },
@@ -27546,9 +28086,10 @@ var render = function() {
                                 attrs: {
                                   rules: _vm.messageRules,
                                   label: "Message",
-                                  "auto-grow": "",
-                                  placeholder: "Enter Text Here",
+                                  placeholder: "Enter Message Here",
+                                  "prepend-inner-icon": "mdi-comment",
                                   rows: "1",
+                                  "auto-grow": "",
                                   outlined: ""
                                 },
                                 model: {
@@ -27569,7 +28110,580 @@ var render = function() {
                                       "v-btn",
                                       {
                                         staticClass: "mx-2",
-                                        attrs: { color: "success" },
+                                        attrs: {
+                                          color: "success",
+                                          loading: _vm.form_loading
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.submitForm.apply(
+                                              null,
+                                              arguments
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                              Submit\n                           "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        staticClass: "mx-2",
+                                        attrs: { color: "error" },
+                                        on: { click: _vm.reset }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                              Reset Form\n                           "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        staticClass: "mx-2",
+                                        attrs: { color: "warning" },
+                                        on: { click: _vm.resetValidation }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                              Reset Validation\n                           "
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                )
+                              ])
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    [
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "mt-n2 mt-sm-n2 mt-md-0",
+                          attrs: { cols: "12", sm: "12", md: "4", lg: "4" }
+                        },
+                        [
+                          _c(
+                            "v-card",
+                            {
+                              staticClass: "mx-auto mx-md-0",
+                              attrs: { flat: "", width: "300" }
+                            },
+                            [
+                              _c(
+                                "v-card-title",
+                                {
+                                  staticClass:
+                                    "\n                           text-body-h6\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        Gulshan Campus\n                     "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-card-text",
+                                {
+                                  staticClass:
+                                    "\n                           text-body-1\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        Plot # CEN-16, Road # 106 "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Gulshan 2, Dhaka-1212 "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Bangladesh "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Phone: +88-02-55060025, "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        9862251, 58817525 "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Mobile: 01780364414 "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Fax: +88-02-55059924 "
+                                  ),
+                                  _c("br")
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "mt-md-4 mt-n4",
+                          attrs: { cols: "12", sm: "12", md: "8", lg: "8" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "\n                        text-body-1\n                        font-weight-bold\n                        grey--text\n                        text--darken-2\n                        text-center\n                        text-md-left\n                     "
+                            },
+                            [
+                              _vm._v(
+                                "\n                     Gulshan Campus Location\n                  "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "pt-3" }, [
+                            _c("iframe", {
+                              staticStyle: { border: "0" },
+                              attrs: {
+                                src:
+                                  "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14603.046330302512!2d90.4146433!3d23.7915029!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x121a03a4382f1df4!2sManarat+International+University!5e0!3m2!1sen!2sbd!4v1545627074631",
+                                width: "100%",
+                                height: "400",
+                                allowfullscreen: "",
+                                loading: "eager"
+                              }
+                            })
+                          ])
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    [
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "mt-n8 mt-md-0",
+                          attrs: { cols: "12", sm: "12", md: "4", lg: "4" }
+                        },
+                        [
+                          _c(
+                            "v-card",
+                            {
+                              staticClass: "mx-auto mx-md-0",
+                              attrs: { flat: "", width: "300" }
+                            },
+                            [
+                              _c(
+                                "v-card-title",
+                                {
+                                  staticClass:
+                                    "\n                           text-body-h6\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        Ashulia Permanent "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Campus\n                     "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-card-text",
+                                {
+                                  staticClass:
+                                    "\n                           text-body-1\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                        Ashulia Model Town, "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Khagan, Ashulia "
+                                  ),
+                                  _c("br"),
+                                  _vm._v("\n                        Dhaka "),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Phone: 09666911624, "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        09666911625, 09666911626, "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        09666911627 "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        Mobile: 01819245895, "
+                                  ),
+                                  _c("br"),
+                                  _vm._v(
+                                    "\n                        01780364415\n                     "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "mt-md-4 mt-n4",
+                          attrs: { cols: "12", sm: "12", md: "8", lg: "8" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "\n                        text-body-1\n                        font-weight-bold\n                        grey--text\n                        text--darken-2\n                     "
+                            },
+                            [
+                              _vm._v(
+                                "\n                     Ashulia Permanent Campus Location\n                  "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "pt-3" }, [
+                            _c("iframe", {
+                              staticStyle: { border: "0" },
+                              attrs: {
+                                src:
+                                  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29186.769300654392!2d90.30785646504465!3d23.87734075018992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c213b785c80f%3A0x160471c997db5233!2sManarat%20International%20University!5e0!3m2!1sen!2sbd!4v1626133954937!5m2!1sen!2sbd",
+                                width: "100%",
+                                height: "400",
+                                allowfullscreen: "",
+                                loading: "eager"
+                              }
+                            })
+                          ])
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/contactus_copy.vue?vue&type=template&id=6a907eff&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/contactus_copy.vue?vue&type=template&id=6a907eff& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _vm._v("\n   name: " + _vm._s(_vm.name) + " "),
+      _c("br"),
+      _vm._v("\n   email: " + _vm._s(_vm.email) + " "),
+      _c("br"),
+      _vm._v("\n   message: " + _vm._s(_vm.message) + " "),
+      _c("br"),
+      _vm._v("\n   dummy: " + _vm._s(_vm.dummy) + " "),
+      _c("br"),
+      _vm._v("\n   errors: " + _vm._s(_vm.errors) + " "),
+      _c("br"),
+      _vm._v("\n   error_message: " + _vm._s(_vm.error_message) + " "),
+      _c("br"),
+      _vm._v("\n   name_error: " + _vm._s(_vm.name_error) + " "),
+      _c("br"),
+      _vm._v("\n   email_error: " + _vm._s(_vm.email_error) + " "),
+      _c("br"),
+      _vm._v("\n   message_error: " + _vm._s(_vm.message_error) + " "),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "v-sheet",
+        { staticClass: "mt-6 pt-6 pb-2 px-8" },
+        [
+          _c(
+            "v-row",
+            { staticClass: "mb-4 mx-sm-10" },
+            [
+              _c(
+                "v-col",
+                [
+                  _c("v-row", [
+                    _c(
+                      "div",
+                      { staticClass: "mx-auto" },
+                      [
+                        _c(
+                          "v-card",
+                          { attrs: { flat: "" } },
+                          [
+                            _c(
+                              "v-card-title",
+                              {
+                                staticClass:
+                                  "\n                           text-h5\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
+                              },
+                              [
+                                _c(
+                                  "v-icon",
+                                  {
+                                    attrs: {
+                                      large: "",
+                                      left: "",
+                                      color: "grey darken-1"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "mdi-phone\n                        "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(
+                                  "\n                        Contact Us\n                     "
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    [
+                      _c(
+                        "v-col",
+                        { staticClass: "mb-3" },
+                        [
+                          _c(
+                            "v-form",
+                            {
+                              ref: "contact_us_form",
+                              attrs: {
+                                disabled: _vm.form_disabled,
+                                "lazy-validation": ""
+                              }
+                            },
+                            [
+                              _c(
+                                "v-snackbar",
+                                {
+                                  attrs: {
+                                    color: "green",
+                                    timeout: _vm.timeout,
+                                    top: "",
+                                    right: ""
+                                  },
+                                  scopedSlots: _vm._u([
+                                    {
+                                      key: "action",
+                                      fn: function(ref) {
+                                        var attrs = ref.attrs
+                                        return [
+                                          _c(
+                                            "v-btn",
+                                            _vm._b(
+                                              {
+                                                attrs: {
+                                                  color: "white",
+                                                  text: ""
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    _vm.success_snackbar = false
+                                                  }
+                                                }
+                                              },
+                                              "v-btn",
+                                              attrs,
+                                              false
+                                            ),
+                                            [
+                                              _vm._v(
+                                                "\n                        Close\n                     "
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      }
+                                    }
+                                  ]),
+                                  model: {
+                                    value: _vm.success_snackbar,
+                                    callback: function($$v) {
+                                      _vm.success_snackbar = $$v
+                                    },
+                                    expression: "success_snackbar"
+                                  }
+                                },
+                                [
+                                  _c("v-icon", { attrs: { left: "" } }, [
+                                    _vm._v(
+                                      "\n                     mdi-check-circle\n                  "
+                                    )
+                                  ]),
+                                  _vm._v(
+                                    "\n                     Message Sent Successfully !!\n\n                     "
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c("v-text-field", {
+                                attrs: {
+                                  label: "Name",
+                                  placeholder: "Enter Name Here",
+                                  "prepend-inner-icon": "mdi-account-details",
+                                  outlined: ""
+                                },
+                                model: {
+                                  value: _vm.name,
+                                  callback: function($$v) {
+                                    _vm.name = $$v
+                                  },
+                                  expression: "name"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _vm.errors && _vm.errors.name
+                                ? _c(
+                                    "v-alert",
+                                    {
+                                      attrs: {
+                                        value: _vm.name_alert,
+                                        color: "pink",
+                                        dark: "",
+                                        border: "top",
+                                        icon: "mdi-home",
+                                        transition: "scale-transition"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "                        \n                        " +
+                                          _vm._s(_vm.errors.name[0]) +
+                                          "\n                     "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _c("v-text-field", {
+                                attrs: {
+                                  label: "E-mail",
+                                  type: "email",
+                                  placeholder: "Enter Email Here",
+                                  "prepend-inner-icon": "mdi-email",
+                                  outlined: ""
+                                },
+                                model: {
+                                  value: _vm.email,
+                                  callback: function($$v) {
+                                    _vm.email = $$v
+                                  },
+                                  expression: "email"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-textarea", {
+                                attrs: {
+                                  label: "Message",
+                                  placeholder: "Enter Message Here",
+                                  "prepend-inner-icon": "mdi-comment",
+                                  rows: "1",
+                                  "auto-grow": "",
+                                  outlined: ""
+                                },
+                                model: {
+                                  value: _vm.message,
+                                  callback: function($$v) {
+                                    _vm.message = $$v
+                                  },
+                                  expression: "message"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-row", { staticClass: "mt-2" }, [
+                                _c(
+                                  "div",
+                                  { staticClass: "d-flex flex-row mx-auto" },
+                                  [
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        staticClass: "mx-2",
+                                        attrs: {
+                                          color: "success",
+                                          loading: _vm.form_loading
+                                        },
                                         on: {
                                           click: function($event) {
                                             $event.preventDefault()
@@ -45136,8 +46250,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/VIcon.js");
 /* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
 /* harmony import */ var vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/components/VSheet */ "./node_modules/vuetify/lib/components/VSheet/VSheet.js");
-/* harmony import */ var vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vuetify/lib/components/VTextField */ "./node_modules/vuetify/lib/components/VTextField/VTextField.js");
-/* harmony import */ var vuetify_lib_components_VTextarea__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuetify/lib/components/VTextarea */ "./node_modules/vuetify/lib/components/VTextarea/VTextarea.js");
+/* harmony import */ var vuetify_lib_components_VSnackbar__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vuetify/lib/components/VSnackbar */ "./node_modules/vuetify/lib/components/VSnackbar/VSnackbar.js");
+/* harmony import */ var vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuetify/lib/components/VTextField */ "./node_modules/vuetify/lib/components/VTextField/VTextField.js");
+/* harmony import */ var vuetify_lib_components_VTextarea__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vuetify/lib/components/VTextarea */ "./node_modules/vuetify/lib/components/VTextarea/VTextarea.js");
 
 
 
@@ -45169,12 +46284,84 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 
 
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VBtn: vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCardText: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardText,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__.default,VForm: vuetify_lib_components_VForm__WEBPACK_IMPORTED_MODULE_8__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_9__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__.default,VSheet: vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_11__.default,VTextField: vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_12__.default,VTextarea: vuetify_lib_components_VTextarea__WEBPACK_IMPORTED_MODULE_13__.default})
+
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VBtn: vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCardText: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardText,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__.default,VForm: vuetify_lib_components_VForm__WEBPACK_IMPORTED_MODULE_8__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_9__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__.default,VSheet: vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_11__.default,VSnackbar: vuetify_lib_components_VSnackbar__WEBPACK_IMPORTED_MODULE_12__.default,VTextField: vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_13__.default,VTextarea: vuetify_lib_components_VTextarea__WEBPACK_IMPORTED_MODULE_14__.default})
 
 
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/pages/contactus.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/contactus_copy.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/pages/contactus_copy.vue ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _contactus_copy_vue_vue_type_template_id_6a907eff___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./contactus_copy.vue?vue&type=template&id=6a907eff& */ "./resources/js/pages/contactus_copy.vue?vue&type=template&id=6a907eff&");
+/* harmony import */ var _contactus_copy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./contactus_copy.vue?vue&type=script&lang=js& */ "./resources/js/pages/contactus_copy.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vuetify-loader/lib/runtime/installComponents.js */ "./node_modules/vuetify-loader/lib/runtime/installComponents.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VAlert */ "./node_modules/vuetify/lib/components/VAlert/VAlert.js");
+/* harmony import */ var vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VBtn */ "./node_modules/vuetify/lib/components/VBtn/VBtn.js");
+/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/VCard.js");
+/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/index.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VCol.js");
+/* harmony import */ var vuetify_lib_components_VForm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VForm */ "./node_modules/vuetify/lib/components/VForm/VForm.js");
+/* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/VIcon.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
+/* harmony import */ var vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vuetify/lib/components/VSheet */ "./node_modules/vuetify/lib/components/VSheet/VSheet.js");
+/* harmony import */ var vuetify_lib_components_VSnackbar__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuetify/lib/components/VSnackbar */ "./node_modules/vuetify/lib/components/VSnackbar/VSnackbar.js");
+/* harmony import */ var vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vuetify/lib/components/VTextField */ "./node_modules/vuetify/lib/components/VTextField/VTextField.js");
+/* harmony import */ var vuetify_lib_components_VTextarea__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! vuetify/lib/components/VTextarea */ "./node_modules/vuetify/lib/components/VTextarea/VTextarea.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _contactus_copy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _contactus_copy_vue_vue_type_template_id_6a907eff___WEBPACK_IMPORTED_MODULE_0__.render,
+  _contactus_copy_vue_vue_type_template_id_6a907eff___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* vuetify-loader */
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VAlert: vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__.default,VBtn: vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_5__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.default,VCardText: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_7__.VCardText,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_7__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__.default,VForm: vuetify_lib_components_VForm__WEBPACK_IMPORTED_MODULE_9__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_10__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_11__.default,VSheet: vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_12__.default,VSnackbar: vuetify_lib_components_VSnackbar__WEBPACK_IMPORTED_MODULE_13__.default,VTextField: vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_14__.default,VTextarea: vuetify_lib_components_VTextarea__WEBPACK_IMPORTED_MODULE_15__.default})
+
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/contactus_copy.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -52503,6 +53690,221 @@ const BaseSlideGroup = (0,_util_mixins__WEBPACK_IMPORTED_MODULE_1__.default)(_VI
 
 }));
 //# sourceMappingURL=VSlideGroup.js.map
+
+/***/ }),
+
+/***/ "./node_modules/vuetify/lib/components/VSnackbar/VSnackbar.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/vuetify/lib/components/VSnackbar/VSnackbar.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _src_components_VSnackbar_VSnackbar_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../src/components/VSnackbar/VSnackbar.sass */ "./node_modules/vuetify/src/components/VSnackbar/VSnackbar.sass");
+/* harmony import */ var _VSheet_VSheet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../VSheet/VSheet */ "./node_modules/vuetify/lib/components/VSheet/VSheet.js");
+/* harmony import */ var _mixins_colorable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mixins/colorable */ "./node_modules/vuetify/lib/mixins/colorable/index.js");
+/* harmony import */ var _mixins_themeable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../mixins/themeable */ "./node_modules/vuetify/lib/mixins/themeable/index.js");
+/* harmony import */ var _mixins_toggleable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../mixins/toggleable */ "./node_modules/vuetify/lib/mixins/toggleable/index.js");
+/* harmony import */ var _mixins_positionable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../mixins/positionable */ "./node_modules/vuetify/lib/mixins/positionable/index.js");
+/* harmony import */ var _util_mixins__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/mixins */ "./node_modules/vuetify/lib/util/mixins.js");
+/* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../util/helpers */ "./node_modules/vuetify/lib/util/helpers.js");
+/* harmony import */ var _util_console__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../util/console */ "./node_modules/vuetify/lib/util/console.js");
+// Styles
+ // Components
+
+ // Mixins
+
+
+
+
+ // Utilities
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_util_mixins__WEBPACK_IMPORTED_MODULE_1__.default)(_VSheet_VSheet__WEBPACK_IMPORTED_MODULE_2__.default, _mixins_colorable__WEBPACK_IMPORTED_MODULE_3__.default, _mixins_toggleable__WEBPACK_IMPORTED_MODULE_4__.default, (0,_mixins_positionable__WEBPACK_IMPORTED_MODULE_5__.factory)(['absolute', 'bottom', 'left', 'right', 'top'])
+/* @vue/component */
+).extend({
+  name: 'v-snackbar',
+  props: {
+    app: Boolean,
+    centered: Boolean,
+    contentClass: {
+      type: String,
+      default: ''
+    },
+    multiLine: Boolean,
+    text: Boolean,
+    timeout: {
+      type: [Number, String],
+      default: 5000
+    },
+    transition: {
+      type: [Boolean, String],
+      default: 'v-snack-transition',
+      validator: v => typeof v === 'string' || v === false
+    },
+    vertical: Boolean
+  },
+  data: () => ({
+    activeTimeout: -1
+  }),
+  computed: {
+    classes() {
+      return {
+        'v-snack--absolute': this.absolute,
+        'v-snack--active': this.isActive,
+        'v-snack--bottom': this.bottom || !this.top,
+        'v-snack--centered': this.centered,
+        'v-snack--has-background': this.hasBackground,
+        'v-snack--left': this.left,
+        'v-snack--multi-line': this.multiLine && !this.vertical,
+        'v-snack--right': this.right,
+        'v-snack--text': this.text,
+        'v-snack--top': this.top,
+        'v-snack--vertical': this.vertical
+      };
+    },
+
+    // Text and outlined styles both
+    // use transparent backgrounds
+    hasBackground() {
+      return !this.text && !this.outlined;
+    },
+
+    // Snackbar is dark by default
+    // override themeable logic.
+    isDark() {
+      return this.hasBackground ? !this.light : _mixins_themeable__WEBPACK_IMPORTED_MODULE_6__.default.options.computed.isDark.call(this);
+    },
+
+    styles() {
+      // Styles are not needed when
+      // using the absolute prop.
+      if (this.absolute) return {};
+      const {
+        bar,
+        bottom,
+        footer,
+        insetFooter,
+        left,
+        right,
+        top
+      } = this.$vuetify.application; // Should always move for y-axis
+      // applicationable components.
+
+      return {
+        paddingBottom: (0,_util_helpers__WEBPACK_IMPORTED_MODULE_7__.convertToUnit)(bottom + footer + insetFooter),
+        paddingLeft: !this.app ? undefined : (0,_util_helpers__WEBPACK_IMPORTED_MODULE_7__.convertToUnit)(left),
+        paddingRight: !this.app ? undefined : (0,_util_helpers__WEBPACK_IMPORTED_MODULE_7__.convertToUnit)(right),
+        paddingTop: (0,_util_helpers__WEBPACK_IMPORTED_MODULE_7__.convertToUnit)(bar + top)
+      };
+    }
+
+  },
+  watch: {
+    isActive: 'setTimeout',
+    timeout: 'setTimeout'
+  },
+
+  mounted() {
+    if (this.isActive) this.setTimeout();
+  },
+
+  created() {
+    /* istanbul ignore next */
+    if (this.$attrs.hasOwnProperty('auto-height')) {
+      (0,_util_console__WEBPACK_IMPORTED_MODULE_8__.removed)('auto-height', this);
+    }
+    /* istanbul ignore next */
+    // eslint-disable-next-line eqeqeq
+
+
+    if (this.timeout == 0) {
+      (0,_util_console__WEBPACK_IMPORTED_MODULE_8__.deprecate)('timeout="0"', '-1', this);
+    }
+  },
+
+  methods: {
+    genActions() {
+      return this.$createElement('div', {
+        staticClass: 'v-snack__action '
+      }, [(0,_util_helpers__WEBPACK_IMPORTED_MODULE_7__.getSlot)(this, 'action', {
+        attrs: {
+          class: 'v-snack__btn'
+        }
+      })]);
+    },
+
+    genContent() {
+      return this.$createElement('div', {
+        staticClass: 'v-snack__content',
+        class: {
+          [this.contentClass]: true
+        },
+        attrs: {
+          role: 'status',
+          'aria-live': 'polite'
+        }
+      }, [(0,_util_helpers__WEBPACK_IMPORTED_MODULE_7__.getSlot)(this)]);
+    },
+
+    genWrapper() {
+      const setColor = this.hasBackground ? this.setBackgroundColor : this.setTextColor;
+      const data = setColor(this.color, {
+        staticClass: 'v-snack__wrapper',
+        class: _VSheet_VSheet__WEBPACK_IMPORTED_MODULE_2__.default.options.computed.classes.call(this),
+        style: _VSheet_VSheet__WEBPACK_IMPORTED_MODULE_2__.default.options.computed.styles.call(this),
+        directives: [{
+          name: 'show',
+          value: this.isActive
+        }],
+        on: {
+          mouseenter: () => window.clearTimeout(this.activeTimeout),
+          mouseleave: this.setTimeout
+        }
+      });
+      return this.$createElement('div', data, [this.genContent(), this.genActions()]);
+    },
+
+    genTransition() {
+      return this.$createElement('transition', {
+        props: {
+          name: this.transition
+        }
+      }, [this.genWrapper()]);
+    },
+
+    setTimeout() {
+      window.clearTimeout(this.activeTimeout);
+      const timeout = Number(this.timeout);
+
+      if (!this.isActive || // TODO: remove 0 in v3
+      [0, -1].includes(timeout)) {
+        return;
+      }
+
+      this.activeTimeout = window.setTimeout(() => {
+        this.isActive = false;
+      }, timeout);
+    }
+
+  },
+
+  render(h) {
+    return h('div', {
+      staticClass: 'v-snack',
+      class: this.classes,
+      style: this.styles
+    }, [this.transition !== false ? this.genTransition() : this.genWrapper()]);
+  }
+
+}));
+//# sourceMappingURL=VSnackbar.js.map
 
 /***/ }),
 

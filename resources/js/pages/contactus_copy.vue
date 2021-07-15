@@ -4,7 +4,11 @@
       email: {{ email }} <br>
       message: {{ message }} <br>
       dummy: {{ dummy }} <br>
-      errors: {{ errors }}
+      errors: {{ errors }} <br>
+      error_message: {{ error_message }} <br>
+      name_error: {{ name_error }} <br>
+      email_error: {{ email_error }} <br>
+      message_error: {{ message_error }} <br>
 
       <v-sheet class="mt-6 pt-6 pb-2 px-8">
          <v-row class="mb-4 mx-sm-10">
@@ -59,36 +63,51 @@
                      </v-snackbar>
                      <!-- End Snackbar For successful Form Submission -->
 
+                     <!-- Name Field With Alert -->
                         <v-text-field
                            v-model="name"
-                           :rules="nameRules"
+                           
                            label="Name"
                            placeholder="Enter Name Here"
                            prepend-inner-icon="mdi-account-details"
-                           required
+                           
                            outlined
-                        ></v-text-field>
+                        ></v-text-field>                        
 
+                        <v-alert
+                           v-if="errors && errors.name"
+                           :value="name_alert"
+                           color="pink"
+                           dark
+                           border="top"
+                           icon="mdi-home"
+                           transition="scale-transition"
+                        >                        
+                           {{ errors.name[0] }}
+                        </v-alert>
+                        <!-- End Name Field With Alert -->
+
+                        <!-- Email Field With Alert -->
                         <v-text-field
                            v-model="email"
-                           :rules="emailRules"
+                           
                            label="E-mail"
                            type="email"
                            placeholder="Enter Email Here"
                            prepend-inner-icon="mdi-email"
-                           required
+                           
                            outlined
                         ></v-text-field>
 
                         <v-textarea
                            v-model="message"
-                           :rules="messageRules"
+                           
                            label="Message"
                            placeholder="Enter Message Here"
                            prepend-inner-icon="mdi-comment"
                            rows="1"
                            auto-grow
-                           outlined                           
+                           outlined
                         ></v-textarea>
                         <!-- Validate and Submit -->
                         <v-row class="mt-2">
@@ -240,20 +259,19 @@
 export default {
    data: () => ({
       dummy:"",
+      name_alert: false,
+      error_message: '',
       errors:[],
       form_disabled: false,
       form_loading: false,
-      success_snackbar: false,
+      success_snackbar: true,      
       timeout: 40000,
       name: "",
-      nameRules: [(v) => !!v || "Name is required"],
+      
       email: "",
-      emailRules: [
-         (v) => !!v || "E-mail is required",
-         (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
-      ],
+
       message: "",
-      messageRules: [(v) => !!v || "A message is required"],
+      
    }),
 
    methods: {
@@ -276,10 +294,13 @@ export default {
                     this.$refs.contact_us_form.reset()
                 })
                 .catch((error) => {
-                    console.log(error)
+                    console.log(error.response.data.errors)
                     this.errors = error.response.data.errors
+                    this.error_message = error.response.data.message
                     this.dummy = "Request Not Sent !!"
                     this.form_disabled = false
+                    this.form_loading = false
+                    this.name_alert = true
                 });            
          } else {
             //false
