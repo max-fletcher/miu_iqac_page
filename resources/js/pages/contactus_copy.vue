@@ -6,9 +6,6 @@
       dummy: {{ dummy }} <br>
       errors: {{ errors }} <br>
       error_message: {{ error_message }} <br>
-      name_error: {{ name_error }} <br>
-      email_error: {{ email_error }} <br>
-      message_error: {{ message_error }} <br>
 
       <v-sheet class="mt-6 pt-6 pb-2 px-8">
          <v-row class="mb-4 mx-sm-10">
@@ -40,7 +37,7 @@
                      <!-- Snackbar For successful Form Submission -->
                      <v-snackbar
                         v-model="success_snackbar"
-                        color="green"                        
+                        color="green"
                         :timeout="timeout"
                         top
                         right
@@ -66,7 +63,7 @@
                      <!-- Name Field With Alert -->
                         <v-text-field
                            v-model="name"
-                           
+                           @input = "name_alert= false"
                            label="Name"
                            placeholder="Enter Name Here"
                            prepend-inner-icon="mdi-account-details"
@@ -77,11 +74,12 @@
                         <v-alert
                            v-if="errors && errors.name"
                            :value="name_alert"
-                           color="pink"
+                           type="error"
                            dark
-                           border="top"
-                           icon="mdi-home"
+                           text
+                           dense
                            transition="scale-transition"
+                           class="mt-n5"
                         >                        
                            {{ errors.name[0] }}
                         </v-alert>
@@ -264,8 +262,8 @@ export default {
       errors:[],
       form_disabled: false,
       form_loading: false,
-      success_snackbar: true,      
-      timeout: 40000,
+      success_snackbar: false,
+      timeout: 3000,
       name: "",
       
       email: "",

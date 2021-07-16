@@ -4,7 +4,8 @@
       email: {{ email }} <br>
       message: {{ message }} <br>
       dummy: {{ dummy }} <br>
-      errors: {{ errors }}
+      errors: {{ errors }} <br>
+      error_message: {{ error_message }} <br>
 
       <v-sheet class="mt-6 pt-6 pb-2 px-8">
          <v-row class="mb-4 mx-sm-10">
@@ -37,7 +38,7 @@
                      <v-snackbar
                         v-model="success_snackbar"
                         color="green"                        
-                        :timeout="timeout"
+                        :timeout="timeout"                             
                         top
                         right
                      >
@@ -59,8 +60,10 @@
                      </v-snackbar>
                      <!-- End Snackbar For successful Form Submission -->
 
+                     <!-- Name Field With Alert -->
                         <v-text-field
                            v-model="name"
+                           @input = "name_alert= false"
                            :rules="nameRules"
                            label="Name"
                            placeholder="Enter Name Here"
@@ -68,9 +71,25 @@
                            required
                            outlined
                         ></v-text-field>
+                        
+                        <v-alert
+                           v-if="errors && errors.name"
+                           :value="name_alert"
+                           type="error"
+                           dark
+                           text
+                           dense
+                           transition="scale-transition"
+                           class="mt-n5"
+                        >                        
+                           {{ errors.name[0] }}
+                        </v-alert>
+                        <!-- End Name Field With Alert -->
 
+                        <!-- Email Field With Alert -->
                         <v-text-field
                            v-model="email"
+                           @input = "error_alert= false"
                            :rules="emailRules"
                            label="E-mail"
                            type="email"
@@ -80,6 +99,21 @@
                            outlined
                         ></v-text-field>
 
+                        <v-alert
+                           v-if="errors && errors.name"
+                           :value="name_alert"
+                           type="error"
+                           dark
+                           text
+                           dense
+                           transition="scale-transition"
+                           class="mt-n5"
+                        >                        
+                           {{ errors.name[0] }}
+                        </v-alert>
+                        <!-- End Email Field With Alert -->
+
+                        <!-- Message Field With Alert -->
                         <v-textarea
                            v-model="message"
                            :rules="messageRules"
@@ -90,6 +124,21 @@
                            auto-grow
                            outlined                           
                         ></v-textarea>
+
+                        <v-alert
+                           v-if="errors && errors.name"
+                           :value="name_alert"
+                           type="error"
+                           dark
+                           text
+                           dense
+                           transition="scale-transition"
+                           class="mt-n5"
+                        >                        
+                           {{ errors.name[0] }}
+                        </v-alert>
+                        <!-- End Message Field With Alert -->
+
                         <!-- Validate and Submit -->
                         <v-row class="mt-2">
                            <div class="d-flex flex-row mx-auto">
@@ -241,18 +290,22 @@ export default {
    data: () => ({
       dummy:"",
       errors:[],
+      error_message: '',
       form_disabled: false,
       form_loading: false,
       success_snackbar: false,
-      timeout: 40000,
+      timeout: 3000,
       name: "",
+      name_alert: false,
       nameRules: [(v) => !!v || "Name is required"],
       email: "",
+      email_alert: false,
       emailRules: [
          (v) => !!v || "E-mail is required",
          (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
       ],
       message: "",
+      message_alert: false,
       messageRules: [(v) => !!v || "A message is required"],
    }),
 
@@ -263,24 +316,29 @@ export default {
             this.form_disabled = true
             this.form_loading = true
             axios.post("/api/contact_us/store", {
-                    name: this.name,
-                    email: this.email,
-                    message: this.message
-                })
-                .then((res) => {
-                    console.log(res)
-                    this.dummy = "Login Post Request Sent Successfully !!"
-                    this.success_snackbar = true
-                    this.form_disabled = false
-                    this.form_loading = false
-                    this.$refs.contact_us_form.reset()
-                })
-                .catch((error) => {
-                    console.log(error)
-                    this.errors = error.response.data.errors
-                    this.dummy = "Request Not Sent !!"
-                    this.form_disabled = false
-                });            
+               name: this.name,
+               email: this.email,
+               message: this.message
+            })
+            .then((res) => {
+               console.log(res)
+               this.dummy = "Login Post Request Sent Successfully !!"
+               this.success_snackbar = true
+               this.form_disabled = false
+               this.form_loading = false
+               this.$refs.contact_us_form.reset()
+            })
+            .catch((error) => {
+               console.log(error)
+               this.errors = error.response.data.errors
+               this.error_message = error.response.data.message
+               this.dummy = "Request Not Sent !!"
+               this.form_disabled = false
+               this.form_loading = false
+               this.name_alert = true
+               this.email_alert = true
+               this.message_alert = true
+            });            
          } else {
             //false
             this.$refs.contact_us_form.validate()

@@ -3491,26 +3491,79 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       dummy: "",
       errors: [],
+      error_message: '',
       form_disabled: false,
       form_loading: false,
       success_snackbar: false,
-      timeout: 40000,
+      timeout: 3000,
       name: "",
+      name_alert: false,
       nameRules: [function (v) {
         return !!v || "Name is required";
       }],
       email: "",
+      email_alert: false,
       emailRules: [function (v) {
         return !!v || "E-mail is required";
       }, function (v) {
         return /.+@.+\..+/.test(v) || "E-mail must be valid";
       }],
       message: "",
+      message_alert: false,
       messageRules: [function (v) {
         return !!v || "A message is required";
       }]
@@ -3540,8 +3593,13 @@ __webpack_require__.r(__webpack_exports__);
         })["catch"](function (error) {
           console.log(error);
           _this.errors = error.response.data.errors;
+          _this.error_message = error.response.data.message;
           _this.dummy = "Request Not Sent !!";
           _this.form_disabled = false;
+          _this.form_loading = false;
+          _this.name_alert = true;
+          _this.email_alert = true;
+          _this.message_alert = true;
         });
       } else {
         //false
@@ -3825,8 +3883,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3836,8 +3892,8 @@ __webpack_require__.r(__webpack_exports__);
       errors: [],
       form_disabled: false,
       form_loading: false,
-      success_snackbar: true,
-      timeout: 40000,
+      success_snackbar: false,
+      timeout: 3000,
       name: "",
       email: "",
       message: ""
@@ -27907,7 +27963,11 @@ var render = function() {
       _c("br"),
       _vm._v("\n   dummy: " + _vm._s(_vm.dummy) + " "),
       _c("br"),
-      _vm._v("\n   errors: " + _vm._s(_vm.errors) + "\n\n   "),
+      _vm._v("\n   errors: " + _vm._s(_vm.errors) + " "),
+      _c("br"),
+      _vm._v("\n   error_message: " + _vm._s(_vm.error_message) + " "),
+      _c("br"),
+      _vm._v(" "),
       _c(
         "v-sheet",
         { staticClass: "mt-6 pt-6 pb-2 px-8" },
@@ -28054,6 +28114,11 @@ var render = function() {
                                   required: "",
                                   outlined: ""
                                 },
+                                on: {
+                                  input: function($event) {
+                                    _vm.name_alert = false
+                                  }
+                                },
                                 model: {
                                   value: _vm.name,
                                   callback: function($$v) {
@@ -28062,6 +28127,30 @@ var render = function() {
                                   expression: "name"
                                 }
                               }),
+                              _vm._v(" "),
+                              _vm.errors && _vm.errors.name
+                                ? _c(
+                                    "v-alert",
+                                    {
+                                      staticClass: "mt-n5",
+                                      attrs: {
+                                        value: _vm.name_alert,
+                                        type: "error",
+                                        dark: "",
+                                        text: "",
+                                        dense: "",
+                                        transition: "scale-transition"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "                        \n                        " +
+                                          _vm._s(_vm.errors.name[0]) +
+                                          "\n                     "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
                               _vm._v(" "),
                               _c("v-text-field", {
                                 attrs: {
@@ -28073,6 +28162,11 @@ var render = function() {
                                   required: "",
                                   outlined: ""
                                 },
+                                on: {
+                                  input: function($event) {
+                                    _vm.error_alert = false
+                                  }
+                                },
                                 model: {
                                   value: _vm.email,
                                   callback: function($$v) {
@@ -28081,6 +28175,30 @@ var render = function() {
                                   expression: "email"
                                 }
                               }),
+                              _vm._v(" "),
+                              _vm.errors && _vm.errors.name
+                                ? _c(
+                                    "v-alert",
+                                    {
+                                      staticClass: "mt-n5",
+                                      attrs: {
+                                        value: _vm.name_alert,
+                                        type: "error",
+                                        dark: "",
+                                        text: "",
+                                        dense: "",
+                                        transition: "scale-transition"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "                        \n                        " +
+                                          _vm._s(_vm.errors.name[0]) +
+                                          "\n                     "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
                               _vm._v(" "),
                               _c("v-textarea", {
                                 attrs: {
@@ -28100,6 +28218,30 @@ var render = function() {
                                   expression: "message"
                                 }
                               }),
+                              _vm._v(" "),
+                              _vm.errors && _vm.errors.name
+                                ? _c(
+                                    "v-alert",
+                                    {
+                                      staticClass: "mt-n5",
+                                      attrs: {
+                                        value: _vm.name_alert,
+                                        type: "error",
+                                        dark: "",
+                                        text: "",
+                                        dense: "",
+                                        transition: "scale-transition"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "                        \n                        " +
+                                          _vm._s(_vm.errors.name[0]) +
+                                          "\n                     "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
                               _vm._v(" "),
                               _c("v-row", { staticClass: "mt-2" }, [
                                 _c(
@@ -28453,12 +28595,6 @@ var render = function() {
       _c("br"),
       _vm._v("\n   error_message: " + _vm._s(_vm.error_message) + " "),
       _c("br"),
-      _vm._v("\n   name_error: " + _vm._s(_vm.name_error) + " "),
-      _c("br"),
-      _vm._v("\n   email_error: " + _vm._s(_vm.email_error) + " "),
-      _c("br"),
-      _vm._v("\n   message_error: " + _vm._s(_vm.message_error) + " "),
-      _c("br"),
       _vm._v(" "),
       _c(
         "v-sheet",
@@ -28604,6 +28740,11 @@ var render = function() {
                                   "prepend-inner-icon": "mdi-account-details",
                                   outlined: ""
                                 },
+                                on: {
+                                  input: function($event) {
+                                    _vm.name_alert = false
+                                  }
+                                },
                                 model: {
                                   value: _vm.name,
                                   callback: function($$v) {
@@ -28617,12 +28758,13 @@ var render = function() {
                                 ? _c(
                                     "v-alert",
                                     {
+                                      staticClass: "mt-n5",
                                       attrs: {
                                         value: _vm.name_alert,
-                                        color: "pink",
+                                        type: "error",
                                         dark: "",
-                                        border: "top",
-                                        icon: "mdi-home",
+                                        text: "",
+                                        dense: "",
                                         transition: "scale-transition"
                                       }
                                     },
@@ -46242,17 +46384,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 /* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vuetify-loader/lib/runtime/installComponents.js */ "./node_modules/vuetify-loader/lib/runtime/installComponents.js");
 /* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VBtn */ "./node_modules/vuetify/lib/components/VBtn/VBtn.js");
-/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/VCard.js");
-/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/index.js");
-/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VCol.js");
-/* harmony import */ var vuetify_lib_components_VForm__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VForm */ "./node_modules/vuetify/lib/components/VForm/VForm.js");
-/* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/VIcon.js");
-/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
-/* harmony import */ var vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/components/VSheet */ "./node_modules/vuetify/lib/components/VSheet/VSheet.js");
-/* harmony import */ var vuetify_lib_components_VSnackbar__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vuetify/lib/components/VSnackbar */ "./node_modules/vuetify/lib/components/VSnackbar/VSnackbar.js");
-/* harmony import */ var vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuetify/lib/components/VTextField */ "./node_modules/vuetify/lib/components/VTextField/VTextField.js");
-/* harmony import */ var vuetify_lib_components_VTextarea__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vuetify/lib/components/VTextarea */ "./node_modules/vuetify/lib/components/VTextarea/VTextarea.js");
+/* harmony import */ var vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VAlert */ "./node_modules/vuetify/lib/components/VAlert/VAlert.js");
+/* harmony import */ var vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VBtn */ "./node_modules/vuetify/lib/components/VBtn/VBtn.js");
+/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/VCard.js");
+/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/index.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VCol.js");
+/* harmony import */ var vuetify_lib_components_VForm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VForm */ "./node_modules/vuetify/lib/components/VForm/VForm.js");
+/* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/VIcon.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
+/* harmony import */ var vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vuetify/lib/components/VSheet */ "./node_modules/vuetify/lib/components/VSheet/VSheet.js");
+/* harmony import */ var vuetify_lib_components_VSnackbar__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuetify/lib/components/VSnackbar */ "./node_modules/vuetify/lib/components/VSnackbar/VSnackbar.js");
+/* harmony import */ var vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vuetify/lib/components/VTextField */ "./node_modules/vuetify/lib/components/VTextField/VTextField.js");
+/* harmony import */ var vuetify_lib_components_VTextarea__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! vuetify/lib/components/VTextarea */ "./node_modules/vuetify/lib/components/VTextarea/VTextarea.js");
 
 
 
@@ -46285,7 +46428,8 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 
 
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VBtn: vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCardText: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardText,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__.default,VForm: vuetify_lib_components_VForm__WEBPACK_IMPORTED_MODULE_8__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_9__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__.default,VSheet: vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_11__.default,VSnackbar: vuetify_lib_components_VSnackbar__WEBPACK_IMPORTED_MODULE_12__.default,VTextField: vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_13__.default,VTextarea: vuetify_lib_components_VTextarea__WEBPACK_IMPORTED_MODULE_14__.default})
+
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VAlert: vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__.default,VBtn: vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_5__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.default,VCardText: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_7__.VCardText,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_7__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__.default,VForm: vuetify_lib_components_VForm__WEBPACK_IMPORTED_MODULE_9__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_10__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_11__.default,VSheet: vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_12__.default,VSnackbar: vuetify_lib_components_VSnackbar__WEBPACK_IMPORTED_MODULE_13__.default,VTextField: vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_14__.default,VTextarea: vuetify_lib_components_VTextarea__WEBPACK_IMPORTED_MODULE_15__.default})
 
 
 /* hot reload */
