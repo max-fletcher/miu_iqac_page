@@ -8,7 +8,6 @@ import Resources from "./pages/resources";
 import IQAC from "./pages/iqac";
 import SAC from "./pages/sac";
 import ContactUs from "./pages/contactus";
-import ContactUs2 from "./pages/contactus_copy";
 import NotFound from "./pages/notfound";
 //Auth Pages
 import Login from "./pages/auth/login";
@@ -84,12 +83,6 @@ export default{
          component: ContactUs,
          name: 'Contact Us',
          meta: { title: 'Contact Us' }
-      },
-      {
-         path: '/contact-us-2',
-         component: ContactUs2,
-         name: 'Contact Us 2',
-         meta: { title: 'Contact Us 2' }
       },
       // Admin Pages
       {

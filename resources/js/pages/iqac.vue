@@ -6,7 +6,7 @@
                   <v-img
                       height="400"
                       width="auto"
-                      src="/images/index.jpg"
+                      src="/storage/member_images/Screenshot (6)_1625980862.png"
                       alt=""
                       class="mx-auto"
                       position="center center"

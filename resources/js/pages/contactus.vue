@@ -1,12 +1,5 @@
 <template>
    <div>
-      name: {{ name }} <br>
-      email: {{ email }} <br>
-      message: {{ message }} <br>
-      dummy: {{ dummy }} <br>
-      errors: {{ errors }} <br>
-      error_message: {{ error_message }} <br>
-
       <v-sheet class="mt-6 pt-6 pb-2 px-8">
          <v-row class="mb-4 mx-sm-10">
             <v-col>
@@ -61,9 +54,10 @@
                      <!-- End Snackbar For successful Form Submission -->
 
                      <!-- Name Field With Alert -->
+
                         <v-text-field
                            v-model="name"
-                           @input = "name_alert= false"
+                           @input = "name_alert = false"
                            :rules="nameRules"
                            label="Name"
                            placeholder="Enter Name Here"
@@ -89,7 +83,7 @@
                         <!-- Email Field With Alert -->
                         <v-text-field
                            v-model="email"
-                           @input = "error_alert= false"
+                           @input = "email_alert= false"
                            :rules="emailRules"
                            label="E-mail"
                            type="email"
@@ -116,6 +110,7 @@
                         <!-- Message Field With Alert -->
                         <v-textarea
                            v-model="message"
+                           input = "message_alert = false"
                            :rules="messageRules"
                            label="Message"
                            placeholder="Enter Message Here"
@@ -140,24 +135,25 @@
                         <!-- End Message Field With Alert -->
 
                         <!-- Validate and Submit -->
-                        <v-row class="mt-2">
+                        <v-row class="">
                            <div class="d-flex flex-row mx-auto">
                               <v-btn
-                                 color="success"
-                                 class="mx-2"
+                                 color="green"
+                                 x-large                                 
                                  @click.prevent="submitForm"
                                  :loading="form_loading"
+                                 class="white--text"
                               >
                                  Submit
                               </v-btn>
                               <!-- Reset From -->
-                              <v-btn color="error" class="mx-2" @click="reset">
+                              <!-- <v-btn color="error" class="mx-2" @click="reset">
                                  Reset Form
-                              </v-btn>
+                              </v-btn> -->
                               <!-- Reset validation -->
-                              <v-btn color="warning" class="mx-2" @click="resetValidation">
+                              <!-- <v-btn color="warning" class="mx-2" @click="resetValidation">
                                  Reset Validation
-                              </v-btn>
+                              </v-btn> -->
                            </div>
                         </v-row>
                      </v-form>
@@ -344,12 +340,12 @@ export default {
             this.$refs.contact_us_form.validate()
          }         
       },
-      reset() {
-         this.$refs.contact_us_form.reset()
-      },
-      resetValidation() {
-         this.$refs.contact_us_form.resetValidation()
-      },
+      // reset() {
+      //    this.$refs.contact_us_form.reset()
+      // },
+      // resetValidation() {
+      //    this.$refs.contact_us_form.resetValidation()
+      // },
    },
 };
 </script>

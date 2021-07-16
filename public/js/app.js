@@ -3536,10 +3536,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3605,341 +3601,13 @@ __webpack_require__.r(__webpack_exports__);
         //false
         this.$refs.contact_us_form.validate();
       }
-    },
-    reset: function reset() {
-      this.$refs.contact_us_form.reset();
-    },
-    resetValidation: function resetValidation() {
-      this.$refs.contact_us_form.resetValidation();
-    }
-  }
-});
+    } // reset() {
+    //    this.$refs.contact_us_form.reset()
+    // },
+    // resetValidation() {
+    //    this.$refs.contact_us_form.resetValidation()
+    // },
 
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/contactus_copy.vue?vue&type=script&lang=js&":
-/*!****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/contactus_copy.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      dummy: "",
-      name_alert: false,
-      error_message: '',
-      errors: [],
-      form_disabled: false,
-      form_loading: false,
-      success_snackbar: false,
-      timeout: 3000,
-      name: "",
-      email: "",
-      message: ""
-    };
-  },
-  methods: {
-    submitForm: function submitForm() {
-      var _this = this;
-
-      this.validation = this.$refs.contact_us_form.validate();
-
-      if (this.$refs.contact_us_form.validate()) {
-        this.form_disabled = true;
-        this.form_loading = true;
-        axios.post("/api/contact_us/store", {
-          name: this.name,
-          email: this.email,
-          message: this.message
-        }).then(function (res) {
-          console.log(res);
-          _this.dummy = "Login Post Request Sent Successfully !!";
-          _this.success_snackbar = true;
-          _this.form_disabled = false;
-          _this.form_loading = false;
-
-          _this.$refs.contact_us_form.reset();
-        })["catch"](function (error) {
-          console.log(error.response.data.errors);
-          _this.errors = error.response.data.errors;
-          _this.error_message = error.response.data.message;
-          _this.dummy = "Request Not Sent !!";
-          _this.form_disabled = false;
-          _this.form_loading = false;
-          _this.name_alert = true;
-        });
-      } else {
-        //false
-        this.$refs.contact_us_form.validate();
-      }
-    },
-    reset: function reset() {
-      this.$refs.contact_us_form.reset();
-    },
-    resetValidation: function resetValidation() {
-      this.$refs.contact_us_form.resetValidation();
-    }
   }
 });
 
@@ -4139,28 +3807,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
  // import TopNav from './topnav'
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      items: [{
-        src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg"
-      }, {
-        src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg"
-      }, {
-        src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg"
-      }, {
-        src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg"
-      }]
+      items: []
     };
   },
   components: {
     QuickLinks: _components_quicklinks__WEBPACK_IMPORTED_MODULE_0__.default
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/api/carouselcontent/index").then(function (res) {
+      console.log(res);
+      _this.items = res.data;
+    })["catch"](function (error) {
+      console.log(error); // this.errors = error.response.data.errors
+    });
   }
 });
 
@@ -4652,17 +4318,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_iqac__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/iqac */ "./resources/js/pages/iqac.vue");
 /* harmony import */ var _pages_sac__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/sac */ "./resources/js/pages/sac.vue");
 /* harmony import */ var _pages_contactus__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/contactus */ "./resources/js/pages/contactus.vue");
-/* harmony import */ var _pages_contactus_copy__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/contactus_copy */ "./resources/js/pages/contactus_copy.vue");
-/* harmony import */ var _pages_notfound__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/notfound */ "./resources/js/pages/notfound.vue");
-/* harmony import */ var _pages_auth_login__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/auth/login */ "./resources/js/pages/auth/login.vue");
-/* harmony import */ var _pages_auth_register__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/auth/register */ "./resources/js/pages/auth/register.vue");
-/* harmony import */ var _pages_auth_adminpanel__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/auth/adminpanel */ "./resources/js/pages/auth/adminpanel.vue");
-/* harmony import */ var _pages_components_scrapped_topnav__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/components/scrapped/topnav */ "./resources/js/pages/components/scrapped/topnav.vue");
-/* harmony import */ var _pages_components_scrapped_tabsnav__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/components/scrapped/tabsnav */ "./resources/js/pages/components/scrapped/tabsnav.vue");
-/* harmony import */ var _pages_components_scrapped_quicklinksaccordion__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/components/scrapped/quicklinksaccordion */ "./resources/js/pages/components/scrapped/quicklinksaccordion.vue");
-/* harmony import */ var _pages_components_scrapped_carouseltext__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./pages/components/scrapped/carouseltext */ "./resources/js/pages/components/scrapped/carouseltext.vue");
+/* harmony import */ var _pages_notfound__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/notfound */ "./resources/js/pages/notfound.vue");
+/* harmony import */ var _pages_auth_login__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/auth/login */ "./resources/js/pages/auth/login.vue");
+/* harmony import */ var _pages_auth_register__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/auth/register */ "./resources/js/pages/auth/register.vue");
+/* harmony import */ var _pages_auth_adminpanel__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/auth/adminpanel */ "./resources/js/pages/auth/adminpanel.vue");
+/* harmony import */ var _pages_components_scrapped_topnav__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/components/scrapped/topnav */ "./resources/js/pages/components/scrapped/topnav.vue");
+/* harmony import */ var _pages_components_scrapped_tabsnav__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/components/scrapped/tabsnav */ "./resources/js/pages/components/scrapped/tabsnav.vue");
+/* harmony import */ var _pages_components_scrapped_quicklinksaccordion__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/components/scrapped/quicklinksaccordion */ "./resources/js/pages/components/scrapped/quicklinksaccordion.vue");
+/* harmony import */ var _pages_components_scrapped_carouseltext__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/components/scrapped/carouseltext */ "./resources/js/pages/components/scrapped/carouseltext.vue");
 // Pages
-
 
 
 
@@ -4687,7 +4351,7 @@ __webpack_require__.r(__webpack_exports__);
   routes: [// Website Pages
   {
     path: '*',
-    component: _pages_notfound__WEBPACK_IMPORTED_MODULE_10__.default,
+    component: _pages_notfound__WEBPACK_IMPORTED_MODULE_9__.default,
     name: 'NotFound',
     meta: {
       title: '404 Not Found'
@@ -4755,31 +4419,24 @@ __webpack_require__.r(__webpack_exports__);
     meta: {
       title: 'Contact Us'
     }
-  }, {
-    path: '/contact-us-2',
-    component: _pages_contactus_copy__WEBPACK_IMPORTED_MODULE_9__.default,
-    name: 'Contact Us 2',
-    meta: {
-      title: 'Contact Us 2'
-    }
   }, // Admin Pages
   {
     path: '/login/:message?',
-    component: _pages_auth_login__WEBPACK_IMPORTED_MODULE_11__.default,
+    component: _pages_auth_login__WEBPACK_IMPORTED_MODULE_10__.default,
     name: 'Login',
     meta: {
       title: 'Login'
     }
   }, {
     path: '/register',
-    component: _pages_auth_register__WEBPACK_IMPORTED_MODULE_12__.default,
+    component: _pages_auth_register__WEBPACK_IMPORTED_MODULE_11__.default,
     name: 'Register',
     meta: {
       title: 'Register'
     }
   }, {
     path: '/adminpanel',
-    component: _pages_auth_adminpanel__WEBPACK_IMPORTED_MODULE_13__.default,
+    component: _pages_auth_adminpanel__WEBPACK_IMPORTED_MODULE_12__.default,
     name: 'AdminPanel',
     meta: {
       title: 'Admin Panel'
@@ -4800,25 +4457,25 @@ __webpack_require__.r(__webpack_exports__);
   }, // Scrapped Components pages
   {
     path: '/topnav',
-    component: _pages_components_scrapped_topnav__WEBPACK_IMPORTED_MODULE_14__.default,
+    component: _pages_components_scrapped_topnav__WEBPACK_IMPORTED_MODULE_13__.default,
     meta: {
       title: 'Scrapped Topnav'
     }
   }, {
     path: '/tabsnav',
-    component: _pages_components_scrapped_tabsnav__WEBPACK_IMPORTED_MODULE_15__.default,
+    component: _pages_components_scrapped_tabsnav__WEBPACK_IMPORTED_MODULE_14__.default,
     meta: {
       title: 'Scrapped Tabsnav'
     }
   }, {
     path: '/quicklinksaccordion',
-    component: _pages_components_scrapped_quicklinksaccordion__WEBPACK_IMPORTED_MODULE_16__.default,
+    component: _pages_components_scrapped_quicklinksaccordion__WEBPACK_IMPORTED_MODULE_15__.default,
     meta: {
       title: 'Scrapped Quick Links Accordion'
     }
   }, {
     path: '/carouseltext',
-    component: _pages_components_scrapped_carouseltext__WEBPACK_IMPORTED_MODULE_17__.default,
+    component: _pages_components_scrapped_carouseltext__WEBPACK_IMPORTED_MODULE_16__.default,
     meta: {
       title: 'Scrapped Carousel Text'
     }
@@ -24953,22 +24610,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/pages/contactus_copy.vue?vue&type=script&lang=js&":
-/*!************************************************************************!*\
-  !*** ./resources/js/pages/contactus_copy.vue?vue&type=script&lang=js& ***!
-  \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_contactus_copy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./contactus_copy.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/contactus_copy.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_contactus_copy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
-
-/***/ }),
-
 /***/ "./resources/js/pages/events.vue?vue&type=script&lang=js&":
 /*!****************************************************************!*\
   !*** ./resources/js/pages/events.vue?vue&type=script&lang=js& ***!
@@ -25297,23 +24938,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contactus_vue_vue_type_template_id_178c44a5___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contactus_vue_vue_type_template_id_178c44a5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./contactus.vue?vue&type=template&id=178c44a5& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/contactus.vue?vue&type=template&id=178c44a5&");
-
-
-/***/ }),
-
-/***/ "./resources/js/pages/contactus_copy.vue?vue&type=template&id=6a907eff&":
-/*!******************************************************************************!*\
-  !*** ./resources/js/pages/contactus_copy.vue?vue&type=template&id=6a907eff& ***!
-  \******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contactus_copy_vue_vue_type_template_id_6a907eff___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contactus_copy_vue_vue_type_template_id_6a907eff___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contactus_copy_vue_vue_type_template_id_6a907eff___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./contactus_copy.vue?vue&type=template&id=6a907eff& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/contactus_copy.vue?vue&type=template&id=6a907eff&");
 
 
 /***/ }),
@@ -27955,19 +27579,6 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm._v("\n   name: " + _vm._s(_vm.name) + " "),
-      _c("br"),
-      _vm._v("\n   email: " + _vm._s(_vm.email) + " "),
-      _c("br"),
-      _vm._v("\n   message: " + _vm._s(_vm.message) + " "),
-      _c("br"),
-      _vm._v("\n   dummy: " + _vm._s(_vm.dummy) + " "),
-      _c("br"),
-      _vm._v("\n   errors: " + _vm._s(_vm.errors) + " "),
-      _c("br"),
-      _vm._v("\n   error_message: " + _vm._s(_vm.error_message) + " "),
-      _c("br"),
-      _vm._v(" "),
       _c(
         "v-sheet",
         { staticClass: "mt-6 pt-6 pb-2 px-8" },
@@ -28164,7 +27775,7 @@ var render = function() {
                                 },
                                 on: {
                                   input: function($event) {
-                                    _vm.error_alert = false
+                                    _vm.email_alert = false
                                   }
                                 },
                                 model: {
@@ -28202,6 +27813,7 @@ var render = function() {
                               _vm._v(" "),
                               _c("v-textarea", {
                                 attrs: {
+                                  input: "message_alert = false",
                                   rules: _vm.messageRules,
                                   label: "Message",
                                   placeholder: "Enter Message Here",
@@ -28243,7 +27855,7 @@ var render = function() {
                                   )
                                 : _vm._e(),
                               _vm._v(" "),
-                              _c("v-row", { staticClass: "mt-2" }, [
+                              _c("v-row", {}, [
                                 _c(
                                   "div",
                                   { staticClass: "d-flex flex-row mx-auto" },
@@ -28251,9 +27863,10 @@ var render = function() {
                                     _c(
                                       "v-btn",
                                       {
-                                        staticClass: "mx-2",
+                                        staticClass: "white--text",
                                         attrs: {
-                                          color: "success",
+                                          color: "green",
+                                          "x-large": "",
                                           loading: _vm.form_loading
                                         },
                                         on: {
@@ -28269,604 +27882,6 @@ var render = function() {
                                       [
                                         _vm._v(
                                           "\n                              Submit\n                           "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-btn",
-                                      {
-                                        staticClass: "mx-2",
-                                        attrs: { color: "error" },
-                                        on: { click: _vm.reset }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                              Reset Form\n                           "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-btn",
-                                      {
-                                        staticClass: "mx-2",
-                                        attrs: { color: "warning" },
-                                        on: { click: _vm.resetValidation }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                              Reset Validation\n                           "
-                                        )
-                                      ]
-                                    )
-                                  ],
-                                  1
-                                )
-                              ])
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-row",
-                    [
-                      _c(
-                        "v-col",
-                        {
-                          staticClass: "mt-n2 mt-sm-n2 mt-md-0",
-                          attrs: { cols: "12", sm: "12", md: "4", lg: "4" }
-                        },
-                        [
-                          _c(
-                            "v-card",
-                            {
-                              staticClass: "mx-auto mx-md-0",
-                              attrs: { flat: "", width: "300" }
-                            },
-                            [
-                              _c(
-                                "v-card-title",
-                                {
-                                  staticClass:
-                                    "\n                           text-body-h6\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                        Gulshan Campus\n                     "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-card-text",
-                                {
-                                  staticClass:
-                                    "\n                           text-body-1\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                        Plot # CEN-16, Road # 106 "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        Gulshan 2, Dhaka-1212 "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        Bangladesh "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        Phone: +88-02-55060025, "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        9862251, 58817525 "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        Mobile: 01780364414 "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        Fax: +88-02-55059924 "
-                                  ),
-                                  _c("br")
-                                ]
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        {
-                          staticClass: "mt-md-4 mt-n4",
-                          attrs: { cols: "12", sm: "12", md: "8", lg: "8" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "\n                        text-body-1\n                        font-weight-bold\n                        grey--text\n                        text--darken-2\n                        text-center\n                        text-md-left\n                     "
-                            },
-                            [
-                              _vm._v(
-                                "\n                     Gulshan Campus Location\n                  "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "pt-3" }, [
-                            _c("iframe", {
-                              staticStyle: { border: "0" },
-                              attrs: {
-                                src:
-                                  "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14603.046330302512!2d90.4146433!3d23.7915029!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x121a03a4382f1df4!2sManarat+International+University!5e0!3m2!1sen!2sbd!4v1545627074631",
-                                width: "100%",
-                                height: "400",
-                                allowfullscreen: "",
-                                loading: "eager"
-                              }
-                            })
-                          ])
-                        ]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-row",
-                    [
-                      _c(
-                        "v-col",
-                        {
-                          staticClass: "mt-n8 mt-md-0",
-                          attrs: { cols: "12", sm: "12", md: "4", lg: "4" }
-                        },
-                        [
-                          _c(
-                            "v-card",
-                            {
-                              staticClass: "mx-auto mx-md-0",
-                              attrs: { flat: "", width: "300" }
-                            },
-                            [
-                              _c(
-                                "v-card-title",
-                                {
-                                  staticClass:
-                                    "\n                           text-body-h6\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                        Ashulia Permanent "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        Campus\n                     "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-card-text",
-                                {
-                                  staticClass:
-                                    "\n                           text-body-1\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                        Ashulia Model Town, "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        Khagan, Ashulia "
-                                  ),
-                                  _c("br"),
-                                  _vm._v("\n                        Dhaka "),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        Phone: 09666911624, "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        09666911625, 09666911626, "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        09666911627 "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        Mobile: 01819245895, "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                        01780364415\n                     "
-                                  )
-                                ]
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-col",
-                        {
-                          staticClass: "mt-md-4 mt-n4",
-                          attrs: { cols: "12", sm: "12", md: "8", lg: "8" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "\n                        text-body-1\n                        font-weight-bold\n                        grey--text\n                        text--darken-2\n                     "
-                            },
-                            [
-                              _vm._v(
-                                "\n                     Ashulia Permanent Campus Location\n                  "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "pt-3" }, [
-                            _c("iframe", {
-                              staticStyle: { border: "0" },
-                              attrs: {
-                                src:
-                                  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29186.769300654392!2d90.30785646504465!3d23.87734075018992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c213b785c80f%3A0x160471c997db5233!2sManarat%20International%20University!5e0!3m2!1sen!2sbd!4v1626133954937!5m2!1sen!2sbd",
-                                width: "100%",
-                                height: "400",
-                                allowfullscreen: "",
-                                loading: "eager"
-                              }
-                            })
-                          ])
-                        ]
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/contactus_copy.vue?vue&type=template&id=6a907eff&":
-/*!*********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/contactus_copy.vue?vue&type=template&id=6a907eff& ***!
-  \*********************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm._v("\n   name: " + _vm._s(_vm.name) + " "),
-      _c("br"),
-      _vm._v("\n   email: " + _vm._s(_vm.email) + " "),
-      _c("br"),
-      _vm._v("\n   message: " + _vm._s(_vm.message) + " "),
-      _c("br"),
-      _vm._v("\n   dummy: " + _vm._s(_vm.dummy) + " "),
-      _c("br"),
-      _vm._v("\n   errors: " + _vm._s(_vm.errors) + " "),
-      _c("br"),
-      _vm._v("\n   error_message: " + _vm._s(_vm.error_message) + " "),
-      _c("br"),
-      _vm._v(" "),
-      _c(
-        "v-sheet",
-        { staticClass: "mt-6 pt-6 pb-2 px-8" },
-        [
-          _c(
-            "v-row",
-            { staticClass: "mb-4 mx-sm-10" },
-            [
-              _c(
-                "v-col",
-                [
-                  _c("v-row", [
-                    _c(
-                      "div",
-                      { staticClass: "mx-auto" },
-                      [
-                        _c(
-                          "v-card",
-                          { attrs: { flat: "" } },
-                          [
-                            _c(
-                              "v-card-title",
-                              {
-                                staticClass:
-                                  "\n                           text-h5\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
-                              },
-                              [
-                                _c(
-                                  "v-icon",
-                                  {
-                                    attrs: {
-                                      large: "",
-                                      left: "",
-                                      color: "grey darken-1"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "mdi-phone\n                        "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(
-                                  "\n                        Contact Us\n                     "
-                                )
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "v-row",
-                    [
-                      _c(
-                        "v-col",
-                        { staticClass: "mb-3" },
-                        [
-                          _c(
-                            "v-form",
-                            {
-                              ref: "contact_us_form",
-                              attrs: {
-                                disabled: _vm.form_disabled,
-                                "lazy-validation": ""
-                              }
-                            },
-                            [
-                              _c(
-                                "v-snackbar",
-                                {
-                                  attrs: {
-                                    color: "green",
-                                    timeout: _vm.timeout,
-                                    top: "",
-                                    right: ""
-                                  },
-                                  scopedSlots: _vm._u([
-                                    {
-                                      key: "action",
-                                      fn: function(ref) {
-                                        var attrs = ref.attrs
-                                        return [
-                                          _c(
-                                            "v-btn",
-                                            _vm._b(
-                                              {
-                                                attrs: {
-                                                  color: "white",
-                                                  text: ""
-                                                },
-                                                on: {
-                                                  click: function($event) {
-                                                    _vm.success_snackbar = false
-                                                  }
-                                                }
-                                              },
-                                              "v-btn",
-                                              attrs,
-                                              false
-                                            ),
-                                            [
-                                              _vm._v(
-                                                "\n                        Close\n                     "
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      }
-                                    }
-                                  ]),
-                                  model: {
-                                    value: _vm.success_snackbar,
-                                    callback: function($$v) {
-                                      _vm.success_snackbar = $$v
-                                    },
-                                    expression: "success_snackbar"
-                                  }
-                                },
-                                [
-                                  _c("v-icon", { attrs: { left: "" } }, [
-                                    _vm._v(
-                                      "\n                     mdi-check-circle\n                  "
-                                    )
-                                  ]),
-                                  _vm._v(
-                                    "\n                     Message Sent Successfully !!\n\n                     "
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c("v-text-field", {
-                                attrs: {
-                                  label: "Name",
-                                  placeholder: "Enter Name Here",
-                                  "prepend-inner-icon": "mdi-account-details",
-                                  outlined: ""
-                                },
-                                on: {
-                                  input: function($event) {
-                                    _vm.name_alert = false
-                                  }
-                                },
-                                model: {
-                                  value: _vm.name,
-                                  callback: function($$v) {
-                                    _vm.name = $$v
-                                  },
-                                  expression: "name"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _vm.errors && _vm.errors.name
-                                ? _c(
-                                    "v-alert",
-                                    {
-                                      staticClass: "mt-n5",
-                                      attrs: {
-                                        value: _vm.name_alert,
-                                        type: "error",
-                                        dark: "",
-                                        text: "",
-                                        dense: "",
-                                        transition: "scale-transition"
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "                        \n                        " +
-                                          _vm._s(_vm.errors.name[0]) +
-                                          "\n                     "
-                                      )
-                                    ]
-                                  )
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _c("v-text-field", {
-                                attrs: {
-                                  label: "E-mail",
-                                  type: "email",
-                                  placeholder: "Enter Email Here",
-                                  "prepend-inner-icon": "mdi-email",
-                                  outlined: ""
-                                },
-                                model: {
-                                  value: _vm.email,
-                                  callback: function($$v) {
-                                    _vm.email = $$v
-                                  },
-                                  expression: "email"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("v-textarea", {
-                                attrs: {
-                                  label: "Message",
-                                  placeholder: "Enter Message Here",
-                                  "prepend-inner-icon": "mdi-comment",
-                                  rows: "1",
-                                  "auto-grow": "",
-                                  outlined: ""
-                                },
-                                model: {
-                                  value: _vm.message,
-                                  callback: function($$v) {
-                                    _vm.message = $$v
-                                  },
-                                  expression: "message"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("v-row", { staticClass: "mt-2" }, [
-                                _c(
-                                  "div",
-                                  { staticClass: "d-flex flex-row mx-auto" },
-                                  [
-                                    _c(
-                                      "v-btn",
-                                      {
-                                        staticClass: "mx-2",
-                                        attrs: {
-                                          color: "success",
-                                          loading: _vm.form_loading
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            $event.preventDefault()
-                                            return _vm.submitForm.apply(
-                                              null,
-                                              arguments
-                                            )
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                              Submit\n                           "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-btn",
-                                      {
-                                        staticClass: "mx-2",
-                                        attrs: { color: "error" },
-                                        on: { click: _vm.reset }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                              Reset Form\n                           "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-btn",
-                                      {
-                                        staticClass: "mx-2",
-                                        attrs: { color: "warning" },
-                                        on: { click: _vm.resetValidation }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                              Reset Validation\n                           "
                                         )
                                       ]
                                     )
@@ -29475,7 +28490,8 @@ var render = function() {
                         "v-img",
                         {
                           attrs: {
-                            src: item.src,
+                            src:
+                              "/storage/carousel_images/" + item.carousel_image,
                             "aspect-ratio": "1.77",
                             "max-height": "500"
                           }
@@ -29518,7 +28534,9 @@ var render = function() {
                                             },
                                             [
                                               _vm._v(
-                                                "\n                                 111 Title Lorem ipsum dolor sit amet\n                                 consectetur adipisicing.\n                              "
+                                                "\n                                 " +
+                                                  _vm._s(item.carousel_title) +
+                                                  "\n                              "
                                               )
                                             ]
                                           ),
@@ -29531,7 +28549,11 @@ var render = function() {
                                             },
                                             [
                                               _vm._v(
-                                                "\n                                 111 Subtitle Lorem ipsum dolor sit amet\n                                 consectetur adipisicing.\n                              "
+                                                "\n                                 " +
+                                                  _vm._s(
+                                                    item.carousel_subtitle
+                                                  ) +
+                                                  "\n                              "
                                               )
                                             ]
                                           )
@@ -29559,7 +28581,9 @@ var render = function() {
                                             },
                                             [
                                               _vm._v(
-                                                "\n                                 333 Lorem ipsum dolor sit amet\n                                 consectetur adipisicing.\n                              "
+                                                "\n                                 " +
+                                                  _vm._s(item.carousel_title) +
+                                                  "\n                              "
                                               )
                                             ]
                                           ),
@@ -29572,7 +28596,11 @@ var render = function() {
                                             },
                                             [
                                               _vm._v(
-                                                "\n                                 333 Subtitle Lorem ipsum dolor sit amet\n                                 consectetur adipisicing.\n                              "
+                                                "\n                                 " +
+                                                  _vm._s(
+                                                    item.carousel_subtitle
+                                                  ) +
+                                                  "\n                              "
                                               )
                                             ]
                                           )
@@ -29675,7 +28703,8 @@ var render = function() {
                     attrs: {
                       height: "400",
                       width: "auto",
-                      src: "/images/index.jpg",
+                      src:
+                        "/storage/member_images/Screenshot (6)_1625980862.png",
                       alt: "",
                       position: "center center"
                     }
@@ -46435,77 +45464,6 @@ _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/pages/contactus.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/pages/contactus_copy.vue":
-/*!***********************************************!*\
-  !*** ./resources/js/pages/contactus_copy.vue ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _contactus_copy_vue_vue_type_template_id_6a907eff___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./contactus_copy.vue?vue&type=template&id=6a907eff& */ "./resources/js/pages/contactus_copy.vue?vue&type=template&id=6a907eff&");
-/* harmony import */ var _contactus_copy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./contactus_copy.vue?vue&type=script&lang=js& */ "./resources/js/pages/contactus_copy.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vuetify-loader/lib/runtime/installComponents.js */ "./node_modules/vuetify-loader/lib/runtime/installComponents.js");
-/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VAlert */ "./node_modules/vuetify/lib/components/VAlert/VAlert.js");
-/* harmony import */ var vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VBtn */ "./node_modules/vuetify/lib/components/VBtn/VBtn.js");
-/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/VCard.js");
-/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/index.js");
-/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VCol.js");
-/* harmony import */ var vuetify_lib_components_VForm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VForm */ "./node_modules/vuetify/lib/components/VForm/VForm.js");
-/* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/VIcon.js");
-/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
-/* harmony import */ var vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vuetify/lib/components/VSheet */ "./node_modules/vuetify/lib/components/VSheet/VSheet.js");
-/* harmony import */ var vuetify_lib_components_VSnackbar__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuetify/lib/components/VSnackbar */ "./node_modules/vuetify/lib/components/VSnackbar/VSnackbar.js");
-/* harmony import */ var vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vuetify/lib/components/VTextField */ "./node_modules/vuetify/lib/components/VTextField/VTextField.js");
-/* harmony import */ var vuetify_lib_components_VTextarea__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! vuetify/lib/components/VTextarea */ "./node_modules/vuetify/lib/components/VTextarea/VTextarea.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _contactus_copy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _contactus_copy_vue_vue_type_template_id_6a907eff___WEBPACK_IMPORTED_MODULE_0__.render,
-  _contactus_copy_vue_vue_type_template_id_6a907eff___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* vuetify-loader */
-;
-
-
-
-
-
-
-
-
-
-
-
-
-
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VAlert: vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__.default,VBtn: vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_5__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.default,VCardText: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_7__.VCardText,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_7__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__.default,VForm: vuetify_lib_components_VForm__WEBPACK_IMPORTED_MODULE_9__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_10__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_11__.default,VSheet: vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_12__.default,VSnackbar: vuetify_lib_components_VSnackbar__WEBPACK_IMPORTED_MODULE_13__.default,VTextField: vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_14__.default,VTextarea: vuetify_lib_components_VTextarea__WEBPACK_IMPORTED_MODULE_15__.default})
-
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/pages/contactus_copy.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),

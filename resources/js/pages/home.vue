@@ -4,7 +4,7 @@
          <v-col cols="12">
             <v-carousel height="auto" show-arrows-on-hover hide-delimiters>
                <v-carousel-item v-for="(item, i) in items" :key="i">
-                  <v-img :src="item.src" aspect-ratio="1.77" max-height="500">
+                  <v-img :src="'/storage/carousel_images/'+item.carousel_image" aspect-ratio="1.77" max-height="500">
                      <v-container fill-height fluid class="px-0 py-0">
                         <v-layout fill-height align-end>
                            <v-flex>
@@ -17,12 +17,10 @@
                                  max-height="100"
                               >
                                  <div class="font-weight-bold text-center text-body-1">
-                                    111 Title Lorem ipsum dolor sit amet
-                                    consectetur adipisicing.
+                                    {{ item.carousel_title }}
                                  </div>
                                  <div class="text-center text-subtitle-2">
-                                    111 Subtitle Lorem ipsum dolor sit amet
-                                    consectetur adipisicing.
+                                    {{ item.carousel_subtitle }}
                                  </div>
                               </v-alert>
 
@@ -35,12 +33,10 @@
                                  max-height="100"
                               >
                                  <div class="text-center text-subtitle-2">
-                                    333 Lorem ipsum dolor sit amet
-                                    consectetur adipisicing.
+                                    {{ item.carousel_title }}
                                  </div>
                                  <div class="text-center text-caption">
-                                    333 Subtitle Lorem ipsum dolor sit amet
-                                    consectetur adipisicing.
+                                    {{ item.carousel_subtitle }}
                                  </div>
                               </v-alert>
                            </v-flex>
@@ -72,24 +68,22 @@ import QuickLinks from "./components/quicklinks";
 // import TopNav from './topnav'
 export default {
    data: () => ({
-      items: [
-         {
-            src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg",
-         },
-         {
-            src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg",
-         },
-         {
-            src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg",
-         },
-         {
-            src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg",
-         },
-      ],
+      items: [],
    }),
    components: {
       QuickLinks,
    },
+   created(){
+      axios.get("/api/carouselcontent/index")
+         .then((res) => {
+            console.log(res)
+            this.items = res.data
+         })
+         .catch((error) => {
+            console.log(error)
+            // this.errors = error.response.data.errors
+         });
+   }
 };
 </script>
 

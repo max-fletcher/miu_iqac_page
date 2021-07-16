@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+// Needs Authentication
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
@@ -25,15 +26,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/authenticated', function(){
         return true;
     });
-
 });
 
+// Authentication Controllers
 Route::post('/register', [App\Http\Controllers\RegisterController::class, 'register']);
 Route::post('/login', [App\Http\Controllers\LoginController::class, 'login']);
 Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout']);
 
 
-    // Back End
 // Refactor Controller to use Restful Controllers later maybe
 
 // Carousel Content Controller
