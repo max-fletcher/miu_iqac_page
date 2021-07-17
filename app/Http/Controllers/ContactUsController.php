@@ -55,7 +55,7 @@ class ContactUsController extends Controller
             'message' => ['required', 'string'],
         ]);
 
-        $contact_us = ContactUs::find($id);
+        $contact_us = ContactUs::find($id);        
         if($contact_us){
             $contact_us->name = $request->name;
             $contact_us->email = $request->email;

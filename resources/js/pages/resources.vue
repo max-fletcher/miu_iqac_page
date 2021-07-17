@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-sheet class="px-2 py-2" color="grey lighten-3">
+    <v-sheet class="px-2 py-2" color="grey lighten-3" min-height="500">
 
       <v-card rounded="0" class="mb-4">
         <v-alert color="teal accent-4" class="px-0 py-0 mx-0 my-0" rounded="0" text>

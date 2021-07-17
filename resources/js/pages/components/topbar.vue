@@ -1,5 +1,6 @@
 <template>
   <div>
+     {{people}}
      <!-- Nav Drawer -->
         <v-navigation-drawer v-model="toggleNavSidebar" absolute temporary width="190">
             <v-card tile color="#4270A9">
@@ -12,7 +13,8 @@
             <!-- Style Two -->
             <v-card rounded="0" flat>
                <v-btn color="#4270A9" height="40" text block to="/" exact-active-class="darken-1">
-                  <v-icon left>mdi-home</v-icon>Home
+                  <v-icon left>mdi-home</v-icon>
+                  Home
                   <v-spacer></v-spacer>
                </v-btn>
                <v-btn
@@ -279,17 +281,8 @@
                      </v-btn>
                   </template>
                   <v-list>
-                     <v-list-item to="/people/iqac" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold">IQAC</v-list-item-title>
-                     </v-list-item>
-                     <v-list-item to="/people/sac" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold">SAC(BBA)</v-list-item-title>
-                     </v-list-item>
-                     <v-list-item to="/people/sac" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold">SAC(EEE)</v-list-item-title>
-                     </v-list-item>
-                     <v-list-item to="/people/sac" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold">SAC(CSE)</v-list-item-title>
+                     <v-list-item v-for="(people_item, index) in people" :key="index" to="/people/iqac" color="#4270A9">
+                        <v-list-item-title class="font-weight-bold">{{people_item.name }}</v-list-item-title>
                      </v-list-item>
                   </v-list>
                </v-menu>
@@ -385,6 +378,7 @@ export default {
          { title: "Gallery", content: "Some Content" },
          { title: "Contact Us", content: "Some Content" },
       ],
+      people: []
    }),
    components: {},
    watch: {
@@ -392,6 +386,16 @@ export default {
          document.title = to.meta.title || "MIU IQAC";
       },
    },
+   created(){
+      axios.get("/api/people/index")
+         .then((res) => {            
+            this.people = res.data
+         })
+         .catch((error) => {
+            console.log(error)
+            // this.errors = error.response.data.errors
+         });
+   }
 };
 </script>
 

@@ -1881,35 +1881,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    return {};
+    return {
+      about_items: null
+    };
   },
   components: {
     QuickLinks: _components_quicklinks__WEBPACK_IMPORTED_MODULE_0__.default
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/api/about/content/index").then(function (res) {
+      console.log(res);
+      _this.about_items = res.data;
+    })["catch"](function (error) {
+      console.log(error); // this.errors = error.response.data.errors
+    });
   }
 });
 
@@ -3205,13 +3195,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3229,7 +3212,8 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         title: "Contact Us",
         content: "Some Content"
-      }]
+      }],
+      people: []
     };
   },
   components: {},
@@ -3237,6 +3221,15 @@ __webpack_require__.r(__webpack_exports__);
     $route: function $route(to, from) {
       document.title = to.meta.title || "MIU IQAC";
     }
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/api/people/index").then(function (res) {
+      _this.people = res.data;
+    })["catch"](function (error) {
+      console.log(error); // this.errors = error.response.data.errors
+    });
   }
 });
 
@@ -3742,6 +3735,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _components_quicklinks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/quicklinks */ "./resources/js/pages/components/quicklinks.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -25124,7 +25131,7 @@ var render = function() {
                     "v-card-title",
                     {
                       staticClass:
-                        "text-h5 font-weight-bold grey--text text--darken-2 pb-0 pl-md-2 pt-md-1 pl-sm-5 pt-sm-0 pr-sm-4 mb-md-0"
+                        "text-h5 font-weight-bold grey--text text--darken-2 pb-2 pl-md-2 pt-md-1 pl-sm-5 pt-sm-0 pr-sm-4 mb-md-0"
                     },
                     [
                       _c(
@@ -25142,97 +25149,68 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c(
-                "v-card",
-                {
-                  staticClass: "my-md-1 ml-md-0 mr-3 mt-1",
-                  attrs: { flat: "" }
-                },
-                [
-                  _c(
-                    "v-card-text",
-                    {
-                      staticClass:
-                        "text-h5 font-weight-bold pb-0 grey--text text--darken-2 ml-2 ml-sm-3"
-                    },
-                    [
-                      _c(
-                        "v-icon",
-                        {
-                          attrs: { left: "", large: "", color: "grey darken-2" }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        mdi-target\n                    "
-                          )
-                        ]
-                      ),
-                      _vm._v("Mission\n                ")
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-card-text",
-                    {
-                      staticClass:
-                        "text-h5 font-weight-regular ml-7 ml-md-10 pr-16"
-                    },
-                    [
-                      _vm._v(
-                        "\n                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint\n                    facilis maiores fugiat eius culpa reiciendis. Molestias\n                    obcaecati inventore dolorum dolor consequatur temporibus\n                    voluptatem voluptates quisquam quam distinctio. Inventore,\n                    laboriosam accusamus?\n                "
-                      )
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-card",
-                { staticClass: "my-md-1 ml-md-0 mr-3", attrs: { flat: "" } },
-                [
-                  _c(
-                    "v-card-text",
-                    {
-                      staticClass:
-                        "text-h5 font-weight-bold pb-0 grey--text text--darken-2 ml-2 ml-sm-3"
-                    },
-                    [
-                      _c(
-                        "v-icon",
-                        {
-                          staticClass: "ml-1",
-                          attrs: { left: "", large: "", color: "grey darken-2" }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        mdi-eye-outline\n                    "
-                          )
-                        ]
-                      ),
-                      _vm._v("\n                    Vision\n                ")
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-card-text",
-                    {
-                      staticClass:
-                        "text-h5 font-weight-regular ml-7 ml-md-10 pr-16"
-                    },
-                    [
-                      _vm._v(
-                        "\n                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint\n                    facilis maiores fugiat eius culpa reiciendis. Molestias\n                    obcaecati inventore dolorum dolor consequatur temporibus\n                    voluptatem voluptates quisquam quam distinctio. Inventore,\n                    laboriosam accusamus?\n                "
-                      )
-                    ]
-                  )
-                ],
-                1
-              )
+              _vm._l(_vm.about_items, function(about_item, index) {
+                return _c(
+                  "v-card",
+                  {
+                    key: index,
+                    staticClass: "my-md-1 ml-md-0 mr-3",
+                    attrs: { flat: "" }
+                  },
+                  [
+                    _c(
+                      "v-card-text",
+                      {
+                        staticClass:
+                          "text-h5 font-weight-bold pb-0 grey--text text--darken-2 ml-2 ml-sm-3"
+                      },
+                      [
+                        _c(
+                          "v-icon",
+                          {
+                            attrs: {
+                              left: "",
+                              large: "",
+                              color: "grey darken-2"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                        " +
+                                _vm._s(about_item.icon) +
+                                "\n                    "
+                            )
+                          ]
+                        ),
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(about_item.about_content_type.type) +
+                            "\n                "
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-card-text",
+                      {
+                        staticClass:
+                          "text-h5 font-weight-regular ml-7 ml-md-10 pr-16"
+                      },
+                      [
+                        _vm._v(
+                          "\n                   " +
+                            _vm._s(about_item.content) +
+                            "\n                "
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                )
+              })
             ],
-            1
+            2
           )
         ],
         1
@@ -25293,7 +25271,10 @@ var render = function() {
             [
               _c(
                 "v-sheet",
-                { staticClass: "mx-4 mb-5 mt-3" },
+                {
+                  staticClass: "mx-4 mb-5 mt-3",
+                  attrs: { "min-height": "500" }
+                },
                 [_c("router-view")],
                 1
               )
@@ -26547,6 +26528,8 @@ var render = function() {
   return _c(
     "div",
     [
+      _vm._v("\n   " + _vm._s(_vm.people) + "\n   "),
+      _vm._v(" "),
       _c(
         "v-navigation-drawer",
         {
@@ -26597,7 +26580,7 @@ var render = function() {
                 },
                 [
                   _c("v-icon", { attrs: { left: "" } }, [_vm._v("mdi-home")]),
-                  _vm._v("Home\n                "),
+                  _vm._v("\n                Home\n                "),
                   _c("v-spacer")
                 ],
                 1
@@ -27269,59 +27252,23 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "v-list",
-                    [
-                      _c(
+                    _vm._l(_vm.people, function(people_item, index) {
+                      return _c(
                         "v-list-item",
-                        { attrs: { to: "/people/iqac", color: "#4270A9" } },
+                        {
+                          key: index,
+                          attrs: { to: "/people/iqac", color: "#4270A9" }
+                        },
                         [
                           _c(
                             "v-list-item-title",
                             { staticClass: "font-weight-bold" },
-                            [_vm._v("IQAC")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-item",
-                        { attrs: { to: "/people/sac", color: "#4270A9" } },
-                        [
-                          _c(
-                            "v-list-item-title",
-                            { staticClass: "font-weight-bold" },
-                            [_vm._v("SAC(BBA)")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-item",
-                        { attrs: { to: "/people/sac", color: "#4270A9" } },
-                        [
-                          _c(
-                            "v-list-item-title",
-                            { staticClass: "font-weight-bold" },
-                            [_vm._v("SAC(EEE)")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-item",
-                        { attrs: { to: "/people/sac", color: "#4270A9" } },
-                        [
-                          _c(
-                            "v-list-item-title",
-                            { staticClass: "font-weight-bold" },
-                            [_vm._v("SAC(CSE)")]
+                            [_vm._v(_vm._s(people_item.name))]
                           )
                         ],
                         1
                       )
-                    ],
+                    }),
                     1
                   )
                 ],
@@ -28481,10 +28428,10 @@ var render = function() {
                     "hide-delimiters": ""
                   }
                 },
-                _vm._l(_vm.items, function(item, i) {
+                _vm._l(_vm.items, function(item, index) {
                   return _c(
                     "v-carousel-item",
-                    { key: i },
+                    { key: index },
                     [
                       _c(
                         "v-img",
@@ -28493,7 +28440,7 @@ var render = function() {
                             src:
                               "/storage/carousel_images/" + item.carousel_image,
                             "aspect-ratio": "1.77",
-                            "max-height": "500"
+                            "max-height": "550"
                           }
                         },
                         [
@@ -28517,7 +28464,7 @@ var render = function() {
                                         "v-alert",
                                         {
                                           staticClass:
-                                            "font-weight-bold text-h6 mb-0 hidden-xs-only",
+                                            "\n                                 font-weight-bold\n                                 text-h6\n                                 mb-0\n                                 hidden-xs-only\n                              ",
                                           attrs: {
                                             text: "",
                                             color: "info darken-2",
@@ -28530,7 +28477,7 @@ var render = function() {
                                             "div",
                                             {
                                               staticClass:
-                                                "font-weight-bold text-center text-body-1"
+                                                "\n                                    font-weight-bold\n                                    text-center text-body-1\n                                 "
                                             },
                                             [
                                               _vm._v(
@@ -28646,7 +28593,7 @@ var render = function() {
             [
               _c("v-card", { staticClass: "pl-0 ml-0 mt-md-0" }, [
                 _vm._v(
-                  "\n            Lorem ipsum dolor sit, amet consectetur adipisicing elit.\n            Aut eaque eius alias fugit cum obcaecati aliquam nihil\n            facilis itaque dignissimos quis explicabo, voluptatem\n            repudiandae et! Quod hic architecto fugit qui.\n         "
+                  "\n            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut\n            eaque eius alias fugit cum obcaecati aliquam nihil facilis itaque\n            dignissimos quis explicabo, voluptatem repudiandae et! Quod hic\n            architecto fugit qui.\n         "
                 )
               ])
             ],
@@ -29125,7 +29072,10 @@ var render = function() {
     [
       _c(
         "v-sheet",
-        { staticClass: "px-2 py-2", attrs: { color: "grey lighten-3" } },
+        {
+          staticClass: "px-2 py-2",
+          attrs: { color: "grey lighten-3", "min-height": "500" }
+        },
         [
           _c(
             "v-card",

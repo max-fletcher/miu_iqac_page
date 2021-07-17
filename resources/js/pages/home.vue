@@ -3,8 +3,12 @@
       <v-row>
          <v-col cols="12">
             <v-carousel height="auto" show-arrows-on-hover hide-delimiters>
-               <v-carousel-item v-for="(item, i) in items" :key="i">
-                  <v-img :src="'/storage/carousel_images/'+item.carousel_image" aspect-ratio="1.77" max-height="500">
+               <v-carousel-item v-for="(item, index) in items" :key="index">
+                  <v-img
+                     :src="'/storage/carousel_images/' + item.carousel_image"
+                     aspect-ratio="1.77"
+                     max-height="550"
+                  >
                      <v-container fill-height fluid class="px-0 py-0">
                         <v-layout fill-height align-end>
                            <v-flex>
@@ -12,11 +16,21 @@
                               <v-alert
                                  text
                                  color="info darken-2"
-                                 class="font-weight-bold text-h6 mb-0 hidden-xs-only"
+                                 class="
+                                    font-weight-bold
+                                    text-h6
+                                    mb-0
+                                    hidden-xs-only
+                                 "
                                  tile
                                  max-height="100"
                               >
-                                 <div class="font-weight-bold text-center text-body-1">
+                                 <div
+                                    class="
+                                       font-weight-bold
+                                       text-center text-body-1
+                                    "
+                                 >
                                     {{ item.carousel_title }}
                                  </div>
                                  <div class="text-center text-subtitle-2">
@@ -53,10 +67,10 @@
          </v-col>
          <v-col cols="12" md="9" class="black mt-0 mt-md-3">
             <v-card class="pl-0 ml-0 mt-md-0">
-               Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-               Aut eaque eius alias fugit cum obcaecati aliquam nihil
-               facilis itaque dignissimos quis explicabo, voluptatem
-               repudiandae et! Quod hic architecto fugit qui.
+               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut
+               eaque eius alias fugit cum obcaecati aliquam nihil facilis itaque
+               dignissimos quis explicabo, voluptatem repudiandae et! Quod hic
+               architecto fugit qui.
             </v-card>
          </v-col>
       </v-row>
@@ -73,17 +87,18 @@ export default {
    components: {
       QuickLinks,
    },
-   created(){
-      axios.get("/api/carouselcontent/index")
+   created() {
+      axios
+         .get("/api/carouselcontent/index")
          .then((res) => {
-            console.log(res)
-            this.items = res.data
+            console.log(res);
+            this.items = res.data;
          })
          .catch((error) => {
-            console.log(error)
+            console.log(error);
             // this.errors = error.response.data.errors
          });
-   }
+   },
 };
 </script>
 
