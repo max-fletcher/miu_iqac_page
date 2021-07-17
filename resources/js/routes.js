@@ -5,7 +5,7 @@ import Members from "./pages/members";
 import Events from "./pages/events";
 import News from "./pages/news";
 import Resources from "./pages/resources";
-import IQAC from "./pages/iqac";
+import People from "./pages/people";
 import SAC from "./pages/sac";
 import ContactUs from "./pages/contactus";
 import NotFound from "./pages/notfound";
@@ -67,10 +67,10 @@ export default{
          meta: { title: 'Resources' }
       },
       {
-         path: '/people/iqac',
-         component: IQAC,
-         name: 'IQAC',
-         meta: { title: 'IQAC' }
+         path: '/people/:id',
+         component: People,
+         name: 'People',
+         meta: { title: 'People' }
       },
       {
          path: '/people/sac',

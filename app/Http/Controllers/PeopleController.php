@@ -11,7 +11,9 @@ class PeopleController extends Controller
 
     public function index()
     {
-        return response()->json(People::all(), 200);
+        $people = People::all();
+        
+        return response()->json($people, 200);
     }
 
 

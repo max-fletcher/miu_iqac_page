@@ -279,12 +279,14 @@
                         <v-icon left>mdi-account</v-icon>People
                         <v-icon small>mdi-chevron-down</v-icon>
                      </v-btn>
-                  </template>
-                  <v-list>
-                     <v-list-item v-for="(people_item, index) in people" :key="index" to="/people/iqac" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold">{{people_item.name }}</v-list-item-title>
-                     </v-list-item>
-                  </v-list>
+                  </template>                     
+                     <v-list>
+                        <div v-for="(people_item, index) in people" :key="index">
+                           <v-list-item :to="{ name: 'People', params: { id: people_item.id }}" color="#4270A9">
+                              <v-list-item-title class="font-weight-bold">{{ people_item.name }}</v-list-item-title>
+                           </v-list-item>
+                        </div>
+                     </v-list>                     
                </v-menu>
                <v-menu open-on-hover bottom offset-y transition="scale-transition">
                   <template v-slot:activator="{ on, attrs }">
