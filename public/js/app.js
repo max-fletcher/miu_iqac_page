@@ -4021,10 +4021,91 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      members: []
+      members: [],
+      loading: true
     };
   },
   created: function created() {
@@ -4032,8 +4113,11 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get("/api/people/members/membersbypeopleid/" + this.$route.params.id).then(function (res) {
       _this.members = res.data;
+      _this.loading = false;
     })["catch"](function (error) {
       console.log(error); // this.errors = error.response.data.errors
+
+      _this.loading = false;
     });
   }
 });
@@ -28834,115 +28918,245 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "pt-3" },
-    [
-      _vm.members.length === 0
-        ? _c(
-            "v-card",
-            { attrs: { flat: "", height: "480", "min-height": "300" } },
-            [
+  return _c("div", { staticClass: "pt-3" }, [
+    _vm.loading
+      ? _c(
+          "div",
+          [
+            _c("v-card", { staticClass: "mt-6", attrs: { flat: "" } }, [
               _c(
-                "v-container",
-                { attrs: { "fill-height": "", fluid: "" } },
-                [
-                  _c(
-                    "v-row",
-                    { attrs: { align: "center", justify: "center" } },
-                    [
-                      _c("div", { staticClass: "text-center" }, [
-                        _c("h1", [
-                          _vm._v(" No Members Exist For This Section Yet !! ")
-                        ]),
-                        _vm._v(" "),
-                        _c("h2", [
-                          _vm._v(" Add Members From The Admin Panel. ")
-                        ])
-                      ])
-                    ]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        : _c(
-            "v-row",
-            { staticClass: "mx-4 py-4" },
-            _vm._l(_vm.members, function(member, index) {
-              return _c(
-                "v-col",
-                { key: index, attrs: { cols: "12", sm: "6", md: "4" } },
-                [
-                  _c(
-                    "v-card",
-                    {
-                      attrs: { "min-height": "450", to: "/", elevation: "10" }
+                "div",
+                {
+                  staticClass:
+                    "text-center blue--text text--darken-4 font-weight-bold"
+                },
+                [_vm._v("\n                 Loading...         \n           ")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "mx-auto" }, [
+                _c(
+                  "svg",
+                  {
+                    staticStyle: {
+                      margin: "auto",
+                      display: "block",
+                      "shape-rendering": "auto",
+                      "animation-play-state": "running",
+                      "animation-delay": "0s"
                     },
-                    [
-                      _c("v-img", {
-                        staticClass: "mx-auto",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                      width: "250px",
+                      height: "250px",
+                      viewBox: "0 0 100 100",
+                      preserveAspectRatio: "xMidYMid"
+                    }
+                  },
+                  [
+                    _c(
+                      "circle",
+                      {
+                        staticStyle: {
+                          "animation-play-state": "running",
+                          "animation-delay": "0s"
+                        },
                         attrs: {
-                          height: "400",
-                          width: "auto",
-                          src: "/storage/member_images/" + member.member_image,
-                          alt: "",
-                          position: "center center"
+                          cx: "50",
+                          cy: "50",
+                          r: "19",
+                          "stroke-width": "5",
+                          stroke: "#002147",
+                          "stroke-dasharray":
+                            "29.845130209103033 29.845130209103033",
+                          fill: "none",
+                          "stroke-linecap": "round"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("v-card-title", [
+                      },
+                      [
+                        _c("animateTransform", {
+                          staticStyle: {
+                            "animation-play-state": "running",
+                            "animation-delay": "0s"
+                          },
+                          attrs: {
+                            attributeName: "transform",
+                            type: "rotate",
+                            dur: "1s",
+                            repeatCount: "indefinite",
+                            keyTimes: "0;1",
+                            values: "0 50 50;360 50 50"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "circle",
+                      {
+                        staticStyle: {
+                          "animation-play-state": "running",
+                          "animation-delay": "0s"
+                        },
+                        attrs: {
+                          cx: "50",
+                          cy: "50",
+                          r: "13",
+                          "stroke-width": "5",
+                          stroke: "#4270a9",
+                          "stroke-dasharray":
+                            "20.420352248333657 20.420352248333657",
+                          "stroke-dashoffset": "20.420352248333657",
+                          fill: "none",
+                          "stroke-linecap": "round"
+                        }
+                      },
+                      [
+                        _c("animateTransform", {
+                          staticStyle: {
+                            "animation-play-state": "running",
+                            "animation-delay": "0s"
+                          },
+                          attrs: {
+                            attributeName: "transform",
+                            type: "rotate",
+                            dur: "1s",
+                            repeatCount: "indefinite",
+                            keyTimes: "0;1",
+                            values: "0 50 50;-360 50 50"
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                )
+              ])
+            ])
+          ],
+          1
+        )
+      : _c(
+          "div",
+          [
+            _vm.members.length === 0
+              ? _c(
+                  "v-card",
+                  { attrs: { flat: "", height: "480", "min-height": "300" } },
+                  [
+                    _c(
+                      "v-container",
+                      { attrs: { "fill-height": "", fluid: "" } },
+                      [
                         _c(
-                          "div",
+                          "v-row",
+                          { attrs: { align: "center", justify: "center" } },
+                          [
+                            _c("div", { staticClass: "text-center" }, [
+                              _c("h1", [
+                                _vm._v(
+                                  "No Members Exist For This Section Yet !!"
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("h2", [
+                                _vm._v("Add Members From The Admin Panel.")
+                              ])
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              : _c(
+                  "v-row",
+                  { staticClass: "mx-4 py-4" },
+                  _vm._l(_vm.members, function(member, index) {
+                    return _c(
+                      "v-col",
+                      { key: index, attrs: { cols: "12", sm: "6", md: "4" } },
+                      [
+                        _c(
+                          "v-card",
                           {
-                            staticClass:
-                              "text-subtitle-1 font-weight-bold black-text"
+                            attrs: {
+                              "min-height": "450",
+                              to: "/",
+                              elevation: "10"
+                            }
                           },
                           [
-                            _vm._v(
-                              "\n                       Name: " +
-                                _vm._s(member.name) +
-                                "\n                   "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "text-subtitle-1 font-weight-bold" },
-                          [
-                            _vm._v(
-                              "\n                       Designation: Lorem ipsum dolor sit amet, consectetur adipisicing.\n                   "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "text-subtitle-1" }, [
-                          _vm._v(
-                            "\n                       Contact No.: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, aliquam!\n                   "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "text-subtitle-1" }, [
-                          _vm._v(
-                            "\n                       E-mail: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, aliquam!\n                   "
-                          )
-                        ])
-                      ])
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            }),
-            1
-          )
-    ],
-    1
-  )
+                            _c("v-img", {
+                              staticClass: "mx-auto",
+                              attrs: {
+                                height: "400",
+                                width: "auto",
+                                src:
+                                  "/storage/member_images/" +
+                                  member.member_image,
+                                alt: "",
+                                position: "center center"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("v-card-title", [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "text-subtitle-1 font-weight-bold black-text"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                     Name: " +
+                                      _vm._s(member.name) +
+                                      "\n                  "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "text-subtitle-1 font-weight-bold"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                     Designation: Lorem ipsum dolor sit amet, consectetur\n                     adipisicing.\n                  "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "text-subtitle-1" }, [
+                                _vm._v(
+                                  "\n                     Contact No.: Lorem ipsum dolor sit amet, consectetur\n                     adipisicing elit. Molestiae, aliquam!\n                  "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "text-subtitle-1" }, [
+                                _vm._v(
+                                  "\n                     E-mail: Lorem ipsum dolor sit amet, consectetur\n                     adipisicing elit. Molestiae, aliquam!\n                  "
+                                )
+                              ])
+                            ])
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  }),
+                  1
+                )
+          ],
+          1
+        )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
