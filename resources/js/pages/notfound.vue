@@ -10,7 +10,7 @@
             </div>
         </v-row>
       </v-container>
-    </v-card>        
+    </v-card>
   </div>
 </template>
 

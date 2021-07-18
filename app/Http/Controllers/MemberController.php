@@ -41,7 +41,7 @@ class MemberController extends Controller
             $request->file('member_image')->storeAs('public/member_images', $filenameToStore);
         }
         else{
-            $filenameToStore = 'noimage.jpg';
+            $filenameToStore = 'noimage.png';
         }
 
         PeopleMember::Create([
@@ -93,7 +93,7 @@ class MemberController extends Controller
             $request->file('member_image')->storeAs('public/member_images', $filenameToStore);
         }
         else{
-            $filenameToStore = 'noimage.jpg';
+            $filenameToStore = 'noimage.png';
         }
 
         $member = PeopleMember::find($id);

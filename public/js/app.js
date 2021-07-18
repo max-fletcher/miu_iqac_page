@@ -3196,7 +3196,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -4022,60 +4021,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      members: []
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/api/people/members/membersbypeopleid/" + this.$route.params.id).then(function (res) {
+      _this.members = res.data;
+    })["catch"](function (error) {
+      console.log(error); // this.errors = error.response.data.errors
+    });
+  }
+});
 
 /***/ }),
 
@@ -26530,8 +26491,6 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm._v("\n   " + _vm._s(_vm.people) + "\n   "),
-      _vm._v(" "),
       _c(
         "v-navigation-drawer",
         {
@@ -28879,181 +28838,108 @@ var render = function() {
     "div",
     { staticClass: "pt-3" },
     [
-      _c(
-        "v-row",
-        { staticClass: "mx-4 py-4" },
-        [
-          _c(
-            "v-col",
-            { attrs: { cols: "12", sm: "6", md: "4" } },
+      _vm.members.length === 0
+        ? _c(
+            "v-card",
+            { attrs: { flat: "", height: "480", "min-height": "300" } },
             [
               _c(
-                "v-card",
-                { attrs: { "min-height": "450", to: "/", elevation: "10" } },
+                "v-container",
+                { attrs: { "fill-height": "", fluid: "" } },
                 [
-                  _c("v-img", {
-                    staticClass: "mx-auto",
-                    attrs: {
-                      height: "400",
-                      width: "auto",
-                      src:
-                        "/storage/member_images/Screenshot (6)_1625980862.png",
-                      alt: "",
-                      position: "center center"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("v-card-title", [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "text-subtitle-1 font-weight-bold black-text"
-                      },
-                      [
-                        _vm._v(
-                          "\n                       Name: Lorem ipsum dolor, sit amet consectetur adipisg.\n                   "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "text-subtitle-1 font-weight-bold" },
-                      [
-                        _vm._v(
-                          "\n                       Designation: Lorem ipsum dolor sit amet, consectetur adipisicing.\n                   "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "text-subtitle-1" }, [
-                      _vm._v(
-                        "\n                       Contact No.: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, aliquam!\n                   "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "text-subtitle-1" }, [
-                      _vm._v(
-                        "\n                       E-mail: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, aliquam!\n                   "
-                      )
-                    ])
-                  ])
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-col",
-            { attrs: { cols: "12", sm: "6", md: "4" } },
-            [
-              _c(
-                "v-card",
-                { attrs: { "min-height": "450", to: "/", elevation: "10" } },
-                [
-                  _c("v-img", {
-                    staticClass: "mx-auto",
-                    attrs: {
-                      height: "400",
-                      width: "auto",
-                      src: "/images/eee.jpg",
-                      alt: "",
-                      position: "center center"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("v-card-title", [
-                    _c("div", { staticClass: "mx-auto" }, [
-                      _vm._v(
-                        "\n                       Department of EEE\n                   "
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("v-card-text", [
-                    _c("div", { staticClass: "text-subtitle-1" }, [
-                      _vm._v(
-                        "\n                       Name: Lorem ipsum dolor, sit amet consectetur adipisg.\n                   "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "text-subtitle-1" }, [
-                      _vm._v(
-                        "\n                       Position: Lorem ipsum dolor sit amet, consectetur adipisicing.\n                   "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "text-subtitle-1" }, [
-                      _vm._v(
-                        "\n                       Contact: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, aliquam!\n                   "
-                      )
-                    ])
-                  ])
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-col",
-            { attrs: { cols: "12", sm: "6", md: "4" } },
-            [
-              _c(
-                "v-card",
-                { attrs: { "min-height": "450", to: "/", elevation: "10" } },
-                [
-                  _c("v-img", {
-                    staticClass: "mx-auto",
-                    attrs: {
-                      height: "400",
-                      width: "auto",
-                      src: "/images/cse.jpg",
-                      alt: "",
-                      position: "center center"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("v-card-title", [
-                    _c("div", { staticClass: "mx-auto" }, [
-                      _vm._v(
-                        "\n                       Department of CSE\n                   "
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("v-card-text", [
-                    _c("div", { staticClass: "text-subtitle-1" }, [
-                      _vm._v(
-                        "\n                       Name: Lorem ipsum dolor, sit amet consectetur adipisg.\n                   "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "text-subtitle-1" }, [
-                      _vm._v(
-                        "\n                       Position: Lorem ipsum dolor sit amet, consectetur adipisicing.\n                   "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "text-subtitle-1" }, [
-                      _vm._v(
-                        "\n                       Contact: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, aliquam!\n                   "
-                      )
-                    ])
-                  ])
+                  _c(
+                    "v-row",
+                    { attrs: { align: "center", justify: "center" } },
+                    [
+                      _c("div", { staticClass: "text-center" }, [
+                        _c("h1", [
+                          _vm._v(" No Members Exist For This Section Yet !! ")
+                        ]),
+                        _vm._v(" "),
+                        _c("h2", [
+                          _vm._v(" Add Members From The Admin Panel. ")
+                        ])
+                      ])
+                    ]
+                  )
                 ],
                 1
               )
             ],
             1
           )
-        ],
-        1
-      )
+        : _c(
+            "v-row",
+            { staticClass: "mx-4 py-4" },
+            _vm._l(_vm.members, function(member, index) {
+              return _c(
+                "v-col",
+                { key: index, attrs: { cols: "12", sm: "6", md: "4" } },
+                [
+                  _c(
+                    "v-card",
+                    {
+                      attrs: { "min-height": "450", to: "/", elevation: "10" }
+                    },
+                    [
+                      _c("v-img", {
+                        staticClass: "mx-auto",
+                        attrs: {
+                          height: "400",
+                          width: "auto",
+                          src: "/storage/member_images/" + member.member_image,
+                          alt: "",
+                          position: "center center"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("v-card-title", [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "text-subtitle-1 font-weight-bold black-text"
+                          },
+                          [
+                            _vm._v(
+                              "\n                       Name: " +
+                                _vm._s(member.name) +
+                                "\n                   "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "text-subtitle-1 font-weight-bold" },
+                          [
+                            _vm._v(
+                              "\n                       Designation: Lorem ipsum dolor sit amet, consectetur adipisicing.\n                   "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "text-subtitle-1" }, [
+                          _vm._v(
+                            "\n                       Contact No.: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, aliquam!\n                   "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "text-subtitle-1" }, [
+                          _vm._v(
+                            "\n                       E-mail: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, aliquam!\n                   "
+                          )
+                        ])
+                      ])
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            }),
+            1
+          )
     ],
     1
   )
@@ -45724,8 +45610,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/VCard.js");
 /* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/index.js");
 /* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VCol.js");
-/* harmony import */ var vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VImg */ "./node_modules/vuetify/lib/components/VImg/VImg.js");
-/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VContainer.js");
+/* harmony import */ var vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VImg */ "./node_modules/vuetify/lib/components/VImg/VImg.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
 
 
 
@@ -45752,7 +45639,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 
 
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__.default,VCardText: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.VCardText,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__.default,VImg: vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_7__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__.default})
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__.default,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__.default,VContainer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__.default,VImg: vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_8__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__.default})
 
 
 /* hot reload */

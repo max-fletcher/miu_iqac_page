@@ -1,6 +1,5 @@
 <template>
-  <div>
-     {{people}}
+  <div>     
      <!-- Nav Drawer -->
         <v-navigation-drawer v-model="toggleNavSidebar" absolute temporary width="190">
             <v-card tile color="#4270A9">
