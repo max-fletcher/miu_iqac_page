@@ -59,9 +59,9 @@ class MemberController extends Controller
 
     public function show($id)
     {
-        $people = PeopleMember::with('people')->where('id', $id)->first();
-        if($people){
-            return response()->json($people, 200);
+        $member = PeopleMember::with('people')->where('id', $id)->first();
+        if($member){
+            return response()->json($member, 200);
         }
 
         return response()->json('The Provided ID doesn\'t match any Member Records !!', 404);
@@ -128,8 +128,13 @@ class MemberController extends Controller
     }
 
     public function find_all_members_by_people_id($id)
-    {
-        $members = PeopleMember::with('people')->where('people_id', $id)->get();
+    {        
+        // $members = PeopleMember::with('people')->where('people_id', $id)->get();
+
+        $members = PeopleMember::where('people_id', $id)->select('id', 'people_id', 'name', 'designation', 'cell_number', 'email', 'member_image')->with(['people' => function($query) {
+            return $query->select(['id', 'name']);
+        }])->get();
+
         return response()->json($members, 201);
     }
 }

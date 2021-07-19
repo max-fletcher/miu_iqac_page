@@ -12,7 +12,13 @@ class PeopleController extends Controller
     public function index()
     {
         $people = People::all();
-        
+        return response()->json($people, 200);
+    }
+
+    
+    public function frontend_index()
+    {
+        $people = People::select('id', 'name')->orderBy('id')->get();
         return response()->json($people, 200);
     }
 

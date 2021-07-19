@@ -55,6 +55,7 @@ Route::get('/about/content/contentbytypeid/{id}', [App\Http\Controllers\AboutCon
 
 // People Controller
 Route::get('/people/index', [App\Http\Controllers\PeopleController::class, 'index']);
+Route::get('/people/frontend_index', [App\Http\Controllers\PeopleController::class, 'frontend_index']);
 Route::post('/people/store', [App\Http\Controllers\PeopleController::class, 'store']);
 Route::get('/people/show/{id}', [App\Http\Controllers\PeopleController::class, 'show']);
 Route::patch('/people/update/{id}', [App\Http\Controllers\PeopleController::class, 'update']);
@@ -70,6 +71,7 @@ Route::get('/people/members/membersbypeopleid/{id}', [App\Http\Controllers\Membe
 
 // Event Types Controller
 Route::get('/events/types/index', [App\Http\Controllers\EventTypeController::class, 'index']);
+Route::get('/events/types/frontend_index', [App\Http\Controllers\EventTypeController::class, 'frontend_index']);
 Route::post('/events/types/store', [App\Http\Controllers\EventTypeController::class, 'store']);
 Route::get('/events/types/show/{id}', [App\Http\Controllers\EventTypeController::class, 'show']);
 Route::patch('/events/types/update/{id}', [App\Http\Controllers\EventTypeController::class, 'update']);
@@ -85,6 +87,7 @@ Route::get('/events/eventsbyeventtypeid/{id}', [App\Http\Controllers\EventContro
 
 // News Controller
 Route::get('/news/index', [App\Http\Controllers\NewsController::class, 'index']);
+Route::get('/news/frontend_index', [App\Http\Controllers\NewsController::class, 'frontend_index']);
 Route::post('/news/store', [App\Http\Controllers\NewsController::class, 'store']);
 Route::get('/news/show/{id}', [App\Http\Controllers\NewsController::class, 'show']);
 Route::patch('/news/update/{id}', [App\Http\Controllers\NewsController::class, 'update']);

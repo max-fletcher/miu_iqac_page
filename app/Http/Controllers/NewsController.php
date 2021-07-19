@@ -15,6 +15,12 @@ class NewsController extends Controller
         return response()->json(News::all() ,200);
     }
 
+    public function frontend_index()
+    {
+        $news = News::select('id', 'news_title', 'news_text', 'news_image')->get();
+        return response()->json($news ,200);
+    }
+
     public function store(Request $request)
     {
         $request->validate([

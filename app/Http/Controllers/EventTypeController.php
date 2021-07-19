@@ -13,6 +13,12 @@ class EventTypeController extends Controller
         return response()->json( EventType::all(), 200);
     }
 
+    public function frontend_index()
+    {
+        $all_event_types = EventType::select('id', 'event_type')->get();
+        return response()->json( $all_event_types, 200);
+    }
+
     public function store(Request $request)
     {
         $request->validate([

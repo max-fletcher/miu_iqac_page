@@ -1,5 +1,6 @@
 <template>
-  <div>     
+  <div>
+     {{event_types}}
      <!-- Nav Drawer -->
         <v-navigation-drawer v-model="toggleNavSidebar" absolute temporary width="190">
             <v-card tile color="#4270A9">
@@ -379,7 +380,7 @@ export default {
          { title: "Gallery", content: "Some Content" },
          { title: "Contact Us", content: "Some Content" },
       ],
-      people: []
+      people: [],      
    }),
    components: {},
    watch: {
@@ -388,7 +389,7 @@ export default {
       },
    },
    created(){
-      axios.get("/api/people/index")
+      axios.get("/api/people/frontend_index")
          .then((res) => {            
             this.people = res.data
          })
