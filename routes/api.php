@@ -38,21 +38,15 @@ Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout']);
 
 // Carousel Content Controller
 Route::get('/carouselcontent/index', [App\Http\Controllers\CarouselContentController::class, 'index']);
+Route::get('/carouselcontent/frontend_index', [App\Http\Controllers\CarouselContentController::class, 'frontend_index']);
 Route::post('/carouselcontent/store', [App\Http\Controllers\CarouselContentController::class, 'store']);
 Route::get('/carouselcontent/show/{id}', [App\Http\Controllers\CarouselContentController::class, 'show']);
 Route::patch('/carouselcontent/update/{id}', [App\Http\Controllers\CarouselContentController::class, 'update']);
 Route::delete('/carouselcontent/delete/{id}', [App\Http\Controllers\CarouselContentController::class, 'destroy']);
 
-// About Content Type Controller
-Route::get('/about/contenttype/index', [App\Http\Controllers\AboutContentTypeController::class, 'index']);
-Route::post('/about/contenttype/store', [App\Http\Controllers\AboutContentTypeController::class, 'store']);
-Route::get('/about/contenttype/show/{id}', [App\Http\Controllers\AboutContentTypeController::class, 'show']);
-Route::patch('/about/contenttype/update/{id}', [App\Http\Controllers\AboutContentTypeController::class, 'update']);
-Route::delete('/about/contenttype/destroy/{id}', [App\Http\Controllers\AboutContentTypeController::class, 'destroy']);
-Route::get('/about/contenttype/contenttypewithoutcontent', [App\Http\Controllers\AboutContentTypeController::class, 'content_type_without_content']);
-
 // About Content Controller
 Route::get('/about/content/index', [App\Http\Controllers\AboutContentController::class, 'index']);
+Route::get('/about/content/frontend_index', [App\Http\Controllers\AboutContentController::class, 'frontend_index']);
 Route::post('/about/content/store', [App\Http\Controllers\AboutContentController::class, 'store']);
 Route::get('/about/content/show/{id}', [App\Http\Controllers\AboutContentController::class, 'show']);
 Route::patch('/about/content/update/{id}', [App\Http\Controllers\AboutContentController::class, 'update']);

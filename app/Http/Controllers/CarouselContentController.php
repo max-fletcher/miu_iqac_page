@@ -14,6 +14,11 @@ class CarouselContentController extends Controller
         return response()->json(CarouselContent::all() ,200);
     }
 
+    public function frontend_index()
+    {
+        return response()->json(CarouselContent::select(['carousel_title', 'carousel_subtitle', 'carousel_image'])->get() ,200);
+    }
+
     public function store(Request $request)
     {
         $request->validate([

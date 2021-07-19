@@ -11,7 +11,4 @@ class AboutContent extends Model
 
     protected $guarded=[];
 
-    public function about_content_type(){
-        return $this->belongsTo(AboutContentType::class);
-    }
 }

@@ -1881,11 +1881,82 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      about_items: null
+      about_items: null,
+      loading: true
     };
   },
   components: {
@@ -1894,11 +1965,14 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get("/api/about/content/index").then(function (res) {
+    axios.get("/api/about/content/frontend_index").then(function (res) {
       console.log(res);
       _this.about_items = res.data;
+      _this.loading = false;
     })["catch"](function (error) {
       console.log(error); // this.errors = error.response.data.errors
+
+      _this.loading = false;
     });
   }
 });
@@ -3815,12 +3889,83 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
  // import TopNav from './topnav'
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      items: []
+      items: [],
+      loading: true
     };
   },
   components: {
@@ -3829,11 +3974,14 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get("/api/carouselcontent/index").then(function (res) {
+    axios.get("/api/carouselcontent/frontend_index").then(function (res) {
       console.log(res);
       _this.items = res.data;
+      _this.loading = false;
     })["catch"](function (error) {
       console.log(error); // this.errors = error.response.data.errors
+
+      _this.loading = false;
     });
   }
 });
@@ -25166,99 +25314,228 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c(
-            "v-col",
-            { attrs: { cols: "12", md: "10" } },
-            [
-              _c(
-                "v-card",
-                { staticClass: "mx-0 my-0", attrs: { flat: "" } },
+          _vm.loading
+            ? _c(
+                "v-col",
+                { attrs: { cols: "12", md: "10" } },
                 [
-                  _c(
-                    "v-card-title",
-                    {
-                      staticClass:
-                        "text-h5 font-weight-bold grey--text text--darken-2 pb-2 pl-md-2 pt-md-1 pl-sm-5 pt-sm-0 pr-sm-4 mb-md-0"
-                    },
-                    [
-                      _c(
-                        "v-icon",
-                        {
-                          attrs: { large: "", left: "", color: "grey darken-1" }
-                        },
-                        [_vm._v("mdi-information")]
-                      ),
-                      _vm._v("\n                    About Us\n                ")
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm._l(_vm.about_items, function(about_item, index) {
-                return _c(
-                  "v-card",
-                  {
-                    key: index,
-                    staticClass: "my-md-1 ml-md-0 mr-3",
-                    attrs: { flat: "" }
-                  },
-                  [
+                  _c("v-card", { staticClass: "mt-6", attrs: { flat: "" } }, [
                     _c(
-                      "v-card-text",
+                      "div",
                       {
                         staticClass:
-                          "text-h5 font-weight-bold pb-0 grey--text text--darken-2 ml-2 ml-sm-3"
+                          "text-center blue--text text--darken-4 font-weight-bold"
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Loading...         \n                "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "mx-auto" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticStyle: {
+                            margin: "auto",
+                            display: "block",
+                            "shape-rendering": "auto",
+                            "animation-play-state": "running",
+                            "animation-delay": "0s"
+                          },
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                            width: "250px",
+                            height: "250px",
+                            viewBox: "0 0 100 100",
+                            preserveAspectRatio: "xMidYMid"
+                          }
+                        },
+                        [
+                          _c(
+                            "circle",
+                            {
+                              staticStyle: {
+                                "animation-play-state": "running",
+                                "animation-delay": "0s"
+                              },
+                              attrs: {
+                                cx: "50",
+                                cy: "50",
+                                r: "19",
+                                "stroke-width": "5",
+                                stroke: "#002147",
+                                "stroke-dasharray":
+                                  "29.845130209103033 29.845130209103033",
+                                fill: "none",
+                                "stroke-linecap": "round"
+                              }
+                            },
+                            [
+                              _c("animateTransform", {
+                                staticStyle: {
+                                  "animation-play-state": "running",
+                                  "animation-delay": "0s"
+                                },
+                                attrs: {
+                                  attributeName: "transform",
+                                  type: "rotate",
+                                  dur: "1s",
+                                  repeatCount: "indefinite",
+                                  keyTimes: "0;1",
+                                  values: "0 50 50;360 50 50"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "circle",
+                            {
+                              staticStyle: {
+                                "animation-play-state": "running",
+                                "animation-delay": "0s"
+                              },
+                              attrs: {
+                                cx: "50",
+                                cy: "50",
+                                r: "13",
+                                "stroke-width": "5",
+                                stroke: "#4270a9",
+                                "stroke-dasharray":
+                                  "20.420352248333657 20.420352248333657",
+                                "stroke-dashoffset": "20.420352248333657",
+                                fill: "none",
+                                "stroke-linecap": "round"
+                              }
+                            },
+                            [
+                              _c("animateTransform", {
+                                staticStyle: {
+                                  "animation-play-state": "running",
+                                  "animation-delay": "0s"
+                                },
+                                attrs: {
+                                  attributeName: "transform",
+                                  type: "rotate",
+                                  dur: "1s",
+                                  repeatCount: "indefinite",
+                                  keyTimes: "0;1",
+                                  values: "0 50 50;-360 50 50"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ],
+                1
+              )
+            : _c(
+                "v-col",
+                { attrs: { cols: "12", md: "10" } },
+                [
+                  _c(
+                    "v-card",
+                    { staticClass: "mx-0 my-0", attrs: { flat: "" } },
+                    [
+                      _c(
+                        "v-card-title",
+                        {
+                          staticClass:
+                            "text-h5 font-weight-bold grey--text text--darken-2 pb-2 pl-md-2 pt-md-1 pl-sm-5 pt-sm-0 pr-sm-4 mb-md-0"
+                        },
+                        [
+                          _c(
+                            "v-icon",
+                            {
+                              attrs: {
+                                large: "",
+                                left: "",
+                                color: "grey darken-1"
+                              }
+                            },
+                            [_vm._v("mdi-information")]
+                          ),
+                          _vm._v(
+                            "\n                    About Us\n                "
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.about_items, function(about_item, index) {
+                    return _c(
+                      "v-card",
+                      {
+                        key: index,
+                        staticClass: "my-md-1 ml-md-0 mr-3",
+                        attrs: { flat: "" }
                       },
                       [
                         _c(
-                          "v-icon",
+                          "v-card-text",
                           {
-                            attrs: {
-                              left: "",
-                              large: "",
-                              color: "grey darken-2"
-                            }
+                            staticClass:
+                              "text-h5 font-weight-bold pb-0 grey--text text--darken-2 ml-2 ml-sm-3"
+                          },
+                          [
+                            _c(
+                              "v-icon",
+                              {
+                                attrs: {
+                                  left: "",
+                                  large: "",
+                                  color: "grey darken-2"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        " +
+                                    _vm._s(about_item.icon) +
+                                    "\n                    "
+                                )
+                              ]
+                            ),
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(about_item.name) +
+                                "\n                "
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-card-text",
+                          {
+                            staticClass:
+                              "text-h5 font-weight-regular ml-7 ml-md-10 pr-16"
                           },
                           [
                             _vm._v(
-                              "\n                        " +
-                                _vm._s(about_item.icon) +
-                                "\n                    "
+                              "\n                   " +
+                                _vm._s(about_item.content) +
+                                "\n                "
                             )
                           ]
-                        ),
-                        _vm._v(
-                          "\n                    " +
-                            _vm._s(about_item.about_content_type.type) +
-                            "\n                "
                         )
                       ],
                       1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-card-text",
-                      {
-                        staticClass:
-                          "text-h5 font-weight-regular ml-7 ml-md-10 pr-16"
-                      },
-                      [
-                        _vm._v(
-                          "\n                   " +
-                            _vm._s(about_item.content) +
-                            "\n                "
-                        )
-                      ]
                     )
-                  ],
-                  1
-                )
-              })
-            ],
-            2
-          )
+                  })
+                ],
+                2
+              )
         ],
         1
       )
@@ -28472,143 +28749,272 @@ var render = function() {
       _c(
         "v-row",
         [
-          _c(
-            "v-col",
-            { attrs: { cols: "12" } },
-            [
-              _c(
-                "v-carousel",
-                {
-                  attrs: {
-                    height: "auto",
-                    "show-arrows-on-hover": "",
-                    "hide-delimiters": ""
-                  }
-                },
-                _vm._l(_vm.items, function(item, index) {
-                  return _c(
-                    "v-carousel-item",
-                    { key: index },
-                    [
+          _vm.loading
+            ? _c(
+                "v-col",
+                [
+                  _c("v-card", { staticClass: "mt-6", attrs: { flat: "" } }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "text-center blue--text text--darken-4 font-weight-bold"
+                      },
+                      [_vm._v("\n               Loading...\n            ")]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "mx-auto" }, [
                       _c(
-                        "v-img",
+                        "svg",
                         {
+                          staticStyle: {
+                            margin: "auto",
+                            display: "block",
+                            "shape-rendering": "auto",
+                            "animation-play-state": "running",
+                            "animation-delay": "0s"
+                          },
                           attrs: {
-                            src:
-                              "/storage/carousel_images/" + item.carousel_image,
-                            "aspect-ratio": "1.77",
-                            "max-height": "550"
+                            xmlns: "http://www.w3.org/2000/svg",
+                            "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                            width: "250px",
+                            height: "250px",
+                            viewBox: "0 0 100 100",
+                            preserveAspectRatio: "xMidYMid"
                           }
                         },
                         [
                           _c(
-                            "v-container",
+                            "circle",
                             {
-                              staticClass: "px-0 py-0",
-                              attrs: { "fill-height": "", fluid: "" }
+                              staticStyle: {
+                                "animation-play-state": "running",
+                                "animation-delay": "0s"
+                              },
+                              attrs: {
+                                cx: "50",
+                                cy: "50",
+                                r: "19",
+                                "stroke-width": "5",
+                                stroke: "#002147",
+                                "stroke-dasharray":
+                                  "29.845130209103033 29.845130209103033",
+                                fill: "none",
+                                "stroke-linecap": "round"
+                              }
+                            },
+                            [
+                              _c("animateTransform", {
+                                staticStyle: {
+                                  "animation-play-state": "running",
+                                  "animation-delay": "0s"
+                                },
+                                attrs: {
+                                  attributeName: "transform",
+                                  type: "rotate",
+                                  dur: "1s",
+                                  repeatCount: "indefinite",
+                                  keyTimes: "0;1",
+                                  values: "0 50 50;360 50 50"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "circle",
+                            {
+                              staticStyle: {
+                                "animation-play-state": "running",
+                                "animation-delay": "0s"
+                              },
+                              attrs: {
+                                cx: "50",
+                                cy: "50",
+                                r: "13",
+                                "stroke-width": "5",
+                                stroke: "#4270a9",
+                                "stroke-dasharray":
+                                  "20.420352248333657 20.420352248333657",
+                                "stroke-dashoffset": "20.420352248333657",
+                                fill: "none",
+                                "stroke-linecap": "round"
+                              }
+                            },
+                            [
+                              _c("animateTransform", {
+                                staticStyle: {
+                                  "animation-play-state": "running",
+                                  "animation-delay": "0s"
+                                },
+                                attrs: {
+                                  attributeName: "transform",
+                                  type: "rotate",
+                                  dur: "1s",
+                                  repeatCount: "indefinite",
+                                  keyTimes: "0;1",
+                                  values: "0 50 50;-360 50 50"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ],
+                1
+              )
+            : _c(
+                "v-col",
+                { attrs: { cols: "12" } },
+                [
+                  _c(
+                    "v-carousel",
+                    {
+                      attrs: {
+                        height: "auto",
+                        "show-arrows-on-hover": "",
+                        "hide-delimiters": ""
+                      }
+                    },
+                    _vm._l(_vm.items, function(item, index) {
+                      return _c(
+                        "v-carousel-item",
+                        { key: index },
+                        [
+                          _c(
+                            "v-img",
+                            {
+                              attrs: {
+                                src:
+                                  "/storage/carousel_images/" +
+                                  item.carousel_image,
+                                "aspect-ratio": "1.77",
+                                "max-height": "550"
+                              }
                             },
                             [
                               _c(
-                                "v-layout",
+                                "v-container",
                                 {
-                                  attrs: { "fill-height": "", "align-end": "" }
+                                  staticClass: "px-0 py-0",
+                                  attrs: { "fill-height": "", fluid: "" }
                                 },
                                 [
                                   _c(
-                                    "v-flex",
+                                    "v-layout",
+                                    {
+                                      attrs: {
+                                        "fill-height": "",
+                                        "align-end": ""
+                                      }
+                                    },
                                     [
                                       _c(
-                                        "v-alert",
-                                        {
-                                          staticClass:
-                                            "\n                                 font-weight-bold\n                                 text-h6\n                                 mb-0\n                                 hidden-xs-only\n                              ",
-                                          attrs: {
-                                            text: "",
-                                            color: "info darken-2",
-                                            tile: "",
-                                            "max-height": "100"
-                                          }
-                                        },
+                                        "v-flex",
                                         [
                                           _c(
-                                            "div",
+                                            "v-alert",
                                             {
                                               staticClass:
-                                                "\n                                    font-weight-bold\n                                    text-center text-body-1\n                                 "
+                                                "\n                                 font-weight-bold\n                                 text-h6\n                                 mb-0\n                                 hidden-xs-only\n                              ",
+                                              attrs: {
+                                                text: "",
+                                                color: "info darken-2",
+                                                tile: "",
+                                                "max-height": "100"
+                                              }
                                             },
                                             [
-                                              _vm._v(
-                                                "\n                                 " +
-                                                  _vm._s(item.carousel_title) +
-                                                  "\n                              "
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "\n                                    font-weight-bold\n                                    text-center text-body-1\n                                 "
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                 " +
+                                                      _vm._s(
+                                                        item.carousel_title
+                                                      ) +
+                                                      "\n                              "
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "text-center text-subtitle-2"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                 " +
+                                                      _vm._s(
+                                                        item.carousel_subtitle
+                                                      ) +
+                                                      "\n                              "
+                                                  )
+                                                ]
                                               )
                                             ]
                                           ),
                                           _vm._v(" "),
                                           _c(
-                                            "div",
+                                            "v-alert",
                                             {
                                               staticClass:
-                                                "text-center text-subtitle-2"
+                                                "text-h6 mb-0 py-1 hidden-sm-and-up",
+                                              attrs: {
+                                                text: "",
+                                                color: "success darken-2",
+                                                tile: "",
+                                                "max-height": "100"
+                                              }
                                             },
                                             [
-                                              _vm._v(
-                                                "\n                                 " +
-                                                  _vm._s(
-                                                    item.carousel_subtitle
-                                                  ) +
-                                                  "\n                              "
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "text-center text-subtitle-2"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                 " +
+                                                      _vm._s(
+                                                        item.carousel_title
+                                                      ) +
+                                                      "\n                              "
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "text-center text-caption"
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                 " +
+                                                      _vm._s(
+                                                        item.carousel_subtitle
+                                                      ) +
+                                                      "\n                              "
+                                                  )
+                                                ]
                                               )
                                             ]
                                           )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-alert",
-                                        {
-                                          staticClass:
-                                            "text-h6 mb-0 py-1 hidden-sm-and-up",
-                                          attrs: {
-                                            text: "",
-                                            color: "success darken-2",
-                                            tile: "",
-                                            "max-height": "100"
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "text-center text-subtitle-2"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                                 " +
-                                                  _vm._s(item.carousel_title) +
-                                                  "\n                              "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "text-center text-caption"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                                 " +
-                                                  _vm._s(
-                                                    item.carousel_subtitle
-                                                  ) +
-                                                  "\n                              "
-                                              )
-                                            ]
-                                          )
-                                        ]
+                                        ],
+                                        1
                                       )
                                     ],
                                     1
@@ -28622,15 +29028,12 @@ var render = function() {
                         ],
                         1
                       )
-                    ],
+                    }),
                     1
                   )
-                }),
+                ],
                 1
               )
-            ],
-            1
-          )
         ],
         1
       ),
@@ -28639,23 +29042,27 @@ var render = function() {
         "v-row",
         { attrs: { justify: "space-around ml-1 ml-md-0 mr-1 mr-md-3" } },
         [
-          _c("v-col", { attrs: { cols: "3" } }, [_c("QuickLinks")], 1),
+          !_vm.loading
+            ? _c("v-col", { attrs: { cols: "3" } }, [_c("QuickLinks")], 1)
+            : _vm._e(),
           _vm._v(" "),
-          _c(
-            "v-col",
-            {
-              staticClass: "black mt-0 mt-md-3",
-              attrs: { cols: "12", md: "9" }
-            },
-            [
-              _c("v-card", { staticClass: "pl-0 ml-0 mt-md-0" }, [
-                _vm._v(
-                  "\n            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut\n            eaque eius alias fugit cum obcaecati aliquam nihil facilis itaque\n            dignissimos quis explicabo, voluptatem repudiandae et! Quod hic\n            architecto fugit qui.\n         "
-                )
-              ])
-            ],
-            1
-          )
+          !_vm.loading
+            ? _c(
+                "v-col",
+                {
+                  staticClass: "black mt-0 mt-md-3",
+                  attrs: { cols: "12", md: "9" }
+                },
+                [
+                  _c("v-card", { staticClass: "pl-0 ml-0 mt-md-0" }, [
+                    _vm._v(
+                      "\n            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut\n            eaque eius alias fugit cum obcaecati aliquam nihil facilis itaque\n            dignissimos quis explicabo, voluptatem repudiandae et! Quod hic\n            architecto fugit qui.\n         "
+                    )
+                  ])
+                ],
+                1
+              )
+            : _vm._e()
         ],
         1
       )
