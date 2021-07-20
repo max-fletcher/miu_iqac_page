@@ -84,17 +84,18 @@
          </v-card>
          <v-row v-else class="mx-2 py-4">
             <v-col v-for="(single_news, index) in news" :key="index" cols="12">
-               <v-card width="auto" outlined class="mt-2 blue" to="/">
-                  <v-list-item>
-                     <v-list-item-avatar tile width="90" height="100">
-                        <v-img
-                           height="auto"
-                           width="auto"
-                           :src="'/storage/news_images/' + single_news.news_image"
-                           alt
-                           position="center center"
-                        ></v-img>
-                     </v-list-item-avatar>
+               <v-card width="auto" outlined class="mt-2" to="/">
+                  <v-list-item>                     
+                     <v-img
+                        min-height="100"
+                        max-height="100"
+                        min-width="70"
+                        max-width="70"
+                        :src="'/storage/news_images/' + single_news.news_image"
+                        alt
+                        position="center center"
+                        class="my-3 mr-4"
+                     ></v-img>                     
 
                      <v-list-item-content>
                         <div class="text-body-2 mt-1 font-weight-bold"> 
@@ -105,7 +106,7 @@
                         </v-list-item-title>
                         <v-list-item-subtitle
                            class="mb-1"
-                        > Date : 10 Feb 2021, 03:28 AM </v-list-item-subtitle>
+                        > {{ moment(single_news.created_at).format('MMMM Do YYYY, h:mm:ss a') }} </v-list-item-subtitle>
                      </v-list-item-content>
                   </v-list-item>
                </v-card>
@@ -116,10 +117,12 @@
 </template>
 
 <script>
+import moment from 'moment'
 export default {
    data: () => ({
       news:[],
-      loading: true
+      moment: moment,
+      loading: true,      
    }),
    created() {
       axios

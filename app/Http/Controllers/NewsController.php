@@ -17,7 +17,7 @@ class NewsController extends Controller
 
     public function frontend_index()
     {
-        $news = News::select('id', 'news_title', 'news_text', 'news_image')->get();
+        $news = News::select('id', 'news_title', 'news_text', 'news_image', 'created_at')->get();
         return response()->json($news ,200);
     }
 
