@@ -95,30 +95,28 @@
                      position="center center"
                      class="my-3 mr-4"
                   ></v-img>
-                  <!-- For Md and Up -->
-                  <v-list-item-content class="hidden-sm-and-down">
-                     <div class="text-subtitle-1 mt-1 font-weight-bold">
+                  <v-list-item-content>
+                  <!-- Title For Xs -->
+                     <div class="text-subtitle-1 mt-1 font-weight-bold d-flex d-sm-none">
+                        {{ single_news.news_title | truncate_title_xs }}
+                     </div>
+                  <!-- Title For Sm -->
+                     <div class="text-subtitle-1 mt-1 font-weight-bold d-none d-sm-flex d-md-none">
+                        {{ single_news.news_title | truncate_title_sm }}
+                     </div>
+                  <!-- Title For Md -->
+                     <div class="text-subtitle-1 mt-1 font-weight-bold d-none d-md-flex d-lg-none">
+                        {{ single_news.news_title | truncate_title_md }}
+                     </div>
+                     <!-- Title For XL and up -->
+                     <div class="text-subtitle-1 mt-1 font-weight-bold d-none d-lg-flex d-xl-none">
                         {{ single_news.news_title }}
                      </div>
-                     <v-list-item-title class="text-subtitle-2 mt-1 font-weight-regular">
-                        {{ single_news.news_subtitle }}
-                     </v-list-item-title>
                      <v-list-item-subtitle
-                        class="mb-1 font-weight-bold"
+                        class="mb-1 mt-1 font-weight-bold"
                      > {{ moment(single_news.created_at).format('MMMM Do YYYY, h:mm:ss a') }} </v-list-item-subtitle>
                   </v-list-item-content>
-                  <!-- For Sm and Down -->
-                  <v-list-item-content class="hidden-md-and-up">
-                     <div class="text-subtitle-1 mt-1 font-weight-bold text-truncate">
-                        {{ single_news.news_title }}
-                     </div>
-                     <v-list-item-title class="text-subtitle-2 mt-1 font-weight-regular">
-                        {{ single_news.news_subtitle }}
-                     </v-list-item-title>
-                     <v-list-item-subtitle
-                        class="mb-1 font-weight-bold"
-                     > {{ moment(single_news.created_at).format('MMMM Do YYYY, h:mm:ss a') }} </v-list-item-subtitle>
-                  </v-list-item-content>
+
                </v-list-item>
             </v-card>
          </v-col>

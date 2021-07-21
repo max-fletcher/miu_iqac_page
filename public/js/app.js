@@ -4150,8 +4150,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -4552,7 +4550,32 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 vue__WEBPACK_IMPORTED_MODULE_3__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_4__.default);
-vue__WEBPACK_IMPORTED_MODULE_3__.default.use(_plugins_vuetify__WEBPACK_IMPORTED_MODULE_0__.default);
+vue__WEBPACK_IMPORTED_MODULE_3__.default.use(_plugins_vuetify__WEBPACK_IMPORTED_MODULE_0__.default); // Filters
+
+vue__WEBPACK_IMPORTED_MODULE_3__.default.filter('truncate_title_xs', function (value) {
+  return value.slice(0, 50) + '...';
+});
+vue__WEBPACK_IMPORTED_MODULE_3__.default.filter('truncate_title_sm', function (value) {
+  return value.slice(0, 100) + '...';
+});
+vue__WEBPACK_IMPORTED_MODULE_3__.default.filter('truncate_title_md', function (value) {
+  return value.slice(0, 180) + '...';
+}); // Vue.filter('truncate_text_xs', function(value){
+//     return value.slice(0, 10) + '...'
+// })
+// Vue.filter('truncate_text_sm', function(value){
+//     return value.slice(0,20) + '...'
+// })
+// Vue.filter('truncate_text_md', function(value){
+//     return value.slice(0, 40) + '...'
+// })
+// Vue.filter('truncate_text_md', function(value){
+//     return value.slice(0, 150) + '...'
+// })
+// Vue.filter('truncate_text_lg', function(value){
+//     return value.slice(0, 80) + '...'
+// })
+
 var app = new vue__WEBPACK_IMPORTED_MODULE_3__.default({
   vuetify: _plugins_vuetify__WEBPACK_IMPORTED_MODULE_0__.default,
   el: '#app',
@@ -49366,68 +49389,69 @@ var render = function() {
                                 _vm._v(" "),
                                 _c(
                                   "v-list-item-content",
-                                  { staticClass: "hidden-sm-and-down" },
                                   [
                                     _c(
                                       "div",
                                       {
                                         staticClass:
-                                          "text-subtitle-1 mt-1 font-weight-bold"
+                                          "text-subtitle-1 mt-1 font-weight-bold d-flex d-sm-none"
                                       },
                                       [
                                         _vm._v(
                                           "\r\n                        " +
-                                            _vm._s(single_news.news_title) +
-                                            "\r\n                     "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-list-item-title",
-                                      {
-                                        staticClass:
-                                          "text-subtitle-2 mt-1 font-weight-regular"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\r\n                        " +
-                                            _vm._s(single_news.news_subtitle) +
-                                            "\r\n                     "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-list-item-subtitle",
-                                      { staticClass: "mb-1 font-weight-bold" },
-                                      [
-                                        _vm._v(
-                                          " " +
                                             _vm._s(
-                                              _vm
-                                                .moment(single_news.created_at)
-                                                .format(
-                                                  "MMMM Do YYYY, h:mm:ss a"
-                                                )
+                                              _vm._f("truncate_title_xs")(
+                                                single_news.news_title
+                                              )
                                             ) +
-                                            " "
+                                            "\r\n                     "
                                         )
                                       ]
-                                    )
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "v-list-item-content",
-                                  { staticClass: "hidden-md-and-up" },
-                                  [
+                                    ),
+                                    _vm._v(" "),
                                     _c(
                                       "div",
                                       {
                                         staticClass:
-                                          "text-subtitle-1 mt-1 font-weight-bold text-truncate"
+                                          "text-subtitle-1 mt-1 font-weight-bold d-none d-sm-flex d-md-none"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\r\n                        " +
+                                            _vm._s(
+                                              _vm._f("truncate_title_sm")(
+                                                single_news.news_title
+                                              )
+                                            ) +
+                                            "\r\n                     "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "text-subtitle-1 mt-1 font-weight-bold d-none d-md-flex d-lg-none"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\r\n                        " +
+                                            _vm._s(
+                                              _vm._f("truncate_title_md")(
+                                                single_news.news_title
+                                              )
+                                            ) +
+                                            "\r\n                     "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "text-subtitle-1 mt-1 font-weight-bold d-none d-lg-flex d-xl-none"
                                       },
                                       [
                                         _vm._v(
@@ -49439,23 +49463,11 @@ var render = function() {
                                     ),
                                     _vm._v(" "),
                                     _c(
-                                      "v-list-item-title",
+                                      "v-list-item-subtitle",
                                       {
                                         staticClass:
-                                          "text-subtitle-2 mt-1 font-weight-regular"
+                                          "mb-1 mt-1 font-weight-bold"
                                       },
-                                      [
-                                        _vm._v(
-                                          "\r\n                        " +
-                                            _vm._s(single_news.news_subtitle) +
-                                            "\r\n                     "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-list-item-subtitle",
-                                      { staticClass: "mb-1 font-weight-bold" },
                                       [
                                         _vm._v(
                                           " " +
@@ -67510,8 +67522,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 
 
-
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__.default,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_5__.default,VContainer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__.default,VImg: vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_7__.default,VListItem: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_8__.default,VListItemContent: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_9__.VListItemContent,VListItemSubtitle: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_9__.VListItemSubtitle,VListItemTitle: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_9__.VListItemTitle,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__.default})
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__.default,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_5__.default,VContainer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__.default,VImg: vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_7__.default,VListItem: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_8__.default,VListItemContent: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_9__.VListItemContent,VListItemSubtitle: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_9__.VListItemSubtitle,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__.default})
 
 
 /* hot reload */
