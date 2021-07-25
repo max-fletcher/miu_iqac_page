@@ -27,7 +27,7 @@
                   <v-icon left>mdi-information-outline</v-icon>About
                   <v-spacer></v-spacer>
                </v-btn>
-               <v-menu open-on-hover bottom offset-x transition="scale-transition" rounded="0">
+               <v-menu bottom offset-x transition="scale-transition" rounded="0">
                   <template v-slot:activator="{ on, attrs }">
                      <!-- exact-path for later -->
                      <v-card rounded="0" flat>
@@ -53,7 +53,7 @@
                      </v-list-item>
                   </v-list>
                </v-menu>
-               <v-menu open-on-hover bottom offset-x transition="scale-transition" rounded="0">
+               <v-menu bottom offset-x transition="scale-transition" rounded="0">
                   <template v-slot:activator="{ on, attrs }">
                      <!-- exact-path for later -->
                      <v-card rounded="0" flat>
@@ -75,19 +75,19 @@
                   </template>
                   <v-list>
                      <v-list-item to="/people/iqac" color="#4270A9">
-                        <v-list-item-title>WORKSHOP</v-list-item-title>
+                        <v-list-item-title class="font-weight-bold">WORKSHOP</v-list-item-title>
                      </v-list-item>
                      <v-list-item to="/people/sac" color="#4270A9">
-                        <v-list-item-title>SEMINAR</v-list-item-title>
+                        <v-list-item-title class="font-weight-bold">SEMINAR</v-list-item-title>
                      </v-list-item>
                      <v-list-item to="/people/sac" color="#4270A9">
-                        <v-list-item-title>CONFERANCE</v-list-item-title>
+                        <v-list-item-title class="font-weight-bold">CONFERANCE</v-list-item-title>
                      </v-list-item>
                      <v-list-item to="/people/sac" color="#4270A9">
-                        <v-list-item-title>TRAINING</v-list-item-title>
+                        <v-list-item-title class="font-weight-bold">TRAINING</v-list-item-title>
                      </v-list-item>
                      <v-list-item to="/people/sac" color="#4270A9">
-                        <v-list-item-title>PEER REVIEW</v-list-item-title>
+                        <v-list-item-title class="font-weight-bold">PEER REVIEW</v-list-item-title>
                      </v-list-item>
                   </v-list>
                </v-menu>
@@ -144,7 +144,6 @@
             <v-divider></v-divider>
             <div class="text-center d-flex flex-column">
                <v-menu
-                  open-on-hover
                   offset-x
                   left
                   transition="scale-transition"
@@ -168,8 +167,8 @@
                      </v-btn>
                   </template>
                   <v-list>
-                     <v-list-item v-for="(item, index) in expansionPanelitems" :key="index">
-                        <v-list-item-title>{{ item.title }}</v-list-item-title>
+                     <v-list-item v-for="(item, index) in expansionPanelitems" :key="index" to="/">
+                        <v-list-item-title class="font-weight-bold">{{ item.title }}</v-list-item-title>
                      </v-list-item>
                   </v-list>
                </v-menu>

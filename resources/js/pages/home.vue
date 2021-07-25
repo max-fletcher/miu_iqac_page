@@ -72,7 +72,7 @@
             </v-card>
          </v-col>
          <v-col v-else cols="12">
-            <v-carousel height="auto" show-arrows-on-hover hide-delimiters>
+            <v-carousel height="auto" cycle interval="5500" show-arrows-on-hover hide-delimiters>
                <v-carousel-item v-for="(item, index) in items" :key="index">
                   <v-img
                      :src="'/storage/carousel_images/' + item.carousel_image"

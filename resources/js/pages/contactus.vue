@@ -10,11 +10,11 @@
                            class="
                               text-h5
                               font-weight-bold
-                              grey--text
-                              text--darken-2
+                              blue-grey--text
+                              text--darken-3
                            "
                         >
-                           <v-icon large left color="grey darken-1"
+                           <v-icon large left color="blue-grey darken-3"
                               >mdi-phone
                            </v-icon>
                            Contact Us
@@ -142,7 +142,7 @@
                                  x-large                                 
                                  @click.prevent="submitForm"
                                  :loading="form_loading"
-                                 class="white--text"
+                                 class="white--text mt-3 mt-md-1"
                               >
                                  Submit
                               </v-btn>
@@ -166,8 +166,8 @@
                            class="
                               text-body-h6
                               font-weight-bold
-                              grey--text
-                              text--darken-2
+                              blue-grey--text
+                              text--darken-3
                            "
                         >
                            Gulshan Campus
@@ -176,8 +176,8 @@
                            class="
                               text-body-1
                               font-weight-bold
-                              grey--text
-                              text--darken-2
+                              blue-grey--text
+                              text--darken-3
                            "
                         >
                            Plot # CEN-16, Road # 106 <br />
@@ -197,8 +197,8 @@
                         class="
                            text-body-1
                            font-weight-bold
-                           grey--text
-                           text--darken-2
+                           blue-grey--text
+                           text--darken-3
                            text-center
                            text-md-left
                         "
@@ -224,8 +224,8 @@
                            class="
                               text-body-h6
                               font-weight-bold
-                              grey--text
-                              text--darken-2
+                              blue-grey--text
+                              text--darken-3
                            "
                         >
                            Ashulia Permanent <br />
@@ -235,8 +235,8 @@
                            class="
                               text-body-1
                               font-weight-bold
-                              grey--text
-                              text--darken-2
+                              blue-grey--text
+                              text--darken-3
                            "
                         >
                            Ashulia Model Town, <br />
@@ -257,8 +257,8 @@
                         class="
                            text-body-1
                            font-weight-bold
-                           grey--text
-                           text--darken-2
+                           blue-grey--text
+                           text--darken-3
                         "
                      >
                         Ashulia Permanent Campus Location

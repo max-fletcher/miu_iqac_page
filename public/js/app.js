@@ -3264,7 +3264,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -47268,7 +47267,6 @@ var render = function() {
                 "v-menu",
                 {
                   attrs: {
-                    "open-on-hover": "",
                     bottom: "",
                     "offset-x": "",
                     transition: "scale-transition",
@@ -47364,7 +47362,6 @@ var render = function() {
                 "v-menu",
                 {
                   attrs: {
-                    "open-on-hover": "",
                     bottom: "",
                     "offset-x": "",
                     transition: "scale-transition",
@@ -47431,35 +47428,65 @@ var render = function() {
                       _c(
                         "v-list-item",
                         { attrs: { to: "/people/iqac", color: "#4270A9" } },
-                        [_c("v-list-item-title", [_vm._v("WORKSHOP")])],
+                        [
+                          _c(
+                            "v-list-item-title",
+                            { staticClass: "font-weight-bold" },
+                            [_vm._v("WORKSHOP")]
+                          )
+                        ],
                         1
                       ),
                       _vm._v(" "),
                       _c(
                         "v-list-item",
                         { attrs: { to: "/people/sac", color: "#4270A9" } },
-                        [_c("v-list-item-title", [_vm._v("SEMINAR")])],
+                        [
+                          _c(
+                            "v-list-item-title",
+                            { staticClass: "font-weight-bold" },
+                            [_vm._v("SEMINAR")]
+                          )
+                        ],
                         1
                       ),
                       _vm._v(" "),
                       _c(
                         "v-list-item",
                         { attrs: { to: "/people/sac", color: "#4270A9" } },
-                        [_c("v-list-item-title", [_vm._v("CONFERANCE")])],
+                        [
+                          _c(
+                            "v-list-item-title",
+                            { staticClass: "font-weight-bold" },
+                            [_vm._v("CONFERANCE")]
+                          )
+                        ],
                         1
                       ),
                       _vm._v(" "),
                       _c(
                         "v-list-item",
                         { attrs: { to: "/people/sac", color: "#4270A9" } },
-                        [_c("v-list-item-title", [_vm._v("TRAINING")])],
+                        [
+                          _c(
+                            "v-list-item-title",
+                            { staticClass: "font-weight-bold" },
+                            [_vm._v("TRAINING")]
+                          )
+                        ],
                         1
                       ),
                       _vm._v(" "),
                       _c(
                         "v-list-item",
                         { attrs: { to: "/people/sac", color: "#4270A9" } },
-                        [_c("v-list-item-title", [_vm._v("PEER REVIEW")])],
+                        [
+                          _c(
+                            "v-list-item-title",
+                            { staticClass: "font-weight-bold" },
+                            [_vm._v("PEER REVIEW")]
+                          )
+                        ],
                         1
                       )
                     ],
@@ -47580,7 +47607,6 @@ var render = function() {
                 {
                   key: index,
                   attrs: {
-                    "open-on-hover": "",
                     "offset-x": "",
                     left: "",
                     transition: "scale-transition"
@@ -47644,8 +47670,14 @@ var render = function() {
                     _vm._l(_vm.expansionPanelitems, function(item, index) {
                       return _c(
                         "v-list-item",
-                        { key: index },
-                        [_c("v-list-item-title", [_vm._v(_vm._s(item.title))])],
+                        { key: index, attrs: { to: "/" } },
+                        [
+                          _c(
+                            "v-list-item-title",
+                            { staticClass: "font-weight-bold" },
+                            [_vm._v(_vm._s(item.title))]
+                          )
+                        ],
                         1
                       )
                     }),
@@ -48214,7 +48246,7 @@ var render = function() {
                               "v-card-title",
                               {
                                 staticClass:
-                                  "\n                           text-h5\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
+                                  "\n                           text-h5\n                           font-weight-bold\n                           blue-grey--text\n                           text--darken-3\n                        "
                               },
                               [
                                 _c(
@@ -48223,7 +48255,7 @@ var render = function() {
                                     attrs: {
                                       large: "",
                                       left: "",
-                                      color: "grey darken-1"
+                                      color: "blue-grey darken-3"
                                     }
                                   },
                                   [
@@ -48474,7 +48506,7 @@ var render = function() {
                                     _c(
                                       "v-btn",
                                       {
-                                        staticClass: "white--text",
+                                        staticClass: "white--text mt-3 mt-md-1",
                                         attrs: {
                                           color: "green",
                                           "x-large": "",
@@ -48531,7 +48563,7 @@ var render = function() {
                                 "v-card-title",
                                 {
                                   staticClass:
-                                    "\n                           text-body-h6\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
+                                    "\n                           text-body-h6\n                           font-weight-bold\n                           blue-grey--text\n                           text--darken-3\n                        "
                                 },
                                 [
                                   _vm._v(
@@ -48544,7 +48576,7 @@ var render = function() {
                                 "v-card-text",
                                 {
                                   staticClass:
-                                    "\n                           text-body-1\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
+                                    "\n                           text-body-1\n                           font-weight-bold\n                           blue-grey--text\n                           text--darken-3\n                        "
                                 },
                                 [
                                   _vm._v(
@@ -48595,7 +48627,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "\n                        text-body-1\n                        font-weight-bold\n                        grey--text\n                        text--darken-2\n                        text-center\n                        text-md-left\n                     "
+                                "\n                        text-body-1\n                        font-weight-bold\n                        blue-grey--text\n                        text--darken-3\n                        text-center\n                        text-md-left\n                     "
                             },
                             [
                               _vm._v(
@@ -48644,7 +48676,7 @@ var render = function() {
                                 "v-card-title",
                                 {
                                   staticClass:
-                                    "\n                           text-body-h6\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
+                                    "\n                           text-body-h6\n                           font-weight-bold\n                           blue-grey--text\n                           text--darken-3\n                        "
                                 },
                                 [
                                   _vm._v(
@@ -48661,7 +48693,7 @@ var render = function() {
                                 "v-card-text",
                                 {
                                   staticClass:
-                                    "\n                           text-body-1\n                           font-weight-bold\n                           grey--text\n                           text--darken-2\n                        "
+                                    "\n                           text-body-1\n                           font-weight-bold\n                           blue-grey--text\n                           text--darken-3\n                        "
                                 },
                                 [
                                   _vm._v(
@@ -48713,7 +48745,7 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "\n                        text-body-1\n                        font-weight-bold\n                        grey--text\n                        text--darken-2\n                     "
+                                "\n                        text-body-1\n                        font-weight-bold\n                        blue-grey--text\n                        text--darken-3\n                     "
                             },
                             [
                               _vm._v(
@@ -49206,6 +49238,8 @@ var render = function() {
                     {
                       attrs: {
                         height: "auto",
+                        cycle: "",
+                        interval: "5500",
                         "show-arrows-on-hover": "",
                         "hide-delimiters": ""
                       }
@@ -50865,7 +50899,10 @@ var render = function() {
                       [
                         _c(
                           "v-card-text",
-                          { staticClass: "text-subtitle-1 mt-1 pb-0" },
+                          {
+                            staticClass:
+                              "text-subtitle-1 mt-1 pb-0 orange--text text--darken-3"
+                          },
                           [_vm._v(" HEADLINE: ")]
                         ),
                         _vm._v(" "),
@@ -50896,7 +50933,10 @@ var render = function() {
                         _vm._v(" "),
                         _c(
                           "v-card-subtitle",
-                          { staticClass: "text-subtitle-1" },
+                          {
+                            staticClass:
+                              "text-subtitle-1 orange--text text--darken-3"
+                          },
                           [
                             _vm._v(
                               "\n                   Date Published: " +
@@ -50912,11 +50952,19 @@ var render = function() {
                         _vm._v(" "),
                         _c(
                           "v-card-text",
-                          { staticClass: "text-subtitle-1 black--text" },
+                          {
+                            staticClass:
+                              "text-subtitle-1 font-weight-medium black--text"
+                          },
                           [
-                            _c("div", { staticClass: "text-subtitle-1" }, [
-                              _vm._v(" DETAILS: ")
-                            ]),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "text-subtitle-1 orange--text text--darken-3"
+                              },
+                              [_vm._v(" DETAILS: ")]
+                            ),
                             _vm._v(
                               "\n                   " +
                                 _vm._s(_vm.single_news.news_text) +
