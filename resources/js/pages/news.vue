@@ -90,8 +90,7 @@
             </v-card>            
          </v-row>
          <v-col v-for="(single_news, index) in news" :key="index" cols="12">
-            <v-card width="auto" height="100" outlined class="mt-n3 d-flex align-center pa-auto" :to="'/news/single_news/' + single_news.id">
-            
+            <v-card width="auto" height="100" outlined class="mt-n3 d-flex align-center pa-auto" :to="'/news/single_news/' + single_news.id" :style="cardBorderColor">
             <v-avatar               
                size="90"
                tile
@@ -143,6 +142,11 @@ export default {
       moment: moment,
       loading: true,
    }),
+   computed: {
+      cardBorderColor: function(){
+         return {border: '1px solid #4270a9'}
+      }
+   },
    created() {
       axios
          .get("/api/news/frontend_index")

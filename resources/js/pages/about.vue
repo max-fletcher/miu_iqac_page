@@ -77,17 +77,17 @@
             <v-col v-else cols="12" md="10">
                 <v-card flat class="mx-0 my-0">
                     <v-card-title
-                        class="text-h5 font-weight-bold grey--text text--darken-2 pb-2 pl-md-2 pt-md-1 pl-sm-5 pt-sm-0 pr-sm-4 mb-md-0"
+                        class="text-h5 font-weight-bold blue-grey--text text--darken-3 pb-2 pl-md-2 pt-md-1 pl-sm-5 pt-sm-0 pr-sm-4 mb-md-0"
                     >
-                        <v-icon large left color="grey darken-1">mdi-information</v-icon>
+                        <v-icon large left color="blue-grey darken-3">mdi-information</v-icon>
                         About Us
                     </v-card-title>
                 </v-card>
                 <v-card v-for="(about_item, index) in about_items" :key="index" flat class="my-md-1 ml-md-0 mr-3">
                     <v-card-text
-                        class="text-h5 font-weight-bold pb-0 grey--text text--darken-2 ml-2 ml-sm-3"
+                        class="text-h5 font-weight-bold pb-0 blue-grey--text text--darken-3 ml-2 ml-sm-3"
                     >
-                        <v-icon left large color="grey darken-2">
+                        <v-icon left large color="blue-grey darken-3">
                             {{ about_item.icon }}
                         </v-icon>
                         {{ about_item.name }}

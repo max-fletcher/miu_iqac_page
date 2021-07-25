@@ -1,6 +1,5 @@
 <template>
-  <div>
-     {{event_types}}
+  <div>     
      <!-- Nav Drawer -->
         <v-navigation-drawer v-model="toggleNavSidebar" absolute temporary width="190">
             <v-card tile color="#4270A9">
@@ -49,11 +48,8 @@
                      </v-card>
                   </template>
                   <v-list>
-                     <v-list-item to="/people/iqac" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold">IQAC</v-list-item-title>
-                     </v-list-item>
-                     <v-list-item to="/people/sac" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold">SAC</v-list-item-title>
+                     <v-list-item v-for="(people_item, index) in people" :key="index" :to="{ name: 'People', params: { id: people_item.id }}" color="#4270A9">
+                        <v-list-item-title class="font-weight-bold">{{ people_item.name }}</v-list-item-title>
                      </v-list-item>
                   </v-list>
                </v-menu>
@@ -225,9 +221,7 @@
                <v-spacer></v-spacer>
                <v-tab
                   class="white--text"
-                  @click.stop="
-                            toggleQuickLinksSidebar = !toggleQuickLinksSidebar
-                        "
+                  @click.stop="toggleQuickLinksSidebar = !toggleQuickLinksSidebar"
                >
                   <v-icon left color="white">mdi-menu</v-icon>Quick Links
                </v-tab>

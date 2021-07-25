@@ -97,7 +97,7 @@
                sm="6"
                md="4"
             >
-               <v-card min-height="450" to="/" elevation="10">
+               <v-card min-height="450" elevation="10">
                   <v-img
                      height="400"
                      width="auto"
@@ -106,27 +106,32 @@
                      class="mx-auto"
                      position="center center"
                   ></v-img>
-
-                  <v-card-title>
-                     <div class="text-subtitle-1 font-weight-bold black-text">
+                  <div class="py-2">
+                     <v-card-subtitle class="text-subtitle-1 font-weight-medium blue--text text--darken-4 py-1">
+                        <v-icon left color="blue darken-4">
+                           mdi-account
+                        </v-icon>
                         Name: {{ member.name }}
-                     </div>
-
-                     <div class="text-subtitle-1 font-weight-bold">
-                        Designation: Lorem ipsum dolor sit amet, consectetur
-                        adipisicing.
-                     </div>
-
-                     <div class="text-subtitle-1">
-                        Contact No.: Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit. Molestiae, aliquam!
-                     </div>
-
-                     <div class="text-subtitle-1">
-                        E-mail: Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit. Molestiae, aliquam!
-                     </div>
-                  </v-card-title>
+                     </v-card-subtitle>
+                     <v-card-subtitle class="text-subtitle-1 font-weight-medium blue--text text--darken-4 py-1">
+                        <v-icon left color="blue darken-4">
+                           mdi-briefcase
+                        </v-icon>
+                        Designation: {{ member.designation }}
+                     </v-card-subtitle>
+                     <v-card-subtitle class="text-subtitle-1 font-weight-medium blue--text text--darken-4 py-1">
+                        <v-icon left color="blue darken-4">
+                           mdi-email
+                        </v-icon>
+                        E-mail: {{ member.email }}
+                     </v-card-subtitle>
+                     <v-card-subtitle class="text-subtitle-1 font-weight-medium blue--text text--darken-4 py-1">
+                        <v-icon left color="blue darken-4">
+                           mdi-phone
+                        </v-icon>
+                        Contact No: {{ member.cell_number }}
+                     </v-card-subtitle>
+                  </div>                  
                </v-card>
             </v-col>
          </v-row>

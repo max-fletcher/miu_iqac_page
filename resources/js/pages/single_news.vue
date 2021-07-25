@@ -119,11 +119,6 @@ export default {
       moment: moment,
       loading: true,
    }),
-   computed: {
-      cardBorderColor: function(){
-         return {border: '1px solid #4270a9'}
-      }
-   },
    created() {
       axios
          .get("/api/news/show/" + this.$route.params.id)

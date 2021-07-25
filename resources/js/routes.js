@@ -1,7 +1,6 @@
 // Pages
 import Home from "./pages/home";
 import About from "./pages/about";
-import Members from "./pages/members";
 import Events from "./pages/events";
 import News from "./pages/news";
 import SingleNews from "./pages/single_news";
@@ -42,12 +41,6 @@ export default{
          component: About,
          name: 'About',
          meta: { title: 'About Us' }
-      },
-      {
-         path: '/members',         
-         component: Members,
-         name: 'Members',
-         meta: { title: 'Members' }
       },
       {
          path: '/events',         
