@@ -11,7 +11,8 @@ class ResourceController extends Controller
 {
     public function index()
     {
-        return response()->json(Resource::all() ,200);
+        $resources = Resource::select('id', 'resource_name', 'resource_file', 'created_at')->get();
+        return response()->json($resources ,200);
     }
 
     public function store(Request $request)

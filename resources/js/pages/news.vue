@@ -82,46 +82,56 @@
          </v-container>
       </v-card>
       <v-row v-else class="mx-2 py-4">
+         <v-row>
+            <v-card flat tile class="mx-auto mb-4">
+               <v-card-title class="text-center text-h3 blue--text text--darken-4">
+                  ALL NEWS
+               </v-card-title>
+            </v-card>            
+         </v-row>
          <v-col v-for="(single_news, index) in news" :key="index" cols="12">
-            <v-card width="auto" outlined class="mt-n3" to="/">
-               <v-list-item>                     
-                  <v-img
-                     min-height="100"
-                     max-height="100"
-                     min-width="70"
-                     max-width="70"
-                     :src="'/storage/news_images/' + single_news.news_image"
-                     :alt="single_news.news_title"
-                     position="center center"
-                     class="my-3 mr-4"
-                  ></v-img>
-                  <v-list-item-content>
-                  <!-- Title For Xs -->
-                     <div class="text-subtitle-1 mt-1 font-weight-bold d-flex d-sm-none">
-                        {{ single_news.news_title | truncate_title_xs }}
-                     </div>
-                  <!-- Title For Sm -->
-                     <div class="text-subtitle-1 mt-1 font-weight-bold d-none d-sm-flex d-md-none">
-                        {{ single_news.news_title | truncate_title_sm }}
-                     </div>
-                  <!-- Title For Md -->
-                     <div class="text-subtitle-1 mt-1 font-weight-bold d-none d-md-flex d-lg-none">
-                        {{ single_news.news_title | truncate_title_md }}
-                     </div>
-                     <!-- Title For XL and up -->
-                     <div class="text-subtitle-1 mt-1 font-weight-bold d-none d-lg-flex d-xl-none">
-                        {{ single_news.news_title }}
-                     </div>
-                     <v-list-item-subtitle
-                        class="mb-1 mt-1 font-weight-bold"
-                     > {{ moment(single_news.created_at).format('MMMM Do YYYY, h:mm:ss a') }} </v-list-item-subtitle>
-                  </v-list-item-content>
+            <v-card width="auto" height="100" outlined class="mt-n3 d-flex align-center pa-auto" :to="'/news/single_news/' + single_news.id">
+            
+            <v-avatar               
+               size="90"
+               tile
+               rounded
+               class="ml-1"
+            >
+               <v-img                  
+                  :src="'/storage/news_images/' + single_news.news_image"
+                  :alt="single_news.news_title"
+                  position="center center"                  
+               ></v-img>
+            </v-avatar>
 
-               </v-list-item>
+               <div>
+               <!-- Title For Xs -->
+                  <v-card-title class="text-subtitle-1 font-weight-bold d-flex d-sm-none text-wrap">
+                     {{ single_news.news_title | truncate_title_xs }}
+                  </v-card-title>
+               <!-- Title For Sm -->
+                  <v-card-title class="text-subtitle-1 font-weight-bold d-none d-sm-flex d-md-none text-wrap">
+                     {{ single_news.news_title | truncate_title_sm }}
+                  </v-card-title>
+               <!-- Title For Md -->
+                  <v-card-title class="text-subtitle-1 font-weight-bold d-none d-md-flex d-lg-none text-wrap">
+                     {{ single_news.news_title | truncate_title_md }}
+                  </v-card-title>
+               <!-- Title For XL and up -->
+                  <v-card-title class="text-subtitle-1 font-weight-bold d-none d-lg-flex d-xl-none text-wrap">
+                     {{ single_news.news_title }}
+                  </v-card-title>
+                  <v-card-subtitle
+                     class="font-weight-bold text-no-wrap"
+                  > {{ moment(single_news.created_at).format('MMMM Do YYYY, h:mm a') }}
+                  </v-card-subtitle>
+               </div>
+ 
             </v-card>
          </v-col>
       </v-row>
-   </div>
+   </div> 
 </div>
 </template>
 
@@ -131,7 +141,7 @@ export default {
    data: () => ({
       news:[],
       moment: moment,
-      loading: true,      
+      loading: true,
    }),
    created() {
       axios

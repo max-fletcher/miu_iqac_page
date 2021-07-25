@@ -4,6 +4,7 @@ import About from "./pages/about";
 import Members from "./pages/members";
 import Events from "./pages/events";
 import News from "./pages/news";
+import SingleNews from "./pages/single_news";
 import Resources from "./pages/resources";
 import People from "./pages/people";
 import SAC from "./pages/sac";
@@ -59,6 +60,12 @@ export default{
          component: News,
          name: 'News',
          meta: { title: 'News' }
+      },
+      {
+         path: '/news/single_news/:id',
+         component: SingleNews,
+         name: 'SingleNews',
+         meta: { title: 'Single News' }
       },
       {
          path: '/resources',

@@ -11,36 +11,31 @@ Vue.use(Vuetify);
 
 // Filters
 Vue.filter('truncate_title_xs', function(value){
-    return value.slice(0, 50) + '...'
+    if(value.length >= 50){
+        return value.slice(0, 50) + '...'
+    }
+    else{
+        return value
+    }
 })
 
 Vue.filter('truncate_title_sm', function(value){
-    return value.slice(0, 100) + '...'
+    if(value.length >= 100){
+        return value.slice(0, 100) + '...'
+    }
+    else{
+        return value
+    }
 })
 
 Vue.filter('truncate_title_md', function(value){
-    return value.slice(0, 180) + '...'
+    if(value.length >= 190){
+        return value.slice(0, 190) + '...'
+    }
+    else{
+        return value
+    }
 })
-
-// Vue.filter('truncate_text_xs', function(value){
-//     return value.slice(0, 10) + '...'
-// })
-
-// Vue.filter('truncate_text_sm', function(value){
-//     return value.slice(0,20) + '...'
-// })
-
-// Vue.filter('truncate_text_md', function(value){
-//     return value.slice(0, 40) + '...'
-// })
-
-// Vue.filter('truncate_text_md', function(value){
-//     return value.slice(0, 150) + '...'
-// })
-
-// Vue.filter('truncate_text_lg', function(value){
-//     return value.slice(0, 80) + '...'
-// })
 
 const app = new Vue({
     vuetify: Vuetify,
