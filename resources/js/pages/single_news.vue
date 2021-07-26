@@ -102,7 +102,7 @@
                   <v-card-text class="text-subtitle-1 font-weight-medium black--text">
                      <div class="text-subtitle-1 orange--text text--darken-3"> DETAILS: </div>
                      {{ single_news.news_text }}
-                  </v-card-text>                  
+                  </v-card-text>
                   
                </v-card>
             </v-col>

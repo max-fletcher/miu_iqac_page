@@ -10,7 +10,8 @@ class EventTypeController extends Controller
 {
     public function index()
     {
-        return response()->json( EventType::all(), 200);
+        $event_types = EventType::select('id', 'event_type', 'created_at')->get();
+        return response()->json( $event_types , 200);
     }
 
     public function frontend_index()

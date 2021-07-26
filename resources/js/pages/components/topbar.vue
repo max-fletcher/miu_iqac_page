@@ -276,7 +276,7 @@
                      <v-list>
                         <div v-for="(people_item, index) in people" :key="index">
                            <v-list-item :to="{ name: 'People', params: { id: people_item.id }}" color="#4270A9">
-                              <v-list-item-title class="font-weight-bold">{{ people_item.name }}</v-list-item-title>
+                              <v-list-item-title class="font-weight-bold text-uppercase">{{ people_item.name }}</v-list-item-title>
                            </v-list-item>
                         </div>
                      </v-list>                     
@@ -299,21 +299,11 @@
                      </v-btn>
                   </template>
                   <v-list>
-                     <v-list-item to="/events" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold">WORKSHOP</v-list-item-title>
-                     </v-list-item>
-                     <v-list-item to="/events" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold">SEMINAR</v-list-item-title>
-                     </v-list-item>
-                     <v-list-item to="/events" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold">CONFERANCE</v-list-item-title>
-                     </v-list-item>
-                     <v-list-item to="/events" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold">TRAINING</v-list-item-title>
-                     </v-list-item>
-                     <v-list-item to="/events" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold">PEER REVIEW</v-list-item-title>
-                     </v-list-item>
+                     <div v-for="(event_type, index) in event_types" :key="index">
+                        <v-list-item :to="{ name: 'Events', params: { id: event_type.id }}" color="#4270A9">
+                           <v-list-item-title class="font-weight-bold text-uppercase">{{ event_type.event_type }}</v-list-item-title>
+                        </v-list-item>
+                     </div>
                   </v-list>
                </v-menu>
                <v-btn
@@ -373,7 +363,8 @@ export default {
          { title: "Gallery", content: "Some Content" },
          { title: "Contact Us", content: "Some Content" },
       ],
-      people: [],      
+      people: [],
+      event_types: [],
    }),
    components: {},
    watch: {
@@ -385,6 +376,14 @@ export default {
       axios.get("/api/people/frontend_index")
          .then((res) => {            
             this.people = res.data
+         })
+         .catch((error) => {
+            console.log(error)
+            // this.errors = error.response.data.errors
+         });
+      axios.get("/api/events/types/index")
+         .then((res) => {
+            this.event_types = res.data
          })
          .catch((error) => {
             console.log(error)

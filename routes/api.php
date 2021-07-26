@@ -83,7 +83,8 @@ Route::post('/events/store', [App\Http\Controllers\EventController::class, 'stor
 Route::get('/events/show/{id}', [App\Http\Controllers\EventController::class, 'show']);
 Route::patch('/events/update/{id}', [App\Http\Controllers\EventController::class, 'update']);
 Route::delete('/events/delete/{id}', [App\Http\Controllers\EventController::class, 'destroy']);
-Route::get('/events/eventsbyeventtypeid/{id}', [App\Http\Controllers\EventController::class, 'find_all_events_by_event_type_id']);
+Route::get('/events/upcoming/eventsbyeventtypeid/{id}', [App\Http\Controllers\EventController::class, 'upcoming_events_by_event_type_id']);
+Route::get('/events/passed/eventsbyeventtypeid/{id}', [App\Http\Controllers\EventController::class, 'passed_events_by_event_type_id']);
 
 // News Controller
 Route::get('/news/index', [App\Http\Controllers\NewsController::class, 'index']);

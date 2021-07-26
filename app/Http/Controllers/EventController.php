@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use Carbon\Carbon;
 
 class EventController extends Controller
 {
@@ -70,9 +71,15 @@ class EventController extends Controller
         return response()->json('The Provided ID doesn\'t match any Events !!', 404);
     }
 
-    public function find_all_events_by_event_type_id($id)
+    public function upcoming_events_by_event_type_id($id)
     {        
-        $events = Event::with('event_type')->where('event_type_id', $id)->get();
-        return response()->json($events, 404);
+        $events = Event::with('event_type')->where('event_type_id', $id)->where('event_date', '>=', Carbon::now())->get();
+        return response()->json($events, 200);
+    }
+
+    public function passed_events_by_event_type_id($id)
+    {        
+        $events = Event::with('event_type')->where('event_type_id', $id)->where('event_date', '<', Carbon::now())->get();
+        return response()->json($events, 200);
     }
 }

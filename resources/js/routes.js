@@ -43,7 +43,7 @@ export default{
          meta: { title: 'About Us' }
       },
       {
-         path: '/events',         
+         path: '/events/:id',
          component: Events,
          name: 'Events',
          meta: { title: 'Events' }
