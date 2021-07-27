@@ -75,8 +75,8 @@
          <v-container fill-height fluid>
             <v-row align="center" justify="center">
                <div class="text-center">
-                  <h1>No Members Exist For This Section Yet !!</h1>
-                  <h2>Add Members From The Admin Panel.</h2>
+                  <h1>No News Has Been Added Yet !!</h1>
+                  <h2>Add News From The Admin Panel.</h2>
                </div>
             </v-row>
          </v-container>

@@ -7,10 +7,12 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Resource;
 
+use Illuminate\Support\Facades\DB;
+
 class ResourceController extends Controller
 {
     public function index()
-    {
+    {        
         $resources = Resource::select('id', 'resource_name', 'resource_file', 'created_at')->get();
         return response()->json($resources ,200);
     }
@@ -37,7 +39,7 @@ class ResourceController extends Controller
 
         Resource::Create([
             'resource_name' => $request->resource_name,
-            'resource_file' => $filenameToStore
+            'resource_file' => $filenameToStore,            
         ]);
 
         return response()->json( "Resource Created Successfully !!" ,201);
@@ -75,9 +77,12 @@ class ResourceController extends Controller
 
         $resource = Resource::find($id);
         if($resource){
-            $resource->resource_name = $request->resource_name;            
+            $resource->resource_name = $request->resource_name;
             
-            Storage::delete('public/resource_files/'.$resource->resource_file);  //deletes previous file
+            if($request->hasFile('resource_file')){     //works if there is a new image uploaded
+                Storage::delete('public/resource_files/'.$resource->resource_file);  //deletes previous file                
+                //needs to use Illuminate\Support\Facades\Storage;
+            }
             //needs to use Illuminate\Support\Facades\Storage;
             $resource->resource_file = $filenameToStore;
 

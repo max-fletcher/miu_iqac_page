@@ -106,8 +106,8 @@ class MemberController extends Controller
             if($request->hasFile('member_image')){     //works if there is a new image uploaded
                 Storage::delete('public/member_images/'.$member->member_image);  //deletes previous image
                 //needs to use Illuminate\Support\Facades\Storage;
-                $member->member_image = $filenameToStore;
             }
+            $member->member_image = $filenameToStore;
             $member->save();
             return response()->json('Member Updated Successfully !', 201);
         }

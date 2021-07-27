@@ -112,7 +112,7 @@
                         lighten-3
                      "
                   >
-                     EVENTS
+                     ALL EVENTS
                   </v-card-title>
                </v-card>
             </v-row>
@@ -160,7 +160,7 @@
                   </v-alert>
                </v-card>
               
-              <v-card v-else v-for="(upcoming_event, index) in upcoming_events" :key="index" rounded="0" class="mb-3 mx-3">
+              <v-card v-else v-for="(upcoming_event, index) in upcoming_events" :key="index" :to="'/events/single_event/' + upcoming_event.id" rounded="0" class="mb-3 mx-3">
                   <v-alert
                      color="green accent-4"
                      class="px-3 py-4 mx-0 my-0"
@@ -205,48 +205,48 @@
 
               <v-card v-if="passed_events.length === 0" rounded="0" class="mb-3 mx-3">
                   <v-alert
-                     color="deep-orange darken-2"
-                     class="px-3 py-4 mx-0 my-0"
-                     rounded="0"
-                     text
+                      color="deep-orange darken-2"
+                      class="px-3 py-4 mx-0 my-0"
+                      rounded="0"
+                      text
                   >
                   <v-row>
                     <v-col cols="12" class="pt-0 pb-0">
                       <div class="text-subtitle-1 font-weight-medium text-center">
                         <v-icon left color="deep-orange darken-2">
-                           mdi-close
+                            mdi-close
                         </v-icon>
                           No Passed Events
                       </div>
                     </v-col>                    
                   </v-row>
                   </v-alert>
-               </v-card>
+                </v-card>
 
-              <v-card v-else  v-for="(passed_event, index) in passed_events" :key="index" rounded="0" class="mb-3 mx-3">
-                  <v-alert
-                     color="deep-orange darken-2"
-                     class="px-3 py-4 mx-0 my-0"
-                     rounded="0"
-                     text
-                  >
-                  <v-row>                  
-                    <v-col cols="12" md="9" class="pt-0 pb-0">
-                      <div class="text-subtitle-1 font-weight-medium">
-                        <v-icon left color="deep-orange darken-2" small>
-                          mdi-calendar-arrow-left
-                        </v-icon>
-                          {{ passed_event.event_name }}
-                      </div>
-                    </v-col>
-                    <v-col cols="12" md="3" class="pt-0 pb-0">
-                      <div class="text-subtitle-1 font-weight-medium">
-                        Date : {{ moment(passed_event.event_date).format('MMMM Do YYYY, h:mm a') }}
-                      </div>
-                    </v-col>
-                  </v-row>
-                  </v-alert>
-               </v-card>
+                <v-card v-else  v-for="(passed_event, index) in passed_events" :key="index" :to="'/events/single_event/' + passed_event.id" rounded="0" class="mb-3 mx-3">
+                    <v-alert
+                      color="deep-orange darken-2"
+                      class="px-3 py-4 mx-0 my-0"
+                      rounded="0"
+                      text
+                    >
+                    <v-row>                  
+                      <v-col cols="12" md="9" class="pt-0 pb-0">
+                        <div class="text-subtitle-1 font-weight-medium">
+                          <v-icon left color="deep-orange darken-2" small>
+                            mdi-calendar-arrow-left
+                          </v-icon>
+                            {{ passed_event.event_name }}
+                        </div>
+                      </v-col>
+                      <v-col cols="12" md="3" class="pt-0 pb-0">
+                        <div class="text-subtitle-1 font-weight-medium">
+                          Date : {{ moment(passed_event.event_date).format('MMMM Do YYYY, h:mm a') }}
+                        </div>
+                      </v-col>
+                    </v-row>
+                    </v-alert>
+                </v-card>
 
                Something....
 

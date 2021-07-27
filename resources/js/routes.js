@@ -2,6 +2,7 @@
 import Home from "./pages/home";
 import About from "./pages/about";
 import Events from "./pages/events";
+import SingleEvent from "./pages/single_event";
 import News from "./pages/news";
 import SingleNews from "./pages/single_news";
 import Resources from "./pages/resources";
@@ -46,13 +47,19 @@ export default{
          path: '/events/:id',
          component: Events,
          name: 'Events',
-         meta: { title: 'Events' }
+         meta: { title: 'All Events' }
       },
       {
-         path: '/news',         
+         path: '/events/single_event/:id',
+         component: SingleEvent,
+         name: 'SingleEvent',
+         meta: { title: 'Single Event' }
+      },
+      {
+         path: '/news',
          component: News,
          name: 'News',
-         meta: { title: 'News' }
+         meta: { title: 'All News' }
       },
       {
          path: '/news/single_news/:id',

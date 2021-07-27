@@ -12,12 +12,13 @@ class NewsController extends Controller
 
     public function index()
     {
-        return response()->json(News::all() ,200);
+        $news = News::orderBy('created_at', 'desc')->get();
+        return response()->json($news ,200);
     }
 
     public function frontend_index()
     {
-        $news = News::select('id', 'news_title', 'news_image', 'created_at')->get();
+        $news = News::select('id', 'news_title', 'news_image', 'created_at')->orderBy('created_at', 'desc')->get();
         return response()->json($news ,200);
     }
 
@@ -99,8 +100,8 @@ class NewsController extends Controller
             if($request->hasFile('news_image')){     //works if there is a new image uploaded
                 Storage::delete('public/news_images/'.$news->news_image);  //deletes previous image
                 //needs to use Illuminate\Support\Facades\Storage;
-                $news->news_image = $filenameToStore;
             }
+            $news->news_image = $filenameToStore;
             $news->save();
             return response()->json( "News Updated Successfully !!" ,201);
         }
@@ -113,7 +114,7 @@ class NewsController extends Controller
     {
         $news = News::find($id);
         if($news){
-            Storage::delete('public/news_images/'.$news->news_image);  //deletes iamge
+            Storage::delete('public/news_images/'.$news->news_image);  //deletes image
             $news->delete();
             return response()->json( "News Deleted Successfully !!" ,201);
         }
