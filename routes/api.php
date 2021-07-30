@@ -86,6 +86,22 @@ Route::delete('/events/delete/{id}', [App\Http\Controllers\EventController::clas
 Route::get('/events/upcoming/eventsbyeventtypeid/{id}', [App\Http\Controllers\EventController::class, 'upcoming_events_by_event_type_id']);
 Route::get('/events/passed/eventsbyeventtypeid/{id}', [App\Http\Controllers\EventController::class, 'passed_events_by_event_type_id']);
 
+// Gallery Name Controller
+Route::get('/gallery/name/index', [App\Http\Controllers\GalleryNameController::class, 'index']);
+Route::get('/gallery/name/frontend_index', [App\Http\Controllers\GalleryNameController::class, 'frontend_index']);
+Route::post('/gallery/name/store', [App\Http\Controllers\GalleryNameController::class, 'store']);
+Route::get('/gallery/name/show/{id}', [App\Http\Controllers\GalleryNameController::class, 'show']);
+Route::patch('/gallery/name/update/{id}', [App\Http\Controllers\GalleryNameController::class, 'update']);
+Route::delete('/gallery/name/destroy/{id}', [App\Http\Controllers\GalleryNameController::class, 'destroy']);
+
+// Gallery Photos Controller
+Route::get('/gallery/photos/index', [App\Http\Controllers\GalleryPhotoController::class, 'index']);
+Route::post('/gallery/photos/store', [App\Http\Controllers\GalleryPhotoController::class, 'store']);
+Route::get('/gallery/photos/show/{id}', [App\Http\Controllers\GalleryPhotoController::class, 'show']);
+Route::patch('/gallery/photos/update/{id}', [App\Http\Controllers\GalleryPhotoController::class, 'update']);
+Route::delete('/gallery/photos/delete/{id}', [App\Http\Controllers\GalleryPhotoController::class, 'destroy']);
+Route::get('/gallery/photos/photosbygalleryid/{id}', [App\Http\Controllers\GalleryPhotoController::class, 'photos_by_gallery_name_id']);
+
 // News Controller
 Route::get('/news/index', [App\Http\Controllers\NewsController::class, 'index']);
 Route::get('/news/frontend_index', [App\Http\Controllers\NewsController::class, 'frontend_index']);

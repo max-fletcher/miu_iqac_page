@@ -10,6 +10,8 @@ import People from "./pages/people";
 import SAC from "./pages/sac";
 import ContactUs from "./pages/contactus";
 import NotFound from "./pages/notfound";
+import PhotoGallery from "./pages/photo_gallery";
+import SinglePhotoGallery from "./pages/single_photo_gallery";
 //Auth Pages
 import Login from "./pages/auth/login";
 import Register from "./pages/auth/register";
@@ -88,8 +90,20 @@ export default{
       {
          path: '/contact-us',
          component: ContactUs,
-         name: 'Contact Us',
+         name: 'ContactUs',
          meta: { title: 'Contact Us' }
+      },
+      {
+         path: '/photo-gallery',
+         component: PhotoGallery,
+         name: 'PhotoGallery',
+         meta: { title: 'All Photo Galleries' }
+      },
+      {
+         path: '/single-gallery/:id',
+         component: SinglePhotoGallery,
+         name: 'SinglePhotoGallery',
+         meta: { title: 'Gallery' }
       },
       // Admin Pages
       {

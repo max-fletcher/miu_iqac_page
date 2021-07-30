@@ -223,7 +223,7 @@
                   </v-alert>
                 </v-card>
 
-                <v-card v-else  v-for="(passed_event, index) in passed_events" :key="index" :to="'/events/single_event/' + passed_event.id" rounded="0" class="mb-3 mx-3">
+                <v-card v-else v-for="(passed_event, index) in passed_events" :key="index" :to="'/events/single_event/' + passed_event.id" rounded="0" class="mb-3 mx-3">
                     <v-alert
                       color="deep-orange darken-2"
                       class="px-3 py-4 mx-0 my-0"

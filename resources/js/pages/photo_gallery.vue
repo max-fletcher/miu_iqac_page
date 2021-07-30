@@ -1,5 +1,6 @@
 <template>
 <div class="pt-3">
+   {{ photo_galleries }}
    <div v-if="loading">
          <v-card flat class="mt-6">
             <div class="text-center blue--text text--darken-4 font-weight-bold">
@@ -71,61 +72,40 @@
          </v-card>
    </div>
    <div v-else>
-      <v-card flat v-if="news.length === 0" height="480" min-height="300">
+      <v-card flat v-if="photo_galleries.length === 0" height="480" min-height="300">
          <v-container fill-height fluid>
             <v-row align="center" justify="center">
                <div class="text-center">
-                  <h1>No News Has Been Added Yet !!</h1>
-                  <h2>Add News From The Admin Panel.</h2>
+                  <h1>No Galleries Has Been Added Yet !!</h1>
+                  <h2>Add Galleries From The Admin Panel.</h2>
                </div>
             </v-row>
          </v-container>
       </v-card>
-      <v-row v-else class="mx-2 py-4">
-         <v-row>
-            <v-card flat tile class="mx-auto mb-4">
-               <v-card-title class="text-center text-h3 blue--text text--darken-4">
-                  ALL NEWS
-               </v-card-title>
-            </v-card>            
-         </v-row>
-         <v-col v-for="(single_news, index) in news" :key="index" cols="12">
-            <v-card width="auto" height="100" outlined class="mt-n3 d-flex align-center pa-auto" :to="'/news/single_news/' + single_news.id" :style="cardBorderColor">
-            <v-avatar               
-               size="90"
-               tile
-               rounded
-               class="ml-1"
+      <v-row v-else class="mx-2 py-4">         
+         <v-card flat tile class="mx-auto mb-4">
+            <v-card-title class="text-center text-h3 blue--text text--darken-4">
+               Photo Gallery
+            </v-card-title>
+         </v-card>
+      </v-row>
+      <v-row>
+         <v-col v-for="(photo_gallery, index) in photo_galleries" :key="index" cols="12" md="6">
+            <v-card
+               class="mx-auto"
+               :to="'/single-gallery/' + photo_gallery.id"
             >
-               <v-img                  
-                  :src="'/storage/news_images/' + single_news.news_image"
-                  :alt="single_news.news_title"
-                  position="center center"                  
+               <v-img
+                  :src="'/storage/gallery_cover_photos/' + photo_gallery.gallery_cover_photo"
+                  height="400"
+                  width="auto"
                ></v-img>
-            </v-avatar>
-
-               <div>
-               <!-- Title For Xs -->
-                  <v-card-title class="text-subtitle-1 font-weight-bold d-flex d-sm-none text-wrap">
-                     {{ single_news.news_title | truncate_title_xs }}
-                  </v-card-title>
-               <!-- Title For Sm -->
-                  <v-card-title class="text-subtitle-1 font-weight-bold d-none d-sm-flex d-md-none text-wrap">
-                     {{ single_news.news_title | truncate_title_sm }}
-                  </v-card-title>
-               <!-- Title For Md -->
-                  <v-card-title class="text-subtitle-1 font-weight-bold d-none d-md-flex d-lg-none text-wrap">
-                     {{ single_news.news_title | truncate_title_md }}
-                  </v-card-title>
-               <!-- Title For XL and up -->
-                  <v-card-title class="text-subtitle-1 font-weight-bold d-none d-lg-flex d-xl-none text-wrap">
-                     {{ single_news.news_title }}
-                  </v-card-title>
-                  <v-card-subtitle
-                     class="font-weight-bold text-no-wrap"
-                  > {{ moment(single_news.created_at).format('MMMM Do YYYY, h:mm a') }}
-                  </v-card-subtitle>
-               </div>
+               <v-card-title>
+                  {{ photo_gallery.gallery_name }}
+               </v-card-title>
+               <v-card-subtitle>
+                  Created: {{  moment(photo_gallery.created_at).format('MMMM Do YYYY, h:mm a') }}
+               </v-card-subtitle>
             </v-card>
          </v-col>
       </v-row>
@@ -137,20 +117,16 @@
 import moment from 'moment'
 export default {
    data: () => ({
-      news:[],
+      photo_galleries:[],
       moment: moment,
       loading: true,
+      show: false,
    }),
-   computed: {
-      cardBorderColor: function(){
-         return {border: '1px solid #4270a9'}
-      }
-   },
    created() {
       axios
-         .get("/api/news/frontend_index")
-         .then((res) => {
-            this.news = res.data;
+         .get("/api/gallery/name/index")
+         .then((res) => {            
+            this.photo_galleries = res.data;
             this.loading = false;
          })
          .catch((error) => {
@@ -163,4 +139,5 @@ export default {
 </script>
 
 <style>
+
 </style>

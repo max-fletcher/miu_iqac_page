@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\People;
 use Illuminate\Http\Request;
 use App\Models\PeopleMember;
 use Illuminate\Support\Str;
@@ -129,12 +130,13 @@ class MemberController extends Controller
 
     public function find_all_members_by_people_id($id)
     {        
-        // $members = PeopleMember::with('people')->where('people_id', $id)->get();
-
-        $members = PeopleMember::where('people_id', $id)->select('id', 'people_id', 'name', 'designation', 'cell_number', 'email', 'member_image')->with(['people' => function($query) {
-            return $query->select(['id', 'name']);
-        }])->get();
-
-        return response()->json($members, 201);
+        $people = People::find($id);
+        if ($people) {
+            $members = PeopleMember::where('people_id', $id)->select('id', 'people_id', 'name', 'designation', 'cell_number', 'email', 'member_image')->with(['people' => function($query) {
+                return $query->select(['id', 'name']);
+            }])->get();
+            return response()->json($members, 201);            
+        }
+        return response()->json('The Provided ID doesn\'t match any People Records !!', 404);
     }
 }

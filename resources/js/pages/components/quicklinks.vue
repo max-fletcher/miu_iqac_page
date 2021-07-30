@@ -48,6 +48,18 @@
                 </v-list-item>
             </v-list>
         </v-menu>
+        <v-btn
+            color="#4270A9"
+            dark            
+            block
+            tile
+            icon
+            class="pl-3 font-weight-bold text-subtitle-2"
+            to="/photo-gallery"
+        >
+            Photo Gallery
+            <v-spacer></v-spacer>            
+        </v-btn>
     </div>
 </template>
 

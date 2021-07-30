@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\EventType;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -124,13 +125,23 @@ class EventController extends Controller
 
     public function upcoming_events_by_event_type_id($id)
     {        
-        $events = Event::with('event_type')->where('event_type_id', $id)->where('event_date', '>=', Carbon::now())->orderBy('created_at', 'desc')->get();
-        return response()->json($events, 200);
+        $event_type = EventType::find($id);
+        if($event_type){
+            $events = Event::with('event_type')->where('event_type_id', $id)->where('event_date', '>=', Carbon::now())->orderBy('event_date', 'desc')->get();
+            return response()->json($events, 200);
+        }
+
+        return response()->json('The Provided ID doesn\'t match any Events !!', 404);
     }
 
     public function passed_events_by_event_type_id($id)
-    {        
-        $events = Event::with('event_type')->where('event_type_id', $id)->where('event_date', '<', Carbon::now())->orderBy('created_at', 'desc')->get();
-        return response()->json($events, 200);
+    {      
+        $event_type = EventType::find($id);
+        if($event_type){
+            $events = Event::with('event_type')->where('event_type_id', $id)->where('event_date', '<', Carbon::now())->orderBy('event_date', 'desc')->get();
+            return response()->json($events, 200);
+        }
+
+        return response()->json('The Provided ID doesn\'t match any Events !!', 404);
     }
 }
