@@ -118,7 +118,7 @@ class GalleryPhotoController extends Controller
     {       
         $gallery = GalleryName::find($id);
         if ($gallery) {
-            $photos = GalleryPhoto::with('gallery_name')->where('gallery_name_id', $id)->get();
+            $photos = GalleryPhoto::where('gallery_name_id', $id)->select('gallery_name_id', 'photo_title', 'photo_image', 'created_at')->get();
             return response()->json($photos, 200);
         }
         return response()->json('The Provided ID doesn\'t match any Photos !!', 404);

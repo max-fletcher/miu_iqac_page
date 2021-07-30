@@ -5420,13 +5420,160 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      photos: [],
+      gallery_title: null,
+      moment: (moment__WEBPACK_IMPORTED_MODULE_0___default()),
+      loading1: true,
+      loading2: true,
+      toggle_overlay: false,
+      overlay_image: null
+    };
+  },
+  methods: {
+    show_image: function show_image(image) {
+      this.overlay_image = image;
+      this.toggle_overlay = true;
+    },
+    disableOverlay: function disableOverlay() {
+      this.toggle_overlay = false;
+    }
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/api/gallery/photos/photosbygalleryid/" + this.$route.params.id).then(function (res) {
+      _this.photos = res.data;
+      _this.loading1 = false;
+    })["catch"](function (error) {
+      console.log(error); // this.errors = error.response.data.errors
+
+      _this.loading1 = false;
+    });
+    axios.get("/api/gallery/name/show/" + this.$route.params.id).then(function (res) {
+      _this.gallery_title = res.data;
+      _this.loading2 = false;
+    })["catch"](function (error) {
+      console.log(error); // this.errors = error.response.data.errors
+
+      _this.loading2 = false;
+    });
+  }
+});
 
 /***/ }),
 
@@ -53109,7 +53256,241 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n   Single Gallery\n")])
+  return _c("div", { staticClass: "pt-3" }, [
+    _vm._v(
+      "\n   " +
+        _vm._s(_vm.photos) +
+        "\n   " +
+        _vm._s(_vm.gallery_title) +
+        "\n    "
+    ),
+    _vm.loading1 && _vm.loading2
+      ? _c(
+          "div",
+          [
+            _c("v-card", { staticClass: "mt-6", attrs: { flat: "" } }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "text-center blue--text text--darken-4 font-weight-bold"
+                },
+                [
+                  _vm._v(
+                    "\n                  Loading...         \n            "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "mx-auto" }, [
+                _c(
+                  "svg",
+                  {
+                    staticStyle: {
+                      margin: "auto",
+                      display: "block",
+                      "shape-rendering": "auto",
+                      "animation-play-state": "running",
+                      "animation-delay": "0s"
+                    },
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                      width: "250px",
+                      height: "250px",
+                      viewBox: "0 0 100 100",
+                      preserveAspectRatio: "xMidYMid"
+                    }
+                  },
+                  [
+                    _c(
+                      "circle",
+                      {
+                        staticStyle: {
+                          "animation-play-state": "running",
+                          "animation-delay": "0s"
+                        },
+                        attrs: {
+                          cx: "50",
+                          cy: "50",
+                          r: "19",
+                          "stroke-width": "5",
+                          stroke: "#002147",
+                          "stroke-dasharray":
+                            "29.845130209103033 29.845130209103033",
+                          fill: "none",
+                          "stroke-linecap": "round"
+                        }
+                      },
+                      [
+                        _c("animateTransform", {
+                          staticStyle: {
+                            "animation-play-state": "running",
+                            "animation-delay": "0s"
+                          },
+                          attrs: {
+                            attributeName: "transform",
+                            type: "rotate",
+                            dur: "1s",
+                            repeatCount: "indefinite",
+                            keyTimes: "0;1",
+                            values: "0 50 50;360 50 50"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "circle",
+                      {
+                        staticStyle: {
+                          "animation-play-state": "running",
+                          "animation-delay": "0s"
+                        },
+                        attrs: {
+                          cx: "50",
+                          cy: "50",
+                          r: "13",
+                          "stroke-width": "5",
+                          stroke: "#4270a9",
+                          "stroke-dasharray":
+                            "20.420352248333657 20.420352248333657",
+                          "stroke-dashoffset": "20.420352248333657",
+                          fill: "none",
+                          "stroke-linecap": "round"
+                        }
+                      },
+                      [
+                        _c("animateTransform", {
+                          staticStyle: {
+                            "animation-play-state": "running",
+                            "animation-delay": "0s"
+                          },
+                          attrs: {
+                            attributeName: "transform",
+                            type: "rotate",
+                            dur: "1s",
+                            repeatCount: "indefinite",
+                            keyTimes: "0;1",
+                            values: "0 50 50;-360 50 50"
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                )
+              ])
+            ])
+          ],
+          1
+        )
+      : _c(
+          "div",
+          [
+            _c(
+              "div",
+              { staticClass: "text-center" },
+              [
+                _c(
+                  "v-overlay",
+                  { attrs: { value: _vm.toggle_overlay } },
+                  [
+                    _c(
+                      "v-card",
+                      { attrs: { width: "100%", height: "100%" } },
+                      [
+                        _c("v-img", {
+                          directives: [
+                            {
+                              name: "click-outside",
+                              rawName: "v-click-outside",
+                              value: _vm.disableOverlay,
+                              expression: "disableOverlay"
+                            }
+                          ],
+                          attrs: {
+                            src:
+                              "/storage/photo_gallery_images/" +
+                              _vm.overlay_image
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", [_vm._v(" Click Outside to Close ")])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "v-row",
+              [
+                _vm._v("\\\n          "),
+                _c(
+                  "v-card",
+                  {
+                    staticClass: "mx-auto mt-2",
+                    attrs: { flat: "", tile: "" }
+                  },
+                  [
+                    _c(
+                      "v-card-title",
+                      {
+                        staticClass:
+                          "text-center text-h3 blue--text text--darken-4"
+                      },
+                      [
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(_vm.gallery_title.gallery_name) +
+                            "\n             "
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "v-row",
+              { staticClass: "mx-1 py-2 mt-n3" },
+              _vm._l(_vm.photos, function(photo, index) {
+                return _c(
+                  "v-col",
+                  { key: index, attrs: { cols: "12", sm: "6", md: "4" } },
+                  [
+                    _c("v-img", {
+                      attrs: {
+                        src:
+                          "/storage/photo_gallery_images/" + photo.photo_image,
+                        height: "400",
+                        width: "auto"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.show_image(photo.photo_image)
+                        }
+                      }
+                    })
+                  ],
+                  1
+                )
+              }),
+              1
+            )
+          ],
+          1
+        )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -70908,6 +71289,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _single_photo_gallery_vue_vue_type_template_id_6fd8d077___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./single_photo_gallery.vue?vue&type=template&id=6fd8d077& */ "./resources/js/pages/single_photo_gallery.vue?vue&type=template&id=6fd8d077&");
 /* harmony import */ var _single_photo_gallery_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./single_photo_gallery.vue?vue&type=script&lang=js& */ "./resources/js/pages/single_photo_gallery.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vuetify-loader/lib/runtime/installComponents.js */ "./node_modules/vuetify-loader/lib/runtime/installComponents.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/VCard.js");
+/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/index.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VCol.js");
+/* harmony import */ var vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VImg */ "./node_modules/vuetify/lib/components/VImg/VImg.js");
+/* harmony import */ var vuetify_lib_components_VOverlay__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VOverlay */ "./node_modules/vuetify/lib/components/VOverlay/VOverlay.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installDirectives_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! !../../../node_modules/vuetify-loader/lib/runtime/installDirectives.js */ "./node_modules/vuetify-loader/lib/runtime/installDirectives.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installDirectives_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installDirectives_js__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var vuetify_lib_directives_click_outside__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/directives/click-outside */ "./node_modules/vuetify/lib/directives/click-outside/index.js");
 
 
 
@@ -70925,6 +71317,23 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
   null
   
 )
+
+/* vuetify-loader */
+;
+
+
+
+
+
+
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__.default,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__.default,VImg: vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_7__.default,VOverlay: vuetify_lib_components_VOverlay__WEBPACK_IMPORTED_MODULE_8__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__.default})
+
+
+/* vuetify-loader */
+;
+
+_node_modules_vuetify_loader_lib_runtime_installDirectives_js__WEBPACK_IMPORTED_MODULE_10___default()(component, {ClickOutside: vuetify_lib_directives_click_outside__WEBPACK_IMPORTED_MODULE_11__.default})
+
 
 /* hot reload */
 if (false) { var api; }
