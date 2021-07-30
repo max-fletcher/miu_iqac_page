@@ -12,7 +12,7 @@ class GalleryPhotoController extends Controller
 {
     public function index()
     {
-        return response()->json( GalleryPhoto::select('id', 'gallery_name_id', 'photo_title', 'photo_image', 'created_at')->orderBy('created_at', 'desc')->with('gallery_name')->get(), 200);
+        return response()->json( GalleryPhoto::select('id', 'gallery_name_id', 'photo_title', 'photo_image', 'created_at')->with('gallery_name')->get(), 200);
     }
 
     public function store(Request $request)
@@ -118,7 +118,7 @@ class GalleryPhotoController extends Controller
     {       
         $gallery = GalleryName::find($id);
         if ($gallery) {
-            $photos = GalleryPhoto::where('gallery_name_id', $id)->select('gallery_name_id', 'photo_title', 'photo_image', 'created_at')->get();
+            $photos = GalleryPhoto::where('gallery_name_id', $id)->select('id', 'gallery_name_id', 'photo_title', 'photo_image', 'created_at')->get();
             return response()->json($photos, 200);
         }
         return response()->json('The Provided ID doesn\'t match any Photos !!', 404);

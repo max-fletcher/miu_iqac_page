@@ -74,31 +74,46 @@
       </div>
       <div v-else>
          <div class="text-center">
-            <v-overlay :value="toggle_overlay">
+            <v-overlay :value="toggle_overlay" class="hidden-sm-and-down">
                <!-- Working Image with Overlay with Disable on Click -->
-               <!-- <v-card width="100%">
+               <div>
                   <v-img
-                  v-click-outside="disableOverlay"
-                  :src="'/storage/photo_gallery_images/' + overlay_image"
+                     contain
+                     v-click-outside="disableOverlay"
+                     :src="'/storage/photo_gallery_images/' + overlay_image"
+                     max-width="1000"
+                     max-height="500"
                   >
                   </v-img>
-                  <div> Click Outside to Disable </div>
-               </v-card> -->
+                  <div> Click Outside to Exit </div>
+               </div>
 
                <!-- Carousel Component Working but image ratios are off -->
-               <v-carousel v-model="image_index" v-click-outside="disableOverlay">
+               <!-- <v-carousel v-model="image_index" v-click-outside="disableOverlay">
                   <v-carousel-item
                      v-for="(photo, index) in photos"
                      :key="index"                     
                      :src="'/storage/photo_gallery_images/' + photo.photo_image"
-                     @click="show_image(photo.photo_image)"
-                     max-width="700"
-                     max-height="500"
+                     @click="show_image(photo.photo_image)"                     
                   >
                   </v-carousel-item>
-               </v-carousel>
-
+               </v-carousel> -->
             </v-overlay>
+
+            <v-overlay :value="toggle_overlay" class="hidden-md-and-up" @click="disableOverlay">
+               <!-- Working Image with Overlay with Disable on Click -->
+               <div>
+                  <v-img
+                     contain
+                     :src="'/storage/photo_gallery_images/' + overlay_image"
+                     max-width="900"
+                     max-height="400"
+                  >
+                  </v-img>
+                  <div> Click Anywhere to Exit </div>
+               </div>
+            </v-overlay>
+
          </div>
          <v-row>\
             <v-card flat tile class="mx-auto mt-2">
