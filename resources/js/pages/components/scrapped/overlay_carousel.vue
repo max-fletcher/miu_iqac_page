@@ -74,34 +74,31 @@
       </div>
       <div v-else>
          <div class="text-center">
-            <v-overlay :value="toggle_overlay" class="hidden-sm-and-down">
-               <!-- Working Image with Overlay with Disable on Click. For Md and Up -->
-               <div>
+            <v-overlay :value="toggle_overlay">
+               <!-- Working Image with Overlay with Disable on Click. -->
+               <!-- <div>
                   <v-img
                      contain
                      v-click-outside="disableOverlay"
-                     :src="'/storage/photo_gallery_images/' + overlay_image"                     
-                     max-width="1000"                     
+                     :src="'/storage/photo_gallery_images/' + overlay_image"
+                     max-width="1000"
                      max-height="600"
                   >
                   </v-img>
                   <div> Click Outside to Exit </div>
-               </div>
-            </v-overlay>
+               </div> -->
 
-            <v-overlay :value="toggle_overlay" class="hidden-md-and-up" @click="disableOverlay">
-               <!-- Working Image with Overlay with Disable on Click. For Down and Up -->
-               <div>
-                  <v-img
-                     contain
-                     :src="'/storage/photo_gallery_images/' + overlay_image"
-                     max-height="400"
+               <!-- Carousel Component Working but image ratios are off. Kept as reference. -->
+               <v-carousel v-model="image_index" v-click-outside="disableOverlay">
+                  <v-carousel-item
+                     v-for="(photo, index) in photos"
+                     :key="index"                     
+                     :src="'/storage/photo_gallery_images/' + photo.photo_image"
+                     @click="show_image(photo.photo_image)"                     
                   >
-                  </v-img>
-                  <div> Click Anywhere to Exit </div>
-               </div>
+                  </v-carousel-item>
+               </v-carousel>
             </v-overlay>
-
          </div>
          <v-row>
             <v-card flat tile class="mx-auto mt-2">

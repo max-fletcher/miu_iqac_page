@@ -21,6 +21,8 @@ import Topnav from "./pages/components/scrapped/topnav";
 import Tabsnav from "./pages/components/scrapped/tabsnav";
 import QuickLinksAccordion from "./pages/components/scrapped/quicklinksaccordion";
 import CarouselText from "./pages/components/scrapped/carouseltext";
+import OverlayCarousel from "./pages/components/scrapped/overlay_carousel";
+
 
 export default{
    mode: 'history',
@@ -157,6 +159,12 @@ export default{
          path: '/carouseltext',
          component: CarouselText,
          meta: { title: 'Scrapped Carousel Text' }
+      },
+      {
+         path: '/overlay-carousel/:id',
+         component: OverlayCarousel,
+         name: 'OverlayCarousel',
+         meta: { title: 'Scrapped Overlay Carousel for Photo Gallery' }
       },
    ]
 }
