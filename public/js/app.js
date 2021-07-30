@@ -5531,6 +5531,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -5541,12 +5556,14 @@ __webpack_require__.r(__webpack_exports__);
       loading1: true,
       loading2: true,
       toggle_overlay: false,
-      overlay_image: null
+      overlay_image: null,
+      image_index: 0
     };
   },
   methods: {
-    show_image: function show_image(image) {
+    show_image: function show_image(image, index) {
       this.overlay_image = image;
+      this.image_index = index;
       this.toggle_overlay = true;
     },
     disableOverlay: function disableOverlay() {
@@ -53398,27 +53415,41 @@ var render = function() {
                   { attrs: { value: _vm.toggle_overlay } },
                   [
                     _c(
-                      "v-card",
-                      { attrs: { width: "100%", height: "100%" } },
-                      [
-                        _c("v-img", {
-                          directives: [
-                            {
-                              name: "click-outside",
-                              rawName: "v-click-outside",
-                              value: _vm.disableOverlay,
-                              expression: "disableOverlay"
-                            }
-                          ],
+                      "v-carousel",
+                      {
+                        directives: [
+                          {
+                            name: "click-outside",
+                            rawName: "v-click-outside",
+                            value: _vm.disableOverlay,
+                            expression: "disableOverlay"
+                          }
+                        ],
+                        model: {
+                          value: _vm.image_index,
+                          callback: function($$v) {
+                            _vm.image_index = $$v
+                          },
+                          expression: "image_index"
+                        }
+                      },
+                      _vm._l(_vm.photos, function(photo, index) {
+                        return _c("v-carousel-item", {
+                          key: index,
                           attrs: {
                             src:
                               "/storage/photo_gallery_images/" +
-                              _vm.overlay_image
+                              photo.photo_image,
+                            "max-width": "700",
+                            "max-height": "500"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.show_image(photo.photo_image)
+                            }
                           }
-                        }),
-                        _vm._v(" "),
-                        _c("div", [_vm._v(" Click Outside to Close ")])
-                      ],
+                        })
+                      }),
                       1
                     )
                   ],
@@ -53477,7 +53508,7 @@ var render = function() {
                       },
                       on: {
                         click: function($event) {
-                          return _vm.show_image(photo.photo_image)
+                          return _vm.show_image(photo.photo_image, index)
                         }
                       }
                     })
@@ -71293,13 +71324,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/VCard.js");
 /* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/index.js");
-/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VCol.js");
-/* harmony import */ var vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VImg */ "./node_modules/vuetify/lib/components/VImg/VImg.js");
-/* harmony import */ var vuetify_lib_components_VOverlay__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VOverlay */ "./node_modules/vuetify/lib/components/VOverlay/VOverlay.js");
-/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
-/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installDirectives_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! !../../../node_modules/vuetify-loader/lib/runtime/installDirectives.js */ "./node_modules/vuetify-loader/lib/runtime/installDirectives.js");
-/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installDirectives_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installDirectives_js__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var vuetify_lib_directives_click_outside__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/directives/click-outside */ "./node_modules/vuetify/lib/directives/click-outside/index.js");
+/* harmony import */ var vuetify_lib_components_VCarousel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VCarousel */ "./node_modules/vuetify/lib/components/VCarousel/VCarousel.js");
+/* harmony import */ var vuetify_lib_components_VCarousel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VCarousel */ "./node_modules/vuetify/lib/components/VCarousel/VCarouselItem.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VCol.js");
+/* harmony import */ var vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VImg */ "./node_modules/vuetify/lib/components/VImg/VImg.js");
+/* harmony import */ var vuetify_lib_components_VOverlay__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VOverlay */ "./node_modules/vuetify/lib/components/VOverlay/VOverlay.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installDirectives_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! !../../../node_modules/vuetify-loader/lib/runtime/installDirectives.js */ "./node_modules/vuetify-loader/lib/runtime/installDirectives.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installDirectives_js__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installDirectives_js__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var vuetify_lib_directives_click_outside__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuetify/lib/directives/click-outside */ "./node_modules/vuetify/lib/directives/click-outside/index.js");
 
 
 
@@ -71326,13 +71359,15 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 
 
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__.default,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__.default,VImg: vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_7__.default,VOverlay: vuetify_lib_components_VOverlay__WEBPACK_IMPORTED_MODULE_8__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__.default})
+
+
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__.default,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.VCardTitle,VCarousel: vuetify_lib_components_VCarousel__WEBPACK_IMPORTED_MODULE_6__.default,VCarouselItem: vuetify_lib_components_VCarousel__WEBPACK_IMPORTED_MODULE_7__.default,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__.default,VImg: vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_9__.default,VOverlay: vuetify_lib_components_VOverlay__WEBPACK_IMPORTED_MODULE_10__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_11__.default})
 
 
 /* vuetify-loader */
 ;
 
-_node_modules_vuetify_loader_lib_runtime_installDirectives_js__WEBPACK_IMPORTED_MODULE_10___default()(component, {ClickOutside: vuetify_lib_directives_click_outside__WEBPACK_IMPORTED_MODULE_11__.default})
+_node_modules_vuetify_loader_lib_runtime_installDirectives_js__WEBPACK_IMPORTED_MODULE_12___default()(component, {ClickOutside: vuetify_lib_directives_click_outside__WEBPACK_IMPORTED_MODULE_13__.default})
 
 
 /* hot reload */

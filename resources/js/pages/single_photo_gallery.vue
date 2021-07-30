@@ -75,14 +75,29 @@
       <div v-else>
          <div class="text-center">
             <v-overlay :value="toggle_overlay">
-               <v-card width="100%" height="100%">
+               <!-- Working Image with Overlay with Disable on Click -->
+               <!-- <v-card width="100%">
                   <v-img
                   v-click-outside="disableOverlay"
                   :src="'/storage/photo_gallery_images/' + overlay_image"
                   >
                   </v-img>
-                  <div> Click Outside to Close </div>
-               </v-card>
+                  <div> Click Outside to Disable </div>
+               </v-card> -->
+
+               <!-- Carousel Component Working but image ratios are off -->
+               <v-carousel v-model="image_index" v-click-outside="disableOverlay">
+                  <v-carousel-item
+                     v-for="(photo, index) in photos"
+                     :key="index"                     
+                     :src="'/storage/photo_gallery_images/' + photo.photo_image"
+                     @click="show_image(photo.photo_image)"
+                     max-width="700"
+                     max-height="500"
+                  >
+                  </v-carousel-item>
+               </v-carousel>
+
             </v-overlay>
          </div>
          <v-row>\
@@ -93,10 +108,10 @@
             </v-card>
          </v-row>
          <v-row class="mx-1 py-2 mt-n3">
-            <v-col v-for="(photo, index) in photos" :key="index" cols="12" sm="6" md="4">
+            <v-col v-for="(photo, index) in photos" :key="index" cols="12" sm="6" md="4">               
                <v-img
                :src="'/storage/photo_gallery_images/' + photo.photo_image"
-               @click="show_image(photo.photo_image)"
+               @click="show_image(photo.photo_image, index)"
                height="400"
                width="auto"
                >
@@ -118,10 +133,12 @@ export default {
       loading2: true,
       toggle_overlay: false,
       overlay_image: null,
+      image_index: 0,
    }),
    methods: {
-      show_image(image){
+      show_image(image, index){
          this.overlay_image = image
+         this.image_index = index
          this.toggle_overlay = true
       },
       disableOverlay(){
