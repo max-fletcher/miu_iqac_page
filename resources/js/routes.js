@@ -12,9 +12,11 @@ import ContactUs from "./pages/contactus";
 import NotFound from "./pages/notfound";
 import PhotoGallery from "./pages/photo_gallery";
 import SinglePhotoGallery from "./pages/single_photo_gallery";
-//Auth Pages
+import Publications from "./pages/publications";
+// Auth Pages
 import Login from "./pages/auth/login";
 import Register from "./pages/auth/register";
+// Admin Pages
 import AdminPanel from "./pages/auth/adminpanel";
 // scrapped components
 import Topnav from "./pages/components/scrapped/topnav";
@@ -106,6 +108,12 @@ export default{
          component: SinglePhotoGallery,
          name: 'SinglePhotoGallery',
          meta: { title: 'Gallery' }
+      },
+      {
+         path: '/publications',
+         component: Publications,
+         name: 'Publications',
+         meta: { title: 'Publications Page' }
       },
       // Admin Pages
       {

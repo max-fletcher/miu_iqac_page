@@ -1,6 +1,5 @@
 <template>
-<div class="pt-3">
-   {{ photo_galleries }}
+<div class="pt-3">   
    <div v-if="loading">
          <v-card flat class="mt-6">
             <div class="text-center blue--text text--darken-4 font-weight-bold">
@@ -82,33 +81,35 @@
             </v-row>
          </v-container>
       </v-card>
-      <v-row v-else class="mx-2 py-4">         
-         <v-card flat tile class="mx-auto mb-4">
-            <v-card-title class="text-center text-h3 blue--text text--darken-4">
-               Photo Gallery
-            </v-card-title>
-         </v-card>
-      </v-row>
-      <v-row>
-         <v-col v-for="(photo_gallery, index) in photo_galleries" :key="index" cols="12" md="6">
-            <v-card
-               class="mx-auto"
-               :to="'/single-gallery/' + photo_gallery.id"
-            >
-               <v-img
-                  :src="'/storage/gallery_cover_photos/' + photo_gallery.gallery_cover_photo"
-                  height="400"
-                  width="auto"
-               ></v-img>
-               <v-card-title>
-                  {{ photo_gallery.gallery_name }}
+      <div v-else>      
+         <v-row class="mx-2 py-2">         
+            <v-card flat tile class="mx-auto">
+               <v-card-title class="text-center text-h3 blue--text text--darken-4">
+                  Photo Gallery
                </v-card-title>
-               <v-card-subtitle>
-                  Created: {{  moment(photo_gallery.created_at).format('MMMM Do YYYY, h:mm a') }}
-               </v-card-subtitle>
             </v-card>
-         </v-col>
-      </v-row>
+         </v-row>
+         <v-row>
+            <v-col v-for="(photo_gallery, index) in photo_galleries" :key="index" cols="12" md="6">
+               <v-card
+                  class="mx-auto"
+                  :to="'/single-gallery/' + photo_gallery.id"
+               >
+                  <v-img
+                     :src="'/storage/gallery_cover_photos/' + photo_gallery.gallery_cover_photo"
+                     height="400"
+                     width="auto"
+                  ></v-img>
+                  <v-card-title>
+                     {{ photo_gallery.gallery_name }}
+                  </v-card-title>
+                  <v-card-subtitle>
+                     Created: {{  moment(photo_gallery.created_at).format('MMMM Do YYYY, h:mm a') }}
+                  </v-card-subtitle>
+               </v-card>
+            </v-col>
+         </v-row>
+      </div>
    </div> 
 </div>
 </template>

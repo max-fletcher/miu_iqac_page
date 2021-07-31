@@ -1,7 +1,5 @@
 <template>
-  <div class="pt-3">
-     {{ photos }}
-     {{ gallery_title }}
+  <div class="pt-3">     
       <div v-if="loading1 && loading2">
           <v-card flat class="mt-6">
               <div class="text-center blue--text text--darken-4 font-weight-bold">
@@ -73,54 +71,66 @@
           </v-card>
       </div>
       <div v-else>
-         <div class="text-center">
-            <v-overlay :value="toggle_overlay" class="hidden-sm-and-down">
-               <!-- Working Image with Overlay with Disable on Click. For Md and Up -->
-               <div>
+         <v-card flat v-if="photo_galleries.length === 0" height="480" min-height="300">
+            <v-container fill-height fluid>
+               <v-row align="center" justify="center">
+                  <div class="text-center">
+                     <h1>No Photos Have Been Added To The Gallery Yet !!</h1>
+                     <h2>Add Photos To This Gallery From The Admin Panel.</h2>
+                  </div>
+               </v-row>
+            </v-container>
+         </v-card>
+         <div v-else>
+            <div class="text-center">
+               <v-overlay :value="toggle_overlay" class="hidden-sm-and-down">
+                  <!-- Working Image with Overlay with Disable on Click. For Md and Up -->
+                  <div>
+                     <v-img
+                        contain
+                        v-click-outside="disableOverlay"
+                        :src="'/storage/photo_gallery_images/' + overlay_image"                     
+                        max-width="1000"
+                        max-height="600"
+                     >
+                     </v-img>
+                     <div> Click Outside to Exit </div>
+                  </div>
+               </v-overlay>
+
+               <v-overlay :value="toggle_overlay" class="hidden-md-and-up" @click="disableOverlay">
+                  <!-- Working Image with Overlay with Disable on Click. For Down and Up -->
+                  <div>
+                     <v-img
+                        contain
+                        :src="'/storage/photo_gallery_images/' + overlay_image"
+                        max-height="400"
+                     >
+                     </v-img>
+                     <div> Click Anywhere to Exit </div>
+                  </div>
+               </v-overlay>
+
+            </div>
+            <v-row>
+               <v-card flat tile class="mx-auto mt-2">
+                  <v-card-title class="text-center text-h3 blue--text text--darken-4">
+                     {{ gallery_title.gallery_name }}
+                  </v-card-title>
+               </v-card>
+            </v-row>
+            <v-row class="mx-1 py-2 mt-n3">
+               <v-col v-for="(photo, index) in photos" :key="index" cols="12" sm="6" md="4">               
                   <v-img
-                     contain
-                     v-click-outside="disableOverlay"
-                     :src="'/storage/photo_gallery_images/' + overlay_image"                     
-                     max-width="1000"                     
-                     max-height="600"
+                  :src="'/storage/photo_gallery_images/' + photo.photo_image"
+                  @click="show_image(photo.photo_image, index)"
+                  height="400"
+                  width="auto"
                   >
                   </v-img>
-                  <div> Click Outside to Exit </div>
-               </div>
-            </v-overlay>
-
-            <v-overlay :value="toggle_overlay" class="hidden-md-and-up" @click="disableOverlay">
-               <!-- Working Image with Overlay with Disable on Click. For Down and Up -->
-               <div>
-                  <v-img
-                     contain
-                     :src="'/storage/photo_gallery_images/' + overlay_image"
-                     max-height="400"
-                  >
-                  </v-img>
-                  <div> Click Anywhere to Exit </div>
-               </div>
-            </v-overlay>
-
+               </v-col>
+            </v-row>
          </div>
-         <v-row>
-            <v-card flat tile class="mx-auto mt-2">
-               <v-card-title class="text-center text-h3 blue--text text--darken-4">
-                  {{ gallery_title.gallery_name }}
-               </v-card-title>
-            </v-card>
-         </v-row>
-         <v-row class="mx-1 py-2 mt-n3">
-            <v-col v-for="(photo, index) in photos" :key="index" cols="12" sm="6" md="4">               
-               <v-img
-               :src="'/storage/photo_gallery_images/' + photo.photo_image"
-               @click="show_image(photo.photo_image, index)"
-               height="400"
-               width="auto"
-               >
-               </v-img>
-            </v-col>
-         </v-row>
       </div>
    </div>
 </template>
