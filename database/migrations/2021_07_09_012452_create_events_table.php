@@ -15,7 +15,8 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('event_type_id');
+            $table->unsignedBigInteger('event_type_id');
+            // $table->foreign('event_type_id')->references('id')->on('event_types')->onDelete('cascade');
             $table->string('event_name');
             $table->text('event_description');
             $table->string('event_image');

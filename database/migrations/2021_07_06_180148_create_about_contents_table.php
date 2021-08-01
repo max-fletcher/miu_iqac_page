@@ -14,7 +14,7 @@ class CreateAboutContentsTable extends Migration
     public function up()
     {
         Schema::create('about_contents', function (Blueprint $table) {
-            $table->id();                     
+            $table->id();
             $table->string('name');
             $table->string('icon');
             $table->text('content');

@@ -15,7 +15,8 @@ class CreatePeopleMembersTable extends Migration
     {
         Schema::create('people_members', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('people_id');
+            $table->unsignedBigInteger('people_id');
+            // $table->foreign('people_id')->references('id')->on('people')->onDelete('cascade');
             $table->string('name');
             $table->string('designation');
             $table->string('cell_number');

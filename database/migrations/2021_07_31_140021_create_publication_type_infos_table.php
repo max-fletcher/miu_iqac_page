@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGalleryPhotosTable extends Migration
+class CreatePublicationTypeInfosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateGalleryPhotosTable extends Migration
      */
     public function up()
     {
-        Schema::create('gallery_photos', function (Blueprint $table) {
+        Schema::create('publication_type_infos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('gallery_name_id');
-            // $table->foreign('gallery_name_id')->references('id')->on('gallery_names')->onDelete('cascade');
-            $table->string('photo_title');
-            $table->string('photo_image');
+            $table->string('publication_type_name');
+            $table->string('publication_password');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateGalleryPhotosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gallery_photos');
+        Schema::dropIfExists('publication_type_infos');
     }
 }

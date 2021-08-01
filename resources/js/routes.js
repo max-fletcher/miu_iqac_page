@@ -12,10 +12,10 @@ import ContactUs from "./pages/contactus";
 import NotFound from "./pages/notfound";
 import PhotoGallery from "./pages/photo_gallery";
 import SinglePhotoGallery from "./pages/single_photo_gallery";
-import Publications from "./pages/publications";
 // Auth Pages
 import Login from "./pages/auth/login";
 import Register from "./pages/auth/register";
+import PublicationsAuth from "./pages/auth/publications_auth";
 // Admin Pages
 import AdminPanel from "./pages/auth/adminpanel";
 // scrapped components
@@ -110,8 +110,8 @@ export default{
          meta: { title: 'Gallery' }
       },
       {
-         path: '/publications',
-         component: Publications,
+         path: '/publications_auth/:id',
+         component: PublicationsAuth,
          name: 'Publications',
          meta: { title: 'Publications Page' }
       },

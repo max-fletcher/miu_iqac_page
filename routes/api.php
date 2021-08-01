@@ -42,7 +42,7 @@ Route::get('/carouselcontent/frontend_index', [App\Http\Controllers\CarouselCont
 Route::post('/carouselcontent/store', [App\Http\Controllers\CarouselContentController::class, 'store']);
 Route::get('/carouselcontent/show/{id}', [App\Http\Controllers\CarouselContentController::class, 'show']);
 Route::patch('/carouselcontent/update/{id}', [App\Http\Controllers\CarouselContentController::class, 'update']);
-Route::delete('/carouselcontent/delete/{id}', [App\Http\Controllers\CarouselContentController::class, 'destroy']);
+Route::delete('/carouselcontent/destroy/{id}', [App\Http\Controllers\CarouselContentController::class, 'destroy']);
 
 // About Content Controller
 Route::get('/about/content/index', [App\Http\Controllers\AboutContentController::class, 'index']);
@@ -82,9 +82,31 @@ Route::get('/events/index', [App\Http\Controllers\EventController::class, 'index
 Route::post('/events/store', [App\Http\Controllers\EventController::class, 'store']);
 Route::get('/events/show/{id}', [App\Http\Controllers\EventController::class, 'show']);
 Route::patch('/events/update/{id}', [App\Http\Controllers\EventController::class, 'update']);
-Route::delete('/events/delete/{id}', [App\Http\Controllers\EventController::class, 'destroy']);
+Route::delete('/events/destroy/{id}', [App\Http\Controllers\EventController::class, 'destroy']);
 Route::get('/events/upcoming/eventsbyeventtypeid/{id}', [App\Http\Controllers\EventController::class, 'upcoming_events_by_event_type_id']);
 Route::get('/events/passed/eventsbyeventtypeid/{id}', [App\Http\Controllers\EventController::class, 'passed_events_by_event_type_id']);
+
+// News Controller
+Route::get('/news/index', [App\Http\Controllers\NewsController::class, 'index']);
+Route::get('/news/frontend_index', [App\Http\Controllers\NewsController::class, 'frontend_index']);
+Route::post('/news/store', [App\Http\Controllers\NewsController::class, 'store']);
+Route::get('/news/show/{id}', [App\Http\Controllers\NewsController::class, 'show']);
+Route::patch('/news/update/{id}', [App\Http\Controllers\NewsController::class, 'update']);
+Route::delete('/news/destroy/{id}', [App\Http\Controllers\NewsController::class, 'destroy']);
+
+// Resource Controller
+Route::get('/resource/index', [App\Http\Controllers\ResourceController::class, 'index']);
+Route::post('/resource/store', [App\Http\Controllers\ResourceController::class, 'store']);
+Route::get('/resource/show/{id}', [App\Http\Controllers\ResourceController::class, 'show']);
+Route::patch('/resource/update/{id}', [App\Http\Controllers\ResourceController::class, 'update']);
+Route::delete('/resource/destroy/{id}', [App\Http\Controllers\ResourceController::class, 'destroy']);
+
+// Contact Us Controller
+Route::get('/contact_us/index', [App\Http\Controllers\ContactUsController::class, 'index']);
+Route::post('/contact_us/store', [App\Http\Controllers\ContactUsController::class, 'store']);
+Route::get('/contact_us/show/{id}', [App\Http\Controllers\ContactUsController::class, 'show']);
+Route::patch('/contact_us/update/{id}', [App\Http\Controllers\ContactUsController::class, 'update']);
+Route::delete('/contact_us/destroy/{id}', [App\Http\Controllers\ContactUsController::class, 'destroy']);
 
 // Gallery Name Controller
 Route::get('/gallery/name/index', [App\Http\Controllers\GalleryNameController::class, 'index']);
@@ -99,27 +121,13 @@ Route::get('/gallery/photos/index', [App\Http\Controllers\GalleryPhotoController
 Route::post('/gallery/photos/store', [App\Http\Controllers\GalleryPhotoController::class, 'store']);
 Route::get('/gallery/photos/show/{id}', [App\Http\Controllers\GalleryPhotoController::class, 'show']);
 Route::patch('/gallery/photos/update/{id}', [App\Http\Controllers\GalleryPhotoController::class, 'update']);
-Route::delete('/gallery/photos/delete/{id}', [App\Http\Controllers\GalleryPhotoController::class, 'destroy']);
+Route::delete('/gallery/photos/destroy/{id}', [App\Http\Controllers\GalleryPhotoController::class, 'destroy']);
 Route::get('/gallery/photos/photosbygalleryid/{id}', [App\Http\Controllers\GalleryPhotoController::class, 'photos_by_gallery_name_id']);
 
-// News Controller
-Route::get('/news/index', [App\Http\Controllers\NewsController::class, 'index']);
-Route::get('/news/frontend_index', [App\Http\Controllers\NewsController::class, 'frontend_index']);
-Route::post('/news/store', [App\Http\Controllers\NewsController::class, 'store']);
-Route::get('/news/show/{id}', [App\Http\Controllers\NewsController::class, 'show']);
-Route::patch('/news/update/{id}', [App\Http\Controllers\NewsController::class, 'update']);
-Route::delete('/news/delete/{id}', [App\Http\Controllers\NewsController::class, 'destroy']);
-
-// Resource Controller
-Route::get('/resource/index', [App\Http\Controllers\ResourceController::class, 'index']);
-Route::post('/resource/store', [App\Http\Controllers\ResourceController::class, 'store']);
-Route::get('/resource/show/{id}', [App\Http\Controllers\ResourceController::class, 'show']);
-Route::patch('/resource/update/{id}', [App\Http\Controllers\ResourceController::class, 'update']);
-Route::delete('/resource/delete/{id}', [App\Http\Controllers\ResourceController::class, 'destroy']);
-
-// Contact Us Controller
-Route::get('/contact_us/index', [App\Http\Controllers\ContactUsController::class, 'index']);
-Route::post('/contact_us/store', [App\Http\Controllers\ContactUsController::class, 'store']);
-Route::get('/contact_us/show/{id}', [App\Http\Controllers\ContactUsController::class, 'show']);
-Route::patch('/contact_us/update/{id}', [App\Http\Controllers\ContactUsController::class, 'update']);
-Route::delete('/contact_us/delete/{id}', [App\Http\Controllers\ContactUsController::class, 'destroy']);
+// Publication Types Controller
+Route::get('/publication_type_info/index', [App\Http\Controllers\PublicationTypeInfoController::class, 'index']);
+Route::get('/publication_type_info/frontend_index', [App\Http\Controllers\PublicationTypeInfoController::class, 'frontend_index']);
+Route::post('/publication_type_info/store', [App\Http\Controllers\PublicationTypeInfoController::class, 'store']);
+Route::get('/publication_type_info/show/{id}', [App\Http\Controllers\PublicationTypeInfoController::class, 'show']);
+Route::patch('/publication_type_info/update/{id}', [App\Http\Controllers\PublicationTypeInfoController::class, 'update']);
+Route::delete('/publication_type_info/destroy/{id}', [App\Http\Controllers\PublicationTypeInfoController::class, 'destroy']);

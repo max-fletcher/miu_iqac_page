@@ -283,8 +283,7 @@
 
 <script>
 export default {
-   data: () => ({
-      dummy:"",
+   data: () => ({      
       errors:[],
       error_message: '',
       form_disabled: false,
@@ -307,7 +306,7 @@ export default {
 
    methods: {
       submitForm() {
-         this.validation = this.$refs.contact_us_form.validate()
+         // this.validation = this.$refs.contact_us_form.validate()
          if (this.$refs.contact_us_form.validate()) {
             this.form_disabled = true
             this.form_loading = true
@@ -317,8 +316,7 @@ export default {
                message: this.message
             })
             .then((res) => {
-               console.log(res)
-               this.dummy = "Login Post Request Sent Successfully !!"
+               console.log(res)               
                this.success_snackbar = true
                this.form_disabled = false
                this.form_loading = false
@@ -327,8 +325,7 @@ export default {
             .catch((error) => {
                console.log(error)
                this.errors = error.response.data.errors
-               this.error_message = error.response.data.message
-               this.dummy = "Request Not Sent !!"
+               this.error_message = error.response.data.message               
                this.form_disabled = false
                this.form_loading = false
                this.name_alert = true

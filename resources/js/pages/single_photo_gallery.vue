@@ -71,7 +71,7 @@
           </v-card>
       </div>
       <div v-else>
-         <v-card flat v-if="photo_galleries.length === 0" height="480" min-height="300">
+         <v-card flat v-if="photos.length === 0" height="480" min-height="300">
             <v-container fill-height fluid>
                <v-row align="center" justify="center">
                   <div class="text-center">
@@ -85,12 +85,11 @@
             <div class="text-center">
                <v-overlay :value="toggle_overlay" class="hidden-sm-and-down">
                   <!-- Working Image with Overlay with Disable on Click. For Md and Up -->
-                  <div>
+                  <div class="blue">
                      <v-img
                         contain
                         v-click-outside="disableOverlay"
-                        :src="'/storage/photo_gallery_images/' + overlay_image"                     
-                        max-width="1000"
+                        :src="'/storage/photo_gallery_images/' + overlay_image"
                         max-height="600"
                      >
                      </v-img>
