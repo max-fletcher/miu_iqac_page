@@ -120,6 +120,7 @@
                      <v-text-field
                         v-model="password"
                         @input = "password_alert = false"
+                        @keydown.enter.prevent="submitForm"
                         :rules="passwordRules"
                         label="Password"
                         placeholder="Enter Password"
@@ -148,7 +149,7 @@
                            <v-btn
                               color="green"
                               x-large                                 
-                              @click.prevent="submitForm"
+                              @click.prevent="submitForm"                              
                               :loading="form_loading"
                               class="white--text"
                            >
@@ -163,7 +164,11 @@
                               Reset Validation
                            </v-btn>
                         </div>
-                     </v-row>
+                     </v-row>                                                                   
+                     {{password}}
+                     {{this.$route.params.id}}
+                     {{ this.$store.state.authenticated.publication_tokens }}
+
                   </v-form>
                </v-col>
             </v-row>
@@ -176,7 +181,6 @@
 import moment from 'moment'
 export default {
    data: () => ({
-      validation: null,
       moment: moment,
       loading: true,
       publication_type: [],
@@ -188,20 +192,25 @@ export default {
       password_alert: false,
       passwordRules: [
          (v) => !!v || "Password is required",
-         (v) => (v && v.length >= 3) || "Password must be more than 3 characters",
+         (v) => (v && v.length >= 8) || "Password must be more than 8 characters",
       ],
    }),
    methods: {
-         submitForm() {
-         this.validation = this.$refs.contact_us_form.validate()
+         submitForm() {         
          if (this.$refs.contact_us_form.validate()) {
             this.form_disabled = true
             this.form_loading = true
-            axios.post("/api/contact_us/store", {
-               password: this.password,
+            axios.post("/api/publication_token/create_token", {
+               publication_type_info_id: this.$route.params.id,
+               publication_password: this.password
             })
             .then((res) => {
-               console.log(res)
+               console.log(res.data)
+               // use an action to commit data to a state in vuex store (authenticated.js)
+               this.$store.dispatch('authenticated/create_token', res.data)
+               // Redirect to publications page
+               this.$router.push('/publications/' + this.$route.params.id)
+               // Might not be needed
                this.form_disabled = false
                this.form_loading = false
                this.$refs.contact_us_form.reset()
@@ -209,7 +218,7 @@ export default {
             .catch((error) => {
                console.log(error)
                this.errors = error.response.data.errors
-               this.error_message = error.response.data.message               
+               this.error_message = error.response.data.message
                this.form_disabled = false
                this.form_loading = false
                this.password_alert = true
@@ -219,18 +228,23 @@ export default {
             this.$refs.contact_us_form.validate()
          }         
       },
+      
       reset() {
          this.$refs.contact_us_form.reset()
       },
+      
       resetValidation() {
          this.$refs.contact_us_form.resetValidation()
       },
+   },
+   computed:{
+
    },
    created(){
       axios
          .get("/api/publication_type_info/show/" + this.$route.params.id)
          .then((res) => {
-            console.log(res)
+            // console.log(res)
             this.publication_type = res.data;
             this.loading = false;
          })
@@ -239,7 +253,7 @@ export default {
             // this.errors = error.response.data.errors
             this.loading = false;
          });
-   }
+   },
 };
 </script>
 

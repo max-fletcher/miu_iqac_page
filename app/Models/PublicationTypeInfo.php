@@ -15,4 +15,9 @@ class PublicationTypeInfo extends Model
     {
         return $this->hasMany(Publication::class);
     }
+
+    public function publication_tokens()
+    {
+        return $this->hasMany(PublicationToken::class);
+    }
 }

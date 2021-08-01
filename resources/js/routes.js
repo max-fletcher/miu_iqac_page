@@ -112,6 +112,12 @@ export default{
       {
          path: '/publications_auth/:id',
          component: PublicationsAuth,
+         name: 'PublicationsAuth',
+         meta: { title: 'Publications Password Page' }
+      },
+      {
+         path: '/publications/:id',
+         component: Publications,
          name: 'Publications',
          meta: { title: 'Publications Page' }
       },

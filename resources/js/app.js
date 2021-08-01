@@ -6,6 +6,8 @@ import VueRouter from 'vue-router';
 import routes from "./routes";
 import App from "./pages/app";
 
+import store from "./store"
+
 Vue.use(VueRouter);
 Vue.use(Vuetify);
 
@@ -39,6 +41,7 @@ Vue.filter('truncate_title_md', function(value){
 
 const app = new Vue({
     vuetify: Vuetify,
+    store,
     el: '#app',
     router: new VueRouter(routes),
     components: {

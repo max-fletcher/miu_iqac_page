@@ -22,7 +22,7 @@ class PublicationTypeInfoController extends Controller
     {
         $request->validate([
             'publication_type_name' => ['required', 'string', 'max:255', 'unique:publication_type_infos'],
-            'publication_password' => ['required', 'string','min:8' ,'max:255', 'confirmed'],
+            'publication_password' => ['required', 'string', 'min:8' ,'max:255', 'confirmed'],
         ]);
 
         PublicationTypeInfo::create([
@@ -75,4 +75,5 @@ class PublicationTypeInfoController extends Controller
 
         return response()->json('Publication Type With ID Not Found !!', 404);
     }
+
 }
