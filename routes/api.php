@@ -132,5 +132,12 @@ Route::get('/publication_type_info/show/{id}', [App\Http\Controllers\Publication
 Route::patch('/publication_type_info/update/{id}', [App\Http\Controllers\PublicationTypeInfoController::class, 'update']);
 Route::delete('/publication_type_info/destroy/{id}', [App\Http\Controllers\PublicationTypeInfoController::class, 'destroy']);
 
+// Publications Controller
+Route::get('/publications/index', [App\Http\Controllers\PublicationController::class, 'index']);
+Route::post('/publications/store', [App\Http\Controllers\PublicationController::class, 'store']);
+Route::get('/publications/show/{id}', [App\Http\Controllers\PublicationController::class, 'show']);
+Route::patch('/publications/update/{id}', [App\Http\Controllers\PublicationController::class, 'update']);
+Route::delete('/publications/destroy/{id}', [App\Http\Controllers\PublicationController::class, 'destroy']);
+
 //Publication Token
 Route::post('/publication_token/create_token', [App\Http\Controllers\PublicationTokenController::class, 'create_publication_token']);

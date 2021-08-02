@@ -12,6 +12,7 @@ import ContactUs from "./pages/contactus";
 import NotFound from "./pages/notfound";
 import PhotoGallery from "./pages/photo_gallery";
 import SinglePhotoGallery from "./pages/single_photo_gallery";
+import Publications from "./pages/publications";
 // Auth Pages
 import Login from "./pages/auth/login";
 import Register from "./pages/auth/register";

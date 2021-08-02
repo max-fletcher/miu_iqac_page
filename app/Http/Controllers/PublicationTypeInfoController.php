@@ -35,7 +35,9 @@ class PublicationTypeInfoController extends Controller
 
     public function show($id)
     {
-        $publication_type = PublicationTypeInfo::where('id', $id)->select('id', 'publication_type_name', 'created_at')->first();
+        $publication_type = PublicationTypeInfo::where('id', $id)->select('id', 'publication_type_name', 'created_at')->with(['publications' => function($query) {
+            return $query->select(['id', 'publication_type_info_id', 'created_at']);
+        }])->first();
         if($publication_type){
             return response()->json($publication_type, 200);
         }
@@ -75,5 +77,4 @@ class PublicationTypeInfoController extends Controller
 
         return response()->json('Publication Type With ID Not Found !!', 404);
     }
-
 }

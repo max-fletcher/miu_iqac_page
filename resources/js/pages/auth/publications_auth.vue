@@ -209,7 +209,8 @@ export default {
                // use an action to commit data to a state in vuex store (authenticated.js)
                this.$store.dispatch('authenticated/create_token', res.data)
                // Redirect to publications page
-               this.$router.push('/publications/' + this.$route.params.id)
+               // this.$router.push('/publications/' + this.$route.params.id)
+               this.$router.push({ name: 'Publications', params: { id: this.$route.params.id } })
                // Might not be needed
                this.form_disabled = false
                this.form_loading = false
