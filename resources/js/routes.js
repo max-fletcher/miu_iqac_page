@@ -114,7 +114,19 @@ export default{
          path: '/publications_auth/:id',
          component: PublicationsAuth,
          name: 'PublicationsAuth',
-         meta: { title: 'Publications Password Page' }
+         meta: { title: 'Publications Password Page' },
+         // beforeEnter: ( to, from, next) => {
+         //    axios.post('/api/authenticated')
+         //    .then(()=>{
+         //       next()
+         //    }).catch(()=>{
+         //       return next({path: '/login',
+         //       query: {
+         //          message: 'unauthenticated',
+         //       }
+         //    })
+         //    })
+         // }
       },
       {
          path: '/publications/:id',

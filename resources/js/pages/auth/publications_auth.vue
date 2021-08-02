@@ -90,6 +90,14 @@
                </v-card>
             </v-row>
 
+            <v-row v-if="token_fail_type === 'notokens'">
+               Access Denied ! Please Provide Password to Continue !!
+            </v-row>
+
+            <v-row v-if="token_fail_type === 'notokenmatch'">
+               Access Denied ! Please Refresh Page and Enter Password to Continue !!
+            </v-row>
+
             <v-row>
                <div class="mx-auto">
                   <v-card flat>
@@ -165,9 +173,10 @@
                            </v-btn>
                         </div>
                      </v-row>                                                                   
-                     {{password}}
+                     {{password}} <br>
                      {{this.$route.params.id}} <br>
-                     {{ this.$store.state.authenticated.publication_tokens }} <br>                     
+                     {{ this.$store.state.authenticated.publication_tokens }} <br>
+                     {{this.$route.params.authfail}} <br>
 
                   </v-form>
                </v-col>
@@ -184,6 +193,7 @@ export default {
       moment: moment,
       loading1: true,
       loading2: true,
+      token_fail_type: null,
       publication_type: [],       
       errors:[],
       error_message: '',
@@ -206,7 +216,7 @@ export default {
                publication_password: this.password
             })
             .then((res) => {
-               console.log(res.data)
+               // console.log(res.data)
                // use an action to commit data to a state in vuex store (authenticated.js)
                this.$store.dispatch('authenticated/create_token', res.data)
                // Redirect to publications page
@@ -218,7 +228,7 @@ export default {
                this.$refs.contact_us_form.reset()
             })
             .catch((error) => {
-               console.log(error)
+               // console.log(error)
                this.errors = error.response.data.errors
                this.error_message = error.response.data.message
                this.form_disabled = false
@@ -242,22 +252,33 @@ export default {
    computed:{
 
    },
-   created(){      
+   created(){
 
-      for (var i = 0; i < this.$store.state.authenticated.publication_tokens.length; i++){
-         // look for the entry with a matching `code` value
-         if (this.$store.state.authenticated.publication_tokens[i].publication_type_info_id == this.$route.params.id){
-            axios
-               .post("/api/publication_token/token_exists", this.$store.state.authenticated.publication_tokens[i])
-               .then((res) => {
-                  if (res.data === 'token_exists'){
-                     console.log('token found')
-                     this.$router.push('/publications/' + this.$route.params.id)               
-                  }
-               })
+      if(this.$route.query.fail)
+         this.token_fail_type = this.$route.query.fail
+
+      if( this.$store.state.authenticated.publication_tokens.length > 0 ){
+         // Find token by publication_type_info_id using looping
+         for (var i = 0; i < this.$store.state.authenticated.publication_tokens.length; i++){
+            // look for the entry with a matching `id` value
+            if (this.$store.state.authenticated.publication_tokens[i].publication_type_info_id == this.$route.params.id){
+               axios
+                  .post("/api/publication_token/token_exists", this.$store.state.authenticated.publication_tokens[i])
+                  .then((res) => {
+                     if (res.data === 'token_exists'){
+                        this.$router.push('/publications/' + this.$route.params.id)
+                     }
+                  })
+                  .catch((error) => {
+                     // console.log(error)
+                     // this.errors = error.response.data.errors
+                     this.$store.state.authenticated.publication_tokens = []
+                     this.token_fail_type = 'notokenmatch'
+                  });
+            }
          }
       }
-      
+
       this.loading2 = false
 
       axios
@@ -268,7 +289,7 @@ export default {
             this.loading1 = false
          })
          .catch((error) => {
-            console.log(error)
+            // console.log(error)
             // this.errors = error.response.data.errors
             this.loading1 = false
          });

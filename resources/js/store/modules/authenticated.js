@@ -1,7 +1,5 @@
 const state = {
-   publication_tokens: [
-            
-   ],
+   publication_tokens: [],
 };
 const mutations = {
    PUSH_PUBLICATION_TOKEN( state, token_data ){

@@ -131,15 +131,41 @@ export default {
       }
    },
    created() {
+      if( this.$store.state.authenticated.publication_tokens.length > 0 ){
+         // Find token by publication_type_info_id using looping
+         for (var i = 0; i < this.$store.state.authenticated.publication_tokens.length; i++){
+            // look for the entry with a matching `code` value
+            if (this.$store.state.authenticated.publication_tokens[i].publication_type_info_id == this.$route.params.id){
+               axios
+                  .post("/api/publication_token/token_exists", this.$store.state.authenticated.publication_tokens[i])
+                  .then((res) => {
+                     // console.log(res)
+                     if (res.data !== 'token_exists'){
+                        console.log('Das Boot !!')
+                        this.$store.state.authenticated.publication_tokens = []
+                        this.$router.push('/publications_auth/' + this.$route.params.id + '?fail=notokenmatch')
+                     }                        
+                  }).
+                  catch((error) => {
+                     this.$store.state.authenticated.publication_tokens = []
+                     this.$router.push('/publications_auth/' + this.$route.params.id + '?fail=notokenmatch')
+                  })
+            }
+         }
+      }
+      else{
+         this.$router.push('/publications_auth/' + this.$route.params.id + '?fail=notokens')
+      }
+
       axios
          .get("/api/publication_type_info/show/" + this.$route.params.id)
          .then((res) => {
-           console.log(res)
+            // console.log(res)
             this.publications = res.data;
             this.loading = false;
          })
          .catch((error) => {
-            console.log(error);
+            // console.log(error);
             this.errors = error.response.data.errors
             this.loading = false;
          });

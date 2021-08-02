@@ -162,12 +162,12 @@ export default {
       axios
          .get("/api/carouselcontent/frontend_index")
          .then((res) => {
-            console.log(res);
+            // console.log(res);
             this.items = res.data;
             this.loading = false
          })
          .catch((error) => {
-            console.log(error);
+            // console.log(error);
             // this.errors = error.response.data.errors
             this.loading = false
          });

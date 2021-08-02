@@ -1966,12 +1966,12 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get("/api/about/content/frontend_index").then(function (res) {
-      console.log(res);
+      // console.log(res)
       _this.about_items = res.data;
       _this.loading = false;
     })["catch"](function (error) {
-      console.log(error); // this.errors = error.response.data.errors
-
+      // console.log(error)
+      // this.errors = error.response.data.errors
       _this.loading = false;
     });
   }
@@ -2522,6 +2522,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2529,6 +2538,7 @@ __webpack_require__.r(__webpack_exports__);
       moment: (moment__WEBPACK_IMPORTED_MODULE_0___default()),
       loading1: true,
       loading2: true,
+      token_fail_type: null,
       publication_type: [],
       errors: [],
       error_message: '',
@@ -2554,8 +2564,8 @@ __webpack_require__.r(__webpack_exports__);
           publication_type_info_id: this.$route.params.id,
           publication_password: this.password
         }).then(function (res) {
-          console.log(res.data); // use an action to commit data to a state in vuex store (authenticated.js)
-
+          // console.log(res.data)
+          // use an action to commit data to a state in vuex store (authenticated.js)
           _this.$store.dispatch('authenticated/create_token', res.data); // Redirect to publications page
 
 
@@ -2568,7 +2578,7 @@ __webpack_require__.r(__webpack_exports__);
 
           _this.$refs.contact_us_form.reset();
         })["catch"](function (error) {
-          console.log(error);
+          // console.log(error)
           _this.errors = error.response.data.errors;
           _this.error_message = error.response.data.message;
           _this.form_disabled = false;
@@ -2591,16 +2601,24 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this2 = this;
 
-    for (var i = 0; i < this.$store.state.authenticated.publication_tokens.length; i++) {
-      // look for the entry with a matching `code` value
-      if (this.$store.state.authenticated.publication_tokens[i].publication_type_info_id == this.$route.params.id) {
-        axios.post("/api/publication_token/token_exists", this.$store.state.authenticated.publication_tokens[i]).then(function (res) {
-          if (res.data === 'token_exists') {
-            console.log('token found');
+    if (this.$route.query.fail) this.token_fail_type = this.$route.query.fail;
 
-            _this2.$router.push('/publications/' + _this2.$route.params.id);
-          }
-        });
+    if (this.$store.state.authenticated.publication_tokens.length > 0) {
+      // Find token by publication_type_info_id using looping
+      for (var i = 0; i < this.$store.state.authenticated.publication_tokens.length; i++) {
+        // look for the entry with a matching `id` value
+        if (this.$store.state.authenticated.publication_tokens[i].publication_type_info_id == this.$route.params.id) {
+          axios.post("/api/publication_token/token_exists", this.$store.state.authenticated.publication_tokens[i]).then(function (res) {
+            if (res.data === 'token_exists') {
+              _this2.$router.push('/publications/' + _this2.$route.params.id);
+            }
+          })["catch"](function (error) {
+            // console.log(error)
+            // this.errors = error.response.data.errors
+            _this2.$store.state.authenticated.publication_tokens = [];
+            _this2.token_fail_type = 'notokenmatch';
+          });
+        }
       }
     }
 
@@ -2610,8 +2628,8 @@ __webpack_require__.r(__webpack_exports__);
       _this2.publication_type = res.data;
       _this2.loading1 = false;
     })["catch"](function (error) {
-      console.log(error); // this.errors = error.response.data.errors
-
+      // console.log(error)
+      // this.errors = error.response.data.errors
       _this2.loading1 = false;
     });
   }
@@ -4778,12 +4796,12 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get("/api/carouselcontent/frontend_index").then(function (res) {
-      console.log(res);
+      // console.log(res);
       _this.items = res.data;
       _this.loading = false;
     })["catch"](function (error) {
-      console.log(error); // this.errors = error.response.data.errors
-
+      // console.log(error);
+      // this.errors = error.response.data.errors
       _this.loading = false;
     });
   }
@@ -5495,12 +5513,36 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
+    if (this.$store.state.authenticated.publication_tokens.length > 0) {
+      // Find token by publication_type_info_id using looping
+      for (var i = 0; i < this.$store.state.authenticated.publication_tokens.length; i++) {
+        // look for the entry with a matching `code` value
+        if (this.$store.state.authenticated.publication_tokens[i].publication_type_info_id == this.$route.params.id) {
+          axios.post("/api/publication_token/token_exists", this.$store.state.authenticated.publication_tokens[i]).then(function (res) {
+            // console.log(res)
+            if (res.data !== 'token_exists') {
+              console.log('Das Boot !!');
+              _this.$store.state.authenticated.publication_tokens = [];
+
+              _this.$router.push('/publications_auth/' + _this.$route.params.id + '?fail=notokenmatch');
+            }
+          })["catch"](function (error) {
+            _this.$store.state.authenticated.publication_tokens = [];
+
+            _this.$router.push('/publications_auth/' + _this.$route.params.id + '?fail=notokenmatch');
+          });
+        }
+      }
+    } else {
+      this.$router.push('/publications_auth/' + this.$route.params.id + '?fail=notokens');
+    }
+
     axios.get("/api/publication_type_info/show/" + this.$route.params.id).then(function (res) {
-      console.log(res);
+      // console.log(res)
       _this.publications = res.data;
       _this.loading = false;
     })["catch"](function (error) {
-      console.log(error);
+      // console.log(error);
       _this.errors = error.response.data.errors;
       _this.loading = false;
     });
@@ -6540,7 +6582,19 @@ __webpack_require__.r(__webpack_exports__);
     name: 'PublicationsAuth',
     meta: {
       title: 'Publications Password Page'
-    }
+    } // beforeEnter: ( to, from, next) => {
+    //    axios.post('/api/authenticated')
+    //    .then(()=>{
+    //       next()
+    //    }).catch(()=>{
+    //       return next({path: '/login',
+    //       query: {
+    //          message: 'unauthenticated',
+    //       }
+    //    })
+    //    })
+    // }
+
   }, {
     path: '/publications/:id',
     component: _pages_publications__WEBPACK_IMPORTED_MODULE_13__.default,
@@ -48421,6 +48475,22 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
+                    _vm.token_fail_type === "notokens"
+                      ? _c("v-row", [
+                          _vm._v(
+                            "\n             Access Denied ! Please Provide Password to Continue !!\n          "
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.token_fail_type === "notokenmatch"
+                      ? _c("v-row", [
+                          _vm._v(
+                            "\n             Access Denied ! Please Refresh Page and Enter Password to Continue !!\n          "
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
                     _c("v-row", [
                       _c(
                         "div",
@@ -48611,7 +48681,11 @@ var render = function() {
                                 _vm._v(
                                   "                                                                   \n                   " +
                                     _vm._s(_vm.password) +
-                                    "\n                   " +
+                                    " "
+                                ),
+                                _c("br"),
+                                _vm._v(
+                                  "\n                   " +
                                     _vm._s(this.$route.params.id) +
                                     " "
                                 ),
@@ -48622,6 +48696,12 @@ var render = function() {
                                       this.$store.state.authenticated
                                         .publication_tokens
                                     ) +
+                                    " "
+                                ),
+                                _c("br"),
+                                _vm._v(
+                                  "\n                   " +
+                                    _vm._s(this.$route.params.authfail) +
                                     " "
                                 ),
                                 _c("br")
