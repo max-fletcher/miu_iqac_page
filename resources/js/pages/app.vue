@@ -24,7 +24,7 @@ export default {
    }),
    components: {TopBar},
    mounted(){
-    console.log(this.$route.name)
+   //  console.log(this.$route.name)
    },
    watch: {
       $route(to, from) {
@@ -36,7 +36,7 @@ export default {
     const unwatch = this.$watch(
       () => this.$route,
       (route, prevRoute) => {
-        console.log(this.$route)
+      //   console.log(this.$route)
         if(this.$route.name == 'AdminPanel'){
            this.hideTopBar = false
         }

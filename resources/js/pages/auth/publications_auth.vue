@@ -1,6 +1,6 @@
 <template>
   <div class="pt-3">     
-      <div v-if="loading">
+      <div v-if="loading1">
          <v-card flat class="mt-6">
             <div class="text-center blue--text text--darken-4 font-weight-bold">
                   Loading...
@@ -166,8 +166,8 @@
                         </div>
                      </v-row>                                                                   
                      {{password}}
-                     {{this.$route.params.id}}
-                     {{ this.$store.state.authenticated.publication_tokens }}
+                     {{this.$route.params.id}} <br>
+                     {{ this.$store.state.authenticated.publication_tokens }} <br>                     
 
                   </v-form>
                </v-col>
@@ -182,8 +182,9 @@ import moment from 'moment'
 export default {
    data: () => ({
       moment: moment,
-      loading: true,
-      publication_type: [],
+      loading1: true,
+      loading2: true,
+      publication_type: [],       
       errors:[],
       error_message: '',
       form_disabled: false,
@@ -209,8 +210,8 @@ export default {
                // use an action to commit data to a state in vuex store (authenticated.js)
                this.$store.dispatch('authenticated/create_token', res.data)
                // Redirect to publications page
-               // this.$router.push('/publications/' + this.$route.params.id)
-               this.$router.push({ name: 'Publications', params: { id: this.$route.params.id } })
+               this.$router.push('/publications/' + this.$route.params.id)
+               // this.$router.push({ name: 'Publications', params: { id: this.$route.params.id } })
                // Might not be needed
                this.form_disabled = false
                this.form_loading = false
@@ -241,18 +242,35 @@ export default {
    computed:{
 
    },
-   created(){
+   created(){      
+
+      for (var i = 0; i < this.$store.state.authenticated.publication_tokens.length; i++){
+         // look for the entry with a matching `code` value
+         if (this.$store.state.authenticated.publication_tokens[i].publication_type_info_id == this.$route.params.id){
+            axios
+               .post("/api/publication_token/token_exists", this.$store.state.authenticated.publication_tokens[i])
+               .then((res) => {
+                  if (res.data === 'token_exists'){
+                     console.log('token found')
+                     this.$router.push('/publications/' + this.$route.params.id)               
+                  }
+               })
+         }
+      }
+      
+      this.loading2 = false
+
       axios
          .get("/api/publication_type_info/show/" + this.$route.params.id)
          .then((res) => {
             // console.log(res)
-            this.publication_type = res.data;
-            this.loading = false;
+            this.publication_type = res.data
+            this.loading1 = false
          })
          .catch((error) => {
-            console.log(error);
+            console.log(error)
             // this.errors = error.response.data.errors
-            this.loading = false;
+            this.loading1 = false
          });
    },
 };

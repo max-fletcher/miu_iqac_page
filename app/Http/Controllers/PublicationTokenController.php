@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class PublicationTokenController extends Controller
 {
-    public function create_publication_token(Request $request){        
+    public function create_publication_token(Request $request){       
 
         $request->validate([
             'publication_type_info_id' => ['required', 'numeric', 'integer'],
@@ -20,13 +20,25 @@ class PublicationTokenController extends Controller
         $publication_type_info = PublicationTypeInfo::find($request->publication_type_info_id);
         if(!$publication_type_info || !Hash::check( $request->publication_password, $publication_type_info->publication_password )){
             return response()->json( 'Bad Credentials !!', 401 );
-        }        
+        }
 
         $token = PublicationToken::create([
             'publication_type_info_id' => $request->publication_type_info_id,
             'publication_token' => Str::random(50)
         ]);
 
-        return response( $token, 201 );
+        return response()->json( $token, 201 );
+    }
+
+    public function token_exists(Request $request){
+        
+        $token = PublicationToken::where('publication_type_info_id', $request->publication_type_info_id)
+        ->where('publication_token', $request->publication_token)->first();
+
+        if($token){
+            return response( 'token_exists', 201 );
+        }
+
+        return response()->json('no_token_exists', 404);
     }
 }

@@ -2019,8 +2019,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     TopBar: _components_topbar__WEBPACK_IMPORTED_MODULE_0__.default
   },
-  mounted: function mounted() {
-    console.log(this.$route.name);
+  mounted: function mounted() {//  console.log(this.$route.name)
   },
   watch: {
     $route: function $route(to, from) {
@@ -2034,8 +2033,7 @@ __webpack_require__.r(__webpack_exports__);
     var unwatch = this.$watch(function () {
       return _this.$route;
     }, function (route, prevRoute) {
-      console.log(_this.$route);
-
+      //   console.log(this.$route)
       if (_this.$route.name == 'AdminPanel') {
         _this.hideTopBar = false;
       }
@@ -2529,7 +2527,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       moment: (moment__WEBPACK_IMPORTED_MODULE_0___default()),
-      loading: true,
+      loading1: true,
+      loading2: true,
       publication_type: [],
       errors: [],
       error_message: '',
@@ -2558,15 +2557,10 @@ __webpack_require__.r(__webpack_exports__);
           console.log(res.data); // use an action to commit data to a state in vuex store (authenticated.js)
 
           _this.$store.dispatch('authenticated/create_token', res.data); // Redirect to publications page
-          // this.$router.push('/publications/' + this.$route.params.id)
 
 
-          _this.$router.push({
-            name: 'Publications',
-            params: {
-              id: _this.$route.params.id
-            }
-          }); // Might not be needed
+          _this.$router.push('/publications/' + _this.$route.params.id); // this.$router.push({ name: 'Publications', params: { id: this.$route.params.id } })
+          // Might not be needed
 
 
           _this.form_disabled = false;
@@ -2597,14 +2591,28 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this2 = this;
 
+    for (var i = 0; i < this.$store.state.authenticated.publication_tokens.length; i++) {
+      // look for the entry with a matching `code` value
+      if (this.$store.state.authenticated.publication_tokens[i].publication_type_info_id == this.$route.params.id) {
+        axios.post("/api/publication_token/token_exists", this.$store.state.authenticated.publication_tokens[i]).then(function (res) {
+          if (res.data === 'token_exists') {
+            console.log('token found');
+
+            _this2.$router.push('/publications/' + _this2.$route.params.id);
+          }
+        });
+      }
+    }
+
+    this.loading2 = false;
     axios.get("/api/publication_type_info/show/" + this.$route.params.id).then(function (res) {
       // console.log(res)
       _this2.publication_type = res.data;
-      _this2.loading = false;
+      _this2.loading1 = false;
     })["catch"](function (error) {
       console.log(error); // this.errors = error.response.data.errors
 
-      _this2.loading = false;
+      _this2.loading1 = false;
     });
   }
 });
@@ -48225,7 +48233,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "pt-3" }, [
-    _vm.loading
+    _vm.loading1
       ? _c(
           "div",
           [
@@ -48605,13 +48613,18 @@ var render = function() {
                                     _vm._s(_vm.password) +
                                     "\n                   " +
                                     _vm._s(this.$route.params.id) +
-                                    "\n                   " +
+                                    " "
+                                ),
+                                _c("br"),
+                                _vm._v(
+                                  "\n                   " +
                                     _vm._s(
                                       this.$store.state.authenticated
                                         .publication_tokens
                                     ) +
-                                    "\n\n                "
-                                )
+                                    " "
+                                ),
+                                _c("br")
                               ],
                               1
                             )
