@@ -90,14 +90,6 @@
                </v-card>
             </v-row>
 
-            <v-row v-if="token_fail_type === 'notokens'">
-               Access Denied ! Please Provide Password to Continue !!
-            </v-row>
-
-            <v-row v-if="token_fail_type === 'notokenmatch'">
-               Access Denied ! Please Refresh Page and Enter Password to Continue !!
-            </v-row>
-
             <v-row>
                <div class="mx-auto">
                   <v-card flat>
@@ -122,9 +114,74 @@
             </v-row>
 
             <v-row>
+               <v-col class="mx-7">
+                  <v-snackbar
+                     v-model="error_message_snackbar"
+                     color="red darken-4"
+                     :timeout="timeout"
+                     top
+                     right
+                  >
+                  <v-icon left>
+                     mdi-alert-octagon
+                  </v-icon>
+                     {{ error_message }}
+
+                     <template v-slot:action="{ attrs }">
+                     <v-btn
+                        color="white"
+                        text
+                        v-bind="attrs"
+                        @click="error_message_snackbar = false"
+                     >
+                        Close
+                     </v-btn>
+                     </template>
+                  </v-snackbar>
+
+                  <v-alert
+                     v-if="errors && errors.publication_password"               
+                     type="error"
+                     dark
+                     text
+                     dense
+                     transition="scale-transition"
+                     class="my-2"
+                  >                        
+                     {{ errors.publication_password[0] }}
+                  </v-alert>
+
+                  <v-alert
+                     v-if="token_fail_type === 'notokens'"
+                     type="error"
+                     dark
+                     text
+                     dense
+                     transition="scale-transition"
+                     class="my-2"
+                  >                        
+                     Access Denied ! Please Provide Password to Continue !!
+                  </v-alert>
+
+                  <v-alert
+                     v-if="token_fail_type === 'notokenmatch'"
+                     type="error"
+                     dark
+                     text
+                     dense
+                     transition="scale-transition"
+                     class="my-2"
+                  >                        
+                     Access Denied ! Please Refresh Page and Enter Password to Continue !!
+                  </v-alert>
+               </v-col>
+            </v-row>
+
+            <v-row>
                <v-col class="mb-3 px-4 px-sm-10">
                   <v-form ref="contact_us_form" :disabled="form_disabled" lazy-validation>
-                     <!-- Password Field With Alert -->
+                     <!-- Password Field -->
+                     <!-- {{ errors.publication_password[0] }} -->
                      <v-text-field
                         v-model="password"
                         @input = "password_alert = false"
@@ -136,20 +193,8 @@
                         required
                         outlined
                      ></v-text-field>
-                     
-                     <v-alert
-                        v-if="errors && errors.password"
-                        :value="password_alert"
-                        type="error"
-                        dark
-                        text
-                        dense
-                        transition="scale-transition"
-                        class="mt-n5"
-                     >                        
-                        {{ errors.password[0] }}
-                     </v-alert>
-                     <!-- End Name Field With Alert -->
+
+                     <!-- End Password Field -->
 
                      <!-- Validate and Submit -->
                      <v-row class="mt-3 mt-md-2">
@@ -164,19 +209,19 @@
                               Submit
                            </v-btn>
                            <!-- Reset From -->
-                           <v-btn color="error" class="mx-2" @click="reset">
+                           <!-- <v-btn color="error" class="mx-2" @click="reset">
                               Reset Form
-                           </v-btn>
+                           </v-btn> -->
                            <!-- Reset validation -->
-                           <v-btn color="warning" class="mx-2" @click="resetValidation">
+                           <!-- <v-btn color="warning" class="mx-2" @click="resetValidation">
                               Reset Validation
-                           </v-btn>
+                           </v-btn> -->
                         </div>
                      </v-row>                                                                   
-                     {{password}} <br>
+                     <!-- {{password}} <br>
                      {{this.$route.params.id}} <br>
                      {{ this.$store.state.authenticated.publication_tokens }} <br>
-                     {{this.$route.params.authfail}} <br>
+                     {{this.$route.params.authfail}} <br> -->
 
                   </v-form>
                </v-col>
@@ -194,9 +239,10 @@ export default {
       loading1: true,
       loading2: true,
       token_fail_type: null,
-      publication_type: [],       
+      publication_type: [],
       errors:[],
       error_message: '',
+      error_message_snackbar: false,
       form_disabled: false,
       form_loading: false,
       password: "",
@@ -227,8 +273,8 @@ export default {
                this.form_loading = false
                this.$refs.contact_us_form.reset()
             })
-            .catch((error) => {
-               // console.log(error)
+            .catch((error) => {        
+               this.error_message_snackbar = true       
                this.errors = error.response.data.errors
                this.error_message = error.response.data.message
                this.form_disabled = false
@@ -271,8 +317,7 @@ export default {
                   })
                   .catch((error) => {
                      // console.log(error)
-                     // this.errors = error.response.data.errors
-                     this.$store.state.authenticated.publication_tokens = []
+                     this.$store.dispatch('authenticated/reset_state')
                      this.token_fail_type = 'notokenmatch'
                   });
             }

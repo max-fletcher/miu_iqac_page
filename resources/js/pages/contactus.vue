@@ -316,14 +316,14 @@ export default {
                message: this.message
             })
             .then((res) => {
-               console.log(res)               
+               // console.log(res)
                this.success_snackbar = true
                this.form_disabled = false
                this.form_loading = false
                this.$refs.contact_us_form.reset()
             })
             .catch((error) => {
-               console.log(error)
+               // console.log(error)
                this.errors = error.response.data.errors
                this.error_message = error.response.data.message               
                this.form_disabled = false

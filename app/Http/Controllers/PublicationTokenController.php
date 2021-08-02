@@ -19,13 +19,13 @@ class PublicationTokenController extends Controller
 
         $publication_type_info = PublicationTypeInfo::find($request->publication_type_info_id);
         if(!$publication_type_info || !Hash::check( $request->publication_password, $publication_type_info->publication_password )){
-            return response()->json( 'Bad Credentials !!', 401 );
+            return response()->json( ['message' => 'Password Match Failed ! Try Again.',], 401);
         }
 
         $token = PublicationToken::create([
             'publication_type_info_id' => $request->publication_type_info_id,
             'publication_token' => Str::random(50)
-        ]);
+        ]);        
 
         return response()->json( $token, 201 );
     }

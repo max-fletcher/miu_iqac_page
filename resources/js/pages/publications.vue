@@ -142,12 +142,12 @@ export default {
                      // console.log(res)
                      if (res.data !== 'token_exists'){
                         console.log('Das Boot !!')
-                        this.$store.state.authenticated.publication_tokens = []
+                        this.$store.dispatch('authenticated/reset_state')
                         this.$router.push('/publications_auth/' + this.$route.params.id + '?fail=notokenmatch')
                      }                        
                   }).
                   catch((error) => {
-                     this.$store.state.authenticated.publication_tokens = []
+                     this.$store.dispatch('authenticated/reset_state')
                      this.$router.push('/publications_auth/' + this.$route.params.id + '?fail=notokenmatch')
                   })
             }
