@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "moment": "^2.29.1",
+        "vue-easy-lightbox": "^0.16.1",
         "vue-router": "^3.5.1",
         "vuetify": "^2.5.3",
         "vuetify-loader": "^1.7.2",
