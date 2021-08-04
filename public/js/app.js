@@ -3819,14 +3819,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 // Method.3 Local registration
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -3878,7 +3870,10 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get("/api/gallery/photos/photosbygalleryid/1") // + this.$route.params.id
     .then(function (res) {
-      console.log(res);
+      // console.log(res)
+      // res.data.forEach( (photo) => {
+      //    photo.photo_image = '/storage/photo_gallery_images/' + photo.photo_image
+      // })
       _this.photos = res.data;
       _this.loading1 = false;
     })["catch"](function (error) {
@@ -3888,7 +3883,7 @@ __webpack_require__.r(__webpack_exports__);
     });
     axios.get("/api/gallery/name/show/1") // + this.$route.params.id
     .then(function (res) {
-      console.log(res);
+      // console.log(res)
       _this.gallery_title = res.data;
       _this.loading2 = false;
     })["catch"](function (error) {
@@ -51136,79 +51131,74 @@ var render = function() {
                   ],
                   1
                 )
-              : _c("div", [
-                  _c("button", { on: { click: _vm.showMultiple } }, [
-                    _vm._v("Show a group of pictures.")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _c(
-                        "div",
-                        _vm._l(_vm.photos, function(photo, index) {
-                          return _c(
-                            "v-col",
-                            {
-                              key: index,
-                              attrs: { cols: "12", sm: "6", md: "4" }
-                            },
-                            [
-                              _c(
-                                "v-card",
-                                { attrs: { flat: "" } },
-                                [
-                                  _c("v-img", {
-                                    attrs: {
-                                      src:
-                                        "/storage/photo_gallery_images/" +
+              : _c(
+                  "div",
+                  [
+                    _c(
+                      "v-row",
+                      { staticClass: "mx-1 py-2 mt-n3" },
+                      _vm._l(_vm.photos, function(photo, index) {
+                        return _c(
+                          "v-col",
+                          {
+                            key: index,
+                            attrs: { cols: "12", sm: "6", md: "4" }
+                          },
+                          [
+                            _c(
+                              "v-card",
+                              { attrs: { flat: "" } },
+                              [
+                                _c("v-img", {
+                                  attrs: {
+                                    src:
+                                      "/storage/photo_gallery_images/" +
+                                      photo.photo_image,
+                                    height: "400",
+                                    width: "auto"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.showSingle(
                                         photo.photo_image,
-                                      height: "400",
-                                      width: "auto"
-                                    },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.showSingle(
-                                          photo.photo_image,
-                                          photo.photo_title,
-                                          index
-                                        )
-                                      }
+                                        photo.photo_title,
+                                        index
+                                      )
                                     }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("v-card-text", { staticClass: "pt-1" }, [
-                                    _vm._v(
-                                      "\n                                     " +
-                                        _vm._s(photo.photo_title) +
-                                        "\n                                  "
-                                    )
-                                  ])
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        }),
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("vue-easy-lightbox", {
-                        attrs: {
-                          escDisabled: "",
-                          moveDisabled: "",
-                          visible: _vm.visible,
-                          imgs:
-                            "/storage/photo_gallery_images/" + _vm.single_photo,
-                          index: _vm.index
-                        },
-                        on: { hide: _vm.handleHide }
-                      })
-                    ],
-                    1
-                  )
-                ])
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("v-card-text", { staticClass: "pt-1" }, [
+                                  _vm._v(
+                                    "\n                      " +
+                                      _vm._s(photo.photo_title) +
+                                      "\n                   "
+                                  )
+                                ])
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      }),
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("vue-easy-lightbox", {
+                      attrs: {
+                        escDisabled: "",
+                        moveDisabled: "",
+                        visible: _vm.visible,
+                        imgs:
+                          "/storage/photo_gallery_images/" + _vm.single_photo,
+                        index: _vm.index
+                      },
+                      on: { hide: _vm.handleHide }
+                    })
+                  ],
+                  1
+                )
           ],
           1
         )

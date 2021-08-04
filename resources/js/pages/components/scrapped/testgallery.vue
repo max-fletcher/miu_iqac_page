@@ -83,40 +83,32 @@
             </v-container>
          </v-card>
          <div v-else>
+            <v-row class="mx-1 py-2 mt-n3">
+               <v-col v-for="(photo, index) in photos" :key="index" cols="12" sm="6" md="4">
+                  <v-card flat>
+                     <v-img
+                     :src="'/storage/photo_gallery_images/' + photo.photo_image"
+                     @click="showSingle(photo.photo_image, photo.photo_title, index)"
+                     height="400"
+                     width="auto"
+                     >
+                     </v-img>
+                     <v-card-text class="pt-1">
+                        {{ photo.photo_title }}
+                     </v-card-text>
+                  </v-card>
+               </v-col>
+            </v-row>
 
-
-                <button @click="showMultiple">Show a group of pictures.</button>
-
-
-                     <div>
-                        <div>
-                              <v-col v-for="(photo, index) in photos" :key="index" cols="12" sm="6" md="4">
-                                 <v-card flat>
-                                    <v-img
-                                    :src="'/storage/photo_gallery_images/' + photo.photo_image"
-                                    @click="showSingle(photo.photo_image, photo.photo_title, index)"
-                                    height="400"
-                                    width="auto"
-                                    >
-                                    </v-img>
-                                    <v-card-text class="pt-1">
-                                       {{ photo.photo_title }}
-                                    </v-card-text>
-                                 </v-card>
-                              </v-col>
-
-                        </div>
-                        
-                        <!-- all props & events -->
-                        <vue-easy-lightbox
-                           escDisabled
-                           moveDisabled
-                           :visible="visible"
-                           :imgs="'/storage/photo_gallery_images/' + single_photo"
-                           :index="index"
-                           @hide="handleHide"
-                        ></vue-easy-lightbox>
-                     </div>
+            <!-- all props & events -->
+            <vue-easy-lightbox
+               escDisabled
+               moveDisabled
+               :visible="visible"
+               :imgs="'/storage/photo_gallery_images/' + single_photo"
+               :index="index"
+               @hide="handleHide"
+            ></vue-easy-lightbox>
          </div>
       </div>
    </div>
@@ -172,8 +164,11 @@ export default {
          axios
             .get("/api/gallery/photos/photosbygalleryid/1") // + this.$route.params.id
             .then((res) => {
-               console.log(res)
-               this.photos = res.data;
+               // console.log(res)
+               // res.data.forEach( (photo) => {
+               //    photo.photo_image = '/storage/photo_gallery_images/' + photo.photo_image
+               // })
+               this.photos = res.data;               
                this.loading1 = false;
             })
             .catch((error) => {
@@ -185,7 +180,7 @@ export default {
          axios
             .get("/api/gallery/name/show/1") // + this.$route.params.id
             .then((res) => {           
-               console.log(res)
+               // console.log(res)
                this.gallery_title = res.data;
                this.loading2 = false;
             })
