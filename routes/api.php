@@ -142,3 +142,4 @@ Route::delete('/publications/destroy/{id}', [App\Http\Controllers\PublicationCon
 //Publication Token
 Route::post('/publication_token/create_token', [App\Http\Controllers\PublicationTokenController::class, 'create_publication_token']);
 Route::post('/publication_token/token_exists', [App\Http\Controllers\PublicationTokenController::class, 'token_exists']);
+Route::get('/publication_token/clear_tokens', [App\Http\Controllers\PublicationTokenController::class, 'clear_tokens']);

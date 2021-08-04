@@ -104,11 +104,13 @@
                            text-sibtitle-1
                            font-weight-bold
                            blue-grey--text
-                           text--darken-3
+                           text--darken-3                           
+                           pb-0
                         "
                      >
                         Enter Password to Proceed
                      </v-card-subtitle>
+
                   </v-card>
                </div>
             </v-row>
@@ -191,13 +193,26 @@
                         placeholder="Enter Password"
                         prepend-inner-icon="mdi-lock"
                         required
-                        outlined
+                        outlined                        
                      ></v-text-field>
-
                      <!-- End Password Field -->
 
+                     <v-card-subtitle
+                        class="
+                           text-center
+                           text-sm-left
+                           text-caption
+                           font-weight-bold
+                           red--text
+                           text--darken-3                           
+                           mt-n10
+                        "
+                     >
+                        *If your token expires, simply refresh page and enter password again
+                     </v-card-subtitle>
+
                      <!-- Validate and Submit -->
-                     <v-row class="mt-3 mt-md-2">
+                     <v-row class="mt-4 mt-sm-3 mt-md-1">
                         <div class="d-flex flex-row mx-auto">
                            <v-btn
                               color="green"
@@ -299,15 +314,17 @@ export default {
 
    },
    created(){
-
+      // if "fail" query string existse i.e via redirect after failing to find token so message can be displayed\
       if(this.$route.query.fail)
          this.token_fail_type = this.$route.query.fail
 
+      // Check if token exists in vuex store. If not, redirect to publication_auth
       if( this.$store.state.authenticated.publication_tokens.length > 0 ){
          // Find token by publication_type_info_id using looping
          for (var i = 0; i < this.$store.state.authenticated.publication_tokens.length; i++){
             // look for the entry with a matching `id` value
             if (this.$store.state.authenticated.publication_tokens[i].publication_type_info_id == this.$route.params.id){
+               // check if token matches in DB
                axios
                   .post("/api/publication_token/token_exists", this.$store.state.authenticated.publication_tokens[i])
                   .then((res) => {
@@ -318,13 +335,13 @@ export default {
                   .catch((error) => {
                      // console.log(error)
                      this.$store.dispatch('authenticated/reset_state')
-                     this.token_fail_type = 'notokenmatch'
+                     this.token_fail_type = 'notokenmatch'                     
+                     this.loading2 = false
                   });
             }
-         }
+         }         
+         this.loading2 = false
       }
-
-      this.loading2 = false
 
       axios
          .get("/api/publication_type_info/show/" + this.$route.params.id)

@@ -159,6 +159,10 @@ export default {
       QuickLinks,
    },
    created() {
+
+      axios
+         .get("/api/publication_token/clear_tokens")
+
       axios
          .get("/api/carouselcontent/frontend_index")
          .then((res) => {

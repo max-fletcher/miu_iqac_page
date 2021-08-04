@@ -2576,6 +2576,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2647,13 +2662,15 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this2 = this;
 
-    if (this.$route.query.fail) this.token_fail_type = this.$route.query.fail;
+    // if "fail" query string existse i.e via redirect after failing to find token so message can be displayed\
+    if (this.$route.query.fail) this.token_fail_type = this.$route.query.fail; // Check if token exists in vuex store. If not, redirect to publication_auth
 
     if (this.$store.state.authenticated.publication_tokens.length > 0) {
       // Find token by publication_type_info_id using looping
       for (var i = 0; i < this.$store.state.authenticated.publication_tokens.length; i++) {
         // look for the entry with a matching `id` value
         if (this.$store.state.authenticated.publication_tokens[i].publication_type_info_id == this.$route.params.id) {
+          // check if token matches in DB
           axios.post("/api/publication_token/token_exists", this.$store.state.authenticated.publication_tokens[i]).then(function (res) {
             if (res.data === 'token_exists') {
               _this2.$router.push('/publications/' + _this2.$route.params.id);
@@ -2663,12 +2680,14 @@ __webpack_require__.r(__webpack_exports__);
             _this2.$store.dispatch('authenticated/reset_state');
 
             _this2.token_fail_type = 'notokenmatch';
+            _this2.loading2 = false;
           });
         }
       }
+
+      this.loading2 = false;
     }
 
-    this.loading2 = false;
     axios.get("/api/publication_type_info/show/" + this.$route.params.id).then(function (res) {
       // console.log(res)
       _this2.publication_type = res.data;
@@ -4841,6 +4860,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
+    axios.get("/api/publication_token/clear_tokens");
     axios.get("/api/carouselcontent/frontend_index").then(function (res) {
       // console.log(res);
       _this.items = res.data;
@@ -48559,7 +48579,7 @@ var render = function() {
                                 "v-card-subtitle",
                                 {
                                   staticClass:
-                                    "\n                         text-center\n                         text-sibtitle-1\n                         font-weight-bold\n                         blue-grey--text\n                         text--darken-3\n                      "
+                                    "\n                         text-center\n                         text-sibtitle-1\n                         font-weight-bold\n                         blue-grey--text\n                         text--darken-3                           \n                         pb-0\n                      "
                                 },
                                 [
                                   _vm._v(
@@ -48780,40 +48800,59 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _c("v-row", { staticClass: "mt-3 mt-md-2" }, [
-                                  _c(
-                                    "div",
-                                    { staticClass: "d-flex flex-row mx-auto" },
-                                    [
-                                      _c(
-                                        "v-btn",
-                                        {
-                                          staticClass: "white--text",
-                                          attrs: {
-                                            color: "green",
-                                            "x-large": "",
-                                            loading: _vm.form_loading
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              $event.preventDefault()
-                                              return _vm.submitForm.apply(
-                                                null,
-                                                arguments
-                                              )
+                                _c(
+                                  "v-card-subtitle",
+                                  {
+                                    staticClass:
+                                      "\n                         text-center\n                         text-sm-left\n                         text-caption\n                         font-weight-bold\n                         red--text\n                         text--darken-3                           \n                         mt-n10\n                      "
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                      *If your token expires, simply refresh page and enter password again\n                   "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-row",
+                                  { staticClass: "mt-4 mt-sm-3 mt-md-1" },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "d-flex flex-row mx-auto"
+                                      },
+                                      [
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            staticClass: "white--text",
+                                            attrs: {
+                                              color: "green",
+                                              "x-large": "",
+                                              loading: _vm.form_loading
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                $event.preventDefault()
+                                                return _vm.submitForm.apply(
+                                                  null,
+                                                  arguments
+                                                )
+                                              }
                                             }
-                                          }
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                            Submit\n                         "
-                                          )
-                                        ]
-                                      )
-                                    ],
-                                    1
-                                  )
-                                ])
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                            Submit\n                         "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                )
                               ],
                               1
                             )
