@@ -25,6 +25,7 @@ import Tabsnav from "./pages/components/scrapped/tabsnav";
 import QuickLinksAccordion from "./pages/components/scrapped/quicklinksaccordion";
 import CarouselText from "./pages/components/scrapped/carouseltext";
 import OverlayCarousel from "./pages/components/scrapped/overlay_carousel";
+import Bars from "./pages/components/scrapped/bars";
 
 
 export default{
@@ -192,6 +193,12 @@ export default{
          component: OverlayCarousel,
          name: 'OverlayCarousel',
          meta: { title: 'Scrapped Overlay Carousel for Photo Gallery' }
+      },
+      {
+         path: '/bars',
+         component: Bars,
+         name: 'Bars',
+         meta: { title: 'Scrapped Bars' }
       },
    ]
 }

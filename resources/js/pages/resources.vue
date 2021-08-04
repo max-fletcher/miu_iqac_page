@@ -82,14 +82,15 @@
         </v-container>
       </v-card>
       <!-- <v-row v-else class="mx-2 py-4"> -->
-      <v-row v-else class="grey lighten-3 mt-3">
-          <v-card flat tile class="mx-auto mb-4 grey lighten-3">
-              <v-card-title class="text-center text-h3 blue--text text--darken-4 grey lighten-3">
+      <div v-else class="grey lighten-3 mt-3">
+          <v-card flat tile class="mx-auto grey lighten-3">
+              <v-card-subtitle class="text-center text-h3 blue--text text--darken-4 lighten-3">
                 RESOURCES
-              </v-card-title>
-          </v-card>                     
-
+              </v-card-subtitle>
+          </v-card>        
+        
           <v-sheet class="px-2 py-2" color="grey lighten-3" min-height="500">
+            
             <v-card v-for="(resource, index) in resources" :key="index" :href="'/storage/resource_files/' + resource.resource_file" rounded="0" class="mb-4">
               <v-alert color="teal accent-4" class="px-0 py-0 mx-0 my-0" rounded="0" text>
                 <v-card-title class="py-2 text-h6 font-weight-medium">
@@ -103,8 +104,8 @@
 
             <v-card v-for="(resource, index) in resources" :key="index" :href="'/storage/resource_files/' + resource.resource_file" rounded="0" class="mb-4">
               <v-alert color="teal accent-4" class="px-0 py-0 mx-0 my-0" rounded="0" text>
-                <v-card-title class="py-1 text-subtitle-1 font-weight-medium">
-                  <v-icon left color="teal accent-4">
+                <v-card-title class="py-2 text-h6 font-weight-medium">
+                  <v-icon left color="teal accent-4" large>
                     mdi-file-pdf-box
                   </v-icon>
                     {{ resource.resource_name }}
@@ -112,7 +113,8 @@
               </v-alert>
             </v-card>
           </v-sheet>
-      </v-row>
+
+      </div>
     </div>
   </div>
 </template>

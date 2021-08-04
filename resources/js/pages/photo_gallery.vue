@@ -82,14 +82,14 @@
          </v-container>
       </v-card>
       <div v-else>      
-         <v-row class="mx-2 py-2">         
+         <v-row class="mx-2 py-1">
             <v-card flat tile class="mx-auto">
                <v-card-title class="text-center text-h3 blue--text text--darken-4">
                   Photo Gallery
                </v-card-title>
             </v-card>
          </v-row>
-         <v-row>
+         <v-row class="mx-3">
             <v-col v-for="(photo_gallery, index) in photo_galleries" :key="index" cols="12" md="6">
                <v-card
                   class="mx-auto"
@@ -100,10 +100,10 @@
                      height="400"
                      width="auto"
                   ></v-img>
-                  <v-card-title>
+                  <v-card-title class="text-h6">
                      {{ photo_gallery.gallery_name }}
                   </v-card-title>
-                  <v-card-subtitle>
+                  <v-card-subtitle class="text-subtitle-1 font-weight-medium orange--text text--darken-4">
                      Created: {{  moment(photo_gallery.created_at).format('MMMM Do YYYY, h:mm a') }}
                   </v-card-subtitle>
                </v-card>

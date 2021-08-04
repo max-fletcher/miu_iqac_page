@@ -21,7 +21,7 @@ class ResourceController extends Controller
     {
         $request->validate([
             'resource_name' => ['required', 'string', 'max:255'],
-            'resource_file' => ['required', 'file', 'max:5000']
+            'resource_file' => ['required', 'file', 'mimetypes:application/pdf', 'max:50000']
         ]);
         
             //get filename with extension
@@ -59,7 +59,7 @@ class ResourceController extends Controller
     {
         $request->validate([
             'resource_name' => ['required', 'string', 'max:255'],
-            'resource_file' => ['required', 'file', 'max:5000']
+            'resource_file' => ['required', 'file', 'mimetypes:application/pdf', 'max:50000']
         ]);
 
             //get filename with extension

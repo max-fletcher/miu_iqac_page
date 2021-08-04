@@ -97,7 +97,7 @@
                sm="6"
                md="4"
             >
-               <v-card min-height="450" elevation="10">
+               <v-card min-height="450" elevation="10" color="grey lighten-4">
                   <v-img
                      height="400"
                      width="auto"

@@ -1,5 +1,5 @@
 <template>
-   <v-sheet class="px-2 py-2" color="grey lighten-3" height="100%">
+   <v-sheet class="px-2 py-2" color="grey lighten-3" min-height="500">
       <v-sheet
          v-if="loading1 && loading2"
          class="px-2 py-2"
@@ -90,45 +90,31 @@
          </v-card>
       </v-sheet>
       <div v-else>
-         <v-card flat v-if=" loading1 && loading2 && upcoming_events.length === 0 && passed_events.length === 0" height="480" min-height="300">
-            <v-container fill-height fluid>
-               <v-row align="center" justify="center">
-                  <div class="text-center">
-                     <h1>No Events Exist For This Section Yet !!</h1>
-                     <h2>Add Events From The Admin Panel.</h2>
-                  </div>
-               </v-row>
-            </v-container>
-         </v-card>
-         <v-row v-else class="mx-2 py-4">
-            <v-row>
-               <v-card flat tile class="mx-auto mb-3">
-                  <v-card-title
+         <v-row class="mx-2">
+            <v-col cols="12">
+               <v-card flat tile class="mx-auto">
+                  <v-card-subtitle
                      class="
                         text-center text-h3
                         blue--text
                         text--darken-4
                         grey
                         lighten-3
+                        py-0
+                        mb-2
                      "
                   >
                      ALL EVENTS
-                  </v-card-title>
+                  </v-card-subtitle>
                </v-card>
-            </v-row>
-            <v-col cols="12">
-               <br />
-               Ask Which is Better ?? What Colours to Use ?? How much elevation
-               ?? <br />
-               Upcoming Events
-               <br />
-               <br />
-
-               <v-card rounded="0" class="mb-3">
+            </v-col>
+            <v-col cols="12" class="pt-0">
+               <v-card rounded="0" class="mb-2">
                   <v-alert
                      color="green accent-4"
                      class="px-0 py-0 mx-0 my-0"
                      rounded="0"
+                     outlined
                      text
                   >
                      <v-card-title>
@@ -145,6 +131,7 @@
                      color="green accent-4"
                      class="px-3 py-4 mx-0 my-0"
                      rounded="0"
+                     outlined
                      text
                   >
                   <v-row>                  
@@ -165,6 +152,7 @@
                      color="green accent-4"
                      class="px-3 py-4 mx-0 my-0"
                      rounded="0"
+                     outlined
                      text
                   >
                   <v-row>                  
@@ -183,16 +171,15 @@
                     </v-col>
                   </v-row>
                   </v-alert>
-               </v-card>
+               </v-card>               
 
-               Passed Events
-
-              <v-card rounded="0" class="mb-4">
+              <v-card rounded="0" class="mb-2">
                 <v-alert
-                    color="deep-orange darken-2"
-                    class="px-0 py-0 mx-0 my-0"
-                    rounded="0"
-                    text
+                     color="deep-orange darken-2"
+                     class="px-0 py-0 mx-0 my-0"
+                     rounded="0"
+                     outlined
+                     text
                 >
                     <v-card-title>
                       <v-icon left color="deep-orange darken-2">
@@ -208,6 +195,7 @@
                       color="deep-orange darken-2"
                       class="px-3 py-4 mx-0 my-0"
                       rounded="0"
+                      outlined
                       text
                   >
                   <v-row>
@@ -228,6 +216,7 @@
                       color="deep-orange darken-2"
                       class="px-3 py-4 mx-0 my-0"
                       rounded="0"
+                      outlined
                       text
                     >
                     <v-row>                  
@@ -247,104 +236,6 @@
                     </v-row>
                     </v-alert>
                 </v-card>
-
-               Something....
-
-               <v-card rounded="0" class="mb-4">
-                  <v-alert
-                     color="teal accent-4"
-                     class="px-0 py-0 mx-0 my-0"
-                     rounded="0"
-                     text
-                  >
-                     <v-card-title>
-                        <v-icon left color="teal accent-4">
-                           mdi-calendar-star
-                        </v-icon>
-                        Something Events
-                     </v-card-title>
-                  </v-alert>
-               </v-card>
-               <v-card rounded="0" class="mb-2" color="teal lighten-5">
-                  <v-alert
-                     color="teal accent-4"
-                     class="px-0 py-0 mx-0 my-0"
-                     rounded="0"
-                     outlined
-                  >
-                     <v-card-title>
-                        <v-icon left color="teal accent-4">
-                           mdi-calendar-star
-                        </v-icon>
-                        Something Events
-                     </v-card-title>
-                  </v-alert>
-               </v-card>
-
-               <br><br><br>
-
-              Scrapped/Reference Cards
-
-              <v-card rounded="0" class="mb-4">
-                <v-alert color="teal accent-4" class="px-0 py-0 mx-0 my-0" rounded="0" text>
-                  <v-card-title class="py-1 text-subtitle-1 font-weight-medium">
-                    <v-icon left color="teal accent-4" small>
-                      mdi-file-outline
-                    </v-icon>
-                      Something Events
-                  </v-card-title>
-                </v-alert>
-              </v-card>
-
-               <v-card rounded="0" class="mb-2" color="teal lighten-5">
-                  <v-alert
-                     color="teal accent-4"
-                     class="px-0 py-0 mx-0 my-0"
-                     rounded="0"
-                     outlined
-                  >
-                     <v-card-title
-                        class="py-1 text-subtitle-1 font-weight-medium"
-                     >
-                        <v-icon left color="teal accent-4" small>
-                           mdi-file-outline
-                        </v-icon>
-                        Something Events
-                     </v-card-title>
-                  </v-alert>
-               </v-card>
-
-                <v-card rounded="0" class="mb-2" color="green lighten-5">
-                  <v-alert
-                     color="green accent-4"
-                     class="px-0 py-0 mx-0 my-0"
-                     rounded="0"
-                     outlined
-                  >
-                     <v-card-title>
-                        <v-icon left color="green accent-4">
-                           mdi-calendar-star
-                        </v-icon>
-                        Upcoming Events
-                     </v-card-title>
-                  </v-alert>
-               </v-card>
-
-                <v-card rounded="0" class="mb-2" color="deep-orange lighten-5">
-                  <v-alert
-                     color="deep-orange darken-2"
-                     class="px-0 py-0 mx-0 my-0"
-                     rounded="0"
-                     outlined
-                  >
-                     <v-card-title>
-                        <v-icon left color="deep-orange darken-2">
-                           mdi-calendar-remove
-                        </v-icon>
-                        Passed Events
-                     </v-card-title>
-                  </v-alert>
-               </v-card>
             </v-col>
          </v-row>
       </div>

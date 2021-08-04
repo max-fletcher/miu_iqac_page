@@ -184,6 +184,21 @@
                   <v-form ref="contact_us_form" :disabled="form_disabled" lazy-validation>
                      <!-- Password Field -->
                      <!-- {{ errors.publication_password[0] }} -->
+
+                     <v-card-subtitle
+                        class="
+                           text-center
+                           text-sm-left
+                           text-caption
+                           font-weight-bold
+                           red--text
+                           text--darken-3
+                           mb-n2
+                           ml-n3
+                        "
+                     >
+                        *Refreshing the page causes tokens to expire. Otherwise, if your token expires, just enter password again.
+                     </v-card-subtitle>
                      <v-text-field
                         v-model="password"
                         @input = "password_alert = false"
@@ -196,20 +211,6 @@
                         outlined                        
                      ></v-text-field>
                      <!-- End Password Field -->
-
-                     <v-card-subtitle
-                        class="
-                           text-center
-                           text-sm-left
-                           text-caption
-                           font-weight-bold
-                           red--text
-                           text--darken-3                           
-                           mt-n10
-                        "
-                     >
-                        *If your token expires, simply refresh page and enter password again
-                     </v-card-subtitle>
 
                      <!-- Validate and Submit -->
                      <v-row class="mt-4 mt-sm-3 mt-md-1">
