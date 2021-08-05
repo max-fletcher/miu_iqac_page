@@ -1,6 +1,6 @@
 <template>
-
   <div class="pt-3">     
+     {{ photos }}
       <div v-if="loading1 && loading2">
           <v-card flat class="mt-6">
               <div class="text-center blue--text text--darken-4 font-weight-bold">
@@ -87,14 +87,14 @@
                <v-col v-for="(photo, index) in photos" :key="index" cols="12" sm="6" md="4">
                   <v-card flat>
                      <v-img
-                     :src="'/storage/photo_gallery_images/' + photo.photo_image"
-                     @click="showSingle(photo.photo_image, photo.photo_title, index)"
+                     :src="photo.src"
+                     @click="showSingle(photo.src, photo.title, index)"
                      height="400"
                      width="auto"
                      >
                      </v-img>
                      <v-card-text class="pt-1">
-                        {{ photo.photo_title }}
+                        {{ photo.title }}
                      </v-card-text>
                   </v-card>
                </v-col>
@@ -105,7 +105,7 @@
                escDisabled
                moveDisabled
                :visible="visible"
-               :imgs="'/storage/photo_gallery_images/' + single_photo"
+               :imgs="photos"
                :index="index"
                @hide="handleHide"
             >            
@@ -126,7 +126,7 @@ export default {
     return {
       photos: '',  // Img Url , string or Array of string
       single_photo: '',
-      photo_title: '',
+      title: '',
       visible: false,
       index: 0,   // default: 0
       gallery_title: null,
@@ -137,7 +137,7 @@ export default {
   methods: {
     showSingle(photo, title, index) {
        this.single_photo = photo
-       this.photo_title = title
+       this.title = title
        this.index = index      
       this.show()
     },
@@ -153,11 +153,11 @@ export default {
       axios
          .get("/api/gallery/photos/photosbygalleryid/" + this.$route.params.id)
          .then((res) => {
-            // console.log(res)
+            // console.log(res.data)
             // res.data.forEach( (photo) => {
-            //    photo.photo_image = '/storage/photo_gallery_images/' + photo.photo_image
+            //    photo.src = '/storage/photo_gallery_images/' + photo.src
             // })
-            this.photos = res.data;               
+            this.photos = res.data.data;
             this.loading1 = false;
          })
          .catch((error) => {

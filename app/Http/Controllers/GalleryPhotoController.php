@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\GalleryPhoto;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Resources\GalleryPhotoResource;
 
 class GalleryPhotoController extends Controller
 {
@@ -119,7 +120,7 @@ class GalleryPhotoController extends Controller
         $gallery = GalleryName::find($id);
         if ($gallery) {
             $photos = GalleryPhoto::where('gallery_name_id', $id)->select('id', 'gallery_name_id', 'photo_title', 'photo_image', 'created_at')->get();
-            return response()->json($photos, 200);
+            return GalleryPhotoResource::collection($photos);
         }
         return response()->json('The Provided ID doesn\'t match any Photos !!', 404);
     }

@@ -6479,7 +6479,7 @@ __webpack_require__.r(__webpack_exports__);
       photos: '',
       // Img Url , string or Array of string
       single_photo: '',
-      photo_title: '',
+      title: '',
       visible: false,
       index: 0,
       // default: 0
@@ -6491,7 +6491,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     showSingle: function showSingle(photo, title, index) {
       this.single_photo = photo;
-      this.photo_title = title;
+      this.title = title;
       this.index = index;
       this.show();
     },
@@ -6506,11 +6506,11 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get("/api/gallery/photos/photosbygalleryid/" + this.$route.params.id).then(function (res) {
-      // console.log(res)
+      // console.log(res.data)
       // res.data.forEach( (photo) => {
-      //    photo.photo_image = '/storage/photo_gallery_images/' + photo.photo_image
+      //    photo.src = '/storage/photo_gallery_images/' + photo.src
       // })
-      _this.photos = res.data;
+      _this.photos = res.data.data;
       _this.loading1 = false;
     })["catch"](function (error) {
       console.log(error); // this.errors = error.response.data.errors
@@ -55918,6 +55918,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "pt-3" }, [
+    _vm._v("     \n   " + _vm._s(_vm.photos) + "\n    "),
     _vm.loading1 && _vm.loading2
       ? _c(
           "div",
@@ -56097,17 +56098,15 @@ var render = function() {
                               [
                                 _c("v-img", {
                                   attrs: {
-                                    src:
-                                      "/storage/photo_gallery_images/" +
-                                      photo.photo_image,
+                                    src: photo.src,
                                     height: "400",
                                     width: "auto"
                                   },
                                   on: {
                                     click: function($event) {
                                       return _vm.showSingle(
-                                        photo.photo_image,
-                                        photo.photo_title,
+                                        photo.src,
+                                        photo.title,
                                         index
                                       )
                                     }
@@ -56117,7 +56116,7 @@ var render = function() {
                                 _c("v-card-text", { staticClass: "pt-1" }, [
                                   _vm._v(
                                     "\n                      " +
-                                      _vm._s(photo.photo_title) +
+                                      _vm._s(photo.title) +
                                       "\n                   "
                                   )
                                 ])
@@ -56136,8 +56135,7 @@ var render = function() {
                         escDisabled: "",
                         moveDisabled: "",
                         visible: _vm.visible,
-                        imgs:
-                          "/storage/photo_gallery_images/" + _vm.single_photo,
+                        imgs: _vm.photos,
                         index: _vm.index
                       },
                       on: { hide: _vm.handleHide }
