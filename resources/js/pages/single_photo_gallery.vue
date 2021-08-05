@@ -1,4 +1,5 @@
 <template>
+
   <div class="pt-3">     
       <div v-if="loading1 && loading2">
           <v-card flat class="mt-6">
@@ -82,54 +83,12 @@
             </v-container>
          </v-card>
          <div v-else>
-            <div class="text-center">
-               <v-overlay :value="toggle_overlay" class="hidden-md-and-down">
-                  <!-- Working Image with Overlay with Disable on Click. For Md and Up -->
-                  <div class="blue">
-                     <div class="text-h6 font-weight-bold orange--text text--darken-4">
-                        {{ overlay_image_title }}
-                     </div>
-                     <v-img
-                        contain
-                        v-click-outside="disableOverlay"
-                        :src="'/storage/photo_gallery_images/' + overlay_image"
-                        max-height="500"
-                        max-width="900"
-                     >
-                     </v-img>
-                     <div class="text-caption font-weight-bold red--text text--darken-3"> Click Outside to Exit </div>
-                  </div>
-               </v-overlay>
-
-               <v-overlay :value="toggle_overlay" class="hidden-lg-and-up" @click="disableOverlay">
-                  <!-- Working Image with Overlay with Disable on Click. For Down and Up -->
-                  <div>
-                     <div class="text-subtitle-1 font-weight-bold orange--text text--darken-4">
-                        {{ overlay_image_title }}
-                     </div>
-                     <v-img
-                        contain
-                        :src="'/storage/photo_gallery_images/' + overlay_image"
-                        max-height="400"                        
-                     >
-                     </v-img>
-                     <div class="text-caption font-weight-bold red--text text--darken-3"> Click Anywhere to Exit </div>
-                  </div>
-               </v-overlay>
-            </div>
-            <v-row>
-               <v-card flat tile class="mx-auto mt-2">
-                  <v-card-title class="text-center text-h3 blue--text text--darken-4">
-                     {{ gallery_title.gallery_name }}
-                  </v-card-title>
-               </v-card>
-            </v-row>
             <v-row class="mx-1 py-2 mt-n3">
                <v-col v-for="(photo, index) in photos" :key="index" cols="12" sm="6" md="4">
                   <v-card flat>
                      <v-img
                      :src="'/storage/photo_gallery_images/' + photo.photo_image"
-                     @click="show_image(photo.photo_image, photo.photo_title, index)"
+                     @click="showSingle(photo.photo_image, photo.photo_title, index)"
                      height="400"
                      width="auto"
                      >
@@ -140,41 +99,65 @@
                   </v-card>
                </v-col>
             </v-row>
+
+            <!-- all props & events -->
+            <vue-easy-lightbox
+               escDisabled
+               moveDisabled
+               :visible="visible"
+               :imgs="'/storage/photo_gallery_images/' + single_photo"
+               :index="index"
+               @hide="handleHide"
+            >            
+            </vue-easy-lightbox>
          </div>
       </div>
    </div>
 </template>
 
 <script>
-import moment from 'moment'
+// Import Lightbox Component
+import VueEasyLightbox from 'vue-easy-lightbox'
 export default {
-   data: () => ({
-      photos: [],
+  components: {
+    VueEasyLightbox
+  },
+  data() {
+    return {
+      photos: '',  // Img Url , string or Array of string
+      single_photo: '',
+      photo_title: '',
+      visible: false,
+      index: 0,   // default: 0
       gallery_title: null,
-      moment: moment,
       loading1: true,
       loading2: true,
-      toggle_overlay: false,
-      overlay_image: null,
-      overlay_image_title: null,
-      image_index: 0,
-   }),
-   methods: {
-      show_image(image, title, index){
-         this.overlay_image = image
-         this.overlay_image_title = title
-         this.image_index = index
-         this.toggle_overlay = true
-      },
-      disableOverlay(){
-         this.toggle_overlay = false
-      }
-   },
-   created() {
+    }
+  },
+  methods: {
+    showSingle(photo, title, index) {
+       this.single_photo = photo
+       this.photo_title = title
+       this.index = index      
+      this.show()
+    },
+
+    show() {
+      this.visible = true
+    },
+    handleHide() {
+      this.visible = false
+    }
+  },
+   created(){
       axios
          .get("/api/gallery/photos/photosbygalleryid/" + this.$route.params.id)
          .then((res) => {
-            this.photos = res.data;
+            // console.log(res)
+            // res.data.forEach( (photo) => {
+            //    photo.photo_image = '/storage/photo_gallery_images/' + photo.photo_image
+            // })
+            this.photos = res.data;               
             this.loading1 = false;
          })
          .catch((error) => {
@@ -185,7 +168,8 @@ export default {
 
       axios
          .get("/api/gallery/name/show/" + this.$route.params.id)
-         .then((res) => {            
+         .then((res) => {           
+            // console.log(res)
             this.gallery_title = res.data;
             this.loading2 = false;
          })
@@ -194,10 +178,6 @@ export default {
             // this.errors = error.response.data.errors
             this.loading2 = false;
          });
-   },
-};
+   }
+}
 </script>
-
-<style>
-
-</style>
