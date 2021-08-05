@@ -4115,6 +4115,67 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -4134,7 +4195,9 @@ __webpack_require__.r(__webpack_exports__);
         content: "Some Content"
       }],
       people: [],
-      event_types: []
+      event_types: [],
+      resource_types: [],
+      publication_types: []
     };
   },
   components: {},
@@ -4155,6 +4218,17 @@ __webpack_require__.r(__webpack_exports__);
       _this.event_types = res.data;
     })["catch"](function (error) {
       console.log(error); // this.errors = error.response.data.errors
+    });
+    axios.get("/api/resource_type/index").then(function (res) {
+      _this.resource_types = res.data;
+    })["catch"](function (error) {
+      console.log(error); // this.errors = error.response.data.errors
+    });
+    axios.get("/api/publication_type_info/frontend_index").then(function (res) {
+      _this.publication_types = res.data; // this.loading = false;
+    })["catch"](function (error) {
+      console.log(error); // this.errors = error.response.data.errors
+      // this.loading = false;
     });
   }
 });
@@ -5900,7 +5974,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get("/api/resource/index").then(function (res) {
+    axios.get("/api/resource_type/show/" + this.$route.params.id).then(function (res) {
       _this.resources = res.data;
       _this.loading = false;
     })["catch"](function (error) {
@@ -6746,7 +6820,7 @@ __webpack_require__.r(__webpack_exports__);
       title: 'Single News'
     }
   }, {
-    path: '/resources',
+    path: '/resources/:id',
     component: _pages_resources__WEBPACK_IMPORTED_MODULE_6__.default,
     name: 'Resources',
     meta: {
@@ -50970,7 +51044,7 @@ var render = function() {
                         [
                           _c(
                             "v-list-item-title",
-                            { staticClass: "font-weight-bold" },
+                            { staticClass: "font-weight-bold text-uppercase" },
                             [_vm._v(_vm._s(people_item.name))]
                           )
                         ],
@@ -51049,72 +51123,29 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "v-list",
-                    [
-                      _c(
+                    _vm._l(_vm.event_types, function(event_type, index) {
+                      return _c(
                         "v-list-item",
-                        { attrs: { to: "/people/iqac", color: "#4270A9" } },
+                        {
+                          key: index,
+                          attrs: {
+                            to: {
+                              name: "Events",
+                              params: { id: event_type.id }
+                            },
+                            color: "#4270A9"
+                          }
+                        },
                         [
                           _c(
                             "v-list-item-title",
-                            { staticClass: "font-weight-bold" },
-                            [_vm._v("WORKSHOP")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-item",
-                        { attrs: { to: "/people/sac", color: "#4270A9" } },
-                        [
-                          _c(
-                            "v-list-item-title",
-                            { staticClass: "font-weight-bold" },
-                            [_vm._v("SEMINAR")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-item",
-                        { attrs: { to: "/people/sac", color: "#4270A9" } },
-                        [
-                          _c(
-                            "v-list-item-title",
-                            { staticClass: "font-weight-bold" },
-                            [_vm._v("CONFERANCE")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-item",
-                        { attrs: { to: "/people/sac", color: "#4270A9" } },
-                        [
-                          _c(
-                            "v-list-item-title",
-                            { staticClass: "font-weight-bold" },
-                            [_vm._v("TRAINING")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-item",
-                        { attrs: { to: "/people/sac", color: "#4270A9" } },
-                        [
-                          _c(
-                            "v-list-item-title",
-                            { staticClass: "font-weight-bold" },
-                            [_vm._v("PEER REVIEW")]
+                            { staticClass: "font-weight-bold text-uppercase" },
+                            [_vm._v(" " + _vm._s(event_type.event_type) + " ")]
                           )
                         ],
                         1
                       )
-                    ],
+                    }),
                     1
                   )
                 ],
@@ -51144,23 +51175,104 @@ var render = function() {
               ),
               _vm._v(" "),
               _c(
-                "v-btn",
+                "v-menu",
                 {
                   attrs: {
-                    color: "#4270A9",
-                    height: "40",
-                    text: "",
-                    block: "",
-                    to: "/resources",
-                    "exact-active-class": "darken-1"
-                  }
+                    bottom: "",
+                    "offset-x": "",
+                    transition: "scale-transition",
+                    rounded: "0"
+                  },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "activator",
+                      fn: function(ref) {
+                        var on = ref.on
+                        var attrs = ref.attrs
+                        return [
+                          _c(
+                            "v-card",
+                            { attrs: { rounded: "0", flat: "" } },
+                            [
+                              _c(
+                                "v-btn",
+                                _vm._g(
+                                  _vm._b(
+                                    {
+                                      attrs: {
+                                        color: "#4270A9",
+                                        height: "40",
+                                        text: "",
+                                        block: "",
+                                        "exact-path-active-class": "lighten-1"
+                                      }
+                                    },
+                                    "v-btn",
+                                    attrs,
+                                    false
+                                  ),
+                                  on
+                                ),
+                                [
+                                  _c("v-icon", { attrs: { left: "" } }, [
+                                    _vm._v("mdi-archive")
+                                  ]),
+                                  _vm._v(
+                                    "Resources\n                         "
+                                  ),
+                                  _c("v-spacer"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-icon",
+                                    { attrs: { small: "", right: "" } },
+                                    [_vm._v("mdi-chevron-right")]
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ]
+                      }
+                    }
+                  ])
                 },
                 [
-                  _c("v-icon", { attrs: { left: "" } }, [
-                    _vm._v("mdi-archive")
-                  ]),
-                  _vm._v("Resources\n                "),
-                  _c("v-spacer")
+                  _vm._v(" "),
+                  _c(
+                    "v-list",
+                    _vm._l(_vm.resource_types, function(resource_type, index) {
+                      return _c(
+                        "v-list-item",
+                        {
+                          key: index,
+                          attrs: {
+                            to: {
+                              name: "Resources",
+                              params: { id: resource_type.id }
+                            },
+                            color: "#4270A9"
+                          }
+                        },
+                        [
+                          _c(
+                            "v-list-item-title",
+                            { staticClass: "font-weight-bold text-uppercase" },
+                            [
+                              _vm._v(
+                                " " +
+                                  _vm._s(resource_type.resource_type_name) +
+                                  " "
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    }),
+                    1
+                  )
                 ],
                 1
               ),
@@ -51215,7 +51327,7 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("v-card-text", { staticClass: "white--text pl-7 pb-2 pt-0" }, [
-                _vm._v("Hover to Expand Links")
+                _vm._v("Click to Expand Links")
               ])
             ],
             1
@@ -51226,67 +51338,154 @@ var render = function() {
           _c(
             "div",
             { staticClass: "text-center d-flex flex-column" },
-            _vm._l(_vm.expansionPanelitems, function(item, index) {
-              return _c(
+            [
+              _c(
                 "v-menu",
                 {
-                  key: index,
                   attrs: {
                     "offset-x": "",
                     left: "",
                     transition: "scale-transition"
                   },
-                  scopedSlots: _vm._u(
-                    [
-                      {
-                        key: "activator",
-                        fn: function(ref) {
-                          var on = ref.on
-                          var attrs = ref.attrs
-                          return [
-                            _c(
-                              "v-btn",
-                              _vm._g(
-                                _vm._b(
-                                  {
-                                    staticClass: "font-weight-bold pr-5",
-                                    attrs: {
-                                      color: "#4270A9",
-                                      dark: "",
-                                      block: "",
-                                      tile: "",
-                                      icon: ""
-                                    }
-                                  },
-                                  "v-btn",
-                                  attrs,
-                                  false
-                                ),
-                                on
+                  scopedSlots: _vm._u([
+                    {
+                      key: "activator",
+                      fn: function(ref) {
+                        var on = ref.on
+                        var attrs = ref.attrs
+                        return [
+                          _c(
+                            "v-btn",
+                            _vm._g(
+                              _vm._b(
+                                {
+                                  staticClass: "font-weight-bold pr-5",
+                                  attrs: {
+                                    color: "#4270A9",
+                                    dark: "",
+                                    block: "",
+                                    tile: "",
+                                    icon: ""
+                                  }
+                                },
+                                "v-btn",
+                                attrs,
+                                false
                               ),
-                              [
-                                _c(
-                                  "v-icon",
-                                  { staticClass: "pl-5", attrs: { left: "" } },
-                                  [_vm._v("mdi-chevron-left")]
-                                ),
-                                _vm._v(" "),
-                                _c("v-spacer"),
-                                _vm._v(
-                                  "\n                      " +
-                                    _vm._s(item.title) +
-                                    "\n                   "
-                                )
-                              ],
-                              1
-                            )
-                          ]
-                        }
+                              on
+                            ),
+                            [
+                              _c(
+                                "v-icon",
+                                { staticClass: "pl-5", attrs: { left: "" } },
+                                [_vm._v("mdi-chevron-left")]
+                              ),
+                              _vm._v(" "),
+                              _c("v-spacer"),
+                              _vm._v(
+                                "\n                      Publications\n                   "
+                              )
+                            ],
+                            1
+                          )
+                        ]
                       }
-                    ],
-                    null,
-                    true
+                    }
+                  ])
+                },
+                [
+                  _vm._v(" "),
+                  _c(
+                    "v-list",
+                    _vm._l(_vm.publication_types, function(
+                      publication_type,
+                      index
+                    ) {
+                      return _c(
+                        "v-list-item",
+                        {
+                          key: index,
+                          attrs: {
+                            to: "/publications_auth/" + publication_type.id
+                          }
+                        },
+                        [
+                          _c(
+                            "v-list-item-title",
+                            { staticClass: "font-weight-bold text-uppercase" },
+                            [
+                              _vm._v(
+                                " " +
+                                  _vm._s(
+                                    publication_type.publication_type_name
+                                  ) +
+                                  " "
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    }),
+                    1
                   )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-menu",
+                {
+                  attrs: {
+                    "offset-x": "",
+                    left: "",
+                    transition: "scale-transition"
+                  },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "activator",
+                      fn: function(ref) {
+                        var on = ref.on
+                        var attrs = ref.attrs
+                        return [
+                          _c(
+                            "v-btn",
+                            _vm._g(
+                              _vm._b(
+                                {
+                                  staticClass: "font-weight-bold pr-5",
+                                  attrs: {
+                                    color: "#4270A9",
+                                    dark: "",
+                                    block: "",
+                                    tile: "",
+                                    icon: ""
+                                  }
+                                },
+                                "v-btn",
+                                attrs,
+                                false
+                              ),
+                              on
+                            ),
+                            [
+                              _c(
+                                "v-icon",
+                                { staticClass: "pl-5", attrs: { left: "" } },
+                                [_vm._v("mdi-chevron-left")]
+                              ),
+                              _vm._v(" "),
+                              _c("v-spacer"),
+                              _vm._v(
+                                "\n                      Some Other Item\n                   "
+                              )
+                            ],
+                            1
+                          )
+                        ]
+                      }
+                    }
+                  ])
                 },
                 [
                   _vm._v(" "),
@@ -51299,7 +51498,7 @@ var render = function() {
                         [
                           _c(
                             "v-list-item-title",
-                            { staticClass: "font-weight-bold" },
+                            { staticClass: "font-weight-bold text-uppercase" },
                             [_vm._v(_vm._s(item.title))]
                           )
                         ],
@@ -51310,8 +51509,28 @@ var render = function() {
                   )
                 ],
                 1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-btn",
+                {
+                  staticClass: "font-weight-bold pr-5",
+                  attrs: {
+                    color: "#4270A9",
+                    dark: "",
+                    block: "",
+                    tile: "",
+                    icon: "",
+                    to: "/photo-gallery"
+                  }
+                },
+                [
+                  _c("v-spacer"),
+                  _vm._v("\n                Photo Gallery\n             ")
+                ],
+                1
               )
-            }),
+            ],
             1
           )
         ],
@@ -51722,31 +51941,98 @@ var render = function() {
               ),
               _vm._v(" "),
               _c(
-                "v-btn",
-                _vm._g(
-                  _vm._b(
+                "v-menu",
+                {
+                  attrs: {
+                    "open-on-hover": "",
+                    bottom: "",
+                    "offset-y": "",
+                    transition: "scale-transition"
+                  },
+                  scopedSlots: _vm._u([
                     {
-                      staticClass: "white--text",
-                      attrs: {
-                        color: "#4270A9",
-                        tile: "",
-                        height: "40",
-                        text: "",
-                        to: "/resources",
-                        "exact-active-class": "light"
+                      key: "activator",
+                      fn: function(ref) {
+                        var on = ref.on
+                        var attrs = ref.attrs
+                        return [
+                          _c(
+                            "v-btn",
+                            _vm._g(
+                              _vm._b(
+                                {
+                                  staticClass: "white--text",
+                                  attrs: {
+                                    color: "#4270A9",
+                                    tile: "",
+                                    height: "40",
+                                    text: "",
+                                    "exact-active-class": ""
+                                  }
+                                },
+                                "v-btn",
+                                attrs,
+                                false
+                              ),
+                              on
+                            ),
+                            [
+                              _c("v-icon", { attrs: { left: "" } }, [
+                                _vm._v("mdi-archive-outline")
+                              ]),
+                              _vm._v("Resources\n                      "),
+                              _c("v-icon", { attrs: { small: "" } }, [
+                                _vm._v("mdi-chevron-down")
+                              ])
+                            ],
+                            1
+                          )
+                        ]
                       }
-                    },
-                    "v-btn",
-                    _vm.attrs,
-                    false
-                  ),
-                  _vm.on
-                ),
+                    }
+                  ])
+                },
                 [
-                  _c("v-icon", { attrs: { left: "" } }, [
-                    _vm._v("mdi-archive-outline")
-                  ]),
-                  _vm._v("Resources\n             ")
+                  _vm._v(" "),
+                  _c(
+                    "v-list",
+                    _vm._l(_vm.resource_types, function(resource_type, index) {
+                      return _c(
+                        "div",
+                        { key: index },
+                        [
+                          _c(
+                            "v-list-item",
+                            {
+                              attrs: {
+                                to: {
+                                  name: "Resources",
+                                  params: { id: resource_type.id }
+                                },
+                                color: "#4270A9"
+                              }
+                            },
+                            [
+                              _c(
+                                "v-list-item-title",
+                                {
+                                  staticClass: "font-weight-bold text-uppercase"
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(resource_type.resource_type_name)
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    }),
+                    0
+                  )
                 ],
                 1
               ),
@@ -54926,7 +55212,7 @@ var render = function() {
       : _c(
           "div",
           [
-            _vm.resources.length === 0
+            _vm.resources.resources.length === 0
               ? _c(
                   "v-card",
                   { attrs: { flat: "", height: "480", "min-height": "300" } },
@@ -54971,9 +55257,15 @@ var render = function() {
                           "v-card-subtitle",
                           {
                             staticClass:
-                              "text-center text-h3 blue--text text--darken-4 lighten-3"
+                              "text-center text-h3 blue--text text--darken-4 lighten-3 text-uppercase"
                           },
-                          [_vm._v("\n              RESOURCES\n            ")]
+                          [
+                            _vm._v(
+                              "\n              " +
+                                _vm._s(_vm.resources.resource_type_name) +
+                                "\n            "
+                            )
+                          ]
                         )
                       ],
                       1
@@ -54986,7 +55278,10 @@ var render = function() {
                         attrs: { color: "grey lighten-3", "min-height": "500" }
                       },
                       [
-                        _vm._l(_vm.resources, function(resource, index) {
+                        _vm._l(_vm.resources.resources, function(
+                          resource,
+                          index
+                        ) {
                           return _c(
                             "v-card",
                             {
@@ -55049,7 +55344,10 @@ var render = function() {
                           )
                         }),
                         _vm._v(" "),
-                        _vm._l(_vm.resources, function(resource, index) {
+                        _vm._l(_vm.resources.resources, function(
+                          resource,
+                          index
+                        ) {
                           return _c(
                             "v-card",
                             {

@@ -76,7 +76,7 @@ export default{
          meta: { title: 'Single News' }
       },
       {
-         path: '/resources',
+         path: '/resources/:id',
          component: Resources,
          name: 'Resources',
          meta: { title: 'Resources' }

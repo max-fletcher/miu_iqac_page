@@ -37,7 +37,7 @@ class ResourceTypeController extends Controller
     public function show($id)
     {
         $resource_type = ResourceType::where('id', $id)->select('id', 'resource_type_name', 'created_at')->with(['resources' => function($query) {
-            return $query->select(['id', 'resource_type_id', 'created_at']);
+            return $query->select(['id', 'resource_type_id', 'resource_name', 'resource_file', 'created_at']);
         }])->first();
         if($resource_type){
             return response()->json($resource_type, 200);

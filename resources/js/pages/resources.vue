@@ -71,7 +71,7 @@
       </v-card>
     </div>
     <div v-else>
-      <v-card flat v-if="resources.length === 0" height="480" min-height="300">
+      <v-card flat v-if="resources.resources.length === 0" height="480" min-height="300">
         <v-container fill-height fluid>
           <v-row align="center" justify="center">
               <div class="text-center">
@@ -84,14 +84,14 @@
       <!-- <v-row v-else class="mx-2 py-4"> -->
       <div v-else class="grey lighten-3 mt-3">
           <v-card flat tile class="mx-auto grey lighten-3">
-              <v-card-subtitle class="text-center text-h3 blue--text text--darken-4 lighten-3">
-                RESOURCES
+              <v-card-subtitle class="text-center text-h3 blue--text text--darken-4 lighten-3 text-uppercase">
+                {{ resources.resource_type_name }}
               </v-card-subtitle>
           </v-card>        
         
           <v-sheet class="px-2 py-2" color="grey lighten-3" min-height="500">
             
-            <v-card v-for="(resource, index) in resources" :key="index" :href="'/storage/resource_files/' + resource.resource_file" rounded="0" class="mb-4">
+            <v-card v-for="(resource, index) in resources.resources" :key="index" :href="'/storage/resource_files/' + resource.resource_file" rounded="0" class="mb-4">
               <v-alert color="teal accent-4" class="px-0 py-0 mx-0 my-0" rounded="0" text>
                 <v-card-title class="py-2 text-h6 font-weight-medium">
                   <v-icon left color="teal accent-4" large>
@@ -102,7 +102,7 @@
               </v-alert>
             </v-card>
 
-            <v-card v-for="(resource, index) in resources" :key="index" :href="'/storage/resource_files/' + resource.resource_file" rounded="0" class="mb-4">
+            <v-card v-for="(resource, index) in resources.resources" :key="index" :href="'/storage/resource_files/' + resource.resource_file" rounded="0" class="mb-4">
               <v-alert color="teal accent-4" class="px-0 py-0 mx-0 my-0" rounded="0" text>
                 <v-card-title class="py-2 text-h6 font-weight-medium">
                   <v-icon left color="teal accent-4" large>
@@ -131,8 +131,8 @@ export default {
     
   },
   created() {
-    axios.get("/api/resource/index")
-      .then((res) => {
+    axios.get("/api/resource_type/show/" + this.$route.params.id)
+      .then((res) => {        
         this.resources = res.data;
         this.loading = false;
       })

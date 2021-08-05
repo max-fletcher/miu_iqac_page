@@ -49,7 +49,7 @@
                   </template>
                   <v-list>
                      <v-list-item v-for="(people_item, index) in people" :key="index" :to="{ name: 'People', params: { id: people_item.id }}" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold">{{ people_item.name }}</v-list-item-title>
+                        <v-list-item-title class="font-weight-bold text-uppercase">{{ people_item.name }}</v-list-item-title>
                      </v-list-item>
                   </v-list>
                </v-menu>
@@ -74,20 +74,8 @@
                      </v-card>
                   </template>
                   <v-list>
-                     <v-list-item to="/people/iqac" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold">WORKSHOP</v-list-item-title>
-                     </v-list-item>
-                     <v-list-item to="/people/sac" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold">SEMINAR</v-list-item-title>
-                     </v-list-item>
-                     <v-list-item to="/people/sac" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold">CONFERANCE</v-list-item-title>
-                     </v-list-item>
-                     <v-list-item to="/people/sac" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold">TRAINING</v-list-item-title>
-                     </v-list-item>
-                     <v-list-item to="/people/sac" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold">PEER REVIEW</v-list-item-title>
+                     <v-list-item v-for="(event_type, index) in event_types" :key="index" :to="{ name: 'Events', params: { id: event_type.id }}" color="#4270A9">
+                        <v-list-item-title class="font-weight-bold text-uppercase"> {{ event_type.event_type }} </v-list-item-title>
                      </v-list-item>
                   </v-list>
                </v-menu>
@@ -102,18 +90,33 @@
                   <v-icon left>mdi-newspaper-variant</v-icon>News
                   <v-spacer></v-spacer>
                </v-btn>
+               <v-menu bottom offset-x transition="scale-transition" rounded="0">
+                  <template v-slot:activator="{ on, attrs }">
+                     <!-- exact-path for later -->
+                     <v-card rounded="0" flat>
+                        <v-btn
+                           color="#4270A9"
+                           v-bind="attrs"
+                           v-on="on"
+                           height="40"
+                           text
+                           block
+                           exact-path-active-class="lighten-1"
+                        >
+                           <!-- path class not working -->
+                           <v-icon left>mdi-archive</v-icon>Resources
+                           <v-spacer></v-spacer>
+                           <v-icon small right>mdi-chevron-right</v-icon>
+                        </v-btn>
+                     </v-card>
+                  </template>
+                  <v-list>
+                     <v-list-item v-for="(resource_type, index) in resource_types" :key="index" :to="{ name: 'Resources', params: { id: resource_type.id }}" color="#4270A9">
+                        <v-list-item-title class="font-weight-bold text-uppercase"> {{ resource_type.resource_type_name }} </v-list-item-title>
+                     </v-list-item>
+                  </v-list>
+               </v-menu>
                <v-btn
-                  color="#4270A9"
-                  height="40"
-                  text
-                  block
-                  to="/resources"
-                  exact-active-class="darken-1"
-               >
-                  <v-icon left>mdi-archive</v-icon>Resources
-                  <v-spacer></v-spacer>
-               </v-btn>
-                              <v-btn
                   color="#4270A9"
                   height="40"
                   text
@@ -138,17 +141,16 @@
          >
             <v-card tile color="#4270A9">
                <v-card-text class="text-h6 white--text pl-16 pt-2 pb-0">Quick Links</v-card-text>
-               <v-card-text class="white--text pl-7 pb-2 pt-0">Hover to Expand Links</v-card-text>
+               <v-card-text class="white--text pl-7 pb-2 pt-0">Click to Expand Links</v-card-text>
             </v-card>
 
             <v-divider></v-divider>
             <div class="text-center d-flex flex-column">
+
                <v-menu
                   offset-x
                   left
-                  transition="scale-transition"
-                  v-for="(item, index) in expansionPanelitems"
-                  :key="index"
+                  transition="scale-transition"                  
                >
                   <template v-slot:activator="{ on, attrs }">
                      <v-btn
@@ -163,15 +165,57 @@
                      >
                         <v-icon left class="pl-5">mdi-chevron-left</v-icon>
                         <v-spacer></v-spacer>
-                        {{ item.title }}
+                        Publications
+                     </v-btn>
+                  </template>
+                  <v-list>
+                     <v-list-item v-for="(publication_type, index) in publication_types" :key="index" :to="'/publications_auth/' + publication_type.id">
+                        <v-list-item-title class="font-weight-bold text-uppercase"> {{ publication_type.publication_type_name }} </v-list-item-title>
+                     </v-list-item>
+                  </v-list>
+               </v-menu>
+
+               <v-menu
+                  offset-x
+                  left
+                  transition="scale-transition"                  
+               >
+                  <template v-slot:activator="{ on, attrs }">
+                     <v-btn
+                        color="#4270A9"
+                        dark
+                        v-bind="attrs"
+                        v-on="on"
+                        block
+                        tile
+                        icon
+                        class="font-weight-bold pr-5"
+                     >
+                        <v-icon left class="pl-5">mdi-chevron-left</v-icon>
+                        <v-spacer></v-spacer>
+                        Some Other Item
                      </v-btn>
                   </template>
                   <v-list>
                      <v-list-item v-for="(item, index) in expansionPanelitems" :key="index" to="/">
-                        <v-list-item-title class="font-weight-bold">{{ item.title }}</v-list-item-title>
+                        <v-list-item-title class="font-weight-bold text-uppercase">{{ item.title }}</v-list-item-title>
                      </v-list-item>
                   </v-list>
                </v-menu>
+
+               <v-btn
+                  color="#4270A9"
+                  dark                  
+                  block
+                  tile
+                  icon
+                  class="font-weight-bold pr-5"
+                  to="/photo-gallery"
+               >                  
+                  <v-spacer></v-spacer>
+                  Photo Gallery
+               </v-btn>
+
             </div>
          </v-navigation-drawer>
          <!-- End Quick Links Drawer -->
@@ -243,6 +287,7 @@
                >
                   <v-icon left>mdi-home</v-icon>Home
                </v-btn>
+
                <v-btn
                   color="#4270A9"
                   v-bind="attrs"
@@ -256,6 +301,7 @@
                >
                   <v-icon left>mdi-information-outline</v-icon>About
                </v-btn>
+
                <v-menu open-on-hover bottom offset-y transition="scale-transition">
                   <template v-slot:activator="{ on, attrs }">
                      <!-- exact-path for later -->
@@ -281,6 +327,7 @@
                         </div>
                      </v-list>                     
                </v-menu>
+
                <v-menu open-on-hover bottom offset-y transition="scale-transition">
                   <template v-slot:activator="{ on, attrs }">
                      <!-- exact-path for later -->
@@ -306,6 +353,7 @@
                      </div>
                   </v-list>
                </v-menu>
+
                <v-btn
                   color="#4270A9"
                   v-bind="attrs"
@@ -319,19 +367,32 @@
                >
                   <v-icon left>mdi-newspaper-variant-outline</v-icon>News
                </v-btn>
-               <v-btn
-                  color="#4270A9"
-                  v-bind="attrs"
-                  v-on="on"
-                  tile
-                  class="white--text"
-                  height="40"
-                  text
-                  to="/resources"
-                  exact-active-class="light"
-               >
-                  <v-icon left>mdi-archive-outline</v-icon>Resources
-               </v-btn>
+
+               <v-menu open-on-hover bottom offset-y transition="scale-transition">
+                  <template v-slot:activator="{ on, attrs }">
+                     <!-- exact-path for later -->
+                     <v-btn
+                        color="#4270A9"
+                        v-bind="attrs"
+                        v-on="on"
+                        tile
+                        class="white--text"
+                        height="40"
+                        text
+                        exact-active-class
+                     >
+                        <v-icon left>mdi-archive-outline</v-icon>Resources
+                        <v-icon small>mdi-chevron-down</v-icon>
+                     </v-btn>
+                  </template>
+                  <v-list>
+                     <div v-for="(resource_type, index) in resource_types" :key="index">
+                        <v-list-item :to="{ name: 'Resources', params: { id: resource_type.id }}" color="#4270A9">
+                           <v-list-item-title class="font-weight-bold text-uppercase">{{ resource_type.resource_type_name }}</v-list-item-title>
+                        </v-list-item>
+                     </div>
+                  </v-list>
+               </v-menu>
 
                <v-btn
                   color="#4270A9"
@@ -365,6 +426,8 @@ export default {
       ],
       people: [],
       event_types: [],
+      resource_types: [],
+      publication_types: []
    }),
    components: {},
    watch: {
@@ -388,6 +451,26 @@ export default {
          .catch((error) => {
             console.log(error)
             // this.errors = error.response.data.errors
+         });
+
+      axios.get("/api/resource_type/index")
+         .then((res) => {
+            this.resource_types = res.data
+         })
+         .catch((error) => {
+            console.log(error)
+            // this.errors = error.response.data.errors
+         });
+
+      axios.get("/api/publication_type_info/frontend_index")
+         .then((res) => {
+               this.publication_types = res.data;
+               // this.loading = false;
+         })
+         .catch((error) => {
+               console.log(error);
+               // this.errors = error.response.data.errors
+               // this.loading = false;
          });
    }
 };
