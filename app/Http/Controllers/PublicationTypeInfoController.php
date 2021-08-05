@@ -14,9 +14,7 @@ class PublicationTypeInfoController extends Controller
     }
 
     public function frontend_index(){
-        $publication_types = PublicationTypeInfo::select('id', 'publication_type_name', 'created_at')->with(['publications' => function($query) {
-            return $query->select(['id', 'publication_type_info_id', 'publication_name', 'publication_file', 'created_at']);
-        }])->get();
+        $publication_types = PublicationTypeInfo::select('id', 'publication_type_name', 'created_at')->get();
         return response()->json( $publication_types , 200);
     }
 
