@@ -197,7 +197,7 @@
                            ml-n3
                         "
                      >
-                        *Refreshing the page causes tokens to expire. Otherwise, if your token expires, just enter password again.
+                        *Refreshing the page causes tokens to expire. If your token expires for any reason, just re-enter password.
                      </v-card-subtitle>
                      <v-text-field
                         v-model="password"

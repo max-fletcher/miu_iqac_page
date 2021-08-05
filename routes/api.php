@@ -94,6 +94,14 @@ Route::get('/news/show/{id}', [App\Http\Controllers\NewsController::class, 'show
 Route::patch('/news/update/{id}', [App\Http\Controllers\NewsController::class, 'update']);
 Route::delete('/news/destroy/{id}', [App\Http\Controllers\NewsController::class, 'destroy']);
 
+// Resource Types Controller
+Route::get('/resource_type/index', [App\Http\Controllers\ResourceTypeController::class, 'index']);
+Route::get('/resource_type/frontend_index', [App\Http\Controllers\ResourceTypeController::class, 'frontend_index']);
+Route::post('/resource_type/store', [App\Http\Controllers\ResourceTypeController::class, 'store']);
+Route::get('/resource_type/show/{id}', [App\Http\Controllers\ResourceTypeController::class, 'show']);
+Route::patch('/resource_type/update/{id}', [App\Http\Controllers\ResourceTypeController::class, 'update']);
+Route::delete('/resource_type/destroy/{id}', [App\Http\Controllers\ResourceTypeController::class, 'destroy']);
+
 // Resource Controller
 Route::get('/resource/index', [App\Http\Controllers\ResourceController::class, 'index']);
 Route::post('/resource/store', [App\Http\Controllers\ResourceController::class, 'store']);

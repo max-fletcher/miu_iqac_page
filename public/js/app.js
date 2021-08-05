@@ -5695,9 +5695,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -6162,7 +6159,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -6468,7 +6464,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-// Import Lightbox Component
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// Import Vue Easy Lightbox Component
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -6476,10 +6483,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      photos: '',
+      photos: "",
       // Img Url , string or Array of string
-      single_photo: '',
-      title: '',
+      single_photo: "",
+      title: "",
       visible: false,
       index: 0,
       // default: 0
@@ -48960,7 +48967,7 @@ var render = function() {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                      *Refreshing the page causes tokens to expire. Otherwise, if your token expires, just enter password again.\n                   "
+                                      "\n                      *Refreshing the page causes tokens to expire. If your token expires for any reason, just re-enter password.\n                   "
                                     )
                                   ]
                                 ),
@@ -55550,8 +55557,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("v-img", {
                           attrs: {
-                            "min-height": "200",
-                            "max-height": "500",
+                            "aspect-ratio": "1.77",
                             width: "auto",
                             src:
                               "/storage/event_images/" +
@@ -55918,7 +55924,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "pt-3" }, [
-    _vm._v("     \n   " + _vm._s(_vm.photos) + "\n    "),
     _vm.loading1 && _vm.loading2
       ? _c(
           "div",
@@ -55930,11 +55935,7 @@ var render = function() {
                   staticClass:
                     "text-center blue--text text--darken-4 font-weight-bold"
                 },
-                [
-                  _vm._v(
-                    "\n                  Loading...         \n            "
-                  )
-                ]
+                [_vm._v("\n            Loading...\n         ")]
               ),
               _vm._v(" "),
               _c("div", { staticClass: "mx-auto" }, [
@@ -56113,13 +56114,20 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(" "),
-                                _c("v-card-text", { staticClass: "pt-1" }, [
-                                  _vm._v(
-                                    "\n                      " +
-                                      _vm._s(photo.title) +
-                                      "\n                   "
-                                  )
-                                ])
+                                _c(
+                                  "v-card-text",
+                                  {
+                                    staticClass:
+                                      "font-weight-medium text-subtitle-2 pt-1"
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                     " +
+                                        _vm._s(photo.title) +
+                                        "\n                  "
+                                    )
+                                  ]
+                                )
                               ],
                               1
                             )

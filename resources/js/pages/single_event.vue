@@ -92,8 +92,7 @@
                   </v-card-title>
 
                   <v-img
-                     min-height="200"
-                     max-height="500"                     
+                     aspect-ratio="1.77"
                      width="auto"
                      :src="'/storage/event_images/' + single_event.event_image"
                      alt=""                     

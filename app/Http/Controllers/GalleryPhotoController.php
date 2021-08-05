@@ -20,7 +20,7 @@ class GalleryPhotoController extends Controller
     {
         $request->validate([
             'gallery_name_id' => ['required', 'numeric', 'integer', 'exists:gallery_names,id'],
-            'photo_title' => ['required', 'string', 'max:57'],
+            'photo_title' => ['required', 'string', 'max:255'],
             'photo_image' => [ 'required', 'image', 'max:2000'],
         ]);
 

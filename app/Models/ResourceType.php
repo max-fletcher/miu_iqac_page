@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Resource extends Model
+class ResourceType extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function resource_type()
+    public function resources()
     {
-        return $this->belongsTo(ResourceType::class);
+        return $this->hasMany(Resource::class);
     }
 }

@@ -93,7 +93,6 @@
          <v-col v-for="(single_publication, index) in publications.publications" :key="index" cols="12">
            <!-- The to="/" needs to be bound e.g :to="'/someroute/' + publication.id" later -->
             <v-card width="auto" height="150" outlined class="mt-n3 d-flex align-center pa-auto" to="/" :style="cardBorderColor">
-
                <div>
                <!-- Title For Xs -->
                   <v-card-title class="text-subtitle-1 font-weight-bold text-wrap">
@@ -107,9 +106,7 @@
                   <v-card-subtitle class="text-subtitle-1 font-weight-bold text-wrap">
                      Created At: {{ single_publication.created_at }}
                   </v-card-subtitle>
- 
                </div>
-
             </v-card>
          </v-col>
       </v-row>
