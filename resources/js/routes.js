@@ -26,6 +26,7 @@ import QuickLinksAccordion from "./pages/components/scrapped/quicklinksaccordion
 import CarouselText from "./pages/components/scrapped/carouseltext";
 import OverlayCarousel from "./pages/components/scrapped/overlay_carousel";
 import Bars from "./pages/components/scrapped/bars";
+import Sandbox from "./pages/components/scrapped/sandbox";
 
 
 export default{
@@ -199,6 +200,12 @@ export default{
          component: Bars,
          name: 'Bars',
          meta: { title: 'Scrapped Bars' }
+      },
+      {
+         path: '/sandbox',
+         component: Sandbox,
+         name: 'Sandbox',
+         meta: { title: 'Scrapped Sandbox' }
       },
    ]
 }

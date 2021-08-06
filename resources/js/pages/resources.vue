@@ -75,7 +75,7 @@
         <v-container fill-height fluid>
           <v-row align="center" justify="center">
               <div class="text-center">
-                <h1>No Resources Has Been Added Yet !!</h1>
+                <h1>No Resources For This Section Has Been Added Yet !!</h1>
                 <h2>Add Resources From The Admin Panel.</h2>
               </div>
           </v-row>
@@ -91,13 +91,13 @@
         
           <v-sheet class="px-2 py-2" color="grey lighten-3" min-height="500">
             
-            <v-card v-for="(resource, index) in resources.resources" :key="index" :href="'/storage/resource_files/' + resource.resource_file" rounded="0" class="mb-4">
+            <v-card v-for="(single_resource, index) in resources.resources" :key="index" :href="'/storage/resource_files/' + single_resource.resource_file" rounded="0" class="mb-4">
               <v-alert color="teal accent-4" class="px-0 py-0 mx-0 my-0" rounded="0" text>
                 <v-card-title class="py-2 text-h6 font-weight-medium">
                   <v-icon left color="teal accent-4" large>
                     mdi-pdf-box
                   </v-icon>
-                    {{ resource.resource_name }}
+                    {{ single_resource.resource_name }}
                 </v-card-title>
               </v-alert>
             </v-card>

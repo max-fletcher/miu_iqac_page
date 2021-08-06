@@ -89,7 +89,7 @@
                </v-card-title>
             </v-card>            
          </v-row>
-         <v-row class="mx-4 pb-4">
+         <v-row class="mx-4 pb-4" justify="center">
             <v-col
                v-for="(member, index) in members"
                :key="index"

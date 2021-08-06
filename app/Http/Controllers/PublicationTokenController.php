@@ -20,7 +20,7 @@ class PublicationTokenController extends Controller
 
         $publication_type_info = PublicationTypeInfo::find($request->publication_type_info_id);
         if(!$publication_type_info || !Hash::check( $request->publication_password, $publication_type_info->publication_password )){
-            return response()->json( ['message' => 'Password Match Failed ! Try Again.',], 401);
+            return response()->json( ['message' => 'Password Match Failed. Try Again.',], 401);
         }
 
         $token = PublicationToken::create([

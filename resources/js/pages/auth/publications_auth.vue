@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-3">     
+  <div class="pt-3">
       <div v-if="loading1">
          <v-card flat class="mt-6">
             <div class="text-center blue--text text--darken-4 font-weight-bold">
@@ -203,6 +203,7 @@
                         v-model="password"
                         @input = "password_alert = false"
                         @keydown.enter.prevent="submitForm"
+                        type="password"
                         :rules="passwordRules"
                         label="Password"
                         placeholder="Enter Password"
@@ -290,7 +291,7 @@ export default {
                this.$refs.contact_us_form.reset()
             })
             .catch((error) => {        
-               this.error_message_snackbar = true       
+               this.error_message_snackbar = true
                this.errors = error.response.data.errors
                this.error_message = error.response.data.message
                this.form_disabled = false

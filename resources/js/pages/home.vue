@@ -71,13 +71,13 @@
                </div>
             </v-card>
          </v-col>
-         <v-col v-else cols="12">
-            <v-carousel height="auto" cycle interval="5500" show-arrows-on-hover hide-delimiters>
+         <v-col v-else cols="12" class="px-md-6 py-md-4">            
+            <v-carousel height="auto" show-arrows-on-hover cycle interval="5500" hide-delimiters>
                <v-carousel-item v-for="(item, index) in items" :key="index">
                   <v-img
                      :src="'/storage/carousel_images/' + item.carousel_image"
                      aspect-ratio="1.77"
-                     max-height="550"
+                     max-height="700"
                   >
                      <v-container fill-height fluid class="px-0 py-0">
                         <v-layout fill-height align-end>
@@ -85,7 +85,7 @@
                               <!-- For sm and up devices -->
                               <v-alert
                                  text
-                                 color="info darken-2"
+                                 color="black darken-2"
                                  class="
                                     font-weight-bold
                                     text-h6
@@ -111,7 +111,7 @@
                               <!-- For xs devices -->
                               <v-alert
                                  text
-                                 color="success darken-2"
+                                 color="black darken-2"
                                  class="text-h6 mb-0 py-1 hidden-sm-and-up"
                                  tile
                                  max-height="100"
