@@ -5853,6 +5853,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+ // import QuickLinks from "./components/quicklinks";
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -5863,6 +5870,9 @@ __webpack_require__.r(__webpack_exports__);
       show: false
     };
   },
+  // components: {
+  //    QuickLinks,
+  // },
   created: function created() {
     var _this = this;
 
@@ -55290,14 +55300,14 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "v-row",
-                      { staticClass: "mx-3" },
+                      { staticClass: "px-5", attrs: { justify: "center" } },
                       _vm._l(_vm.photo_galleries, function(
                         photo_gallery,
                         index
                       ) {
                         return _c(
                           "v-col",
-                          { key: index, attrs: { cols: "12", md: "6" } },
+                          { key: index, attrs: { cols: "12", sm: "6" } },
                           [
                             _c(
                               "v-card",
@@ -55313,8 +55323,8 @@ var render = function() {
                                     src:
                                       "/storage/gallery_cover_photos/" +
                                       photo_gallery.gallery_cover_photo,
-                                    height: "400",
-                                    width: "auto"
+                                    width: "auto",
+                                    "aspect-ratio": "1.77"
                                   }
                                 }),
                                 _vm._v(" "),

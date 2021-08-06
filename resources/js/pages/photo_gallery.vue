@@ -89,16 +89,21 @@
                </v-card-title>
             </v-card>
          </v-row>
-         <v-row class="mx-3">
-            <v-col v-for="(photo_gallery, index) in photo_galleries" :key="index" cols="12" md="6">
+         
+         <!-- <v-col md="3" lg="2" class="hidden-sm-and-down">
+            <QuickLinks />
+         </v-col> -->
+
+         <v-row class="px-5" justify="center">
+            <v-col v-for="(photo_gallery, index) in photo_galleries" :key="index" cols="12" sm="6">
                <v-card
                   class="mx-auto"
                   :to="'/single-gallery/' + photo_gallery.id"
                >
                   <v-img
-                     :src="'/storage/gallery_cover_photos/' + photo_gallery.gallery_cover_photo"
-                     height="400"
+                     :src="'/storage/gallery_cover_photos/' + photo_gallery.gallery_cover_photo"                           
                      width="auto"
+                     aspect-ratio="1.77"
                   ></v-img>
                   <v-card-title class="text-h6">
                      {{ photo_gallery.gallery_name }}
@@ -109,6 +114,7 @@
                </v-card>
             </v-col>
          </v-row>
+
       </div>
    </div> 
 </div>
@@ -116,6 +122,7 @@
 
 <script>
 import moment from 'moment'
+// import QuickLinks from "./components/quicklinks";
 export default {
    data: () => ({
       photo_galleries:[],
@@ -123,6 +130,9 @@ export default {
       loading: true,
       show: false,
    }),
+   // components: {
+   //    QuickLinks,
+   // },
    created() {
       axios
          .get("/api/gallery/name/index")
