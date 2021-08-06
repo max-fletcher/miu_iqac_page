@@ -1,10 +1,7 @@
 <template>
     <div class="pt-5">        
-        <v-row class="pl-4">
-            <v-col cols="2" class="pt-md-4 pl-md-4 pt-sm-3 px-0 py-0">
-                <QuickLinks />
-            </v-col>
-            <v-col v-if="loading" cols="12" md="10">
+        <div class="pl-4">
+            <div v-if="loading">
                 <v-card flat class="mt-6">
                     <div class="text-center blue--text text--darken-4 font-weight-bold">
                             Loading...         
@@ -73,33 +70,39 @@
                         </svg>
                     </div>
                 </v-card>
-            </v-col>
-            <v-col v-else cols="12" md="10">
-                <v-card flat class="mx-0 my-0">
-                    <v-card-title
-                        class="text-h5 font-weight-bold blue-grey--text text--darken-3 pb-2 pl-md-2 pt-md-1 pl-sm-5 pt-sm-0 pr-sm-4 mb-md-0"
-                    >
-                        <v-icon large left color="blue-grey darken-3">mdi-information</v-icon>
-                        About Us
-                    </v-card-title>
-                </v-card>
-                <v-card v-for="(about_item, index) in about_items" :key="index" flat class="my-md-1 ml-md-0 mr-3">
-                    <v-card-text
-                        class="text-h5 font-weight-bold pb-0 blue-grey--text text--darken-3 ml-2 ml-sm-3"
-                    >
-                        <v-icon left large color="blue-grey darken-3">
-                            {{ about_item.icon }}
-                        </v-icon>
-                        {{ about_item.name }}
-                    </v-card-text>
-                    <v-card-text
-                        class="text-h5 font-weight-regular ml-7 ml-md-10 pr-16"
-                    >
-                       {{ about_item.content }}
-                    </v-card-text>
-                </v-card>
-            </v-col>
-        </v-row>
+            </div>
+
+            <v-row v-else class="">
+                <v-col cols="12" md="3" lg="2" class="hidden-sm-and-down">
+                    <QuickLinks />
+                </v-col>
+                <v-col cols="12" md="9" lg="10">
+                    <v-card flat class="mx-0 my-0">
+                        <v-card-title
+                            class="text-h5 font-weight-bold blue-grey--text text--darken-3 pb-2 pl-md-2 pt-md-1 pl-sm-5 pt-sm-0 pr-sm-4 mb-md-0"
+                        >
+                            <v-icon large left color="blue-grey darken-3">mdi-information</v-icon>
+                            About Us
+                        </v-card-title>
+                    </v-card>
+                    <v-card v-for="(about_item, index) in about_items" :key="index" flat class="my-md-1 ml-md-0 mr-3">
+                        <v-card-text
+                            class="text-h5 font-weight-bold pb-0 blue-grey--text text--darken-3 ml-2 ml-sm-3"
+                        >
+                            <v-icon left large color="blue-grey darken-3">
+                                {{ about_item.icon }}
+                            </v-icon>
+                            {{ about_item.name }}
+                        </v-card-text>
+                        <v-card-text
+                            class="text-h5 font-weight-regular ml-7 ml-md-10 pr-16"
+                        >
+                        {{ about_item.content }}
+                        </v-card-text>
+                    </v-card>
+                </v-col>                
+            </v-row>
+        </div>
     </div>  
 </template>
 

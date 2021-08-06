@@ -1,5 +1,5 @@
 <template>
-    <div class="hidden-sm-and-down">
+    <v-card class="hidden-sm-and-down">
         <v-card
             color="#002147"
             block
@@ -96,7 +96,7 @@
             Photo Gallery
             <v-spacer></v-spacer>
         </v-btn>
-    </div>
+    </v-card>
 </template>
 
 <script>

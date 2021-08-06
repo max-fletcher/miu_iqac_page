@@ -82,59 +82,60 @@
             </v-container>
          </v-card>
          <div v-else>
-         <v-row>
-            <v-card flat tile class="mx-auto mt-1">
-               <v-card-title class="text-center text-h3 blue--text text--darken-4">
-                  {{ page_title.name }}
-               </v-card-title>
-            </v-card>            
-         </v-row>
-         <v-row class="mx-4 pb-4" justify="center">
-            <v-col
-               v-for="(member, index) in members"
-               :key="index"
-               cols="12"
-               sm="6"
-               md="4"
-            >
-               <v-card min-height="450" elevation="10" color="grey lighten-4">
-                  <v-img
-                     height="400"
-                     width="auto"
-                     :src="'/storage/member_images/' + member.member_image"
-                     alt=""
-                     class="mx-auto"
-                     position="center center"
-                  ></v-img>
-                  <div class="py-2">
-                     <v-card-subtitle class="text-subtitle-1 font-weight-medium blue--text text--darken-4 py-1">
-                        <v-icon left color="blue darken-4">
-                           mdi-account
-                        </v-icon>
-                        Name: {{ member.name }}
-                     </v-card-subtitle>
-                     <v-card-subtitle class="text-subtitle-1 font-weight-medium blue--text text--darken-4 py-1">
-                        <v-icon left color="blue darken-4">
-                           mdi-briefcase
-                        </v-icon>
-                        Designation: {{ member.designation }}
-                     </v-card-subtitle>
-                     <v-card-subtitle class="text-subtitle-1 font-weight-medium blue--text text--darken-4 py-1">
-                        <v-icon left color="blue darken-4">
-                           mdi-email
-                        </v-icon>
-                        E-mail: {{ member.email }}
-                     </v-card-subtitle>
-                     <v-card-subtitle class="text-subtitle-1 font-weight-medium blue--text text--darken-4 py-1">
-                        <v-icon left color="blue darken-4">
-                           mdi-phone
-                        </v-icon>
-                        Contact No: {{ member.cell_number }}
-                     </v-card-subtitle>
-                  </div>                  
-               </v-card>
-            </v-col>
-         </v-row>
+            <v-row>
+               <v-card flat tile class="mx-auto mt-1">
+                  <v-card-title class="text-center text-h3 blue--text text--darken-4">
+                     {{ page_title.name }}
+                  </v-card-title>
+               </v-card>            
+            </v-row>
+
+            <v-row class="mx-4 pb-4" justify="center">
+               <v-col
+                  v-for="(member, index) in members"
+                  :key="index"
+                  cols="12"
+                  sm="6"
+                  md="4"
+               >
+                  <v-card min-height="450" elevation="10" color="grey lighten-4">
+                     <v-img
+                        height="400"
+                        width="auto"
+                        :src="'/storage/member_images/' + member.member_image"
+                        alt=""
+                        class="mx-auto"
+                        position="center center"
+                     ></v-img>
+                     <div class="py-2">
+                        <v-card-subtitle class="text-subtitle-1 font-weight-medium blue--text text--darken-4 py-1">
+                           <v-icon left color="blue darken-4">
+                              mdi-account
+                           </v-icon>
+                           Name: {{ member.name }}
+                        </v-card-subtitle>
+                        <v-card-subtitle class="text-subtitle-1 font-weight-medium blue--text text--darken-4 py-1">
+                           <v-icon left color="blue darken-4">
+                              mdi-briefcase
+                           </v-icon>
+                           Designation: {{ member.designation }}
+                        </v-card-subtitle>
+                        <v-card-subtitle class="text-subtitle-1 font-weight-medium blue--text text--darken-4 py-1">
+                           <v-icon left color="blue darken-4">
+                              mdi-email
+                           </v-icon>
+                           E-mail: {{ member.email }}
+                        </v-card-subtitle>
+                        <v-card-subtitle class="text-subtitle-1 font-weight-medium blue--text text--darken-4 py-1">
+                           <v-icon left color="blue darken-4">
+                              mdi-phone
+                           </v-icon>
+                           Contact No: {{ member.cell_number }}
+                        </v-card-subtitle>
+                     </div>                  
+                  </v-card>
+               </v-col>
+            </v-row>
 
          </div>
       </div>
