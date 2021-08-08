@@ -5277,6 +5277,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
  // import TopNav from './topnav'
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -7124,19 +7145,7 @@ __webpack_require__.r(__webpack_exports__);
     name: 'PublicationsAuth',
     meta: {
       title: 'Publications Password Page'
-    } // beforeEnter: ( to, from, next) => {
-    //    axios.post('/api/authenticated')
-    //    .then(()=>{
-    //       next()
-    //    }).catch(()=>{
-    //       return next({path: '/login',
-    //       query: {
-    //          message: 'unauthenticated',
-    //       }
-    //    })
-    //    })
-    // }
-
+    }
   }, {
     path: '/publications/:id',
     component: _pages_publications__WEBPACK_IMPORTED_MODULE_13__.default,
@@ -53929,7 +53938,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-card",
-    { staticClass: "mx-3 pt-3", attrs: { flat: "" } },
+    { staticClass: "pt-3", attrs: { flat: "" } },
     [
       _c(
         "v-row",
@@ -54054,16 +54063,16 @@ var render = function() {
               )
             : _c(
                 "v-col",
-                { staticClass: "px-md-6 py-md-4", attrs: { cols: "12" } },
+                { staticClass: "px-6 pt-3", attrs: { cols: "12" } },
                 [
                   _c(
                     "v-carousel",
                     {
                       attrs: {
                         height: "auto",
-                        "show-arrows-on-hover": "",
                         cycle: "",
                         interval: "5500",
+                        "show-arrows-on-hover": "",
                         "hide-delimiters": ""
                       }
                     },
@@ -54107,7 +54116,7 @@ var render = function() {
                                             "v-alert",
                                             {
                                               staticClass:
-                                                "\n                                 font-weight-bold\n                                 text-h6\n                                 mb-0\n                                 hidden-xs-only\n                              ",
+                                                "\n                                       font-weight-bold\n                                       text-h6\n                                       mb-0\n                                       hidden-xs-only\n                                    ",
                                               attrs: {
                                                 text: "",
                                                 color: "black darken-2",
@@ -54120,15 +54129,15 @@ var render = function() {
                                                 "div",
                                                 {
                                                   staticClass:
-                                                    "\n                                    font-weight-bold\n                                    text-center text-body-1\n                                 "
+                                                    "\n                                          font-weight-medium\n                                          text-center text-h6\n                                          orange--text\n                                          text--darken-3\n                                       "
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                 " +
+                                                    "\n                                       " +
                                                       _vm._s(
                                                         item.carousel_title
                                                       ) +
-                                                      "\n                              "
+                                                      "\n                                    "
                                                   )
                                                 ]
                                               ),
@@ -54137,15 +54146,15 @@ var render = function() {
                                                 "div",
                                                 {
                                                   staticClass:
-                                                    "text-center text-subtitle-2"
+                                                    "font-weight-medium\n                                          text-center\n                                          text-subtitle-1\n                                          orange--text\n                                          text--darken-3"
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                 " +
+                                                    "\n                                       " +
                                                       _vm._s(
                                                         item.carousel_subtitle
                                                       ) +
-                                                      "\n                              "
+                                                      "\n                                    "
                                                   )
                                                 ]
                                               )
@@ -54169,15 +54178,15 @@ var render = function() {
                                                 "div",
                                                 {
                                                   staticClass:
-                                                    "text-center text-subtitle-2"
+                                                    "text-center text-subtitle-2\n                                          orange--text\n                                          text--darken-3"
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                 " +
+                                                    "\n                                       " +
                                                       _vm._s(
                                                         item.carousel_title
                                                       ) +
-                                                      "\n                              "
+                                                      "\n                                    "
                                                   )
                                                 ]
                                               ),
@@ -54186,15 +54195,15 @@ var render = function() {
                                                 "div",
                                                 {
                                                   staticClass:
-                                                    "text-center text-caption"
+                                                    "text-center text-caption\n                                          orange--text\n                                          text--darken-3"
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                 " +
+                                                    "\n                                       " +
                                                       _vm._s(
                                                         item.carousel_subtitle
                                                       ) +
-                                                      "\n                              "
+                                                      "\n                                    "
                                                   )
                                                 ]
                                               )
@@ -54225,16 +54234,14 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c(
-        "v-row",
-        { attrs: { justify: "space-around ml-1 ml-md-0 mr-1 mr-md-3" } },
-        [
-          !_vm.loading
-            ? _c("v-col", { attrs: { cols: "3" } }, [_c("QuickLinks")], 1)
-            : _vm._e(),
-          _vm._v(" "),
-          !_vm.loading
-            ? _c(
+      !_vm.loading
+        ? _c(
+            "v-row",
+            { attrs: { justify: "space-around ml-1 ml-md-0 mr-1 mr-md-3" } },
+            [
+              _c("v-col", { attrs: { cols: "3" } }, [_c("QuickLinks")], 1),
+              _vm._v(" "),
+              _c(
                 "v-col",
                 {
                   staticClass: "black mt-0 mt-md-3",
@@ -54249,10 +54256,10 @@ var render = function() {
                 ],
                 1
               )
-            : _vm._e()
-        ],
-        1
-      )
+            ],
+            1
+          )
+        : _vm._e()
     ],
     1
   )

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Models\CarouselContent;
+use Intervention\Image\Facades\Image;
+Use Illuminate\Support\Facades\File;
 
 class CarouselContentController extends Controller
 {
@@ -22,11 +24,11 @@ class CarouselContentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'carousel_title' => ['required', 'string', 'max:255'],
-            'carousel_subtitle' => ['required', 'string', 'max:255'],
-            'carousel_image' => ['required', 'image', 'max:2000']
-        ]);
-                    
+            'carousel_title' => ['required', 'string', 'max:133'],
+            'carousel_subtitle' => ['required', 'string', 'max:176'],
+            'carousel_image' => ['required', 'image', 'max:3000'],
+        ]);        
+
         //get filename with extension
         $filenameWithExt = $request->file('carousel_image')->getClientOriginalName();
         //get just file name (using standard php function)
@@ -38,8 +40,17 @@ class CarouselContentController extends Controller
         //cause problems when viewing(same problem that occured in CISV photo gallery)
         $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
         //upload image
-        $request->file('carousel_image')->storeAs('public/carousel_images', $filenameToStore);
-            
+
+        // Make Folder if it doesn't exist
+        $path = public_path('storage/carousel_images');
+        if(!File::isDirectory($path)){
+            File::makeDirectory($path, 0777, true, true);
+        }
+
+        // Resize image and store it in $image variable
+        $image = Image::make($request->file('carousel_image'))->resize(2000, 1170);
+        // Save image to designated folder inside storage
+        $image->save(public_path('storage/carousel_images/'. $filenameToStore));
 
         CarouselContent::Create([
             'carousel_title' => $request->carousel_title,
@@ -63,9 +74,9 @@ class CarouselContentController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'carousel_title' => ['required', 'string', 'max:255'],
-            'carousel_subtitle' => ['required', 'string', 'max:255'],
-            'carousel_image' => ['required', 'image', 'max:2000']
+            'carousel_title' => ['required', 'string', 'max:133'],
+            'carousel_subtitle' => ['required', 'string', 'max:176'],
+            'carousel_image' => ['required', 'image', 'max:3000']
         ]);
 
         //get filename with extension
@@ -78,8 +89,17 @@ class CarouselContentController extends Controller
         //this string is a unique name so that file with duplicate name do not get uploaded and
         //cause problems when viewing(same problem that occured in CISV photo gallery)
         $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-        //upload image
-        $request->file('carousel_image')->storeAs('public/carousel_images', $filenameToStore);
+
+        // Make Folder if it doesn't exist
+        $path = public_path('storage/carousel_images');
+        if(!File::isDirectory($path)){
+            File::makeDirectory($path, 0777, true, true);
+        }
+        
+        // Resize image and store it in $image variable
+        $image = Image::make($request->file('carousel_image'))->resize(2000, 1170);
+        // Save image to designated folder inside storage
+        $image->save(public_path('storage/carousel_images/'. $filenameToStore));
 
         $carousel_content = CarouselContent::find($id);
         if($carousel_content){
