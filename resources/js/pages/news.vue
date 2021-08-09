@@ -98,47 +98,49 @@
             </v-card>
          </v-col>
          <v-row class="mx-1">
-            <v-col md="3" lg="2" class="mt-n3 hidden-sm-and-down">
+            <v-col md="3" lg="2" class="hidden-sm-and-down">
                <QuickLinks />
             </v-col>
-            <v-col v-for="(single_news, index) in news" :key="index" cols="12" md="9" lg="10">
-               <v-card width="auto" height="120" outlined class="mt-n3 d-flex align-center pa-auto" :to="'/news/single_news/' + single_news.id" :style="cardBorderColor">
-                  <v-avatar
-                     size="100"
-                     tile
-                     rounded
-                     class="ml-2"
-                  >
-                     <v-img                  
-                        :src="'/storage/news_images/' + single_news.news_image"
-                        :alt="single_news.news_title"
-                        position="center center"                  
-                     ></v-img>
-                  </v-avatar>
+            <v-col cols="12" md="9" lg="10">
+               <div v-for="(single_news, index) in news" :key="index" class="mb-3">
+                  <v-card width="auto" height="120" outlined class="d-flex align-center pa-auto" :to="'/news/single_news/' + single_news.id" :style="cardBorderColor">
+                     <v-avatar
+                        size="100"
+                        tile
+                        rounded
+                        class="ml-2"
+                     >
+                        <v-img                  
+                           :src="'/storage/news_images/' + single_news.news_image"
+                           :alt="single_news.news_title"
+                           position="center center"                        
+                        ></v-img>
+                     </v-avatar>
 
-                  <div>
-                  <!-- Title For Xs -->
-                     <v-card-title class="text-subtitle-1 font-weight-bold d-flex d-sm-none text-wrap">
-                        {{ single_news.news_title | truncate_title_xs }}
-                     </v-card-title>
-                  <!-- Title For Sm -->
-                     <v-card-title class="text-subtitle-1 font-weight-bold d-none d-sm-flex d-md-none text-wrap">
-                        {{ single_news.news_title | truncate_title_sm }}
-                     </v-card-title>
-                  <!-- Title For Md -->
-                     <v-card-title class="text-subtitle-1 font-weight-bold d-none d-md-flex d-lg-none text-wrap">
-                        {{ single_news.news_title | truncate_title_md }}
-                     </v-card-title>
-                  <!-- Title For XL and up -->
-                     <v-card-title class="text-subtitle-1 font-weight-bold d-none d-lg-flex d-xl-none text-wrap">
-                        {{ single_news.news_title }}
-                     </v-card-title>
-                     <v-card-subtitle
-                        class="font-weight-bold text-no-wrap"
-                     > {{ moment(single_news.created_at).format('MMMM Do YYYY, h:mm a') }}
-                     </v-card-subtitle>
-                  </div>
-               </v-card>
+                     <div>
+                     <!-- Title For Xs -->
+                        <v-card-title class="text-subtitle-1 font-weight-bold d-flex d-sm-none text-wrap">
+                           {{ single_news.news_title | truncate_title_xs }}
+                        </v-card-title>
+                     <!-- Title For Sm -->
+                        <v-card-title class="text-subtitle-1 font-weight-bold d-none d-sm-flex d-md-none text-wrap">
+                           {{ single_news.news_title | truncate_title_sm }}
+                        </v-card-title>
+                     <!-- Title For Md -->
+                        <v-card-title class="text-subtitle-1 font-weight-bold d-none d-md-flex d-lg-none text-wrap">
+                           {{ single_news.news_title | truncate_title_md }}
+                        </v-card-title>
+                     <!-- Title For XL and up -->
+                        <v-card-title class="text-subtitle-1 font-weight-bold d-none d-lg-flex d-xl-none text-wrap">
+                           {{ single_news.news_title }}
+                        </v-card-title>
+                        <v-card-subtitle
+                           class="font-weight-bold text-no-wrap"
+                        > {{ moment(single_news.created_at).format('MMMM Do YYYY, h:mm a') }}
+                        </v-card-subtitle>
+                     </div>
+                  </v-card>
+               </div>
             </v-col>
          </v-row>
       </v-row>

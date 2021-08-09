@@ -86,13 +86,13 @@
                      {{ single_news.news_title }}
                   </v-card-title>
 
-                  <v-img
-                     min-height="200"
-                     max-height="500"                     
+                  <v-img                     
                      width="auto"
+                     max-height="700"
                      :src="'/storage/news_images/' + single_news.news_image"
-                     alt=""                     
+                     alt=""
                      position="center center"
+                     aspect-ratio="2"
                   ></v-img>
 
                   <v-card-subtitle class="text-subtitle-1 orange--text text--darken-3">

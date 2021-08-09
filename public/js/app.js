@@ -5298,7 +5298,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
  // import TopNav from './topnav'
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5343,6 +5342,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_quicklinks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/quicklinks */ "./resources/js/pages/components/quicklinks.vue");
+//
+//
 //
 //
 //
@@ -54481,168 +54482,169 @@ var render = function() {
                         _c(
                           "v-col",
                           {
-                            staticClass: "mt-n3 hidden-sm-and-down",
+                            staticClass: "hidden-sm-and-down",
                             attrs: { md: "3", lg: "2" }
                           },
                           [_c("QuickLinks")],
                           1
                         ),
                         _vm._v(" "),
-                        _vm._l(_vm.news, function(single_news, index) {
-                          return _c(
-                            "v-col",
-                            {
-                              key: index,
-                              attrs: { cols: "12", md: "9", lg: "10" }
-                            },
-                            [
-                              _c(
-                                "v-card",
-                                {
-                                  staticClass:
-                                    "mt-n3 d-flex align-center pa-auto",
-                                  style: _vm.cardBorderColor,
-                                  attrs: {
-                                    width: "auto",
-                                    height: "120",
-                                    outlined: "",
-                                    to: "/news/single_news/" + single_news.id
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "v-avatar",
-                                    {
-                                      staticClass: "ml-2",
-                                      attrs: {
-                                        size: "100",
-                                        tile: "",
-                                        rounded: ""
-                                      }
-                                    },
-                                    [
-                                      _c("v-img", {
+                        _c(
+                          "v-col",
+                          { attrs: { cols: "12", md: "9", lg: "10" } },
+                          _vm._l(_vm.news, function(single_news, index) {
+                            return _c(
+                              "div",
+                              { key: index, staticClass: "mb-3" },
+                              [
+                                _c(
+                                  "v-card",
+                                  {
+                                    staticClass: "d-flex align-center pa-auto",
+                                    style: _vm.cardBorderColor,
+                                    attrs: {
+                                      width: "auto",
+                                      height: "120",
+                                      outlined: "",
+                                      to: "/news/single_news/" + single_news.id
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "v-avatar",
+                                      {
+                                        staticClass: "ml-2",
                                         attrs: {
-                                          src:
-                                            "/storage/news_images/" +
-                                            single_news.news_image,
-                                          alt: single_news.news_title,
-                                          position: "center center"
+                                          size: "100",
+                                          tile: "",
+                                          rounded: ""
                                         }
-                                      })
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    [
-                                      _c(
-                                        "v-card-title",
-                                        {
-                                          staticClass:
-                                            "text-subtitle-1 font-weight-bold d-flex d-sm-none text-wrap"
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\r\n                        " +
-                                              _vm._s(
-                                                _vm._f("truncate_title_xs")(
-                                                  single_news.news_title
-                                                )
-                                              ) +
-                                              "\r\n                     "
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-card-title",
-                                        {
-                                          staticClass:
-                                            "text-subtitle-1 font-weight-bold d-none d-sm-flex d-md-none text-wrap"
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\r\n                        " +
-                                              _vm._s(
-                                                _vm._f("truncate_title_sm")(
-                                                  single_news.news_title
-                                                )
-                                              ) +
-                                              "\r\n                     "
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-card-title",
-                                        {
-                                          staticClass:
-                                            "text-subtitle-1 font-weight-bold d-none d-md-flex d-lg-none text-wrap"
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\r\n                        " +
-                                              _vm._s(
-                                                _vm._f("truncate_title_md")(
-                                                  single_news.news_title
-                                                )
-                                              ) +
-                                              "\r\n                     "
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-card-title",
-                                        {
-                                          staticClass:
-                                            "text-subtitle-1 font-weight-bold d-none d-lg-flex d-xl-none text-wrap"
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\r\n                        " +
-                                              _vm._s(single_news.news_title) +
-                                              "\r\n                     "
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "v-card-subtitle",
-                                        {
-                                          staticClass:
-                                            "font-weight-bold text-no-wrap"
-                                        },
-                                        [
-                                          _vm._v(
-                                            " " +
-                                              _vm._s(
-                                                _vm
-                                                  .moment(
-                                                    single_news.created_at
+                                      },
+                                      [
+                                        _c("v-img", {
+                                          attrs: {
+                                            src:
+                                              "/storage/news_images/" +
+                                              single_news.news_image,
+                                            alt: single_news.news_title,
+                                            position: "center center"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      [
+                                        _c(
+                                          "v-card-title",
+                                          {
+                                            staticClass:
+                                              "text-subtitle-1 font-weight-bold d-flex d-sm-none text-wrap"
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\r\n                           " +
+                                                _vm._s(
+                                                  _vm._f("truncate_title_xs")(
+                                                    single_news.news_title
                                                   )
-                                                  .format(
-                                                    "MMMM Do YYYY, h:mm a"
+                                                ) +
+                                                "\r\n                        "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-card-title",
+                                          {
+                                            staticClass:
+                                              "text-subtitle-1 font-weight-bold d-none d-sm-flex d-md-none text-wrap"
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\r\n                           " +
+                                                _vm._s(
+                                                  _vm._f("truncate_title_sm")(
+                                                    single_news.news_title
                                                   )
-                                              ) +
-                                              "\r\n                     "
-                                          )
-                                        ]
-                                      )
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        })
+                                                ) +
+                                                "\r\n                        "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-card-title",
+                                          {
+                                            staticClass:
+                                              "text-subtitle-1 font-weight-bold d-none d-md-flex d-lg-none text-wrap"
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\r\n                           " +
+                                                _vm._s(
+                                                  _vm._f("truncate_title_md")(
+                                                    single_news.news_title
+                                                  )
+                                                ) +
+                                                "\r\n                        "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-card-title",
+                                          {
+                                            staticClass:
+                                              "text-subtitle-1 font-weight-bold d-none d-lg-flex d-xl-none text-wrap"
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\r\n                           " +
+                                                _vm._s(single_news.news_title) +
+                                                "\r\n                        "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-card-subtitle",
+                                          {
+                                            staticClass:
+                                              "font-weight-bold text-no-wrap"
+                                          },
+                                          [
+                                            _vm._v(
+                                              " " +
+                                                _vm._s(
+                                                  _vm
+                                                    .moment(
+                                                      single_news.created_at
+                                                    )
+                                                    .format(
+                                                      "MMMM Do YYYY, h:mm a"
+                                                    )
+                                                ) +
+                                                "\r\n                        "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          }),
+                          0
+                        )
                       ],
-                      2
+                      1
                     )
                   ],
                   1
@@ -56769,14 +56771,14 @@ var render = function() {
                         _vm._v(" "),
                         _c("v-img", {
                           attrs: {
-                            "min-height": "200",
-                            "max-height": "500",
                             width: "auto",
+                            "max-height": "700",
                             src:
                               "/storage/news_images/" +
                               _vm.single_news.news_image,
                             alt: "",
-                            position: "center center"
+                            position: "center center",
+                            "aspect-ratio": "2"
                           }
                         }),
                         _vm._v(" "),

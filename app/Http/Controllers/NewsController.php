@@ -6,6 +6,8 @@ use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
+Use Illuminate\Support\Facades\File;
 
 class NewsController extends Controller
 {
@@ -27,7 +29,8 @@ class NewsController extends Controller
         $request->validate([
             'news_title' => ['required', 'string', 'max:255'],
             'news_text' => ['required', 'string'],
-            'news_image' => [ 'image', 'sometimes', 'max:2000']
+            'news_image' => [ 'image', 'sometimes', 'max:2000'],
+            'resize_image' => ['required', 'numeric', 'integer'],
         ]);
 
         if($request->hasFile('news_image')) {
@@ -40,9 +43,24 @@ class NewsController extends Controller
             //filename to store(uses a time php function to get current time)
             //this string is a unique name so that file with duplicate name do not get uploaded and
             //cause problems when viewing(same problem that occured in CISV photo gallery)
-            $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-            //upload image
-            $request->file('news_image')->storeAs('public/news_images', $filenameToStore);
+            $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);            
+
+            // Make Folder if it doesn't exist
+            $path = public_path('storage/news_images');
+            if(!File::isDirectory($path)){
+                    File::makeDirectory($path, 0777, true, true);
+            }
+
+            // Resize image if needed and store it in $image variable
+            // Save image to designated folder inside storage
+            if($request->resize_image == 1){
+                $image = Image::make($request->file('news_image'))->resize(2000, 1000);
+            }
+            else{
+                $image = Image::make($request->file('news_image'));
+            }
+
+            $image->save(public_path('storage/news_images/'. $filenameToStore));
         }
         else{
             $filenameToStore = 'noimage.jpg';
@@ -72,7 +90,8 @@ class NewsController extends Controller
         $request->validate([
             'news_title' => ['required', 'string', 'max:255'],
             'news_text' => ['required', 'string'],
-            'news_image' => [ 'image', 'sometimes', 'max:2000']
+            'news_image' => [ 'image', 'sometimes', 'max:2000'],
+            'resize_image' => ['required', 'numeric', 'integer'],
         ]);
 
         if($request->hasFile('news_image')) {
@@ -86,8 +105,23 @@ class NewsController extends Controller
             //this string is a unique name so that file with duplicate name do not get uploaded and
             //cause problems when viewing(same problem that occured in CISV photo gallery)
             $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-            //upload image
-            $request->file('news_image')->storeAs('public/news_images', $filenameToStore);
+            
+            // Make Folder if it doesn't exist
+            $path = public_path('storage/news_images');
+            if(!File::isDirectory($path)){
+                    File::makeDirectory($path, 0777, true, true);
+            }
+
+            // Resize image if needed and store it in $image variable
+            // Save image to designated folder inside storage
+            if($request->resize_image == 1){
+                $image = Image::make($request->file('news_image'))->resize(2000, 1000);
+            }
+            else{
+                $image = Image::make($request->file('news_image'));
+            }
+
+            $image->save(public_path('storage/news_images/'. $filenameToStore));
         }
         else{
             $filenameToStore = 'noimage.jpg';
@@ -97,9 +131,8 @@ class NewsController extends Controller
         if($news){
             $news->news_title = $request->news_title;
             $news->news_text = $request->news_text;            
-            if($request->hasFile('news_image')){     //works if there is a new image uploaded
-                Storage::delete('public/news_images/'.$news->news_image);  //deletes previous image
-                //needs to use Illuminate\Support\Facades\Storage;
+            if($request->hasFile('news_image')){  //works if there is a new image uploaded
+                File::delete(public_path('storage/news_images/'.$news->news_image));  //deletes previous file
             }
             $news->news_image = $filenameToStore;
             $news->save();
@@ -114,7 +147,7 @@ class NewsController extends Controller
     {
         $news = News::find($id);
         if($news){
-            Storage::delete('public/news_images/'.$news->news_image);  //deletes image
+            File::delete(public_path('storage/news_images/'.$news->news_image));  //deletes file
             $news->delete();
             return response()->json( "News Deleted Successfully !!" ,201);
         }
