@@ -81,7 +81,7 @@
             </v-row>
          </v-container>
       </v-card>
-      <v-row v-else class="mx-2 py-4">
+      <v-row v-else class="mx-2">
          <v-col cols="12">
             <v-card flat tile class="mx-auto">
                <v-card-subtitle
@@ -173,7 +173,7 @@ export default {
             this.loading = false;
          })
          .catch((error) => {
-            console.log(error);
+            // console.log(error);
             // this.errors = error.response.data.errors
             this.loading = false;
          });

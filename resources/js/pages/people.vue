@@ -1,6 +1,6 @@
 <template>
    <div class="pt-3">      
-      <div v-if="loading1 && loading2">
+      <div v-if="loading">
           <v-card flat class="mt-6">
               <div class="text-center blue--text text--darken-4 font-weight-bold">
                     Loading...
@@ -71,7 +71,7 @@
           </v-card>
       </div>
       <div v-else>
-         <v-card flat v-if="members.length === 0" height="480" min-height="300">
+         <v-card flat v-if="members.members.length === 0" height="480" min-height="300">
             <v-container fill-height fluid>
                <v-row align="center" justify="center">
                   <div class="text-center">
@@ -85,14 +85,14 @@
             <v-row>
                <v-card flat tile class="mx-auto mt-1">
                   <v-card-title class="text-center text-h3 blue--text text--darken-4">
-                     {{ page_title.name }}
+                     {{ members.name }}
                   </v-card-title>
                </v-card>            
             </v-row>
 
             <v-row class="mx-4 pb-4" justify="center">
                <v-col
-                  v-for="(member, index) in members"
+                  v-for="(member, index) in members.members"
                   :key="index"
                   cols="12"
                   sm="6"
@@ -111,7 +111,7 @@
                         <v-card-subtitle class="text-subtitle-1 font-weight-medium blue--text text--darken-4 py-1">
                            <v-icon left color="blue darken-4">
                               mdi-account
-                           </v-icon>
+                           </v-icon>                           
                            Name: {{ member.name }}
                         </v-card-subtitle>
                         <v-card-subtitle class="text-subtitle-1 font-weight-medium blue--text text--darken-4 py-1">
@@ -145,34 +145,22 @@
 <script>
 export default {
    data: () => ({
-      members: [],
-      page_title: null,
-      loading1: true,
-      loading2: true,
+      members: [],      
+      loading: true,
    }),
    created() {
-      axios
-         .get("/api/people/members/membersbypeopleid/" + this.$route.params.id)
-         .then((res) => {
-            this.members = res.data;
-            this.loading1 = false;
-         })
-         .catch((error) => {
-            console.log(error);
-            // this.errors = error.response.data.errors
-            this.loading1 = false;
-         });
 
-         axios
+      axios
          .get("/api/people/show/" + this.$route.params.id)
          .then((res) => {
-            this.page_title = res.data;
-            this.loading2 = false;
+            this.members = res.data;
+            this.loading = false;
          })
          .catch((error) => {
-            console.log(error);
+            // console.log(error);
             // this.errors = error.response.data.errors
-            this.loading2 = false;
+            // this.loading = false;
+            this.$router.push({ name: 'NotFound' })
          });
    },
 };

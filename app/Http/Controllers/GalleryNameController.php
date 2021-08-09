@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\GalleryName;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Resources\GalleryNameResource;
 
 class GalleryNameController extends Controller
 {
@@ -50,8 +51,11 @@ class GalleryNameController extends Controller
     }
 
     public function show($id)
-    {
-        $gallery_name = GalleryName::find($id);
+    {        
+        $gallery_name = new GalleryNameResource(GalleryName::where('id', $id)->select('id', 'gallery_name','gallery_cover_photo' , 'created_at')->with(['gallery_photos' => function($query) {
+            return $query->select(['id', 'gallery_name_id', 'photo_title', 'photo_image', 'created_at']);
+        }])->first());
+
         if($gallery_name){
             return response()->json($gallery_name, 200);
         }

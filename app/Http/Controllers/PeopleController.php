@@ -37,8 +37,10 @@ class PeopleController extends Controller
     }
 
     public function show($id)
-    {
-        $people = People::find($id);
+    {        
+        $people = People::where('id', $id)->select('id', 'name', 'created_at')->with(['members' => function($query) {
+            return $query->select(['id', 'people_id', 'name', 'designation', 'cell_number', 'email', 'member_image', 'created_at']);
+        }])->first();;
         if($people){
             return response()->json($people, 201);
         }

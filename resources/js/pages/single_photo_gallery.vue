@@ -1,6 +1,6 @@
 <template>
-   <div class="pt-3">
-      <div v-if="loading1 && loading2">
+   <div class="pt-3">      
+      <div v-if="loading">
          <v-card flat class="mt-6">
             <div class="text-center blue--text text--darken-4 font-weight-bold">
                Loading...
@@ -77,7 +77,7 @@
          </v-card>
       </div>
       <div v-else>
-         <v-card flat v-if="photos.length === 0" height="480" min-height="300">
+         <v-card flat v-if="photos.gallery_photos.length === 0" height="480" min-height="300">
             <v-container fill-height fluid>
                <v-row align="center" justify="center">
                   <div class="text-center">
@@ -88,14 +88,19 @@
             </v-container>
          </v-card>
          <div v-else>
+            <v-card flat tile class="mx-auto">
+               <v-card-subtitle class="text-center text-h3 blue--text text--darken-4 lighten-3 text-uppercase">
+                  {{ photos.gallery_name }}
+               </v-card-subtitle>
+            </v-card>
             <v-row class="mx-1 py-2 mt-n3">
                <v-col
-                  v-for="(photo, index) in photos"
+                  v-for="(photo, index) in photos.gallery_photos"
                   :key="index"
                   cols="12"
                   sm="6"
                   md="4"
-               >
+               >               
                   <v-card flat>
                      <v-img
                         :src="photo.src"
@@ -116,7 +121,7 @@
                escDisabled
                moveDisabled
                :visible="visible"
-               :imgs="photos"
+               :imgs="photos.gallery_photos"
                :index="index"
                @hide="handleHide"
             >
@@ -139,10 +144,8 @@ export default {
          single_photo: "",
          title: "",
          visible: false,
-         index: 0, // default: 0
-         gallery_title: null,
-         loading1: true,
-         loading2: true,
+         index: 0, // default: 0         
+         loading: true,         
       };
    },
    methods: {
@@ -161,33 +164,32 @@ export default {
       },
    },
    created() {
-      axios
-         .get("/api/gallery/photos/photosbygalleryid/" + this.$route.params.id)
-         .then((res) => {
-            // console.log(res.data)
-            // res.data.forEach( (photo) => {
-            //    photo.src = '/storage/photo_gallery_images/' + photo.src
-            // })
-            this.photos = res.data.data;
-            this.loading1 = false;
-         })
-         .catch((error) => {
-            console.log(error);
-            // this.errors = error.response.data.errors
-            this.loading1 = false;
-         });
+      // axios
+      //    .get("/api/gallery/photos/photosbygalleryid/" + this.$route.params.id)
+      //    .then((res) => {
+      //       // console.log(res.data)
+      //       this.photos = res.data.data;
+      //       this.loading1 = false;
+      //    })
+      //    .catch((error) => {
+      //       // console.log(error);
+      //       // this.errors = error.response.data.errors
+      //       // this.loading1 = false;
+      //       this.$router.push({ name: 'NotFound' })
+      //    });
 
       axios
          .get("/api/gallery/name/show/" + this.$route.params.id)
          .then((res) => {
             // console.log(res)
-            this.gallery_title = res.data;
-            this.loading2 = false;
+            this.photos = res.data;
+            this.loading = false;
          })
          .catch((error) => {
-            console.log(error);
+            // console.log(error);
             // this.errors = error.response.data.errors
-            this.loading2 = false;
+            // this.loading2 = false;
+            this.$router.push({ name: 'NotFound' })
          });
    },
 };

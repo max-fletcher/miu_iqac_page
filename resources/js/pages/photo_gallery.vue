@@ -84,8 +84,8 @@
       <div v-else>      
          <v-row class="mx-2 py-1">
             <v-card flat tile class="mx-auto">
-               <v-card-title class="text-center text-h3 blue--text text--darken-4">
-                  Photo Gallery
+               <v-card-title class="text-center text-h3 blue--text text--darken-4 text-uppercase">
+                  All Photo Galleries
                </v-card-title>
             </v-card>
          </v-row>

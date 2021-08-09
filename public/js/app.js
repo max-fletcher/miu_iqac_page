@@ -5519,8 +5519,8 @@ __webpack_require__.r(__webpack_exports__);
       _this.news = res.data;
       _this.loading = false;
     })["catch"](function (error) {
-      console.log(error); // this.errors = error.response.data.errors
-
+      // console.log(error);
+      // this.errors = error.response.data.errors
       _this.loading = false;
     });
   }
@@ -5718,29 +5718,22 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       members: [],
-      page_title: null,
-      loading1: true,
-      loading2: true
+      loading: true
     };
   },
   created: function created() {
     var _this = this;
 
-    axios.get("/api/people/members/membersbypeopleid/" + this.$route.params.id).then(function (res) {
-      _this.members = res.data;
-      _this.loading1 = false;
-    })["catch"](function (error) {
-      console.log(error); // this.errors = error.response.data.errors
-
-      _this.loading1 = false;
-    });
     axios.get("/api/people/show/" + this.$route.params.id).then(function (res) {
-      _this.page_title = res.data;
-      _this.loading2 = false;
+      _this.members = res.data;
+      _this.loading = false;
     })["catch"](function (error) {
-      console.log(error); // this.errors = error.response.data.errors
-
-      _this.loading2 = false;
+      // console.log(error);
+      // this.errors = error.response.data.errors
+      // this.loading = false;
+      _this.$router.push({
+        name: 'NotFound'
+      });
     });
   }
 });
@@ -6528,8 +6521,11 @@ __webpack_require__.r(__webpack_exports__);
       _this.loading = false;
     })["catch"](function (error) {
       console.log(error); // this.errors = error.response.data.errors
+      // this.loading = false;
 
-      _this.loading = false;
+      _this.$router.push({
+        name: 'NotFound'
+      });
     });
   }
 });
@@ -6678,9 +6674,11 @@ __webpack_require__.r(__webpack_exports__);
       _this.single_news = res.data;
       _this.loading = false;
     })["catch"](function (error) {
-      console.log(error); // this.errors = error.response.data.errors
-
-      _this.loading = false;
+      // console.log(error);
+      // this.errors = error.response.data.errors
+      _this.$router.push({
+        name: 'NotFound'
+      });
     });
   }
 });
@@ -6827,6 +6825,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 // Import Vue Easy Lightbox Component
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -6841,10 +6844,8 @@ __webpack_require__.r(__webpack_exports__);
       title: "",
       visible: false,
       index: 0,
-      // default: 0
-      gallery_title: null,
-      loading1: true,
-      loading2: true
+      // default: 0         
+      loading: true
     };
   },
   methods: {
@@ -6864,26 +6865,30 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get("/api/gallery/photos/photosbygalleryid/" + this.$route.params.id).then(function (res) {
-      // console.log(res.data)
-      // res.data.forEach( (photo) => {
-      //    photo.src = '/storage/photo_gallery_images/' + photo.src
-      // })
-      _this.photos = res.data.data;
-      _this.loading1 = false;
-    })["catch"](function (error) {
-      console.log(error); // this.errors = error.response.data.errors
-
-      _this.loading1 = false;
-    });
+    // axios
+    //    .get("/api/gallery/photos/photosbygalleryid/" + this.$route.params.id)
+    //    .then((res) => {
+    //       // console.log(res.data)
+    //       this.photos = res.data.data;
+    //       this.loading1 = false;
+    //    })
+    //    .catch((error) => {
+    //       // console.log(error);
+    //       // this.errors = error.response.data.errors
+    //       // this.loading1 = false;
+    //       this.$router.push({ name: 'NotFound' })
+    //    });
     axios.get("/api/gallery/name/show/" + this.$route.params.id).then(function (res) {
       // console.log(res)
-      _this.gallery_title = res.data;
-      _this.loading2 = false;
+      _this.photos = res.data;
+      _this.loading = false;
     })["catch"](function (error) {
-      console.log(error); // this.errors = error.response.data.errors
-
-      _this.loading2 = false;
+      // console.log(error);
+      // this.errors = error.response.data.errors
+      // this.loading2 = false;
+      _this.$router.push({
+        name: 'NotFound'
+      });
     });
   }
 });
@@ -54443,7 +54448,7 @@ var render = function() {
                 )
               : _c(
                   "v-row",
-                  { staticClass: "mx-2 py-4" },
+                  { staticClass: "mx-2" },
                   [
                     _c(
                       "v-col",
@@ -54729,7 +54734,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "pt-3" }, [
-    _vm.loading1 && _vm.loading2
+    _vm.loading
       ? _c(
           "div",
           [
@@ -54850,7 +54855,7 @@ var render = function() {
       : _c(
           "div",
           [
-            _vm.members.length === 0
+            _vm.members.members.length === 0
               ? _c(
                   "v-card",
                   { attrs: { flat: "", height: "480", "min-height": "300" } },
@@ -54904,7 +54909,7 @@ var render = function() {
                               [
                                 _vm._v(
                                   "\n                  " +
-                                    _vm._s(_vm.page_title.name) +
+                                    _vm._s(_vm.members.name) +
                                     "\n               "
                                 )
                               ]
@@ -54922,7 +54927,7 @@ var render = function() {
                         staticClass: "mx-4 pb-4",
                         attrs: { justify: "center" }
                       },
-                      _vm._l(_vm.members, function(member, index) {
+                      _vm._l(_vm.members.members, function(member, index) {
                         return _c(
                           "v-col",
                           {
@@ -54979,7 +54984,7 @@ var render = function() {
                                           ]
                                         ),
                                         _vm._v(
-                                          "\n                        Name: " +
+                                          "                           \n                        Name: " +
                                             _vm._s(member.name) +
                                             "\n                     "
                                         )
@@ -55293,11 +55298,11 @@ var render = function() {
                               "v-card-title",
                               {
                                 staticClass:
-                                  "text-center text-h3 blue--text text--darken-4"
+                                  "text-center text-h3 blue--text text--darken-4 text-uppercase"
                               },
                               [
                                 _vm._v(
-                                  "\r\n                  Photo Gallery\r\n               "
+                                  "\r\n                  All Photo Galleries\r\n               "
                                 )
                               ]
                             )
@@ -56861,7 +56866,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "pt-3" }, [
-    _vm.loading1 && _vm.loading2
+    _vm.loading
       ? _c(
           "div",
           [
@@ -56982,7 +56987,7 @@ var render = function() {
       : _c(
           "div",
           [
-            _vm.photos.length === 0
+            _vm.photos.gallery_photos.length === 0
               ? _c(
                   "v-card",
                   { attrs: { flat: "", height: "480", "min-height": "300" } },
@@ -57020,9 +57025,31 @@ var render = function() {
                   "div",
                   [
                     _c(
+                      "v-card",
+                      { staticClass: "mx-auto", attrs: { flat: "", tile: "" } },
+                      [
+                        _c(
+                          "v-card-subtitle",
+                          {
+                            staticClass:
+                              "text-center text-h3 blue--text text--darken-4 lighten-3 text-uppercase"
+                          },
+                          [
+                            _vm._v(
+                              "\n               " +
+                                _vm._s(_vm.photos.gallery_name) +
+                                "\n            "
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
                       "v-row",
                       { staticClass: "mx-1 py-2 mt-n3" },
-                      _vm._l(_vm.photos, function(photo, index) {
+                      _vm._l(_vm.photos.gallery_photos, function(photo, index) {
                         return _c(
                           "v-col",
                           {
@@ -57080,7 +57107,7 @@ var render = function() {
                         escDisabled: "",
                         moveDisabled: "",
                         visible: _vm.visible,
-                        imgs: _vm.photos,
+                        imgs: _vm.photos.gallery_photos,
                         index: _vm.index
                       },
                       on: { hide: _vm.handleHide }
@@ -75248,7 +75275,8 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 
 
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__.default,VCardText: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.VCardText,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__.default,VContainer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__.default,VImg: vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_8__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__.default})
+
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__.default,VCardSubtitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.VCardSubtitle,VCardText: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.VCardText,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__.default,VContainer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__.default,VImg: vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_8__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__.default})
 
 
 /* hot reload */

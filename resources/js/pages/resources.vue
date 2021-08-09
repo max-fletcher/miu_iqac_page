@@ -87,7 +87,7 @@
               <v-card-subtitle class="text-center text-h3 blue--text text--darken-4 lighten-3 text-uppercase">
                 {{ resources.resource_type_name }}
               </v-card-subtitle>
-          </v-card>        
+          </v-card>
         
           <v-sheet class="px-2 py-2" color="grey lighten-3" min-height="500">
             <v-row>
