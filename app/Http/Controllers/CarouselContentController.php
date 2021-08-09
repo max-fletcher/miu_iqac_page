@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 use App\Models\CarouselContent;
 use Intervention\Image\Facades\Image;
 Use Illuminate\Support\Facades\File;
@@ -27,6 +26,7 @@ class CarouselContentController extends Controller
             'carousel_title' => ['required', 'string', 'max:133'],
             'carousel_subtitle' => ['required', 'string', 'max:176'],
             'carousel_image' => ['required', 'image', 'max:3000'],
+            'resize_image' => ['required', 'numeric', 'integer'],
         ]);        
 
         //get filename with extension
@@ -47,9 +47,15 @@ class CarouselContentController extends Controller
             File::makeDirectory($path, 0777, true, true);
         }
 
-        // Resize image and store it in $image variable
-        $image = Image::make($request->file('carousel_image'))->resize(2000, 1170);
+        // Resize image if needed and store it in $image variable
         // Save image to designated folder inside storage
+        if($request->resize_image == 1){
+            $image = Image::make($request->file('carousel_image'))->resize(2000, 1150);
+        }
+        else{
+            $image = Image::make($request->file('carousel_image'));
+        }
+
         $image->save(public_path('storage/carousel_images/'. $filenameToStore));
 
         CarouselContent::Create([
@@ -76,7 +82,8 @@ class CarouselContentController extends Controller
         $request->validate([
             'carousel_title' => ['required', 'string', 'max:133'],
             'carousel_subtitle' => ['required', 'string', 'max:176'],
-            'carousel_image' => ['required', 'image', 'max:3000']
+            'carousel_image' => ['required', 'image', 'max:3000'],
+            'resize_image' => ['required', 'numeric', 'integer'],
         ]);
 
         //get filename with extension
@@ -96,8 +103,15 @@ class CarouselContentController extends Controller
             File::makeDirectory($path, 0777, true, true);
         }
         
-        // Resize image and store it in $image variable
-        $image = Image::make($request->file('carousel_image'))->resize(2000, 1170);
+        // Resize image if needed and store it in $image variable
+        // Save image to designated folder inside storage
+        if($request->resize_image == 1){
+            $image = Image::make($request->file('carousel_image'))->resize(2000, 1150);
+        }
+        else{
+            $image = Image::make($request->file('carousel_image'));
+        }
+
         // Save image to designated folder inside storage
         $image->save(public_path('storage/carousel_images/'. $filenameToStore));
 
@@ -106,8 +120,9 @@ class CarouselContentController extends Controller
             $carousel_content->carousel_title = $request->carousel_title;
             $carousel_content->carousel_subtitle = $request->carousel_subtitle;
             
-            Storage::delete('public/carousel_images/'.$carousel_content->carousel_image);  //deletes previous file
-            //needs to use Illuminate\Support\Facades\Storage;
+            File::delete(public_path('storage/carousel_images/'.$carousel_content->carousel_image));  //deletes previous file
+            // Storage::delete('public/carousel_images/'.$carousel_content->carousel_image);
+            
             $carousel_content->carousel_image = $filenameToStore;
 
             $carousel_content->save();
@@ -122,7 +137,10 @@ class CarouselContentController extends Controller
     {
         $carousel_content = CarouselContent::find($id);
         if($carousel_content){
-            Storage::delete('public/carousel_images/'.$carousel_content->carousel_image);  //deletes iamge
+            // using this instead of Storage::delete since in create method, intervention image doesn't work with
+            // storeAs method (uses GD library) so used File facade there as well as here to maintain consistency
+            // Storage::delete('public/carousel_images/'.$carousel_content->carousel_image);  //deletes iamge
+            File::delete(public_path('storage/carousel_images/'.$carousel_content->carousel_image));
             $carousel_content->delete();
             return response()->json( "Carousel Content Deleted Successfully !!" ,201);
         }

@@ -80,6 +80,7 @@
                </v-col>
                <v-col cols="12" md="9" lg="10"> -->
 
+                   
                   <v-carousel height="auto" cycle interval="5500" show-arrows-on-hover hide-delimiters>
                      <v-carousel-item v-for="(item, index) in items" :key="index">
                         <v-img
