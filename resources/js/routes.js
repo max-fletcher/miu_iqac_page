@@ -7,7 +7,6 @@ import News from "./pages/news";
 import SingleNews from "./pages/single_news";
 import Resources from "./pages/resources";
 import People from "./pages/people";
-import SAC from "./pages/sac";
 import ContactUs from "./pages/contactus";
 import NotFound from "./pages/notfound";
 import PhotoGallery from "./pages/photo_gallery";
@@ -87,12 +86,6 @@ export default{
          component: People,
          name: 'People',
          meta: { title: 'People' }
-      },
-      {
-         path: '/people/sac',
-         component: SAC,
-         name: 'SAC',
-         meta: { title: 'SAC' }
       },
       {
          path: '/contact-us',

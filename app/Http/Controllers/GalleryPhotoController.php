@@ -114,14 +114,4 @@ class GalleryPhotoController extends Controller
 
         return response()->json('The Provided ID doesn\'t match any Photos !!', 404);
     }
-
-    // public function photos_by_gallery_name_id($id)
-    // {       
-    //     $gallery = GalleryName::find($id);
-    //     if ($gallery) {
-    //         $photos = GalleryPhoto::where('gallery_name_id', $id)->select('id', 'gallery_name_id', 'photo_title', 'photo_image', 'created_at')->get();
-    //         return GalleryPhotoResource::collection($photos);
-    //     }
-    //     return response()->json('The Provided ID doesn\'t match any Photos !!', 404);
-    // }
 }

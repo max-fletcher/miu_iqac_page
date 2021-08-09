@@ -164,19 +164,6 @@ export default {
       },
    },
    created() {
-      // axios
-      //    .get("/api/gallery/photos/photosbygalleryid/" + this.$route.params.id)
-      //    .then((res) => {
-      //       // console.log(res.data)
-      //       this.photos = res.data.data;
-      //       this.loading1 = false;
-      //    })
-      //    .catch((error) => {
-      //       // console.log(error);
-      //       // this.errors = error.response.data.errors
-      //       // this.loading1 = false;
-      //       this.$router.push({ name: 'NotFound' })
-      //    });
 
       axios
          .get("/api/gallery/name/show/" + this.$route.params.id)

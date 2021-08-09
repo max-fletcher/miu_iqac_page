@@ -150,9 +150,9 @@ export default {
         this.loading = false;
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         // this.errors = error.response.data.errors
-        this.loading = false;
+        this.loading = false;        
       });
   },
 }
