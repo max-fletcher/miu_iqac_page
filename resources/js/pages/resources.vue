@@ -85,8 +85,7 @@
       <div v-else class="grey lighten-3 mt-3">
           <v-card flat tile class="mx-auto grey lighten-3">
               <v-card-subtitle class="text-center text-h3 blue--text text--darken-4 lighten-3 text-uppercase">
-                {{ resources.resource_type_name }}
-              </v-card-subtitle>
+                {{ resources.resource_type_name }}</v-card-subtitle>
           </v-card>
         
           <v-sheet class="px-2 py-2" color="grey lighten-3" min-height="500">

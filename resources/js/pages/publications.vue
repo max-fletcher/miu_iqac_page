@@ -147,7 +147,7 @@ export default {
       }
 
       axios
-         .get("/api/publication_type_info/show/" + this.$route.params.id)
+         .get("/api/publication_type_info/show_with_publications/" + this.$route.params.id)
          .then((res) => {
             // console.log(res)
             this.publications = res.data;
@@ -155,8 +155,9 @@ export default {
          })
          .catch((error) => {
             // console.log(error);
-            this.errors = error.response.data.errors
-            this.loading = false;
+            // this.errors = error.response.data.errors
+            // this.loading = false;
+            this.$router.push({ name: 'ResourceNotFound' })
          });
    },
 };

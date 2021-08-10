@@ -138,6 +138,7 @@ Route::get('/publication_type_info/index', [App\Http\Controllers\PublicationType
 Route::get('/publication_type_info/frontend_index', [App\Http\Controllers\PublicationTypeInfoController::class, 'frontend_index']);
 Route::post('/publication_type_info/store', [App\Http\Controllers\PublicationTypeInfoController::class, 'store']);
 Route::get('/publication_type_info/show/{id}', [App\Http\Controllers\PublicationTypeInfoController::class, 'show']);
+Route::get('/publication_type_info/show_with_publications/{id}', [App\Http\Controllers\PublicationTypeInfoController::class, 'show_with_publications']);
 Route::patch('/publication_type_info/update/{id}', [App\Http\Controllers\PublicationTypeInfoController::class, 'update']);
 Route::delete('/publication_type_info/destroy/{id}', [App\Http\Controllers\PublicationTypeInfoController::class, 'destroy']);
 

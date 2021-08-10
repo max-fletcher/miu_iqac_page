@@ -35,6 +35,16 @@ class PublicationTypeInfoController extends Controller
 
     public function show($id)
     {
+        $publication_type = PublicationTypeInfo::where('id', $id)->select('id', 'publication_type_name', 'created_at')->first();
+        if($publication_type){
+            return response()->json($publication_type, 200);
+        }
+
+        return response()->json('Publication Type Not Found !!', 404);
+    }
+
+    public function show_with_publications($id)
+    {
         $publication_type = PublicationTypeInfo::where('id', $id)->select('id', 'publication_type_name', 'created_at')->with(['publications' => function($query) {
             return $query->select(['id', 'publication_type_info_id', 'publication_name', 'publication_file', 'created_at']);
         }])->first();

@@ -1,6 +1,6 @@
 <template>
-  <div class="pt-3">
-      <div v-if="loading1">
+  <div class="pt-3">     
+      <div v-if="loading">
          <v-card flat class="mt-6">
             <div class="text-center blue--text text--darken-4 font-weight-bold">
                   Loading...
@@ -71,17 +71,17 @@
          </v-card>
       </div>
       <div class="px-6" v-else>
-         <v-card flat v-if="publication_type.length === 0" height="480" min-height="300">
+         <!-- <v-card flat v-if="publication_type.length === 0" height="480" min-height="300">
             <v-container fill-height fluid>
                <v-row align="center" justify="center">
                   <div class="text-center">
-                     <h2> Error. </h2>
+                     <h2> 404 Error !</h2>
                      <h1> Publication With This ID Does Not Exist. </h1>
                   </div>
                </v-row>
             </v-container>
          </v-card>
-         <div v-else>
+         <div v-else> -->
             <v-row>
                <v-card flat tile class="mx-auto mb-2 mt-2">
                   <v-card-title class="text-center text-sm-h3 text-h4 blue--text text--darken-4 text-uppercase">
@@ -243,7 +243,7 @@
                   </v-form>
                </v-col>
             </v-row>
-         </div>
+         <!-- </div> -->
       </div>
    </div>
 </template>
@@ -253,8 +253,9 @@ import moment from 'moment'
 export default {
    data: () => ({
       moment: moment,
-      loading1: true,
-      loading2: true,
+      loading: true,
+      timeout: 3000,
+      // loading2: true,
       token_fail_type: null,
       publication_type: [],
       errors:[],
@@ -270,7 +271,7 @@ export default {
       ],
    }),
    methods: {
-         submitForm() {         
+         submitForm() {
          if (this.$refs.contact_us_form.validate()) {
             this.form_disabled = true
             this.form_loading = true
@@ -288,20 +289,20 @@ export default {
                // Might not be needed
                this.form_disabled = false
                this.form_loading = false
-               this.$refs.contact_us_form.reset()
+               // this.$refs.contact_us_form.reset()
             })
-            .catch((error) => {        
+            .catch((error) => {
                this.error_message_snackbar = true
                this.errors = error.response.data.errors
                this.error_message = error.response.data.message
                this.form_disabled = false
                this.form_loading = false
                this.password_alert = true
-            });            
+            });
          } else {
             //false
             this.$refs.contact_us_form.validate()
-         }         
+         }
       },
       
       reset() {
@@ -337,12 +338,12 @@ export default {
                   .catch((error) => {
                      // console.log(error)
                      this.$store.dispatch('authenticated/reset_state')
-                     this.token_fail_type = 'notokenmatch'                     
-                     this.loading2 = false
+                     this.token_fail_type = 'notokenmatch'
+                     // this.loading2 = false
                   });
             }
          }         
-         this.loading2 = false
+         // this.loading2 = false
       }
 
       axios
@@ -350,12 +351,13 @@ export default {
          .then((res) => {
             // console.log(res)
             this.publication_type = res.data
-            this.loading1 = false
+            this.loading = false
          })
          .catch((error) => {
             // console.log(error)
             // this.errors = error.response.data.errors
-            this.loading1 = false
+            // this.loading = false
+            this.$router.push({ name: 'ResourceNotFound' })
          });
    },
 };

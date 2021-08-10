@@ -2601,8 +2601,9 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       moment: (moment__WEBPACK_IMPORTED_MODULE_0___default()),
-      loading1: true,
-      loading2: true,
+      loading: true,
+      timeout: 3000,
+      // loading2: true,
       token_fail_type: null,
       publication_type: [],
       errors: [],
@@ -2640,9 +2641,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
           _this.form_disabled = false;
-          _this.form_loading = false;
-
-          _this.$refs.contact_us_form.reset();
+          _this.form_loading = false; // this.$refs.contact_us_form.reset()
         })["catch"](function (error) {
           _this.error_message_snackbar = true;
           _this.errors = error.response.data.errors;
@@ -2684,23 +2683,24 @@ __webpack_require__.r(__webpack_exports__);
             // console.log(error)
             _this2.$store.dispatch('authenticated/reset_state');
 
-            _this2.token_fail_type = 'notokenmatch';
-            _this2.loading2 = false;
+            _this2.token_fail_type = 'notokenmatch'; // this.loading2 = false
           });
         }
-      }
+      } // this.loading2 = false
 
-      this.loading2 = false;
     }
 
     axios.get("/api/publication_type_info/show/" + this.$route.params.id).then(function (res) {
       // console.log(res)
       _this2.publication_type = res.data;
-      _this2.loading1 = false;
+      _this2.loading = false;
     })["catch"](function (error) {
       // console.log(error)
       // this.errors = error.response.data.errors
-      _this2.loading1 = false;
+      // this.loading = false
+      _this2.$router.push({
+        name: 'ResourceNotFound'
+      });
     });
   }
 });
@@ -6072,14 +6072,17 @@ __webpack_require__.r(__webpack_exports__);
       this.$router.push('/publications_auth/' + this.$route.params.id + '?fail=notokens');
     }
 
-    axios.get("/api/publication_type_info/show/" + this.$route.params.id).then(function (res) {
+    axios.get("/api/publication_type_info/show_with_publications/" + this.$route.params.id).then(function (res) {
       // console.log(res)
       _this.publications = res.data;
       _this.loading = false;
     })["catch"](function (error) {
       // console.log(error);
-      _this.errors = error.response.data.errors;
-      _this.loading = false;
+      // this.errors = error.response.data.errors
+      // this.loading = false;
+      _this.$router.push({
+        name: 'ResourceNotFound'
+      });
     });
   }
 });
@@ -6131,7 +6134,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_quicklinks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/quicklinks */ "./resources/js/pages/components/quicklinks.vue");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
-//
 //
 //
 //
@@ -48861,7 +48863,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "pt-3" }, [
-    _vm.loading1
+    _vm.loading
       ? _c(
           "div",
           [
@@ -48983,385 +48985,333 @@ var render = function() {
           "div",
           { staticClass: "px-6" },
           [
-            _vm.publication_type.length === 0
-              ? _c(
+            _c(
+              "v-row",
+              [
+                _c(
                   "v-card",
-                  { attrs: { flat: "", height: "480", "min-height": "300" } },
+                  {
+                    staticClass: "mx-auto mb-2 mt-2",
+                    attrs: { flat: "", tile: "" }
+                  },
                   [
                     _c(
-                      "v-container",
-                      { attrs: { "fill-height": "", fluid: "" } },
+                      "v-card-title",
+                      {
+                        staticClass:
+                          "text-center text-sm-h3 text-h4 blue--text text--darken-4 text-uppercase"
+                      },
                       [
-                        _c(
-                          "v-row",
-                          { attrs: { align: "center", justify: "center" } },
-                          [
-                            _c("div", { staticClass: "text-center" }, [
-                              _c("h2", [_vm._v(" Error. ")]),
-                              _vm._v(" "),
-                              _c("h1", [
-                                _vm._v(
-                                  " Publication With This ID Does Not Exist. "
-                                )
-                              ])
-                            ])
-                          ]
+                        _vm._v(
+                          "\n                   " +
+                            _vm._s(_vm.publication_type.publication_type_name) +
+                            "\n                "
                         )
-                      ],
-                      1
+                      ]
                     )
                   ],
                   1
                 )
-              : _c(
-                  "div",
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("v-row", [
+              _c(
+                "div",
+                { staticClass: "mx-auto" },
+                [
+                  _c(
+                    "v-card",
+                    { attrs: { flat: "" } },
+                    [
+                      _c(
+                        "v-card-title",
+                        {
+                          staticClass:
+                            "text-center text-sm-h5 text-h6 font-weight-medium blue-grey--text text--darken-3"
+                        },
+                        [
+                          _vm._v(
+                            "\n                      This Section is Password Protected\n                   "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-card-subtitle",
+                        {
+                          staticClass:
+                            "\n                         text-center\n                         text-sibtitle-1\n                         font-weight-bold\n                         blue-grey--text\n                         text--darken-3                           \n                         pb-0\n                      "
+                        },
+                        [
+                          _vm._v(
+                            "\n                      Enter Password to Proceed\n                   "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "v-row",
+              [
+                _c(
+                  "v-col",
+                  { staticClass: "mx-7" },
                   [
                     _c(
-                      "v-row",
-                      [
-                        _c(
-                          "v-card",
+                      "v-snackbar",
+                      {
+                        attrs: {
+                          color: "red darken-4",
+                          timeout: _vm.timeout,
+                          top: "",
+                          right: ""
+                        },
+                        scopedSlots: _vm._u([
                           {
-                            staticClass: "mx-auto mb-2 mt-2",
-                            attrs: { flat: "", tile: "" }
-                          },
-                          [
-                            _c(
-                              "v-card-title",
-                              {
-                                staticClass:
-                                  "text-center text-sm-h3 text-h4 blue--text text--darken-4 text-uppercase"
-                              },
-                              [
-                                _vm._v(
-                                  "\n                   " +
-                                    _vm._s(
-                                      _vm.publication_type.publication_type_name
-                                    ) +
-                                    "\n                "
+                            key: "action",
+                            fn: function(ref) {
+                              var attrs = ref.attrs
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._b(
+                                    {
+                                      attrs: { color: "white", text: "" },
+                                      on: {
+                                        click: function($event) {
+                                          _vm.error_message_snackbar = false
+                                        }
+                                      }
+                                    },
+                                    "v-btn",
+                                    attrs,
+                                    false
+                                  ),
+                                  [
+                                    _vm._v(
+                                      "\n                      Close\n                   "
+                                    )
+                                  ]
                                 )
                               ]
-                            )
-                          ],
-                          1
+                            }
+                          }
+                        ]),
+                        model: {
+                          value: _vm.error_message_snackbar,
+                          callback: function($$v) {
+                            _vm.error_message_snackbar = $$v
+                          },
+                          expression: "error_message_snackbar"
+                        }
+                      },
+                      [
+                        _c("v-icon", { attrs: { left: "" } }, [
+                          _vm._v(
+                            "\n                   mdi-alert-octagon\n                "
+                          )
+                        ]),
+                        _vm._v(
+                          "\n                   " +
+                            _vm._s(_vm.error_message) +
+                            "\n\n                   "
                         )
                       ],
                       1
                     ),
                     _vm._v(" "),
-                    _c("v-row", [
-                      _c(
-                        "div",
-                        { staticClass: "mx-auto" },
-                        [
+                    _vm.errors && _vm.errors.publication_password
+                      ? _c(
+                          "v-alert",
+                          {
+                            staticClass: "my-2",
+                            attrs: {
+                              type: "error",
+                              dark: "",
+                              text: "",
+                              dense: "",
+                              transition: "scale-transition"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "                        \n                   " +
+                                _vm._s(_vm.errors.publication_password[0]) +
+                                "\n                "
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.token_fail_type === "notokens"
+                      ? _c(
+                          "v-alert",
+                          {
+                            staticClass: "my-2",
+                            attrs: {
+                              type: "error",
+                              dark: "",
+                              text: "",
+                              dense: "",
+                              transition: "scale-transition"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "                        \n                   Access Denied ! Please Provide Password to Continue !!\n                "
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.token_fail_type === "notokenmatch"
+                      ? _c(
+                          "v-alert",
+                          {
+                            staticClass: "my-2",
+                            attrs: {
+                              type: "error",
+                              dark: "",
+                              text: "",
+                              dense: "",
+                              transition: "scale-transition"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "                        \n                   Access Denied ! Please Refresh Page and Enter Password to Continue !!\n                "
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "v-row",
+              [
+                _c(
+                  "v-col",
+                  { staticClass: "mb-3 px-4 px-sm-10" },
+                  [
+                    _c(
+                      "v-form",
+                      {
+                        ref: "contact_us_form",
+                        attrs: {
+                          disabled: _vm.form_disabled,
+                          "lazy-validation": ""
+                        }
+                      },
+                      [
+                        _c(
+                          "v-card-subtitle",
+                          {
+                            staticClass:
+                              "\n                         text-center\n                         text-sm-left\n                         text-caption\n                         font-weight-bold\n                         red--text\n                         text--darken-3\n                         mb-n2\n                         ml-n3\n                      "
+                          },
+                          [
+                            _vm._v(
+                              "\n                      *Refreshing the page causes tokens to expire. If your token expires for any reason, just re-enter password.\n                   "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("v-text-field", {
+                          attrs: {
+                            type: "password",
+                            rules: _vm.passwordRules,
+                            label: "Password",
+                            placeholder: "Enter Password",
+                            "prepend-inner-icon": "mdi-lock",
+                            required: "",
+                            outlined: ""
+                          },
+                          on: {
+                            input: function($event) {
+                              _vm.password_alert = false
+                            },
+                            keydown: function($event) {
+                              if (
+                                !$event.type.indexOf("key") &&
+                                _vm._k(
+                                  $event.keyCode,
+                                  "enter",
+                                  13,
+                                  $event.key,
+                                  "Enter"
+                                )
+                              ) {
+                                return null
+                              }
+                              $event.preventDefault()
+                              return _vm.submitForm.apply(null, arguments)
+                            }
+                          },
+                          model: {
+                            value: _vm.password,
+                            callback: function($$v) {
+                              _vm.password = $$v
+                            },
+                            expression: "password"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("v-row", { staticClass: "mt-4 mt-sm-3 mt-md-1" }, [
                           _c(
-                            "v-card",
-                            { attrs: { flat: "" } },
+                            "div",
+                            { staticClass: "d-flex flex-row mx-auto" },
                             [
                               _c(
-                                "v-card-title",
+                                "v-btn",
                                 {
-                                  staticClass:
-                                    "text-center text-sm-h5 text-h6 font-weight-medium blue-grey--text text--darken-3"
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                      This Section is Password Protected\n                   "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-card-subtitle",
-                                {
-                                  staticClass:
-                                    "\n                         text-center\n                         text-sibtitle-1\n                         font-weight-bold\n                         blue-grey--text\n                         text--darken-3                           \n                         pb-0\n                      "
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                      Enter Password to Proceed\n                   "
-                                  )
-                                ]
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "v-row",
-                      [
-                        _c(
-                          "v-col",
-                          { staticClass: "mx-7" },
-                          [
-                            _c(
-                              "v-snackbar",
-                              {
-                                attrs: {
-                                  color: "red darken-4",
-                                  timeout: _vm.timeout,
-                                  top: "",
-                                  right: ""
-                                },
-                                scopedSlots: _vm._u([
-                                  {
-                                    key: "action",
-                                    fn: function(ref) {
-                                      var attrs = ref.attrs
-                                      return [
-                                        _c(
-                                          "v-btn",
-                                          _vm._b(
-                                            {
-                                              attrs: {
-                                                color: "white",
-                                                text: ""
-                                              },
-                                              on: {
-                                                click: function($event) {
-                                                  _vm.error_message_snackbar = false
-                                                }
-                                              }
-                                            },
-                                            "v-btn",
-                                            attrs,
-                                            false
-                                          ),
-                                          [
-                                            _vm._v(
-                                              "\n                      Close\n                   "
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    }
-                                  }
-                                ]),
-                                model: {
-                                  value: _vm.error_message_snackbar,
-                                  callback: function($$v) {
-                                    _vm.error_message_snackbar = $$v
-                                  },
-                                  expression: "error_message_snackbar"
-                                }
-                              },
-                              [
-                                _c("v-icon", { attrs: { left: "" } }, [
-                                  _vm._v(
-                                    "\n                   mdi-alert-octagon\n                "
-                                  )
-                                ]),
-                                _vm._v(
-                                  "\n                   " +
-                                    _vm._s(_vm.error_message) +
-                                    "\n\n                   "
-                                )
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _vm.errors && _vm.errors.publication_password
-                              ? _c(
-                                  "v-alert",
-                                  {
-                                    staticClass: "my-2",
-                                    attrs: {
-                                      type: "error",
-                                      dark: "",
-                                      text: "",
-                                      dense: "",
-                                      transition: "scale-transition"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "                        \n                   " +
-                                        _vm._s(
-                                          _vm.errors.publication_password[0]
-                                        ) +
-                                        "\n                "
-                                    )
-                                  ]
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.token_fail_type === "notokens"
-                              ? _c(
-                                  "v-alert",
-                                  {
-                                    staticClass: "my-2",
-                                    attrs: {
-                                      type: "error",
-                                      dark: "",
-                                      text: "",
-                                      dense: "",
-                                      transition: "scale-transition"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "                        \n                   Access Denied ! Please Provide Password to Continue !!\n                "
-                                    )
-                                  ]
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.token_fail_type === "notokenmatch"
-                              ? _c(
-                                  "v-alert",
-                                  {
-                                    staticClass: "my-2",
-                                    attrs: {
-                                      type: "error",
-                                      dark: "",
-                                      text: "",
-                                      dense: "",
-                                      transition: "scale-transition"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "                        \n                   Access Denied ! Please Refresh Page and Enter Password to Continue !!\n                "
-                                    )
-                                  ]
-                                )
-                              : _vm._e()
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-row",
-                      [
-                        _c(
-                          "v-col",
-                          { staticClass: "mb-3 px-4 px-sm-10" },
-                          [
-                            _c(
-                              "v-form",
-                              {
-                                ref: "contact_us_form",
-                                attrs: {
-                                  disabled: _vm.form_disabled,
-                                  "lazy-validation": ""
-                                }
-                              },
-                              [
-                                _c(
-                                  "v-card-subtitle",
-                                  {
-                                    staticClass:
-                                      "\n                         text-center\n                         text-sm-left\n                         text-caption\n                         font-weight-bold\n                         red--text\n                         text--darken-3\n                         mb-n2\n                         ml-n3\n                      "
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                      *Refreshing the page causes tokens to expire. If your token expires for any reason, just re-enter password.\n                   "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c("v-text-field", {
+                                  staticClass: "white--text",
                                   attrs: {
-                                    type: "password",
-                                    rules: _vm.passwordRules,
-                                    label: "Password",
-                                    placeholder: "Enter Password",
-                                    "prepend-inner-icon": "mdi-lock",
-                                    required: "",
-                                    outlined: ""
+                                    color: "green",
+                                    "x-large": "",
+                                    loading: _vm.form_loading
                                   },
                                   on: {
-                                    input: function($event) {
-                                      _vm.password_alert = false
-                                    },
-                                    keydown: function($event) {
-                                      if (
-                                        !$event.type.indexOf("key") &&
-                                        _vm._k(
-                                          $event.keyCode,
-                                          "enter",
-                                          13,
-                                          $event.key,
-                                          "Enter"
-                                        )
-                                      ) {
-                                        return null
-                                      }
+                                    click: function($event) {
                                       $event.preventDefault()
                                       return _vm.submitForm.apply(
                                         null,
                                         arguments
                                       )
                                     }
-                                  },
-                                  model: {
-                                    value: _vm.password,
-                                    callback: function($$v) {
-                                      _vm.password = $$v
-                                    },
-                                    expression: "password"
                                   }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "v-row",
-                                  { staticClass: "mt-4 mt-sm-3 mt-md-1" },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "d-flex flex-row mx-auto"
-                                      },
-                                      [
-                                        _c(
-                                          "v-btn",
-                                          {
-                                            staticClass: "white--text",
-                                            attrs: {
-                                              color: "green",
-                                              "x-large": "",
-                                              loading: _vm.form_loading
-                                            },
-                                            on: {
-                                              click: function($event) {
-                                                $event.preventDefault()
-                                                return _vm.submitForm.apply(
-                                                  null,
-                                                  arguments
-                                                )
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                            Submit\n                         "
-                                            )
-                                          ]
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                            Submit\n                         "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ])
                       ],
                       1
                     )
                   ],
                   1
                 )
+              ],
+              1
+            )
           ],
           1
         )
@@ -55833,8 +55783,7 @@ var render = function() {
                           [
                             _vm._v(
                               "\n              " +
-                                _vm._s(_vm.resources.resource_type_name) +
-                                "\n            "
+                                _vm._s(_vm.resources.resource_type_name)
                             )
                           ]
                         )
@@ -73571,12 +73520,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/VCard.js");
 /* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/index.js");
 /* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VCol.js");
-/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VContainer.js");
-/* harmony import */ var vuetify_lib_components_VForm__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VForm */ "./node_modules/vuetify/lib/components/VForm/VForm.js");
-/* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/VIcon.js");
-/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
-/* harmony import */ var vuetify_lib_components_VSnackbar__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuetify/lib/components/VSnackbar */ "./node_modules/vuetify/lib/components/VSnackbar/VSnackbar.js");
-/* harmony import */ var vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vuetify/lib/components/VTextField */ "./node_modules/vuetify/lib/components/VTextField/VTextField.js");
+/* harmony import */ var vuetify_lib_components_VForm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VForm */ "./node_modules/vuetify/lib/components/VForm/VForm.js");
+/* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/VIcon.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
+/* harmony import */ var vuetify_lib_components_VSnackbar__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vuetify/lib/components/VSnackbar */ "./node_modules/vuetify/lib/components/VSnackbar/VSnackbar.js");
+/* harmony import */ var vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuetify/lib/components/VTextField */ "./node_modules/vuetify/lib/components/VTextField/VTextField.js");
 
 
 
@@ -73608,8 +73556,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 
 
-
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VAlert: vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__.default,VBtn: vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_5__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.default,VCardSubtitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_7__.VCardSubtitle,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_7__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__.default,VContainer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__.default,VForm: vuetify_lib_components_VForm__WEBPACK_IMPORTED_MODULE_10__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_11__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_12__.default,VSnackbar: vuetify_lib_components_VSnackbar__WEBPACK_IMPORTED_MODULE_13__.default,VTextField: vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_14__.default})
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VAlert: vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__.default,VBtn: vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_5__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.default,VCardSubtitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_7__.VCardSubtitle,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_7__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__.default,VForm: vuetify_lib_components_VForm__WEBPACK_IMPORTED_MODULE_9__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_10__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_11__.default,VSnackbar: vuetify_lib_components_VSnackbar__WEBPACK_IMPORTED_MODULE_12__.default,VTextField: vuetify_lib_components_VTextField__WEBPACK_IMPORTED_MODULE_13__.default})
 
 
 /* hot reload */
