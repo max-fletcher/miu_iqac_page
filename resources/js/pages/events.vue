@@ -1,8 +1,8 @@
 <template>
-   <div>
+   <div>            
       <v-sheet class="px-2 py-2" color="grey lighten-3" min-height="500">
          <v-sheet
-            v-if="loading1 && loading2"
+            v-if="loading"
             class="px-2 py-2"
             color="grey lighten-3"
             height="500"
@@ -99,7 +99,7 @@
          <div v-else>
             <v-row class="mx-2">
                <v-col cols="12">
-                  <v-card flat tile class="mx-auto">
+                  <v-card flat tile class="mx-auto px-0">
                      <v-card-subtitle
                         class="
                            text-center text-h3
@@ -107,12 +107,11 @@
                            text--darken-4
                            grey
                            lighten-3
-                           py-0
+                           py-0                           
                            mb-2
+                           pl-lg-4
                         "
-                     >
-                        ALL EVENTS
-                     </v-card-subtitle>
+                     >ALL EVENTS</v-card-subtitle>
                   </v-card>
                </v-col>
 
@@ -123,6 +122,7 @@
 
                   <v-col cols="12" md="9" lg="10">
                      <v-col cols="12" class="pt-0">
+
                         <v-card rounded="0" class="mb-2">
                            <v-alert
                               color="green accent-4"
@@ -141,7 +141,7 @@
                         </v-card>
 
                         <v-card
-                           v-if="upcoming_events.length === 0"
+                           v-if="events.upcoming_events.length === 0"
                            rounded="0"
                            class="mb-3 mx-3"
                         >
@@ -173,7 +173,7 @@
 
                         <v-card
                            v-else
-                           v-for="(upcoming_event, index) in upcoming_events"
+                           v-for="(upcoming_event, index) in events.upcoming_events"
                            :key="index"
                            :to="'/events/single_event/' + upcoming_event.id"
                            rounded="0"
@@ -186,8 +186,8 @@
                               outlined
                               text
                            >
-                              <v-row>
-                                 <v-col cols="12" md="9" class="pt-0 pb-0">
+                              <v-row justify="space-between">
+                                 <v-col cols="12" sm="6" class="pt-0 pb-0">
                                     <div
                                        class="
                                           text-subtitle-1
@@ -204,19 +204,17 @@
                                        {{ upcoming_event.event_name }}
                                     </div>
                                  </v-col>
-                                 <v-col cols="12" md="3" class="pt-0 pb-0">
+                                 
+                                 <v-col cols="12" sm="6" class="pt-0 pb-0">
                                     <div
                                        class="
                                           text-subtitle-1
-                                          font-weight-medium
+                                          font-weight-medium                                                
+                                          text-sm-right
                                        "
                                     >
                                        Date :
-                                       {{
-                                          moment(
-                                             upcoming_event.event_date
-                                          ).format("MMMM Do YYYY, h:mm a")
-                                       }}
+                                       {{ moment( upcoming_event.event_date).format("MMMM Do YYYY, h:mm a") }}
                                     </div>
                                  </v-col>
                               </v-row>
@@ -241,7 +239,7 @@
                         </v-card>
 
                         <v-card
-                           v-if="passed_events.length === 0"
+                           v-if="events.passed_events.length === 0"
                            rounded="0"
                            class="mb-3 mx-3"
                         >
@@ -276,7 +274,7 @@
 
                         <v-card
                            v-else
-                           v-for="(passed_event, index) in passed_events"
+                           v-for="(passed_event, index) in events.passed_events"
                            :key="index"
                            :to="'/events/single_event/' + passed_event.id"
                            rounded="0"
@@ -289,8 +287,8 @@
                               outlined
                               text
                            >
-                              <v-row>
-                                 <v-col cols="12" md="9" class="pt-0 pb-0">
+                              <v-row justify="space-between">
+                                 <v-col cols="12" sm="6" class="pt-0 pb-0">
                                     <div
                                        class="
                                           text-subtitle-1
@@ -307,11 +305,13 @@
                                        {{ passed_event.event_name }}
                                     </div>
                                  </v-col>
-                                 <v-col cols="12" md="3" class="pt-0 pb-0">
+                                 
+                                 <v-col cols="12" sm="6" class="pt-0 pb-0">
                                     <div
                                        class="
                                           text-subtitle-1
-                                          font-weight-medium
+                                          font-weight-medium                                                
+                                          text-sm-right
                                        "
                                     >
                                        Date :
@@ -321,6 +321,7 @@
                               </v-row>
                            </v-alert>
                         </v-card>
+                              
                      </v-col>
                   </v-col>
                </v-row>
@@ -335,43 +336,44 @@ import QuickLinks from "./components/quicklinks";
 import moment from "moment";
 export default {
    data: () => ({
-      upcoming_events: [],
+      events: [],
       passed_events: [],
       moment: moment,
-      loading1: true,
-      loading2: true,
+      loading: true,
+      not_found: false,
    }),
    components: {
       QuickLinks,
    },
    created() {
-      // Get Upcoming Events
       axios
          .get(
-            "/api/events/upcoming/eventsbyeventtypeid/" + this.$route.params.id
+            "/api/events/types/show_sorted/" + this.$route.params.id
          )
          .then((res) => {
-            this.upcoming_events = res.data;
-            this.loading1 = false;
+            // console.log(res);
+            this.events = res.data;
+            this.loading = false;
          })
          .catch((error) => {
-            console.log(error);
+            // console.log(error);
             // this.errors = error.response.data.errors
-            this.loading1 = false;
+            this.$router.push({ name: 'ResourceNotFound' })
          });
 
       // Passed Events
-      axios
-         .get("/api/events/passed/eventsbyeventtypeid/" + this.$route.params.id)
-         .then((res) => {
-            this.passed_events = res.data;
-            this.loading2 = false;
-         })
-         .catch((error) => {
-            console.log(error);
-            // this.errors = error.response.data.errors
-            this.loading2 = false;
-         });
+      // axios
+      //    .get("/api/events/passed/eventsbyeventtypeid/" + this.$route.params.id)
+      //    .then((res) => {
+      //       this.passed_events = res.data;
+      //       this.loading2 = false;
+      //    })
+      //    .catch((error) => {
+      //       // console.log(error);
+      //       // this.errors = error.response.data.errors
+      //       this.not_found2 = true
+      //       this.loading2 = false;
+      //    });
    },
 };
 </script>

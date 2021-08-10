@@ -176,7 +176,7 @@ export default {
             // console.log(error);
             // this.errors = error.response.data.errors
             // this.loading2 = false;
-            this.$router.push({ name: 'NotFound' })
+            this.$router.push({ name: 'ResourceNotFound' })
          });
    },
 };

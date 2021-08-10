@@ -9,6 +9,7 @@ import Resources from "./pages/resources";
 import People from "./pages/people";
 import ContactUs from "./pages/contactus";
 import NotFound from "./pages/notfound";
+import ResourceNotFound from "./pages/resource_not_found";
 import PhotoGallery from "./pages/photo_gallery";
 import SinglePhotoGallery from "./pages/single_photo_gallery";
 import Publications from "./pages/publications";
@@ -34,10 +35,16 @@ export default{
    routes: [
       // Website Pages
       {
-         path: '*',         
+         path: '*',
          component: NotFound,
          name: 'NotFound',
          meta: { title: '404 Not Found' }
+      },
+      {
+         path: '/resource_not_found',
+         component: ResourceNotFound,
+         name: 'ResourceNotFound',
+         meta: { title: '404 Resource Not Found' }
       },
       {
          path: '/',

@@ -129,7 +129,7 @@ export default {
          .catch((error) => {
             // console.log(error);
             // this.errors = error.response.data.errors
-            this.$router.push({ name: 'NotFound' })            
+            this.$router.push({ name: 'ResourceNotFound' })            
          });
    },
 };

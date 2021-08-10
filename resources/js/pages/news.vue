@@ -92,9 +92,7 @@
                      py-0
                      mb-2
                   "
-               >
-                  ALL NEWS
-               </v-card-subtitle>
+               >ALL NEWS</v-card-subtitle>
             </v-card>
          </v-col>
          <v-row class="mx-1">
@@ -175,7 +173,7 @@ export default {
          .catch((error) => {
             // console.log(error);
             // this.errors = error.response.data.errors
-            this.loading = false;            
+            this.loading = false;
          });
    },
 };

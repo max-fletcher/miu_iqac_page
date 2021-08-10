@@ -84,9 +84,7 @@
          <div v-else>
             <v-row>
                <v-card flat tile class="mx-auto mt-1">
-                  <v-card-title class="text-center text-h3 blue--text text--darken-4">
-                     {{ members.name }}
-                  </v-card-title>
+                  <v-card-title class="text-center text-h3 blue--text text--darken-4">{{ members.name }}</v-card-title>
                </v-card>            
             </v-row>
 
@@ -160,7 +158,7 @@ export default {
             // console.log(error);
             // this.errors = error.response.data.errors
             // this.loading = false;
-            this.$router.push({ name: 'NotFound' })
+            this.$router.push({ name: 'ResourceNotFound' })
          });
    },
 };

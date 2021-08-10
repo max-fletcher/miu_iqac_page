@@ -76,6 +76,7 @@ Route::post('/events/types/store', [App\Http\Controllers\EventTypeController::cl
 Route::get('/events/types/show/{id}', [App\Http\Controllers\EventTypeController::class, 'show']);
 Route::patch('/events/types/update/{id}', [App\Http\Controllers\EventTypeController::class, 'update']);
 Route::delete('/events/types/destroy/{id}', [App\Http\Controllers\EventTypeController::class, 'destroy']);
+Route::get('/events/types/show_sorted/{id}', [App\Http\Controllers\EventTypeController::class, 'show_sorted']);
 
 // Event Controller
 Route::get('/events/index', [App\Http\Controllers\EventController::class, 'index']);
