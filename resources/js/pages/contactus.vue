@@ -17,8 +17,7 @@
                            <v-icon large left color="blue-grey darken-3"
                               >mdi-phone
                            </v-icon>
-                           Contact Us
-                        </v-card-title>
+                           Contact Us</v-card-title>
                      </v-card>
                   </div>
                </v-row>

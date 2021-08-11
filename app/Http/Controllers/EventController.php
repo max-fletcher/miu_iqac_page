@@ -8,6 +8,9 @@ use App\Models\EventType;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+Use Illuminate\Support\Facades\File;
+
 
 class EventController extends Controller
 {
@@ -37,8 +40,23 @@ class EventController extends Controller
             //this string is a unique name so that file with duplicate name do not get uploaded and
             //cause problems when viewing(same problem that occured in CISV photo gallery)
             $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-            //upload image
-            $request->file('event_image')->storeAs('public/event_images', $filenameToStore);
+            
+            // Make Folder if it doesn't exist
+            $path = public_path('storage/event_images');
+            if(!File::isDirectory($path)){
+                    File::makeDirectory($path, 0777, true, true);
+            }
+
+            // Resize image if needed and store it in $image variable
+            // Save image to designated folder inside storage
+            if($request->resize_image == 1){
+                $image = Image::make($request->file('event_image'))->resize(2000, 1000);
+            }
+            else{
+                $image = Image::make($request->file('event_image'));
+            }
+
+            $image->save(public_path('storage/event_images/'. $filenameToStore));
         }
         else{
             $filenameToStore = 'noimage.jpg';
@@ -86,8 +104,23 @@ class EventController extends Controller
             //this string is a unique name so that file with duplicate name do not get uploaded and
             //cause problems when viewing(same problem that occured in CISV photo gallery)
             $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-            //upload image
-            $request->file('event_image')->storeAs('public/event_images', $filenameToStore);
+
+            // Make Folder if it doesn't exist
+            $path = public_path('storage/event_images');
+            if(!File::isDirectory($path)){
+                    File::makeDirectory($path, 0777, true, true);
+            }
+
+            // Resize image if needed and store it in $image variable
+            // Save image to designated folder inside storage
+            if($request->resize_image == 1){
+                $image = Image::make($request->file('event_image'))->resize(2000, 1000);
+            }
+            else{
+                $image = Image::make($request->file('event_image'));
+            }
+
+            $image->save(public_path('storage/event_images/'. $filenameToStore));
         }
         else{
             $filenameToStore = 'noimage.jpg';
@@ -99,8 +132,7 @@ class EventController extends Controller
             $event->event_name = $request->event_name;
             $event->event_description = $request->event_description;
             if($request->hasFile('event_image')){     //works if there is a new image uploaded
-                Storage::delete('public/event_images/'.$event->event_image);  //deletes previous image
-                //needs to use Illuminate\Support\Facades\Storage;
+                File::delete(public_path('storage/event_images/'.$event->event_image));  //deletes previous file
             }
             $event->event_image = $filenameToStore;
             $event->event_date = $request->event_date;

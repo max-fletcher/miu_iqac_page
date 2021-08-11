@@ -4655,7 +4655,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -5875,8 +5874,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
  // import QuickLinks from "./components/quicklinks";
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -6309,6 +6306,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+//
 //
 //
 //
@@ -52527,9 +52525,7 @@ var render = function() {
                                     )
                                   ]
                                 ),
-                                _vm._v(
-                                  "\n                        Contact Us\n                     "
-                                )
+                                _vm._v("\n                        Contact Us")
                               ],
                               1
                             )
@@ -55153,11 +55149,7 @@ var render = function() {
                                 staticClass:
                                   "text-center text-h3 blue--text text--darken-4 text-uppercase"
                               },
-                              [
-                                _vm._v(
-                                  "\r\n                  All Photo Galleries\r\n               "
-                                )
-                              ]
+                              [_vm._v("All Photo Galleries")]
                             )
                           ],
                           1
@@ -55765,12 +55757,12 @@ var render = function() {
                 )
               : _c(
                   "div",
-                  { staticClass: "grey lighten-3 mt-3" },
+                  { staticClass: "grey lighten-3" },
                   [
                     _c(
                       "v-card",
                       {
-                        staticClass: "mx-auto grey lighten-3",
+                        staticClass: "mx-auto grey lighten-3 my-0",
                         attrs: { flat: "", tile: "" }
                       },
                       [
@@ -56200,13 +56192,14 @@ var render = function() {
                         _vm._v(" "),
                         _c("v-img", {
                           attrs: {
-                            "aspect-ratio": "1.77",
                             width: "auto",
+                            "max-height": "700",
                             src:
                               "/storage/event_images/" +
                               _vm.single_event.event_image,
                             alt: "",
-                            position: "center center"
+                            position: "center center",
+                            "aspect-ratio": "2"
                           }
                         }),
                         _vm._v(" "),

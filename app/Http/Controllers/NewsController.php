@@ -43,7 +43,7 @@ class NewsController extends Controller
             //filename to store(uses a time php function to get current time)
             //this string is a unique name so that file with duplicate name do not get uploaded and
             //cause problems when viewing(same problem that occured in CISV photo gallery)
-            $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);            
+            $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
 
             // Make Folder if it doesn't exist
             $path = public_path('storage/news_images');

@@ -82,8 +82,8 @@
         </v-container>
       </v-card>
       <!-- <v-row v-else class="mx-2 py-4"> -->
-      <div v-else class="grey lighten-3 mt-3">
-          <v-card flat tile class="mx-auto grey lighten-3">
+      <div v-else class="grey lighten-3">
+          <v-card flat tile class="mx-auto grey lighten-3 my-0">
               <v-card-subtitle class="text-center text-h3 blue--text text--darken-4 lighten-3 text-uppercase">
                 {{ resources.resource_type_name }}</v-card-subtitle>
           </v-card>

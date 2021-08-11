@@ -92,11 +92,12 @@
                   </v-card-title>
 
                   <v-img
-                     aspect-ratio="1.77"
                      width="auto"
+                     max-height="700"
                      :src="'/storage/event_images/' + single_event.event_image"
                      alt=""                     
-                     position="center center"
+                     position="center center"                     
+                     aspect-ratio="2"
                   ></v-img>
 
                   <v-card-subtitle class="text-subtitle-1 orange--text text--darken-3">
