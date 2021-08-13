@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\PeopleMember;
 use Illuminate\Support\Str;
 Use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+Use Illuminate\Support\Facades\File;
 
 class MemberController extends Controller
 {
@@ -24,7 +26,8 @@ class MemberController extends Controller
             'designation' => ['required', 'string', 'max:255'],
             'cell_number' => ['required', 'numeric', 'string'],
             'email' => ['required', 'email', 'string', 'max:255'],
-            'member_image' => [ 'image', 'sometimes', 'max:2000']
+            'member_image' => [ 'image', 'sometimes', 'max:2000'],
+            'resize_image' => ['required', 'numeric', 'integer'],
         ]);
 
         if($request->hasFile('member_image')) {
@@ -38,8 +41,24 @@ class MemberController extends Controller
             //this string is a unique name so that file with duplicate name do not get uploaded and
             //cause problems when viewing(same problem that occured in CISV photo gallery)
             $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-            //upload image
-            $request->file('member_image')->storeAs('public/member_images', $filenameToStore);
+
+            // Make Folder if it doesn't exist
+            $path = public_path('storage/member_images');
+            if(!File::isDirectory($path)){
+                    File::makeDirectory($path, 0777, true, true);
+            }
+
+            // Resize image if needed and store it in $image variable
+            // Save image to designated folder inside storage
+            if($request->resize_image == 1){
+                // Aspect ratio of 0.56
+                $image = Image::make($request->file('member_image'))->resize(620, 1250);
+            }
+            else{
+                $image = Image::make($request->file('member_image'));
+            }
+
+            $image->save(public_path('storage/member_images/'. $filenameToStore));
         }
         else{
             $filenameToStore = 'noimage.png';

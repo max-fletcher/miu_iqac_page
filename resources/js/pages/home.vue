@@ -1,5 +1,5 @@
 <template>
-   <v-card flat class="pt-3">
+   <v-card flat class="pt-3 pb-7">
       <v-row>
          <v-col v-if="loading">
             <v-card flat class="mt-6">

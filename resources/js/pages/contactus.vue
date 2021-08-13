@@ -1,9 +1,9 @@
 <template>
-   <div>
-      <v-sheet class="mt-6 pt-6 pb-2 px-8">
+   <div>      
+      <v-sheet class="mt-3 pt-6 pb-2 px-8">
          <v-row class="mb-4 mx-sm-10">
             <v-col>
-               <v-row>
+               <v-row>                  
                   <div class="mx-auto">
                      <v-card flat>
                         <v-card-title
@@ -52,38 +52,54 @@
                      </v-snackbar>
                      <!-- End Snackbar For successful Form Submission -->
 
-                     <!-- Name Field With Alert -->
+                     <!-- Snackbar For backend validation failure -->
+                     <v-snackbar
+                        v-model="error_snackbar"
+                        color="red"
+                        :timeout="timeout"                             
+                        top
+                        right
+                     >
+                     <v-icon left>
+                        mdi-cancel
+                     </v-icon>
+                        {{error_message}}
 
+                        <template v-slot:action="{ attrs }">
+                        <v-btn
+                           color="white"
+                           text
+                           v-bind="attrs"
+                           @click="error_snackbar = false"
+                        >
+                           Close
+                        </v-btn>
+                        </template>
+                     </v-snackbar>
+                     <!-- End Snackbar For successful Form Submission -->
+
+                     <!-- Name Field -->                        
                         <v-text-field
                            v-model="name"
                            @input = "name_alert = false"
                            :rules="nameRules"
+                           :error="errors && errors.name"
+                           :error-messages="errors.name"
                            label="Name"
                            placeholder="Enter Name Here"
                            prepend-inner-icon="mdi-account-details"
                            required
                            outlined
                         ></v-text-field>
-                        
-                        <v-alert
-                           v-if="errors && errors.name"
-                           :value="name_alert"
-                           type="error"
-                           dark
-                           text
-                           dense
-                           transition="scale-transition"
-                           class="mt-n5"
-                        >                        
-                           {{ errors.name[0] }}
-                        </v-alert>
-                        <!-- End Name Field With Alert -->
+                        <!-- End Name Field -->
 
-                        <!-- Email Field With Alert -->
+                        <!-- Email Field With Alert -->                           
                         <v-text-field
                            v-model="email"
                            @input = "email_alert= false"
                            :rules="emailRules"
+                           :error="errors && errors.email"
+                           :error-messages="errors.email"
                            label="E-mail"
                            type="email"
                            placeholder="Enter Email Here"
@@ -91,26 +107,15 @@
                            required
                            outlined
                         ></v-text-field>
-
-                        <v-alert
-                           v-if="errors && errors.name"
-                           :value="name_alert"
-                           type="error"
-                           dark
-                           text
-                           dense
-                           transition="scale-transition"
-                           class="mt-n5"
-                        >                        
-                           {{ errors.name[0] }}
-                        </v-alert>
-                        <!-- End Email Field With Alert -->
+                        <!-- End Email Field -->
 
                         <!-- Message Field With Alert -->
                         <v-textarea
                            v-model="message"
-                           input = "message_alert = false"
+                           @input = "message_alert = false"
                            :rules="messageRules"
+                           :error="errors && errors.message"
+                           :error-messages="errors.message"
                            label="Message"
                            placeholder="Enter Message Here"
                            prepend-inner-icon="mdi-comment"
@@ -118,19 +123,6 @@
                            auto-grow
                            outlined                           
                         ></v-textarea>
-
-                        <v-alert
-                           v-if="errors && errors.name"
-                           :value="name_alert"
-                           type="error"
-                           dark
-                           text
-                           dense
-                           transition="scale-transition"
-                           class="mt-n5"
-                        >                        
-                           {{ errors.name[0] }}
-                        </v-alert>
                         <!-- End Message Field With Alert -->
 
                         <!-- Validate and Submit -->
@@ -282,30 +274,27 @@
 
 <script>
 export default {
-   data: () => ({      
+   data: () => ({
       errors:[],
       error_message: '',
+      error_snackbar: false,
       form_disabled: false,
       form_loading: false,
       success_snackbar: false,
       timeout: 3000,
       name: "",
-      name_alert: false,
       nameRules: [(v) => !!v || "Name is required"],
       email: "",
-      email_alert: false,
       emailRules: [
          (v) => !!v || "E-mail is required",
          (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
       ],
       message: "",
-      message_alert: false,
       messageRules: [(v) => !!v || "A message is required"],
    }),
 
    methods: {
-      submitForm() {
-         // this.validation = this.$refs.contact_us_form.validate()
+      submitForm() {         
          if (this.$refs.contact_us_form.validate()) {
             this.form_disabled = true
             this.form_loading = true
@@ -322,19 +311,17 @@ export default {
                this.$refs.contact_us_form.reset()
             })
             .catch((error) => {
-               // console.log(error)
+               console.log(error)
+               this.error_message = error.response.data.message
+               this.error_snackbar = true
                this.errors = error.response.data.errors
-               this.error_message = error.response.data.message               
                this.form_disabled = false
                this.form_loading = false
-               this.name_alert = true
-               this.email_alert = true
-               this.message_alert = true
-            });            
+            });
          } else {
             //false
             this.$refs.contact_us_form.validate()
-         }         
+         }
       },
       // reset() {
       //    this.$refs.contact_us_form.reset()

@@ -7,7 +7,6 @@ use App\Models\Event;
 use App\Models\EventType;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 Use Illuminate\Support\Facades\File;
 
@@ -147,7 +146,7 @@ class EventController extends Controller
     {        
         $event = Event::find($id);
         if ($event) {
-            Storage::delete('public/event_images/'.$event->event_image);  //deletes image
+            File::delete(public_path('storage/event_images/'.$event->event_image));  //deletes file
             $event->delete();
             return response()->json('Event Deleted Successfully !', 201);
         }
@@ -155,25 +154,25 @@ class EventController extends Controller
         return response()->json('The Provided ID doesn\'t match any Events !!', 404);
     }
 
-    public function upcoming_events_by_event_type_id($id)
-    {        
-        $event_type = EventType::find($id);
-        if($event_type){
-            $events = Event::with('event_type')->where('event_type_id', $id)->where('event_date', '>=', Carbon::now())->orderBy('event_date', 'desc')->get();
-            return response()->json($events, 200);
-        }
+    // public function upcoming_events_by_event_type_id($id)
+    // {        
+    //     $event_type = EventType::find($id);
+    //     if($event_type){
+    //         $events = Event::with('event_type')->where('event_type_id', $id)->where('event_date', '>=', Carbon::now())->orderBy('event_date', 'desc')->get();
+    //         return response()->json($events, 200);
+    //     }
 
-        return response()->json('The Provided ID doesn\'t match any Events !!', 404);
-    }
+    //     return response()->json('The Provided ID doesn\'t match any Events !!', 404);
+    // }
 
-    public function passed_events_by_event_type_id($id)
-    {      
-        $event_type = EventType::find($id);
-        if($event_type){
-            $events = Event::with('event_type')->where('event_type_id', $id)->where('event_date', '<', Carbon::now())->orderBy('event_date', 'desc')->get();
-            return response()->json($events, 200);
-        }
+    // public function passed_events_by_event_type_id($id)
+    // {      
+    //     $event_type = EventType::find($id);
+    //     if($event_type){
+    //         $events = Event::with('event_type')->where('event_type_id', $id)->where('event_date', '<', Carbon::now())->orderBy('event_date', 'desc')->get();
+    //         return response()->json($events, 200);
+    //     }
 
-        return response()->json('The Provided ID doesn\'t match any Events !!', 404);
-    }
+    //     return response()->json('The Provided ID doesn\'t match any Events !!', 404);
+    // }
 }

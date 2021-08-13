@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 Use Illuminate\Support\Facades\File;
@@ -140,7 +139,6 @@ class NewsController extends Controller
         }
 
         return response()->json('The Provided ID doesn\'t match any News Records !!', 404);
-
     }
 
     public function destroy($id)

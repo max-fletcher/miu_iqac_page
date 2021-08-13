@@ -88,7 +88,7 @@
                </v-card>            
             </v-row>
 
-            <v-row class="mx-4 pb-4" justify="center">
+            <v-row class="mx-4 pb-4">
                <v-col
                   v-for="(member, index) in members.members"
                   :key="index"
@@ -97,19 +97,19 @@
                   md="4"
                >
                   <v-card min-height="450" elevation="10" color="grey lighten-4">
-                     <v-img
-                        height="400"
+                     <v-img                        
                         width="auto"
                         :src="'/storage/member_images/' + member.member_image"
                         alt=""
                         class="mx-auto"
                         position="center center"
+                        aspect-ratio="0.9"
                      ></v-img>
                      <div class="py-2">
                         <v-card-subtitle class="text-subtitle-1 font-weight-medium blue--text text--darken-4 py-1">
                            <v-icon left color="blue darken-4">
                               mdi-account
-                           </v-icon>                           
+                           </v-icon>
                            Name: {{ member.name }}
                         </v-card-subtitle>
                         <v-card-subtitle class="text-subtitle-1 font-weight-medium blue--text text--darken-4 py-1">

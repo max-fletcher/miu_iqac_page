@@ -105,8 +105,7 @@
                      <v-img
                         :src="photo.src"
                         @click="showSingle(photo.src, photo.title, index)"
-                        height="400"
-                        width="auto"
+                        aspect-ratio="1"
                      >
                      </v-img>
                      <v-card-text class="font-weight-medium text-subtitle-2 pt-1">
