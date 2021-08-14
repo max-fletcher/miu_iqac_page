@@ -1,5 +1,5 @@
 <template>
-   <v-card flat class="pt-3 pb-7">
+   <div class="pt-3 pb-7 mx-16">
       <v-row>
          <v-col v-if="loading">
             <v-card flat class="mt-6">
@@ -79,12 +79,13 @@
                   <QuickLinks />
                </v-col>
                <v-col cols="12" md="9" lg="10"> -->
-
+                           
                   <v-carousel height="auto" cycle interval="5500" show-arrows-on-hover hide-delimiters>
                      <v-carousel-item v-for="(item, index) in items" :key="index">
                         <v-img
                            :src="'/storage/carousel_images/' + item.carousel_image"
                            aspect-ratio="1.77"
+                           width="auto"
                            max-height="700"
                         >
                            <v-container fill-height fluid class="px-0 py-0">
@@ -165,7 +166,7 @@
             </v-card>
          </v-col>
       </v-row>
-   </v-card>
+   </div>
 </template>
 
 <script>
