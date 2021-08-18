@@ -118,12 +118,16 @@
 
 <script>
 import moment from 'moment'
+import Loading from "./components/loading";
 export default {
    data: () => ({
       single_event: null,
       moment: moment,
       loading: true,
    }),
+   components: {
+      Loading
+   },
    created() {
       axios
          .get("/api/events/show/" + this.$route.params.id)

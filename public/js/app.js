@@ -2981,6 +2981,94 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/components/loading.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/components/loading.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/components/quicklinks.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/components/quicklinks.vue?vue&type=script&lang=js& ***!
@@ -4830,9 +4918,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_quicklinks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/quicklinks */ "./resources/js/pages/components/quicklinks.vue");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_quicklinks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/quicklinks */ "./resources/js/pages/components/quicklinks.vue");
+/* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/loading */ "./resources/js/pages/components/loading.vue");
 //
 //
 //
@@ -5070,102 +5159,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5173,13 +5167,14 @@ __webpack_require__.r(__webpack_exports__);
     return {
       events: [],
       passed_events: [],
-      moment: (moment__WEBPACK_IMPORTED_MODULE_1___default()),
+      moment: (moment__WEBPACK_IMPORTED_MODULE_0___default()),
       loading: true,
       not_found: false
     };
   },
   components: {
-    QuickLinks: _components_quicklinks__WEBPACK_IMPORTED_MODULE_0__.default
+    QuickLinks: _components_quicklinks__WEBPACK_IMPORTED_MODULE_1__.default,
+    Loading: _components_loading__WEBPACK_IMPORTED_MODULE_2__.default
   },
   created: function created() {
     var _this = this;
@@ -5224,6 +5219,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _components_quicklinks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/quicklinks */ "./resources/js/pages/components/quicklinks.vue");
+/* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/loading */ "./resources/js/pages/components/loading.vue");
 //
 //
 //
@@ -5328,73 +5324,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
  // import TopNav from './topnav'
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5405,7 +5335,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {
-    QuickLinks: _components_quicklinks__WEBPACK_IMPORTED_MODULE_0__.default
+    QuickLinks: _components_quicklinks__WEBPACK_IMPORTED_MODULE_0__.default,
+    Loading: _components_loading__WEBPACK_IMPORTED_MODULE_1__.default
   },
   created: function created() {
     var _this = this;
@@ -5439,6 +5370,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_quicklinks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/quicklinks */ "./resources/js/pages/components/quicklinks.vue");
+/* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/loading */ "./resources/js/pages/components/loading.vue");
 //
 //
 //
@@ -5520,73 +5452,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5598,7 +5464,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {
-    QuickLinks: _components_quicklinks__WEBPACK_IMPORTED_MODULE_1__.default
+    QuickLinks: _components_quicklinks__WEBPACK_IMPORTED_MODULE_1__.default,
+    Loading: _components_loading__WEBPACK_IMPORTED_MODULE_2__.default
   },
   computed: {
     cardBorderColor: function cardBorderColor() {
@@ -5665,6 +5532,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/loading */ "./resources/js/pages/components/loading.vue");
 //
 //
 //
@@ -5740,79 +5608,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       members: [],
       loading: true
     };
+  },
+  components: {
+    Loading: _components_loading__WEBPACK_IMPORTED_MODULE_0__.default
   },
   created: function created() {
     var _this = this;
@@ -5846,6 +5651,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/loading */ "./resources/js/pages/components/loading.vue");
 //
 //
 //
@@ -5899,74 +5705,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
- // import QuickLinks from "./components/quicklinks";
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -5977,9 +5716,9 @@ __webpack_require__.r(__webpack_exports__);
       show: false
     };
   },
-  // components: {
-  //    QuickLinks,
-  // },
+  components: {
+    Loading: _components_loading__WEBPACK_IMPORTED_MODULE_1__.default
+  },
   created: function created() {
     var _this = this;
 
@@ -6009,73 +5748,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/loading */ "./resources/js/pages/components/loading.vue");
 //
 //
 //
@@ -6118,6 +5791,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -6125,6 +5799,9 @@ __webpack_require__.r(__webpack_exports__);
       moment: (moment__WEBPACK_IMPORTED_MODULE_0___default()),
       loading: true
     };
+  },
+  components: {
+    Loading: _components_loading__WEBPACK_IMPORTED_MODULE_1__.default
   },
   computed: {
     cardBorderColor: function cardBorderColor() {
@@ -6220,9 +5897,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_quicklinks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/quicklinks */ "./resources/js/pages/components/quicklinks.vue");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_quicklinks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/quicklinks */ "./resources/js/pages/components/quicklinks.vue");
+/* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/loading */ "./resources/js/pages/components/loading.vue");
 //
 //
 //
@@ -6285,85 +5963,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       resources: [],
-      moment: (moment__WEBPACK_IMPORTED_MODULE_1___default()),
+      moment: (moment__WEBPACK_IMPORTED_MODULE_0___default()),
       loading: true
     };
   },
   components: {
-    QuickLinks: _components_quicklinks__WEBPACK_IMPORTED_MODULE_0__.default
+    QuickLinks: _components_quicklinks__WEBPACK_IMPORTED_MODULE_1__.default,
+    Loading: _components_loading__WEBPACK_IMPORTED_MODULE_2__.default
   },
   computed: {},
   created: function created() {
@@ -6398,6 +6011,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/loading */ "./resources/js/pages/components/loading.vue");
 //
 //
 //
@@ -6517,6 +6131,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -6524,6 +6139,9 @@ __webpack_require__.r(__webpack_exports__);
       moment: (moment__WEBPACK_IMPORTED_MODULE_0___default()),
       loading: true
     };
+  },
+  components: {
+    Loading: _components_loading__WEBPACK_IMPORTED_MODULE_1__.default
   },
   created: function created() {
     var _this = this;
@@ -6557,73 +6175,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/loading */ "./resources/js/pages/components/loading.vue");
 //
 //
 //
@@ -6671,6 +6223,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -6678,6 +6231,9 @@ __webpack_require__.r(__webpack_exports__);
       moment: (moment__WEBPACK_IMPORTED_MODULE_0___default()),
       loading: true
     };
+  },
+  components: {
+    Loading: _components_loading__WEBPACK_IMPORTED_MODULE_1__.default
   },
   created: function created() {
     var _this = this;
@@ -6709,79 +6265,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vue_easy_lightbox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-easy-lightbox */ "./node_modules/vue-easy-lightbox/dist/vue-easy-lightbox.es5.esm.min.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/loading */ "./resources/js/pages/components/loading.vue");
 //
 //
 //
@@ -6843,9 +6327,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 // Import Vue Easy Lightbox Component
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    VueEasyLightbox: vue_easy_lightbox__WEBPACK_IMPORTED_MODULE_0__.default
+    VueEasyLightbox: vue_easy_lightbox__WEBPACK_IMPORTED_MODULE_0__.default,
+    Loading: _components_loading__WEBPACK_IMPORTED_MODULE_1__.default
   },
   data: function data() {
     return {
@@ -47386,6 +46872,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/components/loading.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/pages/components/loading.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_loading_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./loading.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/components/loading.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_loading_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/pages/components/quicklinks.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************!*\
   !*** ./resources/js/pages/components/quicklinks.vue?vue&type=script&lang=js& ***!
@@ -47853,6 +47355,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_footer_vue_vue_type_template_id_38d67e9b___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_footer_vue_vue_type_template_id_38d67e9b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./footer.vue?vue&type=template&id=38d67e9b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/components/footer.vue?vue&type=template&id=38d67e9b&");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/components/loading.vue?vue&type=template&id=d5669228&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/pages/components/loading.vue?vue&type=template&id=d5669228& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_loading_vue_vue_type_template_id_d5669228___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_loading_vue_vue_type_template_id_d5669228___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_loading_vue_vue_type_template_id_d5669228___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./loading.vue?vue&type=template&id=d5669228& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/components/loading.vue?vue&type=template&id=d5669228&");
 
 
 /***/ }),
@@ -48564,10 +48083,7 @@ var render = function() {
             [
               _c(
                 "v-sheet",
-                {
-                  staticClass: "mx-4 mb-3 mt-3",
-                  attrs: { "min-height": "500" }
-                },
+                { staticClass: "mx-4 mt-3", attrs: { "min-height": "500" } },
                 [_c("router-view", { key: _vm.$route.fullPath })],
                 1
               )
@@ -49842,6 +49358,145 @@ var render = function() {
         ],
         1
       )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/components/loading.vue?vue&type=template&id=d5669228&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/components/loading.vue?vue&type=template&id=d5669228& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("v-card", { staticClass: "mt-6", attrs: { flat: "" } }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "text-h6 text-center blue--text text--darken-4 font-weight-bold"
+          },
+          [_vm._v("\n            Loading...\n      ")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "mx-auto" }, [
+          _c(
+            "svg",
+            {
+              staticStyle: {
+                margin: "auto",
+                display: "block",
+                "shape-rendering": "auto",
+                "animation-play-state": "running",
+                "animation-delay": "0s"
+              },
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                width: "250px",
+                height: "250px",
+                viewBox: "0 0 100 100",
+                preserveAspectRatio: "xMidYMid"
+              }
+            },
+            [
+              _c(
+                "circle",
+                {
+                  staticStyle: {
+                    "animation-play-state": "running",
+                    "animation-delay": "0s"
+                  },
+                  attrs: {
+                    cx: "50",
+                    cy: "50",
+                    r: "19",
+                    "stroke-width": "5",
+                    stroke: "#002147",
+                    "stroke-dasharray": "29.845130209103033 29.845130209103033",
+                    fill: "none",
+                    "stroke-linecap": "round"
+                  }
+                },
+                [
+                  _c("animateTransform", {
+                    staticStyle: {
+                      "animation-play-state": "running",
+                      "animation-delay": "0s"
+                    },
+                    attrs: {
+                      attributeName: "transform",
+                      type: "rotate",
+                      dur: "1s",
+                      repeatCount: "indefinite",
+                      keyTimes: "0;1",
+                      values: "0 50 50;360 50 50"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "circle",
+                {
+                  staticStyle: {
+                    "animation-play-state": "running",
+                    "animation-delay": "0s"
+                  },
+                  attrs: {
+                    cx: "50",
+                    cy: "50",
+                    r: "13",
+                    "stroke-width": "5",
+                    stroke: "#4270a9",
+                    "stroke-dasharray": "20.420352248333657 20.420352248333657",
+                    "stroke-dashoffset": "20.420352248333657",
+                    fill: "none",
+                    "stroke-linecap": "round"
+                  }
+                },
+                [
+                  _c("animateTransform", {
+                    staticStyle: {
+                      "animation-play-state": "running",
+                      "animation-delay": "0s"
+                    },
+                    attrs: {
+                      attributeName: "transform",
+                      type: "rotate",
+                      dur: "1s",
+                      repeatCount: "indefinite",
+                      keyTimes: "0;1",
+                      values: "0 50 50;-360 50 50"
+                    }
+                  })
+                ],
+                1
+              )
+            ]
+          )
+        ])
+      ])
     ],
     1
   )
@@ -53411,207 +53066,199 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "v-sheet",
-        {
-          staticClass: "px-2 py-2",
-          attrs: { color: "grey lighten-3", "min-height": "500" }
-        },
-        [
-          _vm.loading
-            ? _c(
-                "v-sheet",
-                {
-                  staticClass: "px-2 py-2",
-                  attrs: { color: "grey lighten-3", height: "500" }
-                },
-                [
-                  _c(
-                    "v-card",
-                    { staticClass: "mt-6 grey lighten-3", attrs: { flat: "" } },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "\n                  text-center\n                  blue--text\n                  text--darken-4\n                  font-weight-bold\n                  mt-3\n               "
-                        },
-                        [_vm._v("\n               Loading...\n            ")]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "mx-auto grey lighten-3" }, [
+  return _c("div", { staticClass: "px-2 py-2" }, [
+    _vm.loading
+      ? _c("div", [_c("Loading")], 1)
+      : _c(
+          "div",
+          [
+            _c(
+              "v-row",
+              { staticClass: "mx-2" },
+              [
+                _c(
+                  "v-col",
+                  { attrs: { cols: "12" } },
+                  [
+                    _c(
+                      "v-card",
+                      {
+                        staticClass: "mx-auto px-0",
+                        attrs: { flat: "", tile: "" }
+                      },
+                      [
                         _c(
-                          "svg",
+                          "v-card-subtitle",
                           {
-                            staticStyle: {
-                              margin: "auto",
-                              display: "block",
-                              "shape-rendering": "auto",
-                              "animation-play-state": "running",
-                              "animation-delay": "0s"
-                            },
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                              width: "250px",
-                              height: "250px",
-                              viewBox: "0 0 100 100",
-                              preserveAspectRatio: "xMidYMid"
-                            }
+                            staticClass:
+                              "\n                        text-center text-h3\n                        blue--text\n                        text--darken-4\n                        py-0                           \n                        mb-2\n                        pl-lg-4\n                     "
                           },
+                          [_vm._v("ALL EVENTS")]
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-row",
+                  [
+                    _c(
+                      "v-col",
+                      {
+                        staticClass: "hidden-sm-and-down",
+                        attrs: { md: "3", lg: "2" }
+                      },
+                      [_c("QuickLinks")],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-col",
+                      { attrs: { cols: "12", md: "9", lg: "10" } },
+                      [
+                        _c(
+                          "v-col",
+                          { staticClass: "pt-0", attrs: { cols: "12" } },
                           [
                             _c(
-                              "circle",
-                              {
-                                staticStyle: {
-                                  "animation-play-state": "running",
-                                  "animation-delay": "0s"
-                                },
-                                attrs: {
-                                  cx: "50",
-                                  cy: "50",
-                                  r: "19",
-                                  "stroke-width": "5",
-                                  stroke: "#002147",
-                                  "stroke-dasharray":
-                                    "29.845130209103033 29.845130209103033",
-                                  fill: "none",
-                                  "stroke-linecap": "round"
-                                }
-                              },
+                              "v-card",
+                              { staticClass: "mb-2", attrs: { rounded: "0" } },
                               [
-                                _c("animateTransform", {
-                                  staticStyle: {
-                                    "animation-play-state": "running",
-                                    "animation-delay": "0s"
+                                _c(
+                                  "v-alert",
+                                  {
+                                    staticClass: "px-0 py-0 mx-0 my-0",
+                                    attrs: {
+                                      color: "green accent-4",
+                                      rounded: "0",
+                                      outlined: "",
+                                      text: ""
+                                    }
                                   },
-                                  attrs: {
-                                    attributeName: "transform",
-                                    type: "rotate",
-                                    dur: "1s",
-                                    repeatCount: "indefinite",
-                                    keyTimes: "0;1",
-                                    values: "0 50 50;360 50 50"
-                                  }
-                                })
+                                  [
+                                    _c(
+                                      "v-card-title",
+                                      [
+                                        _c(
+                                          "v-icon",
+                                          {
+                                            attrs: {
+                                              left: "",
+                                              color: "green accent-4"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                 mdi-calendar-star\n                              "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(
+                                          "\n                              Upcoming Events\n                           "
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
                               ],
                               1
                             ),
                             _vm._v(" "),
-                            _c(
-                              "circle",
-                              {
-                                staticStyle: {
-                                  "animation-play-state": "running",
-                                  "animation-delay": "0s"
-                                },
-                                attrs: {
-                                  cx: "50",
-                                  cy: "50",
-                                  r: "13",
-                                  "stroke-width": "5",
-                                  stroke: "#4270a9",
-                                  "stroke-dasharray":
-                                    "20.420352248333657 20.420352248333657",
-                                  "stroke-dashoffset": "20.420352248333657",
-                                  fill: "none",
-                                  "stroke-linecap": "round"
-                                }
-                              },
-                              [
-                                _c("animateTransform", {
-                                  staticStyle: {
-                                    "animation-play-state": "running",
-                                    "animation-delay": "0s"
+                            _vm.events.upcoming_events.length === 0
+                              ? _c(
+                                  "v-card",
+                                  {
+                                    staticClass: "mb-3 mx-3",
+                                    attrs: { rounded: "0" }
                                   },
-                                  attrs: {
-                                    attributeName: "transform",
-                                    type: "rotate",
-                                    dur: "1s",
-                                    repeatCount: "indefinite",
-                                    keyTimes: "0;1",
-                                    values: "0 50 50;-360 50 50"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ]
-                        )
-                      ])
-                    ]
-                  )
-                ],
-                1
-              )
-            : _c(
-                "div",
-                [
-                  _c(
-                    "v-row",
-                    { staticClass: "mx-2" },
-                    [
-                      _c(
-                        "v-col",
-                        { attrs: { cols: "12" } },
-                        [
-                          _c(
-                            "v-card",
-                            {
-                              staticClass: "mx-auto px-0",
-                              attrs: { flat: "", tile: "" }
-                            },
-                            [
-                              _c(
-                                "v-card-subtitle",
-                                {
-                                  staticClass:
-                                    "\n                        text-center text-h3\n                        blue--text\n                        text--darken-4\n                        grey\n                        lighten-3\n                        py-0                           \n                        mb-2\n                        pl-lg-4\n                     "
-                                },
-                                [_vm._v("ALL EVENTS")]
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-row",
-                        [
-                          _c(
-                            "v-col",
-                            {
-                              staticClass: "hidden-sm-and-down",
-                              attrs: { md: "3", lg: "2" }
-                            },
-                            [_c("QuickLinks")],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-col",
-                            { attrs: { cols: "12", md: "9", lg: "10" } },
-                            [
-                              _c(
-                                "v-col",
-                                { staticClass: "pt-0", attrs: { cols: "12" } },
-                                [
-                                  _c(
+                                  [
+                                    _c(
+                                      "v-alert",
+                                      {
+                                        staticClass: "px-3 py-4 mx-0 my-0",
+                                        attrs: {
+                                          color: "green accent-4",
+                                          rounded: "0",
+                                          outlined: "",
+                                          text: ""
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "v-row",
+                                          [
+                                            _c(
+                                              "v-col",
+                                              {
+                                                staticClass: "pt-0 pb-0",
+                                                attrs: { cols: "12" }
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "\n                                       text-subtitle-1\n                                       font-weight-medium\n                                       text-center\n                                    "
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "v-icon",
+                                                      {
+                                                        attrs: {
+                                                          left: "",
+                                                          color:
+                                                            "green accent-4"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\n                                       mdi-close\n                                    "
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(
+                                                      "\n                                    No Upcoming Events\n                                 "
+                                                    )
+                                                  ],
+                                                  1
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              : _vm._l(_vm.events.upcoming_events, function(
+                                  upcoming_event,
+                                  index
+                                ) {
+                                  return _c(
                                     "v-card",
                                     {
-                                      staticClass: "mb-2",
-                                      attrs: { rounded: "0" }
+                                      key: index,
+                                      staticClass: "mb-3 mx-3",
+                                      attrs: {
+                                        to:
+                                          "/events/single_event/" +
+                                          upcoming_event.id,
+                                        rounded: "0"
+                                      }
                                     },
                                     [
                                       _c(
                                         "v-alert",
                                         {
-                                          staticClass: "px-0 py-0 mx-0 my-0",
+                                          staticClass: "px-3 py-4 mx-0 my-0",
                                           attrs: {
                                             color: "green accent-4",
                                             rounded: "0",
@@ -53621,24 +53268,86 @@ var render = function() {
                                         },
                                         [
                                           _c(
-                                            "v-card-title",
+                                            "v-row",
+                                            {
+                                              attrs: {
+                                                justify: "space-between"
+                                              }
+                                            },
                                             [
                                               _c(
-                                                "v-icon",
+                                                "v-col",
                                                 {
-                                                  attrs: {
-                                                    left: "",
-                                                    color: "green accent-4"
-                                                  }
+                                                  staticClass: "pt-0 pb-0",
+                                                  attrs: { cols: "12", sm: "6" }
                                                 },
                                                 [
-                                                  _vm._v(
-                                                    "\n                                 mdi-calendar-star\n                              "
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "\n                                       text-subtitle-1\n                                       font-weight-medium\n                                    "
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "v-icon",
+                                                        {
+                                                          attrs: {
+                                                            left: "",
+                                                            color:
+                                                              "green accent-4",
+                                                            small: ""
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "\n                                       mdi-calendar-arrow-right\n                                    "
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(
+                                                        "\n                                    " +
+                                                          _vm._s(
+                                                            upcoming_event.event_name
+                                                          ) +
+                                                          "\n                                 "
+                                                      )
+                                                    ],
+                                                    1
                                                   )
                                                 ]
                                               ),
-                                              _vm._v(
-                                                "\n                              Upcoming Events\n                           "
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-col",
+                                                {
+                                                  staticClass: "pt-0 pb-0",
+                                                  attrs: { cols: "12", sm: "6" }
+                                                },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "\n                                       text-subtitle-1\n                                       font-weight-medium                                                \n                                       text-sm-right\n                                    "
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                                    Date :\n                                    " +
+                                                          _vm._s(
+                                                            _vm
+                                                              .moment(
+                                                                upcoming_event.event_date
+                                                              )
+                                                              .format(
+                                                                "MMMM Do YYYY, h:mm a"
+                                                              )
+                                                          ) +
+                                                          "\n                                 "
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
                                               )
                                             ],
                                             1
@@ -53648,220 +53357,145 @@ var render = function() {
                                       )
                                     ],
                                     1
-                                  ),
-                                  _vm._v(" "),
-                                  _vm.events.upcoming_events.length === 0
-                                    ? _c(
-                                        "v-card",
-                                        {
-                                          staticClass: "mb-3 mx-3",
-                                          attrs: { rounded: "0" }
-                                        },
-                                        [
-                                          _c(
-                                            "v-alert",
-                                            {
-                                              staticClass:
-                                                "px-3 py-4 mx-0 my-0",
-                                              attrs: {
-                                                color: "green accent-4",
-                                                rounded: "0",
-                                                outlined: "",
-                                                text: ""
-                                              }
-                                            },
-                                            [
-                                              _c(
-                                                "v-row",
-                                                [
-                                                  _c(
-                                                    "v-col",
-                                                    {
-                                                      staticClass: "pt-0 pb-0",
-                                                      attrs: { cols: "12" }
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "\n                                       text-subtitle-1\n                                       font-weight-medium\n                                       text-center\n                                    "
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "v-icon",
-                                                            {
-                                                              attrs: {
-                                                                left: "",
-                                                                color:
-                                                                  "green accent-4"
-                                                              }
-                                                            },
-                                                            [
-                                                              _vm._v(
-                                                                "\n                                       mdi-close\n                                    "
-                                                              )
-                                                            ]
-                                                          ),
-                                                          _vm._v(
-                                                            "\n                                    No Upcoming Events\n                                 "
-                                                          )
-                                                        ],
-                                                        1
-                                                      )
-                                                    ]
-                                                  )
-                                                ],
-                                                1
-                                              )
-                                            ],
-                                            1
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    : _vm._l(
-                                        _vm.events.upcoming_events,
-                                        function(upcoming_event, index) {
-                                          return _c(
-                                            "v-card",
-                                            {
-                                              key: index,
-                                              staticClass: "mb-3 mx-3",
-                                              attrs: {
-                                                to:
-                                                  "/events/single_event/" +
-                                                  upcoming_event.id,
-                                                rounded: "0"
-                                              }
-                                            },
-                                            [
-                                              _c(
-                                                "v-alert",
-                                                {
-                                                  staticClass:
-                                                    "px-3 py-4 mx-0 my-0",
-                                                  attrs: {
-                                                    color: "green accent-4",
-                                                    rounded: "0",
-                                                    outlined: "",
-                                                    text: ""
-                                                  }
-                                                },
-                                                [
-                                                  _c(
-                                                    "v-row",
-                                                    {
-                                                      attrs: {
-                                                        justify: "space-between"
-                                                      }
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "v-col",
-                                                        {
-                                                          staticClass:
-                                                            "pt-0 pb-0",
-                                                          attrs: {
-                                                            cols: "12",
-                                                            sm: "6"
-                                                          }
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "\n                                       text-subtitle-1\n                                       font-weight-medium\n                                    "
-                                                            },
-                                                            [
-                                                              _c(
-                                                                "v-icon",
-                                                                {
-                                                                  attrs: {
-                                                                    left: "",
-                                                                    color:
-                                                                      "green accent-4",
-                                                                    small: ""
-                                                                  }
-                                                                },
-                                                                [
-                                                                  _vm._v(
-                                                                    "\n                                       mdi-calendar-arrow-right\n                                    "
-                                                                  )
-                                                                ]
-                                                              ),
-                                                              _vm._v(
-                                                                "\n                                    " +
-                                                                  _vm._s(
-                                                                    upcoming_event.event_name
-                                                                  ) +
-                                                                  "\n                                 "
-                                                              )
-                                                            ],
-                                                            1
-                                                          )
-                                                        ]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "v-col",
-                                                        {
-                                                          staticClass:
-                                                            "pt-0 pb-0",
-                                                          attrs: {
-                                                            cols: "12",
-                                                            sm: "6"
-                                                          }
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "\n                                       text-subtitle-1\n                                       font-weight-medium                                                \n                                       text-sm-right\n                                    "
-                                                            },
-                                                            [
-                                                              _vm._v(
-                                                                "\n                                    Date :\n                                    " +
-                                                                  _vm._s(
-                                                                    _vm
-                                                                      .moment(
-                                                                        upcoming_event.event_date
-                                                                      )
-                                                                      .format(
-                                                                        "MMMM Do YYYY, h:mm a"
-                                                                      )
-                                                                  ) +
-                                                                  "\n                                 "
-                                                              )
-                                                            ]
-                                                          )
-                                                        ]
-                                                      )
-                                                    ],
-                                                    1
-                                                  )
-                                                ],
-                                                1
-                                              )
-                                            ],
-                                            1
-                                          )
+                                  )
+                                }),
+                            _vm._v(" "),
+                            _c(
+                              "v-card",
+                              { staticClass: "mb-2", attrs: { rounded: "0" } },
+                              [
+                                _c(
+                                  "v-alert",
+                                  {
+                                    staticClass: "px-0 py-0 mx-0 my-0",
+                                    attrs: {
+                                      color: "deep-orange darken-2",
+                                      rounded: "0",
+                                      outlined: "",
+                                      text: ""
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "v-card-title",
+                                      [
+                                        _c(
+                                          "v-icon",
+                                          {
+                                            attrs: {
+                                              left: "",
+                                              color: "deep-orange darken-2"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                 mdi-calendar-remove\n                              "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(
+                                          "\n                              Passed Events\n                           "
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _vm.events.passed_events.length === 0
+                              ? _c(
+                                  "v-card",
+                                  {
+                                    staticClass: "mb-3 mx-3",
+                                    attrs: { rounded: "0" }
+                                  },
+                                  [
+                                    _c(
+                                      "v-alert",
+                                      {
+                                        staticClass: "px-3 py-4 mx-0 my-0",
+                                        attrs: {
+                                          color: "deep-orange darken-2",
+                                          rounded: "0",
+                                          outlined: "",
+                                          text: ""
                                         }
-                                      ),
-                                  _vm._v(" "),
-                                  _c(
+                                      },
+                                      [
+                                        _c(
+                                          "v-row",
+                                          [
+                                            _c(
+                                              "v-col",
+                                              {
+                                                staticClass: "pt-0 pb-0",
+                                                attrs: { cols: "12" }
+                                              },
+                                              [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "\n                                       text-subtitle-1\n                                       font-weight-medium\n                                       text-center\n                                    "
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "v-icon",
+                                                      {
+                                                        attrs: {
+                                                          left: "",
+                                                          color:
+                                                            "deep-orange darken-2"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\n                                       mdi-close\n                                    "
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(
+                                                      "\n                                    No Passed Events\n                                 "
+                                                    )
+                                                  ],
+                                                  1
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              : _vm._l(_vm.events.passed_events, function(
+                                  passed_event,
+                                  index
+                                ) {
+                                  return _c(
                                     "v-card",
                                     {
-                                      staticClass: "mb-2",
-                                      attrs: { rounded: "0" }
+                                      key: index,
+                                      staticClass: "mb-3 mx-3",
+                                      attrs: {
+                                        to:
+                                          "/events/single_event/" +
+                                          passed_event.id,
+                                        rounded: "0"
+                                      }
                                     },
                                     [
                                       _c(
                                         "v-alert",
                                         {
-                                          staticClass: "px-0 py-0 mx-0 my-0",
+                                          staticClass: "px-3 py-4 mx-0 my-0",
                                           attrs: {
                                             color: "deep-orange darken-2",
                                             rounded: "0",
@@ -53871,25 +53505,86 @@ var render = function() {
                                         },
                                         [
                                           _c(
-                                            "v-card-title",
+                                            "v-row",
+                                            {
+                                              attrs: {
+                                                justify: "space-between"
+                                              }
+                                            },
                                             [
                                               _c(
-                                                "v-icon",
+                                                "v-col",
                                                 {
-                                                  attrs: {
-                                                    left: "",
-                                                    color:
-                                                      "deep-orange darken-2"
-                                                  }
+                                                  staticClass: "pt-0 pb-0",
+                                                  attrs: { cols: "12", sm: "6" }
                                                 },
                                                 [
-                                                  _vm._v(
-                                                    "\n                                 mdi-calendar-remove\n                              "
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "\n                                       text-subtitle-1\n                                       font-weight-medium\n                                    "
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "v-icon",
+                                                        {
+                                                          attrs: {
+                                                            left: "",
+                                                            color:
+                                                              "deep-orange darken-2",
+                                                            small: ""
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "\n                                       mdi-calendar-arrow-left\n                                    "
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(
+                                                        "\n                                    " +
+                                                          _vm._s(
+                                                            passed_event.event_name
+                                                          ) +
+                                                          "\n                                 "
+                                                      )
+                                                    ],
+                                                    1
                                                   )
                                                 ]
                                               ),
-                                              _vm._v(
-                                                "\n                              Passed Events\n                           "
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-col",
+                                                {
+                                                  staticClass: "pt-0 pb-0",
+                                                  attrs: { cols: "12", sm: "6" }
+                                                },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "\n                                       text-subtitle-1\n                                       font-weight-medium                                                \n                                       text-sm-right\n                                    "
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                                    Date :\n                                    " +
+                                                          _vm._s(
+                                                            _vm
+                                                              .moment(
+                                                                passed_event.event_date
+                                                              )
+                                                              .format(
+                                                                "MMMM Do YYYY, h:mm a"
+                                                              )
+                                                          ) +
+                                                          "\n                                 "
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
                                               )
                                             ],
                                             1
@@ -53899,229 +53594,24 @@ var render = function() {
                                       )
                                     ],
                                     1
-                                  ),
-                                  _vm._v(" "),
-                                  _vm.events.passed_events.length === 0
-                                    ? _c(
-                                        "v-card",
-                                        {
-                                          staticClass: "mb-3 mx-3",
-                                          attrs: { rounded: "0" }
-                                        },
-                                        [
-                                          _c(
-                                            "v-alert",
-                                            {
-                                              staticClass:
-                                                "px-3 py-4 mx-0 my-0",
-                                              attrs: {
-                                                color: "deep-orange darken-2",
-                                                rounded: "0",
-                                                outlined: "",
-                                                text: ""
-                                              }
-                                            },
-                                            [
-                                              _c(
-                                                "v-row",
-                                                [
-                                                  _c(
-                                                    "v-col",
-                                                    {
-                                                      staticClass: "pt-0 pb-0",
-                                                      attrs: { cols: "12" }
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "\n                                       text-subtitle-1\n                                       font-weight-medium\n                                       text-center\n                                    "
-                                                        },
-                                                        [
-                                                          _c(
-                                                            "v-icon",
-                                                            {
-                                                              attrs: {
-                                                                left: "",
-                                                                color:
-                                                                  "deep-orange darken-2"
-                                                              }
-                                                            },
-                                                            [
-                                                              _vm._v(
-                                                                "\n                                       mdi-close\n                                    "
-                                                              )
-                                                            ]
-                                                          ),
-                                                          _vm._v(
-                                                            "\n                                    No Passed Events\n                                 "
-                                                          )
-                                                        ],
-                                                        1
-                                                      )
-                                                    ]
-                                                  )
-                                                ],
-                                                1
-                                              )
-                                            ],
-                                            1
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    : _vm._l(_vm.events.passed_events, function(
-                                        passed_event,
-                                        index
-                                      ) {
-                                        return _c(
-                                          "v-card",
-                                          {
-                                            key: index,
-                                            staticClass: "mb-3 mx-3",
-                                            attrs: {
-                                              to:
-                                                "/events/single_event/" +
-                                                passed_event.id,
-                                              rounded: "0"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "v-alert",
-                                              {
-                                                staticClass:
-                                                  "px-3 py-4 mx-0 my-0",
-                                                attrs: {
-                                                  color: "deep-orange darken-2",
-                                                  rounded: "0",
-                                                  outlined: "",
-                                                  text: ""
-                                                }
-                                              },
-                                              [
-                                                _c(
-                                                  "v-row",
-                                                  {
-                                                    attrs: {
-                                                      justify: "space-between"
-                                                    }
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "v-col",
-                                                      {
-                                                        staticClass:
-                                                          "pt-0 pb-0",
-                                                        attrs: {
-                                                          cols: "12",
-                                                          sm: "6"
-                                                        }
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "\n                                       text-subtitle-1\n                                       font-weight-medium\n                                    "
-                                                          },
-                                                          [
-                                                            _c(
-                                                              "v-icon",
-                                                              {
-                                                                attrs: {
-                                                                  left: "",
-                                                                  color:
-                                                                    "deep-orange darken-2",
-                                                                  small: ""
-                                                                }
-                                                              },
-                                                              [
-                                                                _vm._v(
-                                                                  "\n                                       mdi-calendar-arrow-left\n                                    "
-                                                                )
-                                                              ]
-                                                            ),
-                                                            _vm._v(
-                                                              "\n                                    " +
-                                                                _vm._s(
-                                                                  passed_event.event_name
-                                                                ) +
-                                                                "\n                                 "
-                                                            )
-                                                          ],
-                                                          1
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "v-col",
-                                                      {
-                                                        staticClass:
-                                                          "pt-0 pb-0",
-                                                        attrs: {
-                                                          cols: "12",
-                                                          sm: "6"
-                                                        }
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "\n                                       text-subtitle-1\n                                       font-weight-medium                                                \n                                       text-sm-right\n                                    "
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "\n                                    Date :\n                                    " +
-                                                                _vm._s(
-                                                                  _vm
-                                                                    .moment(
-                                                                      passed_event.event_date
-                                                                    )
-                                                                    .format(
-                                                                      "MMMM Do YYYY, h:mm a"
-                                                                    )
-                                                                ) +
-                                                                "\n                                 "
-                                                            )
-                                                          ]
-                                                        )
-                                                      ]
-                                                    )
-                                                  ],
-                                                  1
-                                                )
-                                              ],
-                                              1
-                                            )
-                                          ],
-                                          1
-                                        )
-                                      })
-                                ],
-                                2
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-        ],
-        1
-      )
-    ],
-    1
-  )
+                                  )
+                                })
+                          ],
+                          2
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ],
+          1
+        )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -54154,123 +53644,7 @@ var render = function() {
         "v-row",
         [
           _vm.loading
-            ? _c(
-                "v-col",
-                [
-                  _c("v-card", { staticClass: "mt-6", attrs: { flat: "" } }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "text-center blue--text text--darken-4 font-weight-bold"
-                      },
-                      [_vm._v("\n               Loading...\n            ")]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "mx-auto" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticStyle: {
-                            margin: "auto",
-                            display: "block",
-                            "shape-rendering": "auto",
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                            width: "250px",
-                            height: "250px",
-                            viewBox: "0 0 100 100",
-                            preserveAspectRatio: "xMidYMid"
-                          }
-                        },
-                        [
-                          _c(
-                            "circle",
-                            {
-                              staticStyle: {
-                                "animation-play-state": "running",
-                                "animation-delay": "0s"
-                              },
-                              attrs: {
-                                cx: "50",
-                                cy: "50",
-                                r: "19",
-                                "stroke-width": "5",
-                                stroke: "#002147",
-                                "stroke-dasharray":
-                                  "29.845130209103033 29.845130209103033",
-                                fill: "none",
-                                "stroke-linecap": "round"
-                              }
-                            },
-                            [
-                              _c("animateTransform", {
-                                staticStyle: {
-                                  "animation-play-state": "running",
-                                  "animation-delay": "0s"
-                                },
-                                attrs: {
-                                  attributeName: "transform",
-                                  type: "rotate",
-                                  dur: "1s",
-                                  repeatCount: "indefinite",
-                                  keyTimes: "0;1",
-                                  values: "0 50 50;360 50 50"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "circle",
-                            {
-                              staticStyle: {
-                                "animation-play-state": "running",
-                                "animation-delay": "0s"
-                              },
-                              attrs: {
-                                cx: "50",
-                                cy: "50",
-                                r: "13",
-                                "stroke-width": "5",
-                                stroke: "#4270a9",
-                                "stroke-dasharray":
-                                  "20.420352248333657 20.420352248333657",
-                                "stroke-dashoffset": "20.420352248333657",
-                                fill: "none",
-                                "stroke-linecap": "round"
-                              }
-                            },
-                            [
-                              _c("animateTransform", {
-                                staticStyle: {
-                                  "animation-play-state": "running",
-                                  "animation-delay": "0s"
-                                },
-                                attrs: {
-                                  attributeName: "transform",
-                                  type: "rotate",
-                                  dur: "1s",
-                                  repeatCount: "indefinite",
-                                  keyTimes: "0;1",
-                                  values: "0 50 50;-360 50 50"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                ],
-                1
-              )
+            ? _c("v-col", [_c("Loading")], 1)
             : _c(
                 "v-col",
                 { staticClass: "px-6 pt-3", attrs: { cols: "12" } },
@@ -54500,123 +53874,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "pt-3" }, [
     _vm.loading
-      ? _c(
-          "div",
-          [
-            _c("v-card", { staticClass: "mt-6", attrs: { flat: "" } }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "text-center blue--text text--darken-4 font-weight-bold"
-                },
-                [_vm._v("\r\n               Loading...         \r\n         ")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "mx-auto" }, [
-                _c(
-                  "svg",
-                  {
-                    staticStyle: {
-                      margin: "auto",
-                      display: "block",
-                      "shape-rendering": "auto",
-                      "animation-play-state": "running",
-                      "animation-delay": "0s"
-                    },
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                      width: "250px",
-                      height: "250px",
-                      viewBox: "0 0 100 100",
-                      preserveAspectRatio: "xMidYMid"
-                    }
-                  },
-                  [
-                    _c(
-                      "circle",
-                      {
-                        staticStyle: {
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          cx: "50",
-                          cy: "50",
-                          r: "19",
-                          "stroke-width": "5",
-                          stroke: "#002147",
-                          "stroke-dasharray":
-                            "29.845130209103033 29.845130209103033",
-                          fill: "none",
-                          "stroke-linecap": "round"
-                        }
-                      },
-                      [
-                        _c("animateTransform", {
-                          staticStyle: {
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            attributeName: "transform",
-                            type: "rotate",
-                            dur: "1s",
-                            repeatCount: "indefinite",
-                            keyTimes: "0;1",
-                            values: "0 50 50;360 50 50"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "circle",
-                      {
-                        staticStyle: {
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          cx: "50",
-                          cy: "50",
-                          r: "13",
-                          "stroke-width": "5",
-                          stroke: "#4270a9",
-                          "stroke-dasharray":
-                            "20.420352248333657 20.420352248333657",
-                          "stroke-dashoffset": "20.420352248333657",
-                          fill: "none",
-                          "stroke-linecap": "round"
-                        }
-                      },
-                      [
-                        _c("animateTransform", {
-                          staticStyle: {
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            attributeName: "transform",
-                            type: "rotate",
-                            dur: "1s",
-                            repeatCount: "indefinite",
-                            keyTimes: "0;1",
-                            values: "0 50 50;-360 50 50"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ])
-            ])
-          ],
-          1
-        )
+      ? _c("div", [_c("Loading")], 1)
       : _c(
           "div",
           [
@@ -54933,125 +54191,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "pt-3" }, [
+  return _c("div", { staticClass: "pt-3 pb-3" }, [
     _vm.loading
-      ? _c(
-          "div",
-          [
-            _c("v-card", { staticClass: "mt-6", attrs: { flat: "" } }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "text-center blue--text text--darken-4 font-weight-bold"
-                },
-                [_vm._v("\n                 Loading...\n           ")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "mx-auto" }, [
-                _c(
-                  "svg",
-                  {
-                    staticStyle: {
-                      margin: "auto",
-                      display: "block",
-                      "shape-rendering": "auto",
-                      "animation-play-state": "running",
-                      "animation-delay": "0s"
-                    },
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                      width: "250px",
-                      height: "250px",
-                      viewBox: "0 0 100 100",
-                      preserveAspectRatio: "xMidYMid"
-                    }
-                  },
-                  [
-                    _c(
-                      "circle",
-                      {
-                        staticStyle: {
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          cx: "50",
-                          cy: "50",
-                          r: "19",
-                          "stroke-width": "5",
-                          stroke: "#002147",
-                          "stroke-dasharray":
-                            "29.845130209103033 29.845130209103033",
-                          fill: "none",
-                          "stroke-linecap": "round"
-                        }
-                      },
-                      [
-                        _c("animateTransform", {
-                          staticStyle: {
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            attributeName: "transform",
-                            type: "rotate",
-                            dur: "1s",
-                            repeatCount: "indefinite",
-                            keyTimes: "0;1",
-                            values: "0 50 50;360 50 50"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "circle",
-                      {
-                        staticStyle: {
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          cx: "50",
-                          cy: "50",
-                          r: "13",
-                          "stroke-width": "5",
-                          stroke: "#4270a9",
-                          "stroke-dasharray":
-                            "20.420352248333657 20.420352248333657",
-                          "stroke-dashoffset": "20.420352248333657",
-                          fill: "none",
-                          "stroke-linecap": "round"
-                        }
-                      },
-                      [
-                        _c("animateTransform", {
-                          staticStyle: {
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            attributeName: "transform",
-                            type: "rotate",
-                            dur: "1s",
-                            repeatCount: "indefinite",
-                            keyTimes: "0;1",
-                            values: "0 50 50;-360 50 50"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ])
-            ])
-          ],
-          1
-        )
+      ? _c("div", [_c("Loading")], 1)
       : _c(
           "div",
           [
@@ -55317,127 +54459,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "pt-3" }, [
     _vm.loading
-      ? _c(
-          "div",
-          [
-            _c("v-card", { staticClass: "mt-6", attrs: { flat: "" } }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "text-center blue--text text--darken-4 font-weight-bold"
-                },
-                [
-                  _vm._v(
-                    "\r\n                  Loading...         \r\n            "
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "mx-auto" }, [
-                _c(
-                  "svg",
-                  {
-                    staticStyle: {
-                      margin: "auto",
-                      display: "block",
-                      "shape-rendering": "auto",
-                      "animation-play-state": "running",
-                      "animation-delay": "0s"
-                    },
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                      width: "250px",
-                      height: "250px",
-                      viewBox: "0 0 100 100",
-                      preserveAspectRatio: "xMidYMid"
-                    }
-                  },
-                  [
-                    _c(
-                      "circle",
-                      {
-                        staticStyle: {
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          cx: "50",
-                          cy: "50",
-                          r: "19",
-                          "stroke-width": "5",
-                          stroke: "#002147",
-                          "stroke-dasharray":
-                            "29.845130209103033 29.845130209103033",
-                          fill: "none",
-                          "stroke-linecap": "round"
-                        }
-                      },
-                      [
-                        _c("animateTransform", {
-                          staticStyle: {
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            attributeName: "transform",
-                            type: "rotate",
-                            dur: "1s",
-                            repeatCount: "indefinite",
-                            keyTimes: "0;1",
-                            values: "0 50 50;360 50 50"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "circle",
-                      {
-                        staticStyle: {
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          cx: "50",
-                          cy: "50",
-                          r: "13",
-                          "stroke-width": "5",
-                          stroke: "#4270a9",
-                          "stroke-dasharray":
-                            "20.420352248333657 20.420352248333657",
-                          "stroke-dashoffset": "20.420352248333657",
-                          fill: "none",
-                          "stroke-linecap": "round"
-                        }
-                      },
-                      [
-                        _c("animateTransform", {
-                          staticStyle: {
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            attributeName: "transform",
-                            type: "rotate",
-                            dur: "1s",
-                            repeatCount: "indefinite",
-                            keyTimes: "0;1",
-                            values: "0 50 50;-360 50 50"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ])
-            ])
-          ],
-          1
-        )
+      ? _c("div", [_c("Loading")], 1)
       : _c(
           "div",
           [
@@ -55598,123 +54620,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "pt-3" }, [
     _vm.loading
-      ? _c(
-          "div",
-          [
-            _c("v-card", { staticClass: "mt-6", attrs: { flat: "" } }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "text-center blue--text text--darken-4 font-weight-bold"
-                },
-                [_vm._v("\r\n               Loading...\r\n         ")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "mx-auto" }, [
-                _c(
-                  "svg",
-                  {
-                    staticStyle: {
-                      margin: "auto",
-                      display: "block",
-                      "shape-rendering": "auto",
-                      "animation-play-state": "running",
-                      "animation-delay": "0s"
-                    },
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                      width: "250px",
-                      height: "250px",
-                      viewBox: "0 0 100 100",
-                      preserveAspectRatio: "xMidYMid"
-                    }
-                  },
-                  [
-                    _c(
-                      "circle",
-                      {
-                        staticStyle: {
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          cx: "50",
-                          cy: "50",
-                          r: "19",
-                          "stroke-width": "5",
-                          stroke: "#002147",
-                          "stroke-dasharray":
-                            "29.845130209103033 29.845130209103033",
-                          fill: "none",
-                          "stroke-linecap": "round"
-                        }
-                      },
-                      [
-                        _c("animateTransform", {
-                          staticStyle: {
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            attributeName: "transform",
-                            type: "rotate",
-                            dur: "1s",
-                            repeatCount: "indefinite",
-                            keyTimes: "0;1",
-                            values: "0 50 50;360 50 50"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "circle",
-                      {
-                        staticStyle: {
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          cx: "50",
-                          cy: "50",
-                          r: "13",
-                          "stroke-width": "5",
-                          stroke: "#4270a9",
-                          "stroke-dasharray":
-                            "20.420352248333657 20.420352248333657",
-                          "stroke-dashoffset": "20.420352248333657",
-                          fill: "none",
-                          "stroke-linecap": "round"
-                        }
-                      },
-                      [
-                        _c("animateTransform", {
-                          staticStyle: {
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            attributeName: "transform",
-                            type: "rotate",
-                            dur: "1s",
-                            repeatCount: "indefinite",
-                            keyTimes: "0;1",
-                            values: "0 50 50;-360 50 50"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ])
-            ])
-          ],
-          1
-        )
+      ? _c("div", [_c("loading")], 1)
       : _c(
           "div",
           [
@@ -55754,7 +54660,7 @@ var render = function() {
                 )
               : _c(
                   "v-row",
-                  { staticClass: "mx-2 py-4" },
+                  { staticClass: "mx-4 py-4" },
                   [
                     _c(
                       "v-row",
@@ -55943,125 +54849,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "pt-3" }, [
     _vm.loading
-      ? _c(
-          "div",
-          [
-            _c("v-card", { attrs: { flat: "" } }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "text-center blue--text text--darken-4 font-weight-bold pt-10"
-                },
-                [_vm._v("\n            Loading...\n      ")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "mx-auto" }, [
-                _c(
-                  "svg",
-                  {
-                    staticStyle: {
-                      margin: "auto",
-                      display: "block",
-                      "shape-rendering": "auto",
-                      "animation-play-state": "running",
-                      "animation-delay": "0s"
-                    },
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                      width: "250px",
-                      height: "250px",
-                      viewBox: "0 0 100 100",
-                      preserveAspectRatio: "xMidYMid"
-                    }
-                  },
-                  [
-                    _c(
-                      "circle",
-                      {
-                        staticStyle: {
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          cx: "50",
-                          cy: "50",
-                          r: "19",
-                          "stroke-width": "5",
-                          stroke: "#002147",
-                          "stroke-dasharray":
-                            "29.845130209103033 29.845130209103033",
-                          fill: "none",
-                          "stroke-linecap": "round"
-                        }
-                      },
-                      [
-                        _c("animateTransform", {
-                          staticStyle: {
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            attributeName: "transform",
-                            type: "rotate",
-                            dur: "1s",
-                            repeatCount: "indefinite",
-                            keyTimes: "0;1",
-                            values: "0 50 50;360 50 50"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "circle",
-                      {
-                        staticStyle: {
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          cx: "50",
-                          cy: "50",
-                          r: "13",
-                          "stroke-width": "5",
-                          stroke: "#4270a9",
-                          "stroke-dasharray":
-                            "20.420352248333657 20.420352248333657",
-                          "stroke-dashoffset": "20.420352248333657",
-                          fill: "none",
-                          "stroke-linecap": "round"
-                        }
-                      },
-                      [
-                        _c("animateTransform", {
-                          staticStyle: {
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            attributeName: "transform",
-                            type: "rotate",
-                            dur: "1s",
-                            repeatCount: "indefinite",
-                            keyTimes: "0;1",
-                            values: "0 50 50;-360 50 50"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ])
-            ])
-          ],
-          1
-        )
+      ? _c("div", [_c("Loading")], 1)
       : _c(
           "div",
           [
@@ -56099,12 +54889,12 @@ var render = function() {
                 )
               : _c(
                   "div",
-                  { staticClass: "grey lighten-3" },
+                  { staticClass: "mx-4" },
                   [
                     _c(
                       "v-card",
                       {
-                        staticClass: "mx-auto grey lighten-3 my-0",
+                        staticClass: "mx-auto my-0",
                         attrs: { flat: "", tile: "" }
                       },
                       [
@@ -56129,7 +54919,7 @@ var render = function() {
                       "v-sheet",
                       {
                         staticClass: "px-2 py-2",
-                        attrs: { color: "grey lighten-3", "min-height": "500" }
+                        attrs: { "min-height": "500" }
                       },
                       [
                         _c(
@@ -56625,127 +55415,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "pt-3" }, [
     _vm.loading
-      ? _c(
-          "div",
-          [
-            _c("v-card", { staticClass: "mt-6", attrs: { flat: "" } }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "text-center blue--text text--darken-4 font-weight-bold"
-                },
-                [
-                  _vm._v(
-                    "\n                  Loading...         \n            "
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "mx-auto" }, [
-                _c(
-                  "svg",
-                  {
-                    staticStyle: {
-                      margin: "auto",
-                      display: "block",
-                      "shape-rendering": "auto",
-                      "animation-play-state": "running",
-                      "animation-delay": "0s"
-                    },
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                      width: "250px",
-                      height: "250px",
-                      viewBox: "0 0 100 100",
-                      preserveAspectRatio: "xMidYMid"
-                    }
-                  },
-                  [
-                    _c(
-                      "circle",
-                      {
-                        staticStyle: {
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          cx: "50",
-                          cy: "50",
-                          r: "19",
-                          "stroke-width": "5",
-                          stroke: "#002147",
-                          "stroke-dasharray":
-                            "29.845130209103033 29.845130209103033",
-                          fill: "none",
-                          "stroke-linecap": "round"
-                        }
-                      },
-                      [
-                        _c("animateTransform", {
-                          staticStyle: {
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            attributeName: "transform",
-                            type: "rotate",
-                            dur: "1s",
-                            repeatCount: "indefinite",
-                            keyTimes: "0;1",
-                            values: "0 50 50;360 50 50"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "circle",
-                      {
-                        staticStyle: {
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          cx: "50",
-                          cy: "50",
-                          r: "13",
-                          "stroke-width": "5",
-                          stroke: "#4270a9",
-                          "stroke-dasharray":
-                            "20.420352248333657 20.420352248333657",
-                          "stroke-dashoffset": "20.420352248333657",
-                          fill: "none",
-                          "stroke-linecap": "round"
-                        }
-                      },
-                      [
-                        _c("animateTransform", {
-                          staticStyle: {
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            attributeName: "transform",
-                            type: "rotate",
-                            dur: "1s",
-                            repeatCount: "indefinite",
-                            keyTimes: "0;1",
-                            values: "0 50 50;-360 50 50"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ])
-            ])
-          ],
-          1
-        )
+      ? _c("div", [_c("Loading")], 1)
       : _c(
           "div",
           [
@@ -56903,123 +55573,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "pt-3" }, [
     _vm.loading
-      ? _c(
-          "div",
-          [
-            _c("v-card", { staticClass: "mt-6", attrs: { flat: "" } }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "text-center blue--text text--darken-4 font-weight-bold"
-                },
-                [_vm._v("\n            Loading...\n         ")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "mx-auto" }, [
-                _c(
-                  "svg",
-                  {
-                    staticStyle: {
-                      margin: "auto",
-                      display: "block",
-                      "shape-rendering": "auto",
-                      "animation-play-state": "running",
-                      "animation-delay": "0s"
-                    },
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                      width: "250px",
-                      height: "250px",
-                      viewBox: "0 0 100 100",
-                      preserveAspectRatio: "xMidYMid"
-                    }
-                  },
-                  [
-                    _c(
-                      "circle",
-                      {
-                        staticStyle: {
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          cx: "50",
-                          cy: "50",
-                          r: "19",
-                          "stroke-width": "5",
-                          stroke: "#002147",
-                          "stroke-dasharray":
-                            "29.845130209103033 29.845130209103033",
-                          fill: "none",
-                          "stroke-linecap": "round"
-                        }
-                      },
-                      [
-                        _c("animateTransform", {
-                          staticStyle: {
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            attributeName: "transform",
-                            type: "rotate",
-                            dur: "1s",
-                            repeatCount: "indefinite",
-                            keyTimes: "0;1",
-                            values: "0 50 50;360 50 50"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "circle",
-                      {
-                        staticStyle: {
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          cx: "50",
-                          cy: "50",
-                          r: "13",
-                          "stroke-width": "5",
-                          stroke: "#4270a9",
-                          "stroke-dasharray":
-                            "20.420352248333657 20.420352248333657",
-                          "stroke-dashoffset": "20.420352248333657",
-                          fill: "none",
-                          "stroke-linecap": "round"
-                        }
-                      },
-                      [
-                        _c("animateTransform", {
-                          staticStyle: {
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            attributeName: "transform",
-                            type: "rotate",
-                            dur: "1s",
-                            repeatCount: "indefinite",
-                            keyTimes: "0;1",
-                            values: "0 50 50;-360 50 50"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ])
-            ])
-          ],
-          1
-        )
+      ? _c("div", [_c("Loading")], 1)
       : _c(
           "div",
           [
@@ -74056,6 +72610,54 @@ component.options.__file = "resources/js/pages/components/footer.vue"
 
 /***/ }),
 
+/***/ "./resources/js/pages/components/loading.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/pages/components/loading.vue ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _loading_vue_vue_type_template_id_d5669228___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./loading.vue?vue&type=template&id=d5669228& */ "./resources/js/pages/components/loading.vue?vue&type=template&id=d5669228&");
+/* harmony import */ var _loading_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./loading.vue?vue&type=script&lang=js& */ "./resources/js/pages/components/loading.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vuetify-loader/lib/runtime/installComponents.js */ "./node_modules/vuetify-loader/lib/runtime/installComponents.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/VCard.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _loading_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _loading_vue_vue_type_template_id_d5669228___WEBPACK_IMPORTED_MODULE_0__.render,
+  _loading_vue_vue_type_template_id_d5669228___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* vuetify-loader */
+;
+
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__.default})
+
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/components/loading.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/pages/components/quicklinks.vue":
 /*!******************************************************!*\
   !*** ./resources/js/pages/components/quicklinks.vue ***!
@@ -74728,7 +73330,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VCol.js");
 /* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/VIcon.js");
 /* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
-/* harmony import */ var vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VSheet */ "./node_modules/vuetify/lib/components/VSheet/VSheet.js");
 
 
 
@@ -74756,8 +73357,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 
 
-
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VAlert: vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCardSubtitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardSubtitle,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_8__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__.default,VSheet: vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_10__.default})
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VAlert: vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCardSubtitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardSubtitle,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_8__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__.default})
 
 
 /* hot reload */

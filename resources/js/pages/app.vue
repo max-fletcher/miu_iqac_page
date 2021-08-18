@@ -7,7 +7,7 @@
 
          <!-- v-main is the main content area e.g background -->
          <v-main class="grey lighten-3">
-            <v-sheet class="mx-4 mb-3 mt-3" min-height="500">
+            <v-sheet class="mx-4 mt-3" min-height="500">
                <router-view :key="$route.fullPath"></router-view>
             </v-sheet>
          </v-main>
