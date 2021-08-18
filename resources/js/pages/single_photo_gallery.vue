@@ -1,5 +1,5 @@
 <template>
-   <div class="pt-3">      
+   <div class="pt-3">
       <div v-if="loading">
          <Loading />
       </div>
@@ -15,12 +15,24 @@
             </v-container>
          </v-card>
          <div v-else>
-            <v-card flat tile class="mx-auto">
-               <v-card-subtitle class="text-center text-h3 blue--text text--darken-4 lighten-3 text-uppercase">
-                  {{ photos.gallery_name }}
-               </v-card-subtitle>
-            </v-card>
-            <v-row class="mx-1 py-2 mt-n3">
+            <v-row class="mx-2 mt-2" no-gutters>
+               <v-col cols="12">
+                  <v-card flat tile class="mx-auto px-0">
+                     <v-card-subtitle
+                        class="
+                           text-center text-h3
+                           blue--text
+                           text--darken-4
+                           py-0                           
+                           mb-2
+                           pl-lg-4
+                           text-uppercase
+                        "
+                     >{{ photos.gallery_name }}</v-card-subtitle>
+                  </v-card>
+               </v-col>
+            </v-row>
+            <v-row class="mx-1 py-2 mt-n2">
                <v-col
                   v-for="(photo, index) in photos.gallery_photos"
                   :key="index"

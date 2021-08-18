@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-3">     
+  <div class="pt-3">
       <div v-if="loading">
          <Loading />
       </div>
@@ -11,7 +11,7 @@
                </v-card-title>
             </v-card>
          </v-row>
-         <v-row class="mx-1 py-2 mt-n3">
+         <v-row class="mx-1 py-2 mt-n3 mb-2">
             <v-col cols="12">
                <v-card min-height="450" class="mx-4 pb-4" elevation="10">
                   <v-card-text class="text-subtitle-1 mt-1 pb-0 orange--text text--darken-3"> HEADLINE: </v-card-text>

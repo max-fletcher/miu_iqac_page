@@ -1846,73 +1846,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _components_quicklinks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/quicklinks */ "./resources/js/pages/components/quicklinks.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/loading */ "./resources/js/pages/components/loading.vue");
 //
 //
 //
@@ -1955,6 +1889,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -1963,7 +1898,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {
-    QuickLinks: _components_quicklinks__WEBPACK_IMPORTED_MODULE_0__.default
+    QuickLinks: _components_quicklinks__WEBPACK_IMPORTED_MODULE_0__.default,
+    Loading: _components_loading__WEBPACK_IMPORTED_MODULE_1__.default
   },
   created: function created() {
     var _this = this;
@@ -5158,7 +5094,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -5452,6 +5387,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5533,6 +5477,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/loading */ "./resources/js/pages/components/loading.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5705,6 +5661,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5749,6 +5714,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/loading */ "./resources/js/pages/components/loading.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5963,6 +5940,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5990,7 +6006,7 @@ __webpack_require__.r(__webpack_exports__);
       // this.errors = error.response.data.errors
       // this.loading = false;
       _this.$router.push({
-        name: 'ResourceNotFound'
+        name: "ResourceNotFound"
       });
     });
   }
@@ -6012,63 +6028,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/loading */ "./resources/js/pages/components/loading.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -6266,6 +6225,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue_easy_lightbox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-easy-lightbox */ "./node_modules/vue-easy-lightbox/dist/vue-easy-lightbox.es5.esm.min.js");
 /* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/loading */ "./resources/js/pages/components/loading.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -47789,127 +47760,7 @@ var render = function() {
       { staticClass: "pl-4" },
       [
         _vm.loading
-          ? _c(
-              "div",
-              [
-                _c("v-card", { staticClass: "mt-6", attrs: { flat: "" } }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "text-center blue--text text--darken-4 font-weight-bold"
-                    },
-                    [
-                      _vm._v(
-                        "\n                        Loading...         \n                "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "mx-auto" }, [
-                    _c(
-                      "svg",
-                      {
-                        staticStyle: {
-                          margin: "auto",
-                          display: "block",
-                          "shape-rendering": "auto",
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                          width: "250px",
-                          height: "250px",
-                          viewBox: "0 0 100 100",
-                          preserveAspectRatio: "xMidYMid"
-                        }
-                      },
-                      [
-                        _c(
-                          "circle",
-                          {
-                            staticStyle: {
-                              "animation-play-state": "running",
-                              "animation-delay": "0s"
-                            },
-                            attrs: {
-                              cx: "50",
-                              cy: "50",
-                              r: "19",
-                              "stroke-width": "5",
-                              stroke: "#002147",
-                              "stroke-dasharray":
-                                "29.845130209103033 29.845130209103033",
-                              fill: "none",
-                              "stroke-linecap": "round"
-                            }
-                          },
-                          [
-                            _c("animateTransform", {
-                              staticStyle: {
-                                "animation-play-state": "running",
-                                "animation-delay": "0s"
-                              },
-                              attrs: {
-                                attributeName: "transform",
-                                type: "rotate",
-                                dur: "1s",
-                                repeatCount: "indefinite",
-                                keyTimes: "0;1",
-                                values: "0 50 50;360 50 50"
-                              }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "circle",
-                          {
-                            staticStyle: {
-                              "animation-play-state": "running",
-                              "animation-delay": "0s"
-                            },
-                            attrs: {
-                              cx: "50",
-                              cy: "50",
-                              r: "13",
-                              "stroke-width": "5",
-                              stroke: "#4270a9",
-                              "stroke-dasharray":
-                                "20.420352248333657 20.420352248333657",
-                              "stroke-dashoffset": "20.420352248333657",
-                              fill: "none",
-                              "stroke-linecap": "round"
-                            }
-                          },
-                          [
-                            _c("animateTransform", {
-                              staticStyle: {
-                                "animation-play-state": "running",
-                                "animation-delay": "0s"
-                              },
-                              attrs: {
-                                attributeName: "transform",
-                                type: "rotate",
-                                dur: "1s",
-                                repeatCount: "indefinite",
-                                keyTimes: "0;1",
-                                values: "0 50 50;-360 50 50"
-                              }
-                            })
-                          ],
-                          1
-                        )
-                      ]
-                    )
-                  ])
-                ])
-              ],
-              1
-            )
+          ? _c("div", [_c("Loading")], 1)
           : _c(
               "v-row",
               {},
@@ -48083,7 +47934,10 @@ var render = function() {
             [
               _c(
                 "v-sheet",
-                { staticClass: "mx-4 mt-3", attrs: { "min-height": "500" } },
+                {
+                  staticClass: "mx-4 mb-3 mt-3",
+                  attrs: { "min-height": "450" }
+                },
                 [_c("router-view", { key: _vm.$route.fullPath })],
                 1
               )
@@ -53074,7 +52928,7 @@ var render = function() {
           [
             _c(
               "v-row",
-              { staticClass: "mx-2" },
+              { staticClass: "mx-2 mt-2", attrs: { "no-gutters": "" } },
               [
                 _c(
                   "v-col",
@@ -53091,519 +52945,489 @@ var render = function() {
                           "v-card-subtitle",
                           {
                             staticClass:
-                              "\n                        text-center text-h3\n                        blue--text\n                        text--darken-4\n                        py-0                           \n                        mb-2\n                        pl-lg-4\n                     "
+                              "\n                        text-center text-h3\n                        blue--text\n                        text--darken-4\n                        py-0                           \n                        mb-2\n                        pl-lg-4\n                        text-uppercase\n                     "
                           },
-                          [_vm._v("ALL EVENTS")]
+                          [_vm._v("all events")]
                         )
                       ],
                       1
                     )
                   ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "v-row",
+              { staticClass: "mt-3 px-4" },
+              [
+                _c(
+                  "v-col",
+                  {
+                    staticClass: "hidden-sm-and-down",
+                    attrs: { md: "3", lg: "2" }
+                  },
+                  [_c("QuickLinks")],
                   1
                 ),
                 _vm._v(" "),
                 _c(
-                  "v-row",
+                  "v-col",
+                  { attrs: { cols: "12", md: "9", lg: "10" } },
                   [
                     _c(
-                      "v-col",
-                      {
-                        staticClass: "hidden-sm-and-down",
-                        attrs: { md: "3", lg: "2" }
-                      },
-                      [_c("QuickLinks")],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-col",
-                      { attrs: { cols: "12", md: "9", lg: "10" } },
+                      "v-card",
+                      { staticClass: "mb-2", attrs: { rounded: "0" } },
                       [
                         _c(
-                          "v-col",
-                          { staticClass: "pt-0", attrs: { cols: "12" } },
+                          "v-alert",
+                          {
+                            staticClass: "px-0 py-0 mx-0 my-0",
+                            attrs: {
+                              color: "green accent-4",
+                              rounded: "0",
+                              outlined: "",
+                              text: ""
+                            }
+                          },
                           [
                             _c(
-                              "v-card",
-                              { staticClass: "mb-2", attrs: { rounded: "0" } },
+                              "v-card-title",
                               [
                                 _c(
-                                  "v-alert",
+                                  "v-icon",
                                   {
-                                    staticClass: "px-0 py-0 mx-0 my-0",
-                                    attrs: {
-                                      color: "green accent-4",
-                                      rounded: "0",
-                                      outlined: "",
-                                      text: ""
-                                    }
+                                    attrs: { left: "", color: "green accent-4" }
                                   },
                                   [
-                                    _c(
-                                      "v-card-title",
-                                      [
-                                        _c(
-                                          "v-icon",
-                                          {
-                                            attrs: {
-                                              left: "",
-                                              color: "green accent-4"
-                                            }
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                 mdi-calendar-star\n                              "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(
-                                          "\n                              Upcoming Events\n                           "
-                                        )
-                                      ],
-                                      1
+                                    _vm._v(
+                                      "\n                           mdi-calendar-star\n                        "
                                     )
-                                  ],
-                                  1
+                                  ]
+                                ),
+                                _vm._v(
+                                  "\n                        Upcoming Events\n                     "
                                 )
                               ],
                               1
-                            ),
-                            _vm._v(" "),
-                            _vm.events.upcoming_events.length === 0
-                              ? _c(
-                                  "v-card",
-                                  {
-                                    staticClass: "mb-3 mx-3",
-                                    attrs: { rounded: "0" }
-                                  },
-                                  [
-                                    _c(
-                                      "v-alert",
-                                      {
-                                        staticClass: "px-3 py-4 mx-0 my-0",
-                                        attrs: {
-                                          color: "green accent-4",
-                                          rounded: "0",
-                                          outlined: "",
-                                          text: ""
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "v-row",
-                                          [
-                                            _c(
-                                              "v-col",
-                                              {
-                                                staticClass: "pt-0 pb-0",
-                                                attrs: { cols: "12" }
-                                              },
-                                              [
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "\n                                       text-subtitle-1\n                                       font-weight-medium\n                                       text-center\n                                    "
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "v-icon",
-                                                      {
-                                                        attrs: {
-                                                          left: "",
-                                                          color:
-                                                            "green accent-4"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          "\n                                       mdi-close\n                                    "
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(
-                                                      "\n                                    No Upcoming Events\n                                 "
-                                                    )
-                                                  ],
-                                                  1
-                                                )
-                                              ]
-                                            )
-                                          ],
-                                          1
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  ],
-                                  1
-                                )
-                              : _vm._l(_vm.events.upcoming_events, function(
-                                  upcoming_event,
-                                  index
-                                ) {
-                                  return _c(
-                                    "v-card",
-                                    {
-                                      key: index,
-                                      staticClass: "mb-3 mx-3",
-                                      attrs: {
-                                        to:
-                                          "/events/single_event/" +
-                                          upcoming_event.id,
-                                        rounded: "0"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-alert",
-                                        {
-                                          staticClass: "px-3 py-4 mx-0 my-0",
-                                          attrs: {
-                                            color: "green accent-4",
-                                            rounded: "0",
-                                            outlined: "",
-                                            text: ""
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "v-row",
-                                            {
-                                              attrs: {
-                                                justify: "space-between"
-                                              }
-                                            },
-                                            [
-                                              _c(
-                                                "v-col",
-                                                {
-                                                  staticClass: "pt-0 pb-0",
-                                                  attrs: { cols: "12", sm: "6" }
-                                                },
-                                                [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "\n                                       text-subtitle-1\n                                       font-weight-medium\n                                    "
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "v-icon",
-                                                        {
-                                                          attrs: {
-                                                            left: "",
-                                                            color:
-                                                              "green accent-4",
-                                                            small: ""
-                                                          }
-                                                        },
-                                                        [
-                                                          _vm._v(
-                                                            "\n                                       mdi-calendar-arrow-right\n                                    "
-                                                          )
-                                                        ]
-                                                      ),
-                                                      _vm._v(
-                                                        "\n                                    " +
-                                                          _vm._s(
-                                                            upcoming_event.event_name
-                                                          ) +
-                                                          "\n                                 "
-                                                      )
-                                                    ],
-                                                    1
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "v-col",
-                                                {
-                                                  staticClass: "pt-0 pb-0",
-                                                  attrs: { cols: "12", sm: "6" }
-                                                },
-                                                [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "\n                                       text-subtitle-1\n                                       font-weight-medium                                                \n                                       text-sm-right\n                                    "
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        "\n                                    Date :\n                                    " +
-                                                          _vm._s(
-                                                            _vm
-                                                              .moment(
-                                                                upcoming_event.event_date
-                                                              )
-                                                              .format(
-                                                                "MMMM Do YYYY, h:mm a"
-                                                              )
-                                                          ) +
-                                                          "\n                                 "
-                                                      )
-                                                    ]
-                                                  )
-                                                ]
-                                              )
-                                            ],
-                                            1
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ],
-                                    1
-                                  )
-                                }),
-                            _vm._v(" "),
-                            _c(
-                              "v-card",
-                              { staticClass: "mb-2", attrs: { rounded: "0" } },
-                              [
-                                _c(
-                                  "v-alert",
-                                  {
-                                    staticClass: "px-0 py-0 mx-0 my-0",
-                                    attrs: {
-                                      color: "deep-orange darken-2",
-                                      rounded: "0",
-                                      outlined: "",
-                                      text: ""
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "v-card-title",
-                                      [
-                                        _c(
-                                          "v-icon",
-                                          {
-                                            attrs: {
-                                              left: "",
-                                              color: "deep-orange darken-2"
-                                            }
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                 mdi-calendar-remove\n                              "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(
-                                          "\n                              Passed Events\n                           "
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  ],
-                                  1
-                                )
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _vm.events.passed_events.length === 0
-                              ? _c(
-                                  "v-card",
-                                  {
-                                    staticClass: "mb-3 mx-3",
-                                    attrs: { rounded: "0" }
-                                  },
-                                  [
-                                    _c(
-                                      "v-alert",
-                                      {
-                                        staticClass: "px-3 py-4 mx-0 my-0",
-                                        attrs: {
-                                          color: "deep-orange darken-2",
-                                          rounded: "0",
-                                          outlined: "",
-                                          text: ""
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "v-row",
-                                          [
-                                            _c(
-                                              "v-col",
-                                              {
-                                                staticClass: "pt-0 pb-0",
-                                                attrs: { cols: "12" }
-                                              },
-                                              [
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "\n                                       text-subtitle-1\n                                       font-weight-medium\n                                       text-center\n                                    "
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "v-icon",
-                                                      {
-                                                        attrs: {
-                                                          left: "",
-                                                          color:
-                                                            "deep-orange darken-2"
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          "\n                                       mdi-close\n                                    "
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(
-                                                      "\n                                    No Passed Events\n                                 "
-                                                    )
-                                                  ],
-                                                  1
-                                                )
-                                              ]
-                                            )
-                                          ],
-                                          1
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  ],
-                                  1
-                                )
-                              : _vm._l(_vm.events.passed_events, function(
-                                  passed_event,
-                                  index
-                                ) {
-                                  return _c(
-                                    "v-card",
-                                    {
-                                      key: index,
-                                      staticClass: "mb-3 mx-3",
-                                      attrs: {
-                                        to:
-                                          "/events/single_event/" +
-                                          passed_event.id,
-                                        rounded: "0"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-alert",
-                                        {
-                                          staticClass: "px-3 py-4 mx-0 my-0",
-                                          attrs: {
-                                            color: "deep-orange darken-2",
-                                            rounded: "0",
-                                            outlined: "",
-                                            text: ""
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "v-row",
-                                            {
-                                              attrs: {
-                                                justify: "space-between"
-                                              }
-                                            },
-                                            [
-                                              _c(
-                                                "v-col",
-                                                {
-                                                  staticClass: "pt-0 pb-0",
-                                                  attrs: { cols: "12", sm: "6" }
-                                                },
-                                                [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "\n                                       text-subtitle-1\n                                       font-weight-medium\n                                    "
-                                                    },
-                                                    [
-                                                      _c(
-                                                        "v-icon",
-                                                        {
-                                                          attrs: {
-                                                            left: "",
-                                                            color:
-                                                              "deep-orange darken-2",
-                                                            small: ""
-                                                          }
-                                                        },
-                                                        [
-                                                          _vm._v(
-                                                            "\n                                       mdi-calendar-arrow-left\n                                    "
-                                                          )
-                                                        ]
-                                                      ),
-                                                      _vm._v(
-                                                        "\n                                    " +
-                                                          _vm._s(
-                                                            passed_event.event_name
-                                                          ) +
-                                                          "\n                                 "
-                                                      )
-                                                    ],
-                                                    1
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "v-col",
-                                                {
-                                                  staticClass: "pt-0 pb-0",
-                                                  attrs: { cols: "12", sm: "6" }
-                                                },
-                                                [
-                                                  _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "\n                                       text-subtitle-1\n                                       font-weight-medium                                                \n                                       text-sm-right\n                                    "
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        "\n                                    Date :\n                                    " +
-                                                          _vm._s(
-                                                            _vm
-                                                              .moment(
-                                                                passed_event.event_date
-                                                              )
-                                                              .format(
-                                                                "MMMM Do YYYY, h:mm a"
-                                                              )
-                                                          ) +
-                                                          "\n                                 "
-                                                      )
-                                                    ]
-                                                  )
-                                                ]
-                                              )
-                                            ],
-                                            1
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ],
-                                    1
-                                  )
-                                })
+                            )
                           ],
-                          2
+                          1
                         )
                       ],
                       1
-                    )
+                    ),
+                    _vm._v(" "),
+                    _vm.events.upcoming_events.length === 0
+                      ? _c(
+                          "v-card",
+                          { staticClass: "mb-3 mx-3", attrs: { rounded: "0" } },
+                          [
+                            _c(
+                              "v-alert",
+                              {
+                                staticClass: "px-3 py-4 mx-0 my-0",
+                                attrs: {
+                                  color: "green accent-4",
+                                  rounded: "0",
+                                  outlined: "",
+                                  text: ""
+                                }
+                              },
+                              [
+                                _c(
+                                  "v-row",
+                                  [
+                                    _c(
+                                      "v-col",
+                                      {
+                                        staticClass: "pt-0 pb-0",
+                                        attrs: { cols: "12" }
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "\n                                 text-subtitle-1\n                                 font-weight-medium\n                                 text-center\n                              "
+                                          },
+                                          [
+                                            _c(
+                                              "v-icon",
+                                              {
+                                                attrs: {
+                                                  left: "",
+                                                  color: "green accent-4"
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                                 mdi-close\n                              "
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(
+                                              "\n                              No Upcoming Events\n                           "
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      : _vm._l(_vm.events.upcoming_events, function(
+                          upcoming_event,
+                          index
+                        ) {
+                          return _c(
+                            "v-card",
+                            {
+                              key: index,
+                              staticClass: "mb-3 mx-3",
+                              attrs: {
+                                to: "/events/single_event/" + upcoming_event.id,
+                                rounded: "0"
+                              }
+                            },
+                            [
+                              _c(
+                                "v-alert",
+                                {
+                                  staticClass: "px-3 py-4 mx-0 my-0",
+                                  attrs: {
+                                    color: "green accent-4",
+                                    rounded: "0",
+                                    outlined: "",
+                                    text: ""
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "v-row",
+                                    { attrs: { justify: "space-between" } },
+                                    [
+                                      _c(
+                                        "v-col",
+                                        {
+                                          staticClass: "pt-0 pb-0",
+                                          attrs: { cols: "12", sm: "6" }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "\n                                 text-subtitle-1\n                                 font-weight-medium\n                              "
+                                            },
+                                            [
+                                              _c(
+                                                "v-icon",
+                                                {
+                                                  attrs: {
+                                                    left: "",
+                                                    color: "green accent-4",
+                                                    small: ""
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                 mdi-calendar-arrow-right\n                              "
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(
+                                                "\n                              " +
+                                                  _vm._s(
+                                                    upcoming_event.event_name
+                                                  ) +
+                                                  "\n                           "
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-col",
+                                        {
+                                          staticClass: "pt-0 pb-0",
+                                          attrs: { cols: "12", sm: "6" }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "\n                                 text-subtitle-1\n                                 font-weight-medium                                                \n                                 text-sm-right\n                              "
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                              Date :\n                              " +
+                                                  _vm._s(
+                                                    _vm
+                                                      .moment(
+                                                        upcoming_event.event_date
+                                                      )
+                                                      .format(
+                                                        "MMMM Do YYYY, h:mm a"
+                                                      )
+                                                  ) +
+                                                  "\n                           "
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        }),
+                    _vm._v(" "),
+                    _c(
+                      "v-card",
+                      { staticClass: "mb-2", attrs: { rounded: "0" } },
+                      [
+                        _c(
+                          "v-alert",
+                          {
+                            staticClass: "px-0 py-0 mx-0 my-0",
+                            attrs: {
+                              color: "deep-orange darken-2",
+                              rounded: "0",
+                              outlined: "",
+                              text: ""
+                            }
+                          },
+                          [
+                            _c(
+                              "v-card-title",
+                              [
+                                _c(
+                                  "v-icon",
+                                  {
+                                    attrs: {
+                                      left: "",
+                                      color: "deep-orange darken-2"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                           mdi-calendar-remove\n                        "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(
+                                  "\n                        Passed Events\n                     "
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _vm.events.passed_events.length === 0
+                      ? _c(
+                          "v-card",
+                          { staticClass: "mb-3 mx-3", attrs: { rounded: "0" } },
+                          [
+                            _c(
+                              "v-alert",
+                              {
+                                staticClass: "px-3 py-4 mx-0 my-0",
+                                attrs: {
+                                  color: "deep-orange darken-2",
+                                  rounded: "0",
+                                  outlined: "",
+                                  text: ""
+                                }
+                              },
+                              [
+                                _c(
+                                  "v-row",
+                                  [
+                                    _c(
+                                      "v-col",
+                                      {
+                                        staticClass: "pt-0 pb-0",
+                                        attrs: { cols: "12" }
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "\n                                 text-subtitle-1\n                                 font-weight-medium\n                                 text-center\n                              "
+                                          },
+                                          [
+                                            _c(
+                                              "v-icon",
+                                              {
+                                                attrs: {
+                                                  left: "",
+                                                  color: "deep-orange darken-2"
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                                 mdi-close\n                              "
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(
+                                              "\n                              No Passed Events\n                           "
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      : _vm._l(_vm.events.passed_events, function(
+                          passed_event,
+                          index
+                        ) {
+                          return _c(
+                            "v-card",
+                            {
+                              key: index,
+                              staticClass: "mb-3 mx-3",
+                              attrs: {
+                                to: "/events/single_event/" + passed_event.id,
+                                rounded: "0"
+                              }
+                            },
+                            [
+                              _c(
+                                "v-alert",
+                                {
+                                  staticClass: "px-3 py-4 mx-0 my-0",
+                                  attrs: {
+                                    color: "deep-orange darken-2",
+                                    rounded: "0",
+                                    outlined: "",
+                                    text: ""
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "v-row",
+                                    { attrs: { justify: "space-between" } },
+                                    [
+                                      _c(
+                                        "v-col",
+                                        {
+                                          staticClass: "pt-0 pb-0",
+                                          attrs: { cols: "12", sm: "6" }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "\n                                 text-subtitle-1\n                                 font-weight-medium\n                              "
+                                            },
+                                            [
+                                              _c(
+                                                "v-icon",
+                                                {
+                                                  attrs: {
+                                                    left: "",
+                                                    color:
+                                                      "deep-orange darken-2",
+                                                    small: ""
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                 mdi-calendar-arrow-left\n                              "
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(
+                                                "\n                              " +
+                                                  _vm._s(
+                                                    passed_event.event_name
+                                                  ) +
+                                                  "\n                           "
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-col",
+                                        {
+                                          staticClass: "pt-0 pb-0",
+                                          attrs: { cols: "12", sm: "6" }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "\n                                 text-subtitle-1\n                                 font-weight-medium                                                \n                                 text-sm-right\n                              "
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                              Date :\n                              " +
+                                                  _vm._s(
+                                                    _vm
+                                                      .moment(
+                                                        passed_event.event_date
+                                                      )
+                                                      .format(
+                                                        "MMMM Do YYYY, h:mm a"
+                                                      )
+                                                  ) +
+                                                  "\n                           "
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        })
                   ],
-                  1
+                  2
                 )
               ],
               1
@@ -53909,27 +53733,33 @@ var render = function() {
                   1
                 )
               : _c(
-                  "v-row",
-                  { staticClass: "mx-2" },
+                  "div",
                   [
                     _c(
-                      "v-col",
-                      { attrs: { cols: "12" } },
+                      "v-row",
+                      { staticClass: "mx-2 mt-2", attrs: { "no-gutters": "" } },
                       [
                         _c(
-                          "v-card",
-                          {
-                            staticClass: "mx-auto",
-                            attrs: { flat: "", tile: "" }
-                          },
+                          "v-col",
+                          { attrs: { cols: "12" } },
                           [
                             _c(
-                              "v-card-subtitle",
+                              "v-card",
                               {
-                                staticClass:
-                                  "\r\n                     text-center text-h3\r\n                     blue--text\r\n                     text--darken-4                     \r\n                     py-0\r\n                     mb-2\r\n                  "
+                                staticClass: "mx-auto px-0",
+                                attrs: { flat: "", tile: "" }
                               },
-                              [_vm._v("ALL NEWS")]
+                              [
+                                _c(
+                                  "v-card-subtitle",
+                                  {
+                                    staticClass:
+                                      "\r\n                        text-center text-h3\r\n                        blue--text\r\n                        text--darken-4\r\n                        py-0                           \r\n                        mb-2\r\n                        pl-lg-4\r\n                        text-uppercase\r\n                     "
+                                  },
+                                  [_vm._v("all news")]
+                                )
+                              ],
+                              1
                             )
                           ],
                           1
@@ -53940,171 +53770,199 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "v-row",
-                      { staticClass: "mx-1" },
+                      { staticClass: "mx-4" },
                       [
                         _c(
                           "v-col",
-                          {
-                            staticClass: "hidden-sm-and-down",
-                            attrs: { md: "3", lg: "2" }
-                          },
-                          [_c("QuickLinks")],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "v-col",
-                          { attrs: { cols: "12", md: "9", lg: "10" } },
-                          _vm._l(_vm.news, function(single_news, index) {
-                            return _c(
-                              "div",
-                              { key: index, staticClass: "mb-3" },
+                          { attrs: { cols: "12" } },
+                          [
+                            _c(
+                              "v-row",
+                              { staticClass: "mx-1" },
                               [
                                 _c(
-                                  "v-card",
+                                  "v-col",
                                   {
-                                    staticClass: "d-flex align-center pa-auto",
-                                    style: _vm.cardBorderColor,
-                                    attrs: {
-                                      width: "auto",
-                                      height: "120",
-                                      outlined: "",
-                                      to: "/news/single_news/" + single_news.id
-                                    }
+                                    staticClass: "hidden-sm-and-down",
+                                    attrs: { md: "3", lg: "2" }
                                   },
-                                  [
-                                    _c(
-                                      "v-avatar",
-                                      {
-                                        staticClass: "ml-2",
-                                        attrs: {
-                                          size: "100",
-                                          tile: "",
-                                          rounded: ""
-                                        }
-                                      },
-                                      [
-                                        _c("v-img", {
-                                          attrs: {
-                                            src:
-                                              "/storage/news_images/" +
-                                              single_news.news_image,
-                                            alt: single_news.news_title,
-                                            position: "center center"
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
+                                  [_c("QuickLinks")],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-col",
+                                  { attrs: { cols: "12", md: "9", lg: "10" } },
+                                  _vm._l(_vm.news, function(
+                                    single_news,
+                                    index
+                                  ) {
+                                    return _c(
                                       "div",
+                                      { key: index, staticClass: "mb-3" },
                                       [
                                         _c(
-                                          "v-card-title",
+                                          "v-card",
                                           {
                                             staticClass:
-                                              "text-subtitle-1 font-weight-bold d-flex d-sm-none text-wrap"
+                                              "d-flex align-center pa-auto",
+                                            style: _vm.cardBorderColor,
+                                            attrs: {
+                                              width: "auto",
+                                              height: "120",
+                                              outlined: "",
+                                              to:
+                                                "/news/single_news/" +
+                                                single_news.id
+                                            }
                                           },
                                           [
-                                            _vm._v(
-                                              "\r\n                           " +
-                                                _vm._s(
-                                                  _vm._f("truncate_title_xs")(
-                                                    single_news.news_title
-                                                  )
-                                                ) +
-                                                "\r\n                        "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-card-title",
-                                          {
-                                            staticClass:
-                                              "text-subtitle-1 font-weight-bold d-none d-sm-flex d-md-none text-wrap"
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\r\n                           " +
-                                                _vm._s(
-                                                  _vm._f("truncate_title_sm")(
-                                                    single_news.news_title
-                                                  )
-                                                ) +
-                                                "\r\n                        "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-card-title",
-                                          {
-                                            staticClass:
-                                              "text-subtitle-1 font-weight-bold d-none d-md-flex d-lg-none text-wrap"
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\r\n                           " +
-                                                _vm._s(
-                                                  _vm._f("truncate_title_md")(
-                                                    single_news.news_title
-                                                  )
-                                                ) +
-                                                "\r\n                        "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-card-title",
-                                          {
-                                            staticClass:
-                                              "text-subtitle-1 font-weight-bold d-none d-lg-flex d-xl-none text-wrap"
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\r\n                           " +
-                                                _vm._s(single_news.news_title) +
-                                                "\r\n                        "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-card-subtitle",
-                                          {
-                                            staticClass:
-                                              "font-weight-bold text-no-wrap"
-                                          },
-                                          [
-                                            _vm._v(
-                                              " " +
-                                                _vm._s(
-                                                  _vm
-                                                    .moment(
-                                                      single_news.created_at
+                                            _c(
+                                              "v-avatar",
+                                              {
+                                                staticClass: "ml-2",
+                                                attrs: {
+                                                  size: "100",
+                                                  tile: "",
+                                                  rounded: ""
+                                                }
+                                              },
+                                              [
+                                                _c("v-img", {
+                                                  attrs: {
+                                                    src:
+                                                      "/storage/news_images/" +
+                                                      single_news.news_image,
+                                                    alt: single_news.news_title,
+                                                    position: "center center"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              [
+                                                _c(
+                                                  "v-card-title",
+                                                  {
+                                                    staticClass:
+                                                      "text-subtitle-1 font-weight-bold d-flex d-sm-none text-wrap"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\r\n                                 " +
+                                                        _vm._s(
+                                                          _vm._f(
+                                                            "truncate_title_xs"
+                                                          )(
+                                                            single_news.news_title
+                                                          )
+                                                        ) +
+                                                        "\r\n                              "
                                                     )
-                                                    .format(
-                                                      "MMMM Do YYYY, h:mm a"
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "v-card-title",
+                                                  {
+                                                    staticClass:
+                                                      "text-subtitle-1 font-weight-bold d-none d-sm-flex d-md-none text-wrap"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\r\n                                 " +
+                                                        _vm._s(
+                                                          _vm._f(
+                                                            "truncate_title_sm"
+                                                          )(
+                                                            single_news.news_title
+                                                          )
+                                                        ) +
+                                                        "\r\n                              "
                                                     )
-                                                ) +
-                                                "\r\n                        "
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "v-card-title",
+                                                  {
+                                                    staticClass:
+                                                      "text-subtitle-1 font-weight-bold d-none d-md-flex d-lg-none text-wrap"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\r\n                                 " +
+                                                        _vm._s(
+                                                          _vm._f(
+                                                            "truncate_title_md"
+                                                          )(
+                                                            single_news.news_title
+                                                          )
+                                                        ) +
+                                                        "\r\n                              "
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "v-card-title",
+                                                  {
+                                                    staticClass:
+                                                      "text-subtitle-1 font-weight-bold d-none d-lg-flex d-xl-none text-wrap"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\r\n                                 " +
+                                                        _vm._s(
+                                                          single_news.news_title
+                                                        ) +
+                                                        "\r\n                              "
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "v-card-subtitle",
+                                                  {
+                                                    staticClass:
+                                                      "font-weight-bold text-no-wrap"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      " " +
+                                                        _vm._s(
+                                                          _vm
+                                                            .moment(
+                                                              single_news.created_at
+                                                            )
+                                                            .format(
+                                                              "MMMM Do YYYY, h:mm a"
+                                                            )
+                                                        ) +
+                                                        "\r\n                              "
+                                                    )
+                                                  ]
+                                                )
+                                              ],
+                                              1
                                             )
-                                          ]
+                                          ],
+                                          1
                                         )
                                       ],
                                       1
                                     )
-                                  ],
-                                  1
+                                  }),
+                                  0
                                 )
                               ],
                               1
                             )
-                          }),
-                          0
+                          ],
+                          1
                         )
                       ],
                       1
@@ -54234,21 +54092,29 @@ var render = function() {
                   [
                     _c(
                       "v-row",
+                      { staticClass: "mx-2 mt-2", attrs: { "no-gutters": "" } },
                       [
                         _c(
-                          "v-card",
-                          {
-                            staticClass: "mx-auto mt-1",
-                            attrs: { flat: "", tile: "" }
-                          },
+                          "v-col",
+                          { attrs: { cols: "12" } },
                           [
                             _c(
-                              "v-card-title",
+                              "v-card",
                               {
-                                staticClass:
-                                  "text-center text-h3 blue--text text--darken-4"
+                                staticClass: "mx-auto px-0",
+                                attrs: { flat: "", tile: "" }
                               },
-                              [_vm._v(_vm._s(_vm.members.name))]
+                              [
+                                _c(
+                                  "v-card-subtitle",
+                                  {
+                                    staticClass:
+                                      "\n                        text-center text-h3\n                        blue--text\n                        text--darken-4\n                        py-0                           \n                        mb-2\n                        pl-lg-4\n                        text-uppercase\n                     "
+                                  },
+                                  [_vm._v(_vm._s(_vm.members.name))]
+                                )
+                              ],
+                              1
                             )
                           ],
                           1
@@ -54498,22 +54364,29 @@ var render = function() {
                   [
                     _c(
                       "v-row",
-                      { staticClass: "mx-2 py-1" },
+                      { staticClass: "mx-2 mt-2", attrs: { "no-gutters": "" } },
                       [
                         _c(
-                          "v-card",
-                          {
-                            staticClass: "mx-auto",
-                            attrs: { flat: "", tile: "" }
-                          },
+                          "v-col",
+                          { attrs: { cols: "12" } },
                           [
                             _c(
-                              "v-card-title",
+                              "v-card",
                               {
-                                staticClass:
-                                  "text-center text-h3 blue--text text--darken-4 text-uppercase"
+                                staticClass: "mx-auto px-0",
+                                attrs: { flat: "", tile: "" }
                               },
-                              [_vm._v("All Photo Galleries")]
+                              [
+                                _c(
+                                  "v-card-subtitle",
+                                  {
+                                    staticClass:
+                                      "\n                        text-center text-h3\n                        blue--text\n                        text--darken-4\n                        py-0                           \n                        mb-2\n                        pl-lg-4\n                        text-uppercase\n                     "
+                                  },
+                                  [_vm._v("all photo galleries")]
+                                )
+                              ],
+                              1
                             )
                           ],
                           1
@@ -54524,7 +54397,10 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "v-row",
-                      { staticClass: "px-5", attrs: { justify: "center" } },
+                      {
+                        staticClass: "px-5 mb-2 pb-2",
+                        attrs: { justify: "center" }
+                      },
                       _vm._l(_vm.photo_galleries, function(
                         photo_gallery,
                         index
@@ -54554,9 +54430,9 @@ var render = function() {
                                 _vm._v(" "),
                                 _c("v-card-title", { staticClass: "text-h6" }, [
                                   _vm._v(
-                                    "\r\n                     " +
+                                    "\n                     " +
                                       _vm._s(photo_gallery.gallery_name) +
-                                      "\r\n                  "
+                                      "\n                  "
                                   )
                                 ]),
                                 _vm._v(" "),
@@ -54568,13 +54444,13 @@ var render = function() {
                                   },
                                   [
                                     _vm._v(
-                                      "\r\n                     Created: " +
+                                      "\n                     Created: " +
                                         _vm._s(
                                           _vm
                                             .moment(photo_gallery.created_at)
                                             .format("MMMM Do YYYY, h:mm a")
                                         ) +
-                                        "\r\n                  "
+                                        "\n                  "
                                     )
                                   ]
                                 )
@@ -54664,29 +54540,35 @@ var render = function() {
                   [
                     _c(
                       "v-row",
+                      { staticClass: "mx-2 mt-2", attrs: { "no-gutters": "" } },
                       [
                         _c(
-                          "v-card",
-                          {
-                            staticClass: "mx-auto mb-4",
-                            attrs: { flat: "", tile: "" }
-                          },
+                          "v-col",
+                          { attrs: { cols: "12" } },
                           [
                             _c(
-                              "v-card-title",
+                              "v-card",
                               {
-                                staticClass:
-                                  "text-center text-h3 blue--text text--darken-4 text-uppercase"
+                                staticClass: "mx-auto px-0",
+                                attrs: { flat: "", tile: "" }
                               },
                               [
-                                _vm._v(
-                                  "\r\n                  " +
-                                    _vm._s(
-                                      _vm.publications.publication_type_name
-                                    ) +
-                                    "\r\n               "
+                                _c(
+                                  "v-card-subtitle",
+                                  {
+                                    staticClass:
+                                      "\r\n                        text-center text-h3\r\n                        blue--text\r\n                        text--darken-4\r\n                        py-0                           \r\n                        mb-2\r\n                        pl-lg-4\r\n                        text-uppercase\r\n                     "
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(
+                                        _vm.publications.publication_type_name
+                                      )
+                                    )
+                                  ]
                                 )
-                              ]
+                              ],
+                              1
                             )
                           ],
                           1
@@ -54696,64 +54578,70 @@ var render = function() {
                     ),
                     _vm._v(" "),
                     _c(
-                      "v-col",
-                      { attrs: { cols: "12" } },
-                      _vm._l(_vm.publications.publications, function(
-                        single_publication,
-                        index
-                      ) {
-                        return _c(
-                          "v-card",
-                          {
-                            key: index,
-                            staticClass: "mb-4",
-                            attrs: {
-                              href:
-                                "/storage/publication_files/" +
-                                single_publication.publication_file,
-                              rounded: "0"
-                            }
-                          },
-                          [
-                            _c(
-                              "v-alert",
+                      "v-row",
+                      [
+                        _c(
+                          "v-col",
+                          { attrs: { cols: "12" } },
+                          _vm._l(_vm.publications.publications, function(
+                            single_publication,
+                            index
+                          ) {
+                            return _c(
+                              "v-card",
                               {
-                                staticClass: "px-0 py-0 mx-0 my-0",
+                                key: index,
+                                staticClass: "mb-4",
                                 attrs: {
-                                  color: "deep-purple accent-3",
-                                  rounded: "0",
-                                  text: ""
+                                  href:
+                                    "/storage/publication_files/" +
+                                    single_publication.publication_file,
+                                  rounded: "0"
                                 }
                               },
                               [
                                 _c(
-                                  "v-card-title",
+                                  "v-alert",
                                   {
-                                    staticClass:
-                                      "py-2 text-h6 font-weight-medium"
+                                    staticClass: "px-0 py-0 mx-0 my-0",
+                                    attrs: {
+                                      color: "deep-purple accent-3",
+                                      rounded: "0",
+                                      text: ""
+                                    }
                                   },
                                   [
                                     _c(
-                                      "v-icon",
+                                      "v-card-title",
                                       {
-                                        attrs: {
-                                          left: "",
-                                          color: "deep-purple accent-3",
-                                          large: ""
-                                        }
+                                        staticClass:
+                                          "py-2 text-h6 font-weight-medium"
                                       },
                                       [
+                                        _c(
+                                          "v-icon",
+                                          {
+                                            attrs: {
+                                              left: "",
+                                              color: "deep-purple accent-3",
+                                              large: ""
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\r\n                     mdi-pdf-box\r\n                     "
+                                            )
+                                          ]
+                                        ),
                                         _vm._v(
-                                          "\r\n                  mdi-pdf-box\r\n                  "
+                                          "\r\n                     " +
+                                            _vm._s(
+                                              single_publication.publication_name
+                                            ) +
+                                            "\r\n                  "
                                         )
-                                      ]
-                                    ),
-                                    _vm._v(
-                                      "\r\n                  " +
-                                        _vm._s(
-                                          single_publication.publication_name
-                                        ) +
-                                        "\r\n               "
+                                      ],
+                                      1
                                     )
                                   ],
                                   1
@@ -54761,10 +54649,10 @@ var render = function() {
                               ],
                               1
                             )
-                          ],
+                          }),
                           1
                         )
-                      }),
+                      ],
                       1
                     )
                   ],
@@ -54871,7 +54759,7 @@ var render = function() {
                             _c("div", { staticClass: "text-center" }, [
                               _c("h1", [
                                 _vm._v(
-                                  "No Resources For This Section Has Been Added Yet !!"
+                                  "\n                     No Resources For This Section Has Been Added Yet !!\n                  "
                                 )
                               ]),
                               _vm._v(" "),
@@ -54892,193 +54780,191 @@ var render = function() {
                   { staticClass: "mx-4" },
                   [
                     _c(
-                      "v-card",
-                      {
-                        staticClass: "mx-auto my-0",
-                        attrs: { flat: "", tile: "" }
-                      },
+                      "v-row",
+                      { staticClass: "mx-2 mt-2", attrs: { "no-gutters": "" } },
                       [
                         _c(
-                          "v-card-subtitle",
-                          {
-                            staticClass:
-                              "text-center text-h3 blue--text text--darken-4 lighten-3 text-uppercase"
-                          },
+                          "v-col",
+                          { attrs: { cols: "12" } },
                           [
-                            _vm._v(
-                              "\n              " +
-                                _vm._s(_vm.resources.resource_type_name)
+                            _c(
+                              "v-card",
+                              {
+                                staticClass: "mx-auto px-0",
+                                attrs: { flat: "", tile: "" }
+                              },
+                              [
+                                _c(
+                                  "v-card-subtitle",
+                                  {
+                                    staticClass:
+                                      "\n                        text-center text-h3\n                        blue--text\n                        text--darken-4\n                        py-0                           \n                        mb-2\n                        pl-lg-4\n                        text-uppercase\n                     "
+                                  },
+                                  [_vm._v("resources")]
+                                )
+                              ],
+                              1
                             )
-                          ]
+                          ],
+                          1
                         )
                       ],
                       1
                     ),
                     _vm._v(" "),
                     _c(
-                      "v-sheet",
-                      {
-                        staticClass: "px-2 py-2",
-                        attrs: { "min-height": "500" }
-                      },
+                      "v-row",
+                      { staticClass: "mx-4" },
                       [
                         _c(
-                          "v-row",
-                          [
-                            _c(
-                              "v-col",
-                              {
-                                staticClass: "hidden-sm-and-down",
-                                attrs: { md: "3", lg: "2" }
-                              },
-                              [_c("QuickLinks")],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-col",
-                              { attrs: { md: "9", lg: "10" } },
-                              [
-                                _vm._l(_vm.resources.resources, function(
-                                  single_resource,
-                                  index
-                                ) {
-                                  return _c(
-                                    "v-card",
-                                    {
-                                      key: index,
-                                      staticClass: "mb-4",
-                                      attrs: {
-                                        href:
-                                          "/storage/resource_files/" +
-                                          single_resource.resource_file,
-                                        rounded: "0"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-alert",
-                                        {
-                                          staticClass: "px-0 py-0 mx-0 my-0",
-                                          attrs: {
-                                            color: "teal accent-4",
-                                            rounded: "0",
-                                            text: ""
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "v-card-title",
-                                            {
-                                              staticClass:
-                                                "py-2 text-h6 font-weight-medium"
-                                            },
-                                            [
-                                              _c(
-                                                "v-icon",
-                                                {
-                                                  attrs: {
-                                                    left: "",
-                                                    color: "teal accent-4",
-                                                    large: ""
-                                                  }
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "\n                        mdi-pdf-box\n                      "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(
-                                                "\n                        " +
-                                                  _vm._s(
-                                                    single_resource.resource_name
-                                                  ) +
-                                                  "\n                    "
-                                              )
-                                            ],
-                                            1
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ],
-                                    1
-                                  )
-                                }),
-                                _vm._v(" "),
-                                _vm._l(_vm.resources.resources, function(
-                                  resource,
-                                  index
-                                ) {
-                                  return _c(
-                                    "v-card",
-                                    {
-                                      key: index,
-                                      staticClass: "mb-4",
-                                      attrs: {
-                                        href:
-                                          "/storage/resource_files/" +
-                                          resource.resource_file,
-                                        rounded: "0"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-alert",
-                                        {
-                                          staticClass: "px-0 py-0 mx-0 my-0",
-                                          attrs: {
-                                            color: "teal accent-4",
-                                            rounded: "0",
-                                            text: ""
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "v-card-title",
-                                            {
-                                              staticClass:
-                                                "py-2 text-h6 font-weight-medium"
-                                            },
-                                            [
-                                              _c(
-                                                "v-icon",
-                                                {
-                                                  attrs: {
-                                                    left: "",
-                                                    color: "teal accent-4",
-                                                    large: ""
-                                                  }
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "\n                        mdi-file-pdf-box\n                      "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(
-                                                "\n                        " +
-                                                  _vm._s(
-                                                    resource.resource_name
-                                                  ) +
-                                                  "\n                    "
-                                              )
-                                            ],
-                                            1
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ],
-                                    1
-                                  )
-                                })
-                              ],
-                              2
-                            )
-                          ],
+                          "v-col",
+                          {
+                            staticClass: "hidden-sm-and-down",
+                            attrs: { md: "3", lg: "2" }
+                          },
+                          [_c("QuickLinks")],
                           1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-col",
+                          { attrs: { md: "9", lg: "10" } },
+                          [
+                            _vm._l(_vm.resources.resources, function(
+                              single_resource,
+                              index
+                            ) {
+                              return _c(
+                                "v-card",
+                                {
+                                  key: index,
+                                  staticClass: "mb-4",
+                                  attrs: {
+                                    href:
+                                      "/storage/resource_files/" +
+                                      single_resource.resource_file,
+                                    rounded: "0"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "v-alert",
+                                    {
+                                      staticClass: "px-0 py-0 mx-0 my-0",
+                                      attrs: {
+                                        color: "teal accent-4",
+                                        rounded: "0",
+                                        text: ""
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "v-card-title",
+                                        {
+                                          staticClass:
+                                            "py-2 text-h6 font-weight-medium"
+                                        },
+                                        [
+                                          _c(
+                                            "v-icon",
+                                            {
+                                              attrs: {
+                                                left: "",
+                                                color: "teal accent-4",
+                                                large: ""
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                           mdi-pdf-box\n                        "
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                single_resource.resource_name
+                                              ) +
+                                              "\n                     "
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            }),
+                            _vm._v(" "),
+                            _vm._l(_vm.resources.resources, function(
+                              resource,
+                              index
+                            ) {
+                              return _c(
+                                "v-card",
+                                {
+                                  key: index,
+                                  staticClass: "mb-4",
+                                  attrs: {
+                                    href:
+                                      "/storage/resource_files/" +
+                                      resource.resource_file,
+                                    rounded: "0"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "v-alert",
+                                    {
+                                      staticClass: "px-0 py-0 mx-0 my-0",
+                                      attrs: {
+                                        color: "teal accent-4",
+                                        rounded: "0",
+                                        text: ""
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "v-card-title",
+                                        {
+                                          staticClass:
+                                            "py-2 text-h6 font-weight-medium"
+                                        },
+                                        [
+                                          _c(
+                                            "v-icon",
+                                            {
+                                              attrs: {
+                                                left: "",
+                                                color: "teal accent-4",
+                                                large: ""
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                           mdi-file-pdf-box\n                        "
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(resource.resource_name) +
+                                              "\n                     "
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            })
+                          ],
+                          2
                         )
                       ],
                       1
@@ -55116,147 +55002,35 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "pt-3" }, [
     _vm.loading
-      ? _c(
-          "div",
-          [
-            _c("v-card", { staticClass: "mt-6", attrs: { flat: "" } }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "text-center blue--text text--darken-4 font-weight-bold"
-                },
-                [
-                  _vm._v(
-                    "\n                  Loading...         \n            "
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "mx-auto" }, [
-                _c(
-                  "svg",
-                  {
-                    staticStyle: {
-                      margin: "auto",
-                      display: "block",
-                      "shape-rendering": "auto",
-                      "animation-play-state": "running",
-                      "animation-delay": "0s"
-                    },
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                      width: "250px",
-                      height: "250px",
-                      viewBox: "0 0 100 100",
-                      preserveAspectRatio: "xMidYMid"
-                    }
-                  },
-                  [
-                    _c(
-                      "circle",
-                      {
-                        staticStyle: {
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          cx: "50",
-                          cy: "50",
-                          r: "19",
-                          "stroke-width": "5",
-                          stroke: "#002147",
-                          "stroke-dasharray":
-                            "29.845130209103033 29.845130209103033",
-                          fill: "none",
-                          "stroke-linecap": "round"
-                        }
-                      },
-                      [
-                        _c("animateTransform", {
-                          staticStyle: {
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            attributeName: "transform",
-                            type: "rotate",
-                            dur: "1s",
-                            repeatCount: "indefinite",
-                            keyTimes: "0;1",
-                            values: "0 50 50;360 50 50"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "circle",
-                      {
-                        staticStyle: {
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          cx: "50",
-                          cy: "50",
-                          r: "13",
-                          "stroke-width": "5",
-                          stroke: "#4270a9",
-                          "stroke-dasharray":
-                            "20.420352248333657 20.420352248333657",
-                          "stroke-dashoffset": "20.420352248333657",
-                          fill: "none",
-                          "stroke-linecap": "round"
-                        }
-                      },
-                      [
-                        _c("animateTransform", {
-                          staticStyle: {
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            attributeName: "transform",
-                            type: "rotate",
-                            dur: "1s",
-                            repeatCount: "indefinite",
-                            keyTimes: "0;1",
-                            values: "0 50 50;-360 50 50"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ])
-            ])
-          ],
-          1
-        )
+      ? _c("div", [_c("Loading")], 1)
       : _c(
           "div",
           [
             _c(
               "v-row",
+              { staticClass: "mx-2 mt-2", attrs: { "no-gutters": "" } },
               [
                 _c(
-                  "v-card",
-                  {
-                    staticClass: "mx-auto mt-2",
-                    attrs: { flat: "", tile: "" }
-                  },
+                  "v-col",
+                  { attrs: { cols: "12" } },
                   [
                     _c(
-                      "v-card-title",
+                      "v-card",
                       {
-                        staticClass:
-                          "text-center text-h3 blue--text text--darken-4"
+                        staticClass: "mx-auto px-0",
+                        attrs: { flat: "", tile: "" }
                       },
-                      [_vm._v("\n                EVENTS\n             ")]
+                      [
+                        _c(
+                          "v-card-subtitle",
+                          {
+                            staticClass:
+                              "\n                     text-center text-h3\n                     blue--text\n                     text--darken-4\n                     py-0                           \n                     mb-2\n                     pl-lg-4\n                     text-uppercase\n                  "
+                          },
+                          [_vm._v("events")]
+                        )
+                      ],
+                      1
                     )
                   ],
                   1
@@ -55267,7 +55041,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "v-row",
-              { staticClass: "mx-1 py-2 mt-n3" },
+              { staticClass: "mx-1 py-2 mt-n2 mb-2" },
               [
                 _c(
                   "v-col",
@@ -55294,9 +55068,9 @@ var render = function() {
                           { staticClass: "text-h6 mb-1 pt-0" },
                           [
                             _vm._v(
-                              "\n                   " +
+                              "\n                  " +
                                 _vm._s(_vm.single_event.event_name) +
-                                "\n                "
+                                "\n               "
                             )
                           ]
                         ),
@@ -55315,9 +55089,9 @@ var render = function() {
                           { staticClass: "text-subtitle-1 mb-1 pt-0" },
                           [
                             _vm._v(
-                              "\n                   " +
+                              "\n                  " +
                                 _vm._s(_vm.single_event.event_type.event_type) +
-                                "\n                "
+                                "\n               "
                             )
                           ]
                         ),
@@ -55343,13 +55117,13 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                   Event Date: " +
+                              "\n                  Event Date: " +
                                 _vm._s(
                                   _vm
                                     .moment(_vm.single_event.event_date)
                                     .format("MMMM Do YYYY, h:mm a")
                                 ) +
-                                "\n                "
+                                "\n               "
                             )
                           ]
                         ),
@@ -55370,9 +55144,9 @@ var render = function() {
                               [_vm._v(" DETAILS: ")]
                             ),
                             _vm._v(
-                              "\n                   " +
+                              "\n                  " +
                                 _vm._s(_vm.single_event.event_description) +
-                                "\n                "
+                                "\n               "
                             )
                           ]
                         )
@@ -55446,7 +55220,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "v-row",
-              { staticClass: "mx-1 py-2 mt-n3" },
+              { staticClass: "mx-1 py-2 mt-n3 mb-2" },
               [
                 _c(
                   "v-col",
@@ -55615,22 +55389,33 @@ var render = function() {
                   "div",
                   [
                     _c(
-                      "v-card",
-                      { staticClass: "mx-auto", attrs: { flat: "", tile: "" } },
+                      "v-row",
+                      { staticClass: "mx-2 mt-2", attrs: { "no-gutters": "" } },
                       [
                         _c(
-                          "v-card-subtitle",
-                          {
-                            staticClass:
-                              "text-center text-h3 blue--text text--darken-4 lighten-3 text-uppercase"
-                          },
+                          "v-col",
+                          { attrs: { cols: "12" } },
                           [
-                            _vm._v(
-                              "\n               " +
-                                _vm._s(_vm.photos.gallery_name) +
-                                "\n            "
+                            _c(
+                              "v-card",
+                              {
+                                staticClass: "mx-auto px-0",
+                                attrs: { flat: "", tile: "" }
+                              },
+                              [
+                                _c(
+                                  "v-card-subtitle",
+                                  {
+                                    staticClass:
+                                      "\n                        text-center text-h3\n                        blue--text\n                        text--darken-4\n                        py-0                           \n                        mb-2\n                        pl-lg-4\n                        text-uppercase\n                     "
+                                  },
+                                  [_vm._v(_vm._s(_vm.photos.gallery_name))]
+                                )
+                              ],
+                              1
                             )
-                          ]
+                          ],
+                          1
                         )
                       ],
                       1
@@ -55638,7 +55423,7 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "v-row",
-                      { staticClass: "mx-1 py-2 mt-n3" },
+                      { staticClass: "mx-1 py-2 mt-n2" },
                       _vm._l(_vm.photos.gallery_photos, function(photo, index) {
                         return _c(
                           "v-col",
@@ -73596,8 +73381,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 
 
-
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__.default,VCardSubtitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.VCardSubtitle,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__.default,VContainer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_8__.default,VImg: vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_9__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__.default})
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_4__.default,VCardSubtitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.VCardSubtitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__.default,VContainer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_8__.default,VImg: vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_9__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__.default})
 
 
 /* hot reload */
@@ -73716,7 +73500,8 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 
 
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VAlert: vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__.default,VContainer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_9__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__.default})
+
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VAlert: vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCardSubtitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardSubtitle,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__.default,VContainer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_9__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__.default})
 
 
 /* hot reload */
@@ -73801,7 +73586,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VContainer.js");
 /* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/VIcon.js");
 /* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
-/* harmony import */ var vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/components/VSheet */ "./node_modules/vuetify/lib/components/VSheet/VSheet.js");
 
 
 
@@ -73830,8 +73614,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 
 
-
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VAlert: vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCardSubtitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardSubtitle,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__.default,VContainer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_9__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__.default,VSheet: vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_11__.default})
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VAlert: vuetify_lib_components_VAlert__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCardSubtitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardSubtitle,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardTitle,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__.default,VContainer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_8__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_9__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_10__.default})
 
 
 /* hot reload */

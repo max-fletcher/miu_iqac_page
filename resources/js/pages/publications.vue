@@ -15,25 +15,37 @@
          </v-container>
       </v-card>
       <v-row v-else class="mx-4 py-4">
-         <v-row>
-            <v-card flat tile class="mx-auto mb-4">
-               <v-card-title class="text-center text-h3 blue--text text--darken-4 text-uppercase">
-                  {{ publications.publication_type_name }}
-               </v-card-title>
-            </v-card>            
+         <v-row class="mx-2 mt-2" no-gutters>
+            <v-col cols="12">
+               <v-card flat tile class="mx-auto px-0">
+                  <v-card-subtitle
+                     class="
+                        text-center text-h3
+                        blue--text
+                        text--darken-4
+                        py-0                           
+                        mb-2
+                        pl-lg-4
+                        text-uppercase
+                     "
+                  >{{ publications.publication_type_name }}</v-card-subtitle>
+               </v-card>
+            </v-col>
          </v-row>
-         <v-col cols="12">
-            <v-card v-for="(single_publication, index) in publications.publications" :key="index" :href="'/storage/publication_files/' + single_publication.publication_file" rounded="0" class="mb-4">
-            <v-alert color="deep-purple accent-3" class="px-0 py-0 mx-0 my-0" rounded="0" text>
-               <v-card-title class="py-2 text-h6 font-weight-medium">
-                  <v-icon left color="deep-purple accent-3" large>
-                  mdi-pdf-box
-                  </v-icon>
-                  {{ single_publication.publication_name }}
-               </v-card-title>
-            </v-alert>
-            </v-card>
-         </v-col>
+         <v-row>
+            <v-col cols="12">
+               <v-card v-for="(single_publication, index) in publications.publications" :key="index" :href="'/storage/publication_files/' + single_publication.publication_file" rounded="0" class="mb-4">
+               <v-alert color="deep-purple accent-3" class="px-0 py-0 mx-0 my-0" rounded="0" text>
+                  <v-card-title class="py-2 text-h6 font-weight-medium">
+                     <v-icon left color="deep-purple accent-3" large>
+                     mdi-pdf-box
+                     </v-icon>
+                     {{ single_publication.publication_name }}
+                  </v-card-title>
+               </v-alert>
+               </v-card>
+            </v-col>
+         </v-row>
       </v-row>
    </div> 
 </div>

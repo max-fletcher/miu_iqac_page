@@ -15,10 +15,22 @@
             </v-container>
          </v-card>
          <div v-else>
-            <v-row>
-               <v-card flat tile class="mx-auto mt-1">
-                  <v-card-title class="text-center text-h3 blue--text text--darken-4">{{ members.name }}</v-card-title>
-               </v-card>            
+            <v-row class="mx-2 mt-2" no-gutters>
+               <v-col cols="12">
+                  <v-card flat tile class="mx-auto px-0">
+                     <v-card-subtitle
+                        class="
+                           text-center text-h3
+                           blue--text
+                           text--darken-4
+                           py-0                           
+                           mb-2
+                           pl-lg-4
+                           text-uppercase
+                        "
+                     >{{ members.name }}</v-card-subtitle>
+                  </v-card>
+               </v-col>
             </v-row>
 
             <v-row class="mx-4 pb-4">
