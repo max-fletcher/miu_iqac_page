@@ -3019,6 +3019,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 // import TopNav from './topnav'
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -49183,7 +49185,6 @@ var render = function() {
                           staticClass: "pl-3 font-weight-bold text-subtitle-2",
                           attrs: {
                             color: "blue darken-4",
-                            dark: "",
                             block: "",
                             tile: "",
                             icon: ""
@@ -49223,12 +49224,25 @@ var render = function() {
                 "v-list-item",
                 {
                   key: index,
-                  attrs: { to: "/publications_auth/" + publication_type.id }
+                  attrs: {
+                    to: "/publications_auth/" + publication_type.id,
+                    "exact-active-class": "blue lighten-5"
+                  }
                 },
                 [
-                  _c("v-list-item-title", [
-                    _vm._v(_vm._s(publication_type.publication_type_name))
-                  ])
+                  _c(
+                    "v-list-item-title",
+                    {
+                      staticClass:
+                        "font-weight-bold text-uppercase blue--text text--darken-4"
+                    },
+                    [
+                      _vm._v(
+                        "\n             " +
+                          _vm._s(publication_type.publication_type_name)
+                      )
+                    ]
+                  )
                 ],
                 1
               )
@@ -50856,7 +50870,7 @@ var render = function() {
                 },
                 [
                   _c("v-icon", { attrs: { left: "" } }, [_vm._v("mdi-home")]),
-                  _vm._v("\n                Home\n                "),
+                  _vm._v("\n            Home\n            "),
                   _c("v-spacer")
                 ],
                 1
@@ -50878,7 +50892,7 @@ var render = function() {
                   _c("v-icon", { attrs: { left: "" } }, [
                     _vm._v("mdi-information-outline")
                   ]),
-                  _vm._v("About\n                "),
+                  _vm._v("About\n            "),
                   _c("v-spacer")
                 ],
                 1
@@ -50927,7 +50941,7 @@ var render = function() {
                                   _c("v-icon", { attrs: { left: "" } }, [
                                     _vm._v("mdi-account")
                                   ]),
-                                  _vm._v("People\n                         "),
+                                  _vm._v("People\n                     "),
                                   _c("v-spacer"),
                                   _vm._v(" "),
                                   _c(
@@ -51025,7 +51039,7 @@ var render = function() {
                                   _c("v-icon", { attrs: { left: "" } }, [
                                     _vm._v("mdi-calendar-clock")
                                   ]),
-                                  _vm._v("Events\n                         "),
+                                  _vm._v("Events\n                     "),
                                   _c("v-spacer"),
                                   _vm._v(" "),
                                   _c(
@@ -51096,7 +51110,7 @@ var render = function() {
                   _c("v-icon", { attrs: { left: "" } }, [
                     _vm._v("mdi-newspaper-variant")
                   ]),
-                  _vm._v("News\n                "),
+                  _vm._v("News\n            "),
                   _c("v-spacer")
                 ],
                 1
@@ -51145,9 +51159,7 @@ var render = function() {
                                   _c("v-icon", { attrs: { left: "" } }, [
                                     _vm._v("mdi-archive")
                                   ]),
-                                  _vm._v(
-                                    "Resources\n                         "
-                                  ),
+                                  _vm._v("Resources\n                     "),
                                   _c("v-spacer"),
                                   _vm._v(" "),
                                   _c(
@@ -51222,7 +51234,7 @@ var render = function() {
                 },
                 [
                   _c("v-icon", { attrs: { left: "" } }, [_vm._v("mdi-phone")]),
-                  _vm._v("Contact Us\n                "),
+                  _vm._v("Contact Us\n            "),
                   _c("v-spacer")
                 ],
                 1
@@ -51315,7 +51327,7 @@ var render = function() {
                               _vm._v(" "),
                               _c("v-spacer"),
                               _vm._v(
-                                "\n                      Publications\n                   "
+                                "\n                  Publications\n               "
                               )
                             ],
                             1
@@ -51384,7 +51396,7 @@ var render = function() {
                 },
                 [
                   _c("v-spacer"),
-                  _vm._v("\n                Photo Gallery\n             ")
+                  _vm._v("\n            Photo Gallery\n         ")
                 ],
                 1
               )
@@ -51480,7 +51492,7 @@ var render = function() {
                   _c("v-icon", { attrs: { left: "", color: "white" } }, [
                     _vm._v("mdi-menu")
                   ]),
-                  _vm._v("Navigation Links\n             ")
+                  _vm._v("Navigation Links\n         ")
                 ],
                 1
               ),
@@ -51502,7 +51514,7 @@ var render = function() {
                   _c("v-icon", { attrs: { left: "", color: "white" } }, [
                     _vm._v("mdi-menu")
                   ]),
-                  _vm._v("Quick Links\n             ")
+                  _vm._v("Quick Links\n         ")
                 ],
                 1
               )
@@ -51547,7 +51559,7 @@ var render = function() {
                 ),
                 [
                   _c("v-icon", { attrs: { left: "" } }, [_vm._v("mdi-home")]),
-                  _vm._v("Home\n             ")
+                  _vm._v("Home\n         ")
                 ],
                 1
               ),
@@ -51577,7 +51589,7 @@ var render = function() {
                   _c("v-icon", { attrs: { left: "" } }, [
                     _vm._v("mdi-information-outline")
                   ]),
-                  _vm._v("About\n             ")
+                  _vm._v("About\n         ")
                 ],
                 1
               ),
@@ -51622,7 +51634,7 @@ var render = function() {
                               _c("v-icon", { attrs: { left: "" } }, [
                                 _vm._v("mdi-account")
                               ]),
-                              _vm._v("People\n                      "),
+                              _vm._v("People\n                  "),
                               _c("v-icon", { attrs: { small: "" } }, [
                                 _vm._v("mdi-chevron-down")
                               ])
@@ -51715,7 +51727,7 @@ var render = function() {
                               _c("v-icon", { attrs: { left: "" } }, [
                                 _vm._v("mdi-calendar-clock-outline")
                               ]),
-                              _vm._v("Events\n                      "),
+                              _vm._v("Events\n                  "),
                               _c("v-icon", { attrs: { small: "" } }, [
                                 _vm._v("mdi-chevron-down")
                               ])
@@ -51793,7 +51805,7 @@ var render = function() {
                   _c("v-icon", { attrs: { left: "" } }, [
                     _vm._v("mdi-newspaper-variant-outline")
                   ]),
-                  _vm._v("News\n             ")
+                  _vm._v("News\n         ")
                 ],
                 1
               ),
@@ -51838,7 +51850,7 @@ var render = function() {
                               _c("v-icon", { attrs: { left: "" } }, [
                                 _vm._v("mdi-archive-outline")
                               ]),
-                              _vm._v("Resources\n                      "),
+                              _vm._v("Resources\n                  "),
                               _c("v-icon", { attrs: { small: "" } }, [
                                 _vm._v("mdi-chevron-down")
                               ])
@@ -51918,7 +51930,7 @@ var render = function() {
                 ),
                 [
                   _c("v-icon", { attrs: { left: "" } }, [_vm._v("mdi-phone")]),
-                  _vm._v("Contact Us\n             ")
+                  _vm._v("Contact Us\n         ")
                 ],
                 1
               )

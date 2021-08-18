@@ -21,7 +21,6 @@
             <template v-slot:activator="{ on, attrs }">
                 <v-btn
                 color="blue darken-4"
-                dark
                 v-bind="attrs"
                 v-on="on"
                 block
@@ -42,8 +41,11 @@
                     v-for="(publication_type, index) in publication_types"
                     :key="index"
                     :to="'/publications_auth/' + publication_type.id"
+                    exact-active-class="blue lighten-5"
                 >
-                <v-list-item-title>{{ publication_type.publication_type_name }}</v-list-item-title>
+                <v-list-item-title
+                 class="font-weight-bold text-uppercase blue--text text--darken-4">
+                 {{ publication_type.publication_type_name }}</v-list-item-title>
                 </v-list-item>
             </v-list>
         </v-menu>
