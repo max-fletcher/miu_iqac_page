@@ -33,7 +33,7 @@
                </v-col>
             </v-row>
 
-            <v-row class="mx-4 pb-4">
+            <v-row class="mx-4 pb-4 mt-0">
                <v-col
                   v-for="(member, index) in members.members"
                   :key="index"

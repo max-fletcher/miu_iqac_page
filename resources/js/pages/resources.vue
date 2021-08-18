@@ -41,7 +41,7 @@
                </v-col>
             </v-row>
 
-            <v-row class="mx-4">
+            <v-row class="mx-2 mt-1">
                <v-col md="3" lg="2" class="hidden-sm-and-down">
                   <QuickLinks />
                </v-col>

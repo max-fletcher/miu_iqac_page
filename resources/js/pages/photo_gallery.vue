@@ -24,7 +24,7 @@
                            text-center text-h3
                            blue--text
                            text--darken-4
-                           py-0                           
+                           py-0
                            mb-2
                            pl-lg-4
                            text-uppercase

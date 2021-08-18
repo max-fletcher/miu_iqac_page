@@ -14,7 +14,7 @@
                </v-row>
             </v-container>
          </v-card>
-         <div v-else>
+         <div v-else class="pb-2">
             <v-row class="mx-2 mt-2" no-gutters>
                <v-col cols="12">
                   <v-card flat tile class="mx-auto px-0">

@@ -2301,73 +2301,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/loading */ "./resources/js/pages/components/loading.vue");
 //
 //
 //
@@ -2552,6 +2486,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2574,6 +2509,9 @@ __webpack_require__.r(__webpack_exports__);
         return v && v.length >= 8 || "Password must be more than 8 characters";
       }]
     };
+  },
+  components: {
+    Loading: _components_loading__WEBPACK_IMPORTED_MODULE_1__.default
   },
   methods: {
     submitForm: function submitForm() {
@@ -4858,7 +4796,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_quicklinks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/quicklinks */ "./resources/js/pages/components/quicklinks.vue");
 /* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/loading */ "./resources/js/pages/components/loading.vue");
-//
 //
 //
 //
@@ -48423,126 +48360,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "pt-3" }, [
     _vm.loading
-      ? _c(
-          "div",
-          [
-            _c("v-card", { staticClass: "mt-6", attrs: { flat: "" } }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "text-center blue--text text--darken-4 font-weight-bold"
-                },
-                [_vm._v("\n                Loading...\n          ")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "mx-auto" }, [
-                _c(
-                  "svg",
-                  {
-                    staticStyle: {
-                      margin: "auto",
-                      display: "block",
-                      "shape-rendering": "auto",
-                      "animation-play-state": "running",
-                      "animation-delay": "0s"
-                    },
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                      width: "250px",
-                      height: "250px",
-                      viewBox: "0 0 100 100",
-                      preserveAspectRatio: "xMidYMid"
-                    }
-                  },
-                  [
-                    _c(
-                      "circle",
-                      {
-                        staticStyle: {
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          cx: "50",
-                          cy: "50",
-                          r: "19",
-                          "stroke-width": "5",
-                          stroke: "#002147",
-                          "stroke-dasharray":
-                            "29.845130209103033 29.845130209103033",
-                          fill: "none",
-                          "stroke-linecap": "round"
-                        }
-                      },
-                      [
-                        _c("animateTransform", {
-                          staticStyle: {
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            attributeName: "transform",
-                            type: "rotate",
-                            dur: "1s",
-                            repeatCount: "indefinite",
-                            keyTimes: "0;1",
-                            values: "0 50 50;360 50 50"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "circle",
-                      {
-                        staticStyle: {
-                          "animation-play-state": "running",
-                          "animation-delay": "0s"
-                        },
-                        attrs: {
-                          cx: "50",
-                          cy: "50",
-                          r: "13",
-                          "stroke-width": "5",
-                          stroke: "#4270a9",
-                          "stroke-dasharray":
-                            "20.420352248333657 20.420352248333657",
-                          "stroke-dashoffset": "20.420352248333657",
-                          fill: "none",
-                          "stroke-linecap": "round"
-                        }
-                      },
-                      [
-                        _c("animateTransform", {
-                          staticStyle: {
-                            "animation-play-state": "running",
-                            "animation-delay": "0s"
-                          },
-                          attrs: {
-                            attributeName: "transform",
-                            type: "rotate",
-                            dur: "1s",
-                            repeatCount: "indefinite",
-                            keyTimes: "0;1",
-                            values: "0 50 50;-360 50 50"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              ])
-            ])
-          ],
-          1
-        )
+      ? _c("div", [_c("Loading")], 1)
       : _c(
           "div",
-          { staticClass: "px-6" },
+          { staticClass: "px-6 pb-2" },
           [
             _c(
               "v-row",
@@ -48619,6 +48440,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "v-row",
+              { staticClass: "pb-0 mx-1" },
               [
                 _c(
                   "v-col",
@@ -48656,7 +48478,7 @@ var render = function() {
                                   ),
                                   [
                                     _vm._v(
-                                      "\n                      Close\n                   "
+                                      "\n                         Close\n                      "
                                     )
                                   ]
                                 )
@@ -48691,7 +48513,7 @@ var render = function() {
                       ? _c(
                           "v-alert",
                           {
-                            staticClass: "my-2",
+                            staticClass: "mt-2",
                             attrs: {
                               type: "error",
                               dark: "",
@@ -48714,7 +48536,7 @@ var render = function() {
                       ? _c(
                           "v-alert",
                           {
-                            staticClass: "my-2",
+                            staticClass: "mt-2",
                             attrs: {
                               type: "error",
                               dark: "",
@@ -48735,7 +48557,7 @@ var render = function() {
                       ? _c(
                           "v-alert",
                           {
-                            staticClass: "my-2",
+                            staticClass: "mt-2",
                             attrs: {
                               type: "error",
                               dark: "",
@@ -48760,6 +48582,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "v-row",
+              { staticClass: "pt-0", attrs: { "no-gutters": "" } },
               [
                 _c(
                   "v-col",
@@ -48828,40 +48651,44 @@ var render = function() {
                           }
                         }),
                         _vm._v(" "),
-                        _c("v-row", { staticClass: "mt-4 mt-sm-3 mt-md-1" }, [
-                          _c(
-                            "div",
-                            { staticClass: "d-flex flex-row mx-auto" },
-                            [
-                              _c(
-                                "v-btn",
-                                {
-                                  staticClass: "white--text",
-                                  attrs: {
-                                    color: "green",
-                                    "x-large": "",
-                                    loading: _vm.form_loading
-                                  },
-                                  on: {
-                                    click: function($event) {
-                                      $event.preventDefault()
-                                      return _vm.submitForm.apply(
-                                        null,
-                                        arguments
-                                      )
+                        _c(
+                          "v-row",
+                          { staticClass: "mt-4 mt-sm-3 mt-md-1 mb-1" },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "d-flex flex-row mx-auto" },
+                              [
+                                _c(
+                                  "v-btn",
+                                  {
+                                    staticClass: "white--text",
+                                    attrs: {
+                                      color: "green",
+                                      "x-large": "",
+                                      loading: _vm.form_loading
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        $event.preventDefault()
+                                        return _vm.submitForm.apply(
+                                          null,
+                                          arguments
+                                        )
+                                      }
                                     }
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                            Submit\n                         "
-                                  )
-                                ]
-                              )
-                            ],
-                            1
-                          )
-                        ])
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                            Submit\n                         "
+                                    )
+                                  ]
+                                )
+                              ],
+                              1
+                            )
+                          ]
+                        )
                       ],
                       1
                     )
@@ -52945,7 +52772,7 @@ var render = function() {
                           "v-card-subtitle",
                           {
                             staticClass:
-                              "\n                        text-center text-h3\n                        blue--text\n                        text--darken-4\n                        py-0                           \n                        mb-2\n                        pl-lg-4\n                        text-uppercase\n                     "
+                              "\n                     text-center text-h3\n                     blue--text\n                     text--darken-4\n                     py-0                           \n                     mb-2\n                     pl-lg-4\n                     text-uppercase\n                  "
                           },
                           [_vm._v("all events")]
                         )
@@ -52961,7 +52788,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "v-row",
-              { staticClass: "mt-3 px-4" },
+              { staticClass: "mt-0 px-6" },
               [
                 _c(
                   "v-col",
@@ -53003,12 +52830,12 @@ var render = function() {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                           mdi-calendar-star\n                        "
+                                      "\n                        mdi-calendar-star\n                     "
                                     )
                                   ]
                                 ),
                                 _vm._v(
-                                  "\n                        Upcoming Events\n                     "
+                                  "\n                     Upcoming Events\n                  "
                                 )
                               ],
                               1
@@ -53051,7 +52878,7 @@ var render = function() {
                                           "div",
                                           {
                                             staticClass:
-                                              "\n                                 text-subtitle-1\n                                 font-weight-medium\n                                 text-center\n                              "
+                                              "\n                              text-subtitle-1\n                              font-weight-medium\n                              text-center\n                           "
                                           },
                                           [
                                             _c(
@@ -53064,12 +52891,12 @@ var render = function() {
                                               },
                                               [
                                                 _vm._v(
-                                                  "\n                                 mdi-close\n                              "
+                                                  "\n                              mdi-close\n                           "
                                                 )
                                               ]
                                             ),
                                             _vm._v(
-                                              "\n                              No Upcoming Events\n                           "
+                                              "\n                           No Upcoming Events\n                        "
                                             )
                                           ],
                                           1
@@ -53127,7 +52954,7 @@ var render = function() {
                                             "div",
                                             {
                                               staticClass:
-                                                "\n                                 text-subtitle-1\n                                 font-weight-medium\n                              "
+                                                "\n                              text-subtitle-1\n                              font-weight-medium\n                           "
                                             },
                                             [
                                               _c(
@@ -53141,16 +52968,16 @@ var render = function() {
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                 mdi-calendar-arrow-right\n                              "
+                                                    "\n                              mdi-calendar-arrow-right\n                           "
                                                   )
                                                 ]
                                               ),
                                               _vm._v(
-                                                "\n                              " +
+                                                "\n                           " +
                                                   _vm._s(
                                                     upcoming_event.event_name
                                                   ) +
-                                                  "\n                           "
+                                                  "\n                        "
                                               )
                                             ],
                                             1
@@ -53169,11 +52996,11 @@ var render = function() {
                                             "div",
                                             {
                                               staticClass:
-                                                "\n                                 text-subtitle-1\n                                 font-weight-medium                                                \n                                 text-sm-right\n                              "
+                                                "\n                              text-subtitle-1\n                              font-weight-medium                                                \n                              text-sm-right\n                           "
                                             },
                                             [
                                               _vm._v(
-                                                "\n                              Date :\n                              " +
+                                                "\n                           Date :\n                           " +
                                                   _vm._s(
                                                     _vm
                                                       .moment(
@@ -53183,7 +53010,7 @@ var render = function() {
                                                         "MMMM Do YYYY, h:mm a"
                                                       )
                                                   ) +
-                                                  "\n                           "
+                                                  "\n                        "
                                               )
                                             ]
                                           )
@@ -53229,12 +53056,12 @@ var render = function() {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                           mdi-calendar-remove\n                        "
+                                      "\n                        mdi-calendar-remove\n                     "
                                     )
                                   ]
                                 ),
                                 _vm._v(
-                                  "\n                        Passed Events\n                     "
+                                  "\n                     Passed Events\n                  "
                                 )
                               ],
                               1
@@ -53277,7 +53104,7 @@ var render = function() {
                                           "div",
                                           {
                                             staticClass:
-                                              "\n                                 text-subtitle-1\n                                 font-weight-medium\n                                 text-center\n                              "
+                                              "\n                              text-subtitle-1\n                              font-weight-medium\n                              text-center\n                           "
                                           },
                                           [
                                             _c(
@@ -53290,12 +53117,12 @@ var render = function() {
                                               },
                                               [
                                                 _vm._v(
-                                                  "\n                                 mdi-close\n                              "
+                                                  "\n                              mdi-close\n                           "
                                                 )
                                               ]
                                             ),
                                             _vm._v(
-                                              "\n                              No Passed Events\n                           "
+                                              "\n                           No Passed Events\n                        "
                                             )
                                           ],
                                           1
@@ -53353,7 +53180,7 @@ var render = function() {
                                             "div",
                                             {
                                               staticClass:
-                                                "\n                                 text-subtitle-1\n                                 font-weight-medium\n                              "
+                                                "\n                              text-subtitle-1\n                              font-weight-medium\n                           "
                                             },
                                             [
                                               _c(
@@ -53368,16 +53195,16 @@ var render = function() {
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                 mdi-calendar-arrow-left\n                              "
+                                                    "\n                              mdi-calendar-arrow-left\n                           "
                                                   )
                                                 ]
                                               ),
                                               _vm._v(
-                                                "\n                              " +
+                                                "\n                           " +
                                                   _vm._s(
                                                     passed_event.event_name
                                                   ) +
-                                                  "\n                           "
+                                                  "\n                        "
                                               )
                                             ],
                                             1
@@ -53396,11 +53223,11 @@ var render = function() {
                                             "div",
                                             {
                                               staticClass:
-                                                "\n                                 text-subtitle-1\n                                 font-weight-medium                                                \n                                 text-sm-right\n                              "
+                                                "\n                              text-subtitle-1\n                              font-weight-medium                                                \n                              text-sm-right\n                           "
                                             },
                                             [
                                               _vm._v(
-                                                "\n                              Date :\n                              " +
+                                                "\n                           Date :\n                           " +
                                                   _vm._s(
                                                     _vm
                                                       .moment(
@@ -53410,7 +53237,7 @@ var render = function() {
                                                         "MMMM Do YYYY, h:mm a"
                                                       )
                                                   ) +
-                                                  "\n                           "
+                                                  "\n                        "
                                               )
                                             ]
                                           )
@@ -53770,7 +53597,7 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "v-row",
-                      { staticClass: "mx-4" },
+                      { staticClass: "mx-2 mt-0" },
                       [
                         _c(
                           "v-col",
@@ -54125,7 +53952,7 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "v-row",
-                      { staticClass: "mx-4 pb-4" },
+                      { staticClass: "mx-4 pb-4 mt-0" },
                       _vm._l(_vm.members.members, function(member, index) {
                         return _c(
                           "v-col",
@@ -54381,7 +54208,7 @@ var render = function() {
                                   "v-card-subtitle",
                                   {
                                     staticClass:
-                                      "\n                        text-center text-h3\n                        blue--text\n                        text--darken-4\n                        py-0                           \n                        mb-2\n                        pl-lg-4\n                        text-uppercase\n                     "
+                                      "\n                        text-center text-h3\n                        blue--text\n                        text--darken-4\n                        py-0\n                        mb-2\n                        pl-lg-4\n                        text-uppercase\n                     "
                                   },
                                   [_vm._v("all photo galleries")]
                                 )
@@ -54535,8 +54362,8 @@ var render = function() {
                   1
                 )
               : _c(
-                  "v-row",
-                  { staticClass: "mx-4 py-4" },
+                  "div",
+                  { staticClass: "mx-6 mx-md-8" },
                   [
                     _c(
                       "v-row",
@@ -54814,7 +54641,7 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "v-row",
-                      { staticClass: "mx-4" },
+                      { staticClass: "mx-2 mt-1" },
                       [
                         _c(
                           "v-col",
@@ -55387,6 +55214,7 @@ var render = function() {
                 )
               : _c(
                   "div",
+                  { staticClass: "pb-2" },
                   [
                     _c(
                       "v-row",
