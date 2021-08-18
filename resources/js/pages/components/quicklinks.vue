@@ -20,7 +20,7 @@
             >
             <template v-slot:activator="{ on, attrs }">
                 <v-btn
-                color="#4270A9"
+                color="blue darken-4"
                 dark
                 v-bind="attrs"
                 v-on="on"
@@ -41,51 +41,15 @@
                 <v-list-item
                     v-for="(publication_type, index) in publication_types"
                     :key="index"
-                     :to="'/publications_auth/' + publication_type.id"
+                    :to="'/publications_auth/' + publication_type.id"
                 >
                 <v-list-item-title>{{ publication_type.publication_type_name }}</v-list-item-title>
                 </v-list-item>
             </v-list>
         </v-menu>
 
-        <v-menu
-            open-on-hover
-            right
-            offset-x
-            transition="scale-transition"
-            >
-            <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                color="#4270A9"
-                dark
-                v-bind="attrs"
-                v-on="on"
-                block
-                tile
-                icon
-                class="pl-3 font-weight-bold text-subtitle-2"
-                >
-                    Some Other Items
-                    <v-spacer></v-spacer>
-                    <v-icon>
-                        mdi-chevron-right
-                    </v-icon>
-                </v-btn>
-            </template>
-
-            <v-list>
-                <v-list-item
-                    v-for="(item, index) in expansionPanelitems"
-                    :key="index"
-                    to="/"
-                >
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
-                </v-list-item>
-            </v-list>
-        </v-menu>
-
         <v-btn
-            color="#4270A9"
+            color="blue darken-4"
             dark 
             block
             tile

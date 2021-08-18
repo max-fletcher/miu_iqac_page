@@ -1,5 +1,5 @@
 <template>
-    <div class="pt-5">        
+    <div class="pt-5 pb-1">        
         <div class="pl-4">
             <div v-if="loading">
                 <Loading />

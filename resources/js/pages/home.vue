@@ -1,5 +1,5 @@
 <template>
-   <div class="pt-3 pb-7 mx-16">
+   <div class="pt-3 pb-7 mx-md-16">
       <v-row>
          <v-col v-if="loading">
             <Loading />

@@ -3019,42 +3019,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 // import TopNav from './topnav'
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -3954,34 +3918,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -47691,7 +47627,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "pt-5" }, [
+  return _c("div", { staticClass: "pt-5 pb-1" }, [
     _c(
       "div",
       { staticClass: "pl-4" },
@@ -49246,7 +49182,7 @@ var render = function() {
                         {
                           staticClass: "pl-3 font-weight-bold text-subtitle-2",
                           attrs: {
-                            color: "#4270A9",
+                            color: "blue darken-4",
                             dark: "",
                             block: "",
                             tile: "",
@@ -49304,84 +49240,11 @@ var render = function() {
       ),
       _vm._v(" "),
       _c(
-        "v-menu",
-        {
-          attrs: {
-            "open-on-hover": "",
-            right: "",
-            "offset-x": "",
-            transition: "scale-transition"
-          },
-          scopedSlots: _vm._u([
-            {
-              key: "activator",
-              fn: function(ref) {
-                var on = ref.on
-                var attrs = ref.attrs
-                return [
-                  _c(
-                    "v-btn",
-                    _vm._g(
-                      _vm._b(
-                        {
-                          staticClass: "pl-3 font-weight-bold text-subtitle-2",
-                          attrs: {
-                            color: "#4270A9",
-                            dark: "",
-                            block: "",
-                            tile: "",
-                            icon: ""
-                          }
-                        },
-                        "v-btn",
-                        attrs,
-                        false
-                      ),
-                      on
-                    ),
-                    [
-                      _vm._v(
-                        "\n                Some Other Items\n                "
-                      ),
-                      _c("v-spacer"),
-                      _vm._v(" "),
-                      _c("v-icon", [
-                        _vm._v(
-                          "\n                    mdi-chevron-right\n                "
-                        )
-                      ])
-                    ],
-                    1
-                  )
-                ]
-              }
-            }
-          ])
-        },
-        [
-          _vm._v(" "),
-          _c(
-            "v-list",
-            _vm._l(_vm.expansionPanelitems, function(item, index) {
-              return _c(
-                "v-list-item",
-                { key: index, attrs: { to: "/" } },
-                [_c("v-list-item-title", [_vm._v(_vm._s(item.title))])],
-                1
-              )
-            }),
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
         "v-btn",
         {
           staticClass: "pl-3 font-weight-bold text-subtitle-2",
           attrs: {
-            color: "#4270A9",
+            color: "blue darken-4",
             dark: "",
             block: "",
             tile: "",
@@ -50958,7 +50821,7 @@ var render = function() {
         [
           _c(
             "v-card",
-            { attrs: { tile: "", color: "#4270A9" } },
+            { attrs: { tile: "", color: "light-blue darken-4" } },
             [
               _c(
                 "v-card-text",
@@ -50983,7 +50846,7 @@ var render = function() {
                 "v-btn",
                 {
                   attrs: {
-                    color: "#4270A9",
+                    color: "light-blue darken-4",
                     height: "40",
                     text: "",
                     block: "",
@@ -51003,7 +50866,7 @@ var render = function() {
                 "v-btn",
                 {
                   attrs: {
-                    color: "#4270A9",
+                    color: "light-blue darken-4",
                     height: "40",
                     text: "",
                     block: "",
@@ -51047,7 +50910,7 @@ var render = function() {
                                   _vm._b(
                                     {
                                       attrs: {
-                                        color: "#4270A9",
+                                        color: "light-blue darken-4",
                                         height: "40",
                                         text: "",
                                         block: "",
@@ -51097,13 +50960,16 @@ var render = function() {
                               name: "People",
                               params: { id: people_item.id }
                             },
-                            color: "#4270A9"
+                            "exact-active-class": "blue lighten-5"
                           }
                         },
                         [
                           _c(
                             "v-list-item-title",
-                            { staticClass: "font-weight-bold text-uppercase" },
+                            {
+                              staticClass:
+                                "font-weight-bold text-uppercase blue--text text--darken-4"
+                            },
                             [_vm._v(_vm._s(people_item.name))]
                           )
                         ],
@@ -51142,7 +51008,7 @@ var render = function() {
                                   _vm._b(
                                     {
                                       attrs: {
-                                        color: "#4270A9",
+                                        color: "light-blue darken-4",
                                         height: "40",
                                         text: "",
                                         block: "",
@@ -51192,13 +51058,16 @@ var render = function() {
                               name: "Events",
                               params: { id: event_type.id }
                             },
-                            color: "#4270A9"
+                            "exact-active-class": "blue lighten-5"
                           }
                         },
                         [
                           _c(
                             "v-list-item-title",
-                            { staticClass: "font-weight-bold text-uppercase" },
+                            {
+                              staticClass:
+                                "font-weight-bold text-uppercase blue--text text--darken-4"
+                            },
                             [_vm._v(" " + _vm._s(event_type.event_type) + " ")]
                           )
                         ],
@@ -51215,7 +51084,7 @@ var render = function() {
                 "v-btn",
                 {
                   attrs: {
-                    color: "#4270A9",
+                    color: "light-blue darken-4",
                     height: "40",
                     text: "",
                     block: "",
@@ -51259,7 +51128,7 @@ var render = function() {
                                   _vm._b(
                                     {
                                       attrs: {
-                                        color: "#4270A9",
+                                        color: "light-blue darken-4",
                                         height: "40",
                                         text: "",
                                         block: "",
@@ -51311,13 +51180,16 @@ var render = function() {
                               name: "Resources",
                               params: { id: resource_type.id }
                             },
-                            color: "#4270A9"
+                            "exact-active-class": "blue lighten-5"
                           }
                         },
                         [
                           _c(
                             "v-list-item-title",
-                            { staticClass: "font-weight-bold text-uppercase" },
+                            {
+                              staticClass:
+                                "font-weight-bold text-uppercase blue--text text--darken-4"
+                            },
                             [
                               _vm._v(
                                 " " +
@@ -51340,7 +51212,7 @@ var render = function() {
                 "v-btn",
                 {
                   attrs: {
-                    color: "#4270A9",
+                    color: "light-blue darken-4",
                     height: "40",
                     text: "",
                     block: "",
@@ -51377,7 +51249,7 @@ var render = function() {
         [
           _c(
             "v-card",
-            { attrs: { tile: "", color: "#4270A9" } },
+            { attrs: { tile: "", color: "light-blue darken-4" } },
             [
               _c(
                 "v-card-text",
@@ -51404,7 +51276,8 @@ var render = function() {
                   attrs: {
                     "offset-x": "",
                     left: "",
-                    transition: "scale-transition"
+                    transition: "scale-transition",
+                    rounded: "0"
                   },
                   scopedSlots: _vm._u([
                     {
@@ -51420,7 +51293,7 @@ var render = function() {
                                 {
                                   staticClass: "font-weight-bold pr-5",
                                   attrs: {
-                                    color: "#4270A9",
+                                    color: "light-blue darken-4",
                                     dark: "",
                                     block: "",
                                     tile: "",
@@ -51465,13 +51338,17 @@ var render = function() {
                         {
                           key: index,
                           attrs: {
-                            to: "/publications_auth/" + publication_type.id
+                            to: "/publications_auth/" + publication_type.id,
+                            "exact-active-class": "blue lighten-5"
                           }
                         },
                         [
                           _c(
                             "v-list-item-title",
-                            { staticClass: "font-weight-bold text-uppercase" },
+                            {
+                              staticClass:
+                                "font-weight-bold text-uppercase blue--text text--darken-4"
+                            },
                             [
                               _vm._v(
                                 " " +
@@ -51493,89 +51370,11 @@ var render = function() {
               ),
               _vm._v(" "),
               _c(
-                "v-menu",
-                {
-                  attrs: {
-                    "offset-x": "",
-                    left: "",
-                    transition: "scale-transition"
-                  },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "activator",
-                      fn: function(ref) {
-                        var on = ref.on
-                        var attrs = ref.attrs
-                        return [
-                          _c(
-                            "v-btn",
-                            _vm._g(
-                              _vm._b(
-                                {
-                                  staticClass: "font-weight-bold pr-5",
-                                  attrs: {
-                                    color: "#4270A9",
-                                    dark: "",
-                                    block: "",
-                                    tile: "",
-                                    icon: ""
-                                  }
-                                },
-                                "v-btn",
-                                attrs,
-                                false
-                              ),
-                              on
-                            ),
-                            [
-                              _c(
-                                "v-icon",
-                                { staticClass: "pl-5", attrs: { left: "" } },
-                                [_vm._v("mdi-chevron-left")]
-                              ),
-                              _vm._v(" "),
-                              _c("v-spacer"),
-                              _vm._v(
-                                "\n                      Some Other Item\n                   "
-                              )
-                            ],
-                            1
-                          )
-                        ]
-                      }
-                    }
-                  ])
-                },
-                [
-                  _vm._v(" "),
-                  _c(
-                    "v-list",
-                    _vm._l(_vm.expansionPanelitems, function(item, index) {
-                      return _c(
-                        "v-list-item",
-                        { key: index, attrs: { to: "/" } },
-                        [
-                          _c(
-                            "v-list-item-title",
-                            { staticClass: "font-weight-bold text-uppercase" },
-                            [_vm._v(_vm._s(item.title))]
-                          )
-                        ],
-                        1
-                      )
-                    }),
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
                 "v-btn",
                 {
                   staticClass: "font-weight-bold pr-5",
                   attrs: {
-                    color: "#4270A9",
+                    color: "light-blue darken-4",
                     dark: "",
                     block: "",
                     tile: "",
@@ -53289,7 +53088,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "pt-3 pb-7 mx-16" },
+    { staticClass: "pt-3 pb-7 mx-md-16" },
     [
       _c(
         "v-row",

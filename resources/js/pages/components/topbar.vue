@@ -2,7 +2,7 @@
   <div>     
      <!-- Nav Drawer -->
         <v-navigation-drawer v-model="toggleNavSidebar" absolute temporary width="190">
-            <v-card tile color="#4270A9">
+            <v-card tile color="light-blue darken-4">
                <v-card-text class="text-h6 white--text pl-4 pt-2 pb-0">Navigation</v-card-text>
                <v-card-text class="white--text pl-4 pb-2 pt-0">Click to navigate</v-card-text>
             </v-card>
@@ -11,13 +11,13 @@
 
             <!-- Style Two -->
             <v-card rounded="0" flat>
-               <v-btn color="#4270A9" height="40" text block to="/" exact-active-class="darken-1">
+               <v-btn color="light-blue darken-4" height="40" text block to="/" exact-active-class="darken-1">
                   <v-icon left>mdi-home</v-icon>
                   Home
                   <v-spacer></v-spacer>
                </v-btn>
                <v-btn
-                  color="#4270A9"
+                  color="light-blue darken-4"
                   height="40"
                   text
                   block
@@ -32,7 +32,7 @@
                      <!-- exact-path for later -->
                      <v-card rounded="0" flat>
                         <v-btn
-                           color="#4270A9"
+                           color="light-blue darken-4"                           
                            v-bind="attrs"
                            v-on="on"
                            height="40"
@@ -48,8 +48,8 @@
                      </v-card>
                   </template>
                   <v-list>
-                     <v-list-item v-for="(people_item, index) in people" :key="index" :to="{ name: 'People', params: { id: people_item.id }}" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold text-uppercase">{{ people_item.name }}</v-list-item-title>
+                     <v-list-item v-for="(people_item, index) in people" :key="index" :to="{ name: 'People', params: { id: people_item.id }}" exact-active-class="blue lighten-5">
+                        <v-list-item-title class="font-weight-bold text-uppercase blue--text text--darken-4">{{ people_item.name }}</v-list-item-title>
                      </v-list-item>
                   </v-list>
                </v-menu>
@@ -58,7 +58,7 @@
                      <!-- exact-path for later -->
                      <v-card rounded="0" flat>
                         <v-btn
-                           color="#4270A9"
+                           color="light-blue darken-4"
                            v-bind="attrs"
                            v-on="on"
                            height="40"
@@ -74,13 +74,13 @@
                      </v-card>
                   </template>
                   <v-list>
-                     <v-list-item v-for="(event_type, index) in event_types" :key="index" :to="{ name: 'Events', params: { id: event_type.id }}" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold text-uppercase"> {{ event_type.event_type }} </v-list-item-title>
+                     <v-list-item v-for="(event_type, index) in event_types" :key="index" :to="{ name: 'Events', params: { id: event_type.id }}" exact-active-class="blue lighten-5">
+                        <v-list-item-title class="font-weight-bold text-uppercase blue--text text--darken-4"> {{ event_type.event_type }} </v-list-item-title>
                      </v-list-item>
                   </v-list>
                </v-menu>
                <v-btn
-                  color="#4270A9"
+                  color="light-blue darken-4"
                   height="40"
                   text
                   block
@@ -95,7 +95,7 @@
                      <!-- exact-path for later -->
                      <v-card rounded="0" flat>
                         <v-btn
-                           color="#4270A9"
+                           color="light-blue darken-4"
                            v-bind="attrs"
                            v-on="on"
                            height="40"
@@ -111,13 +111,13 @@
                      </v-card>
                   </template>
                   <v-list>
-                     <v-list-item v-for="(resource_type, index) in resource_types" :key="index" :to="{ name: 'Resources', params: { id: resource_type.id }}" color="#4270A9">
-                        <v-list-item-title class="font-weight-bold text-uppercase"> {{ resource_type.resource_type_name }} </v-list-item-title>
+                     <v-list-item v-for="(resource_type, index) in resource_types" :key="index" :to="{ name: 'Resources', params: { id: resource_type.id }}" exact-active-class="blue lighten-5">
+                        <v-list-item-title class="font-weight-bold text-uppercase blue--text text--darken-4"> {{ resource_type.resource_type_name }} </v-list-item-title>
                      </v-list-item>
                   </v-list>
                </v-menu>
                <v-btn
-                  color="#4270A9"
+                  color="light-blue darken-4"
                   height="40"
                   text
                   block
@@ -139,7 +139,7 @@
             right
             width="190"
          >
-            <v-card tile color="#4270A9">
+            <v-card tile color="light-blue darken-4">
                <v-card-text class="text-h6 white--text pl-16 pt-2 pb-0">Quick Links</v-card-text>
                <v-card-text class="white--text pl-7 pb-2 pt-0">Click to Expand Links</v-card-text>
             </v-card>
@@ -150,11 +150,12 @@
                <v-menu
                   offset-x
                   left
-                  transition="scale-transition"                  
+                  transition="scale-transition"
+                  rounded="0"
                >
                   <template v-slot:activator="{ on, attrs }">
                      <v-btn
-                        color="#4270A9"
+                        color="light-blue darken-4"
                         dark
                         v-bind="attrs"
                         v-on="on"
@@ -169,49 +170,20 @@
                      </v-btn>
                   </template>
                   <v-list>
-                     <v-list-item v-for="(publication_type, index) in publication_types" :key="index" :to="'/publications_auth/' + publication_type.id">
-                        <v-list-item-title class="font-weight-bold text-uppercase"> {{ publication_type.publication_type_name }} </v-list-item-title>
+                     <v-list-item v-for="(publication_type, index) in publication_types" :key="index" :to="'/publications_auth/' + publication_type.id" exact-active-class="blue lighten-5">
+                        <v-list-item-title class="font-weight-bold text-uppercase blue--text text--darken-4"> {{ publication_type.publication_type_name }} </v-list-item-title>
                      </v-list-item>
                   </v-list>
                </v-menu>
-
-               <v-menu
-                  offset-x
-                  left
-                  transition="scale-transition"                  
-               >
-                  <template v-slot:activator="{ on, attrs }">
-                     <v-btn
-                        color="#4270A9"
-                        dark
-                        v-bind="attrs"
-                        v-on="on"
-                        block
-                        tile
-                        icon
-                        class="font-weight-bold pr-5"
-                     >
-                        <v-icon left class="pl-5">mdi-chevron-left</v-icon>
-                        <v-spacer></v-spacer>
-                        Some Other Item
-                     </v-btn>
-                  </template>
-                  <v-list>
-                     <v-list-item v-for="(item, index) in expansionPanelitems" :key="index" to="/">
-                        <v-list-item-title class="font-weight-bold text-uppercase">{{ item.title }}</v-list-item-title>
-                     </v-list-item>
-                  </v-list>
-               </v-menu>
-
                <v-btn
-                  color="#4270A9"
-                  dark                  
+                  color="light-blue darken-4"
+                  dark
                   block
                   tile
                   icon
                   class="font-weight-bold pr-5"
                   to="/photo-gallery"
-               >                  
+               >
                   <v-spacer></v-spacer>
                   Photo Gallery
                </v-btn>
