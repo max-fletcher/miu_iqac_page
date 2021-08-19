@@ -69,12 +69,6 @@
 // import TopNav from './topnav'
 export default {
     data: () => ({
-        expansionPanelitems: [
-            { title: "Publications", content: "Some Content" },
-            { title: "Archive", content: "Some Content" },
-            { title: "Gallery", content: "Some Content" },
-            { title: "Contact Us", content: "Some Content" }
-        ],
         publication_types: []
     }),
     created(){

@@ -1960,21 +1960,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      hideTopBar: true,
-      // toggleNavSidebar: false,
-      links: [{
-        icon: "mdi-facebook",
-        link: "www.facebook.com"
-      }, {
-        icon: "mdi-instagram",
-        link: "www.instagram.com"
-      }, {
-        icon: "mdi-twitter",
-        link: "www.twitter.com"
-      }, {
-        icon: "mdi-linkedin",
-        link: "www.linkedin.com"
-      }]
+      hideTopBar: true
     };
   },
   mounted: function mounted() {//  console.log(this.$route.name)
@@ -2833,21 +2819,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       links: [{
         icon: "mdi-facebook",
-        link: "www.facebook.com"
-      }, {
-        icon: "mdi-instagram",
-        link: "www.instagram.com"
-      }, {
-        icon: "mdi-twitter",
-        link: "www.twitter.com"
+        link: "https://www.facebook.com/machinekicker/"
       }, {
         icon: "mdi-linkedin",
-        link: "www.linkedin.com"
+        link: "https://www.linkedin.com/in/mahin-chowdhury/"
       }]
     };
   }
@@ -3025,19 +3006,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      expansionPanelitems: [{
-        title: "Publications",
-        content: "Some Content"
-      }, {
-        title: "Archive",
-        content: "Some Content"
-      }, {
-        title: "Gallery",
-        content: "Some Content"
-      }, {
-        title: "Contact Us",
-        content: "Some Content"
-      }],
       publication_types: []
     };
   },
@@ -4999,19 +4967,7 @@ __webpack_require__.r(__webpack_exports__);
       _this.$router.push({
         name: 'ResourceNotFound'
       });
-    }); // Passed Events
-    // axios
-    //    .get("/api/events/passed/eventsbyeventtypeid/" + this.$route.params.id)
-    //    .then((res) => {
-    //       this.passed_events = res.data;
-    //       this.loading2 = false;
-    //    })
-    //    .catch((error) => {
-    //       // console.log(error);
-    //       // this.errors = error.response.data.errors
-    //       this.not_found2 = true
-    //       this.loading2 = false;
-    //    });
+    });
   }
 });
 
@@ -5753,31 +5709,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_quicklinks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/quicklinks */ "./resources/js/pages/components/quicklinks.vue");
 /* harmony import */ var _components_loading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/loading */ "./resources/js/pages/components/loading.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -48918,7 +48849,7 @@ var render = function() {
                                     class: { "on-hover": hover },
                                     attrs: {
                                       href:
-                                        "https://www.facebook.com/machinekicker/",
+                                        "https://www.linkedin.com/in/mahin-chowdhury/",
                                       elevation: hover ? 16 : 2
                                     }
                                   },
@@ -48951,7 +48882,7 @@ var render = function() {
                     {
                       key: index,
                       staticClass: "mx-2",
-                      attrs: { dark: "", icon: "" }
+                      attrs: { href: link.link, dark: "", icon: "" }
                     },
                     [
                       _c(
@@ -48959,9 +48890,9 @@ var render = function() {
                         { staticClass: "white--text", attrs: { size: "24px" } },
                         [
                           _vm._v(
-                            "\n                  " +
+                            "\n                     " +
                               _vm._s(link.icon) +
-                              "\n               "
+                              "\n                  "
                           )
                         ]
                       )
@@ -54035,10 +53966,7 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "v-row",
-                      {
-                        staticClass: "px-5 mb-2 pb-2",
-                        attrs: { justify: "center" }
-                      },
+                      { staticClass: "px-5 mb-2 pb-2" },
                       _vm._l(_vm.photo_galleries, function(
                         photo_gallery,
                         index
@@ -54217,6 +54145,7 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "v-row",
+                      { staticClass: "mx-2" },
                       [
                         _c(
                           "v-col",
@@ -54267,7 +54196,7 @@ var render = function() {
                                           },
                                           [
                                             _vm._v(
-                                              "\r\n                     mdi-pdf-box\r\n                     "
+                                              "\r\n                        mdi-file-pdf-box\r\n                     "
                                             )
                                           ]
                                         ),
@@ -54467,142 +54396,72 @@ var render = function() {
                         _c(
                           "v-col",
                           { attrs: { md: "9", lg: "10" } },
-                          [
-                            _vm._l(_vm.resources.resources, function(
-                              single_resource,
-                              index
-                            ) {
-                              return _c(
-                                "v-card",
-                                {
-                                  key: index,
-                                  staticClass: "mb-4",
-                                  attrs: {
-                                    href:
-                                      "/storage/resource_files/" +
-                                      single_resource.resource_file,
-                                    rounded: "0"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "v-alert",
-                                    {
-                                      staticClass: "px-0 py-0 mx-0 my-0",
-                                      attrs: {
-                                        color: "teal accent-4",
-                                        rounded: "0",
-                                        text: ""
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-card-title",
-                                        {
-                                          staticClass:
-                                            "py-2 text-h6 font-weight-medium"
-                                        },
-                                        [
-                                          _c(
-                                            "v-icon",
-                                            {
-                                              attrs: {
-                                                left: "",
-                                                color: "teal accent-4",
-                                                large: ""
-                                              }
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                           mdi-pdf-box\n                        "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(
-                                            "\n                        " +
-                                              _vm._s(
-                                                single_resource.resource_name
-                                              ) +
-                                              "\n                     "
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            }),
-                            _vm._v(" "),
-                            _vm._l(_vm.resources.resources, function(
-                              resource,
-                              index
-                            ) {
-                              return _c(
-                                "v-card",
-                                {
-                                  key: index,
-                                  staticClass: "mb-4",
-                                  attrs: {
-                                    href:
-                                      "/storage/resource_files/" +
-                                      resource.resource_file,
-                                    rounded: "0"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "v-alert",
-                                    {
-                                      staticClass: "px-0 py-0 mx-0 my-0",
-                                      attrs: {
-                                        color: "teal accent-4",
-                                        rounded: "0",
-                                        text: ""
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-card-title",
-                                        {
-                                          staticClass:
-                                            "py-2 text-h6 font-weight-medium"
-                                        },
-                                        [
-                                          _c(
-                                            "v-icon",
-                                            {
-                                              attrs: {
-                                                left: "",
-                                                color: "teal accent-4",
-                                                large: ""
-                                              }
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                           mdi-file-pdf-box\n                        "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(
-                                            "\n                        " +
-                                              _vm._s(resource.resource_name) +
-                                              "\n                     "
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            })
-                          ],
-                          2
+                          _vm._l(_vm.resources.resources, function(
+                            resource,
+                            index
+                          ) {
+                            return _c(
+                              "v-card",
+                              {
+                                key: index,
+                                staticClass: "mb-4",
+                                attrs: {
+                                  href:
+                                    "/storage/resource_files/" +
+                                    resource.resource_file,
+                                  rounded: "0"
+                                }
+                              },
+                              [
+                                _c(
+                                  "v-alert",
+                                  {
+                                    staticClass: "px-0 py-0 mx-0 my-0",
+                                    attrs: {
+                                      color: "teal accent-4",
+                                      rounded: "0",
+                                      text: ""
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "v-card-title",
+                                      {
+                                        staticClass:
+                                          "py-2 text-h6 font-weight-medium"
+                                      },
+                                      [
+                                        _c(
+                                          "v-icon",
+                                          {
+                                            attrs: {
+                                              left: "",
+                                              color: "teal accent-4",
+                                              large: ""
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                           mdi-file-pdf-box\n                        "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(
+                                          "\n                        " +
+                                            _vm._s(resource.resource_name) +
+                                            "\n                     "
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          }),
+                          1
                         )
                       ],
                       1

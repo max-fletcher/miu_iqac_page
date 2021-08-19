@@ -47,31 +47,6 @@
                </v-col>
                <v-col md="9" lg="10">
                   <v-card
-                     v-for="(single_resource, index) in resources.resources"
-                     :key="index"
-                     :href="
-                        '/storage/resource_files/' +
-                        single_resource.resource_file
-                     "
-                     rounded="0"
-                     class="mb-4"
-                  >
-                     <v-alert
-                        color="teal accent-4"
-                        class="px-0 py-0 mx-0 my-0"
-                        rounded="0"
-                        text
-                     >
-                        <v-card-title class="py-2 text-h6 font-weight-medium">
-                           <v-icon left color="teal accent-4" large>
-                              mdi-pdf-box
-                           </v-icon>
-                           {{ single_resource.resource_name }}
-                        </v-card-title>
-                     </v-alert>
-                  </v-card>
-
-                  <v-card
                      v-for="(resource, index) in resources.resources"
                      :key="index"
                      :href="'/storage/resource_files/' + resource.resource_file"

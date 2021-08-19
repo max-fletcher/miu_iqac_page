@@ -22,10 +22,10 @@
                   Designed & Developed by
                   <v-hover v-slot="{ hover }">
                      <a
-                        href="https://www.facebook.com/machinekicker/"
-                        :class="{ 'on-hover': hover }"
+                        href="https://www.linkedin.com/in/mahin-chowdhury/"
                         :elevation="hover ? 16 : 2"
                         class="font-weight-medium"
+                        :class="{ 'on-hover': hover }"
                      >
                         Mahin Chowdhury
                      </a>
@@ -33,17 +33,18 @@
                </div>
             </v-col>
             <v-col cols="12" sm="3" align-self="center" class="pr-3 pt-2">
-               <v-btn
-                  v-for="(link, index) in links"
-                  :key="index"
-                  class="mx-2"
-                  dark
-                  icon
-               >
-                  <v-icon class="white--text" size="24px">
-                     {{ link.icon }}
-                  </v-icon>
-               </v-btn>
+                  <v-btn
+                     v-for="(link, index) in links"
+                     :key="index"
+                     :href="link.link"
+                     class="mx-2"
+                     dark
+                     icon
+                  >
+                     <v-icon class="white--text" size="24px">
+                        {{ link.icon }}
+                     </v-icon>
+                  </v-btn>               
             </v-col>
          </v-row>
       </v-card>
@@ -54,10 +55,8 @@
 export default {
       data: () => ({
       links: [
-         { icon: "mdi-facebook", link: "www.facebook.com" },
-         { icon: "mdi-instagram", link: "www.instagram.com" },
-         { icon: "mdi-twitter", link: "www.twitter.com" },
-         { icon: "mdi-linkedin", link: "www.linkedin.com" },
+         { icon: "mdi-facebook", link: "https://www.facebook.com/machinekicker/" },
+         { icon: "mdi-linkedin", link: "https://www.linkedin.com/in/mahin-chowdhury/" },
       ],
    }),
 };

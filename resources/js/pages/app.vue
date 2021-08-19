@@ -27,13 +27,6 @@ export default {
    },
    data: () => ({
        hideTopBar: true,
-    // toggleNavSidebar: false,
-      links: [
-         { icon: "mdi-facebook", link: "www.facebook.com" },
-         { icon: "mdi-instagram", link: "www.instagram.com" },
-         { icon: "mdi-twitter", link: "www.twitter.com" },
-         { icon: "mdi-linkedin", link: "www.linkedin.com" },
-      ],
    }),
    mounted(){
    //  console.log(this.$route.name)

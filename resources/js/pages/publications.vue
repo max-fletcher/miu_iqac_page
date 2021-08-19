@@ -32,13 +32,13 @@
                </v-card>
             </v-col>
          </v-row>
-         <v-row>
+         <v-row class="mx-2">
             <v-col cols="12">
                <v-card v-for="(single_publication, index) in publications.publications" :key="index" :href="'/storage/publication_files/' + single_publication.publication_file" rounded="0" class="mb-4">
                <v-alert color="deep-purple accent-3" class="px-0 py-0 mx-0 my-0" rounded="0" text>
                   <v-card-title class="py-2 text-h6 font-weight-medium">
                      <v-icon left color="deep-purple accent-3" large>
-                     mdi-pdf-box
+                        mdi-file-pdf-box
                      </v-icon>
                      {{ single_publication.publication_name }}
                   </v-card-title>

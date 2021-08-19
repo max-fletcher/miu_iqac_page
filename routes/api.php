@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 // Needs Authentication
 Route::middleware('auth:sanctum')->group(function () {
+    // FE
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
@@ -29,8 +30,11 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 // Authentication Controllers
+// FE
 Route::post('/register', [App\Http\Controllers\RegisterController::class, 'register']);
+// FE
 Route::post('/login', [App\Http\Controllers\LoginController::class, 'login']);
+// FE
 Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout']);
 
 
@@ -38,6 +42,7 @@ Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout']);
 
 // Carousel Content Controller
 Route::get('/carouselcontent/index', [App\Http\Controllers\CarouselContentController::class, 'index']);
+// FE
 Route::get('/carouselcontent/frontend_index', [App\Http\Controllers\CarouselContentController::class, 'frontend_index']);
 Route::post('/carouselcontent/store', [App\Http\Controllers\CarouselContentController::class, 'store']);
 Route::get('/carouselcontent/show/{id}', [App\Http\Controllers\CarouselContentController::class, 'show']);
@@ -46,6 +51,7 @@ Route::delete('/carouselcontent/destroy/{id}', [App\Http\Controllers\CarouselCon
 
 // About Content Controller
 Route::get('/about/content/index', [App\Http\Controllers\AboutContentController::class, 'index']);
+// FE
 Route::get('/about/content/frontend_index', [App\Http\Controllers\AboutContentController::class, 'frontend_index']);
 Route::post('/about/content/store', [App\Http\Controllers\AboutContentController::class, 'store']);
 Route::get('/about/content/show/{id}', [App\Http\Controllers\AboutContentController::class, 'show']);
@@ -55,8 +61,10 @@ Route::get('/about/content/contentbytypeid/{id}', [App\Http\Controllers\AboutCon
 
 // People Controller
 Route::get('/people/index', [App\Http\Controllers\PeopleController::class, 'index']);
+// FE
 Route::get('/people/frontend_index', [App\Http\Controllers\PeopleController::class, 'frontend_index']);
 Route::post('/people/store', [App\Http\Controllers\PeopleController::class, 'store']);
+// FE
 Route::get('/people/show/{id}', [App\Http\Controllers\PeopleController::class, 'show']);
 Route::patch('/people/update/{id}', [App\Http\Controllers\PeopleController::class, 'update']);
 Route::delete('/people/destroy/{id}', [App\Http\Controllers\PeopleController::class, 'destroy']);
@@ -70,17 +78,20 @@ Route::delete('/people/members/destroy/{id}', [App\Http\Controllers\MemberContro
 Route::get('/people/members/membersbypeopleid/{id}', [App\Http\Controllers\MemberController::class, 'find_all_members_by_people_id']);
 
 // Event Types Controller
+// FE
 Route::get('/events/types/index', [App\Http\Controllers\EventTypeController::class, 'index']);
 Route::get('/events/types/frontend_index', [App\Http\Controllers\EventTypeController::class, 'frontend_index']);
 Route::post('/events/types/store', [App\Http\Controllers\EventTypeController::class, 'store']);
 Route::get('/events/types/show/{id}', [App\Http\Controllers\EventTypeController::class, 'show']);
 Route::patch('/events/types/update/{id}', [App\Http\Controllers\EventTypeController::class, 'update']);
 Route::delete('/events/types/destroy/{id}', [App\Http\Controllers\EventTypeController::class, 'destroy']);
+// FE
 Route::get('/events/types/show_sorted/{id}', [App\Http\Controllers\EventTypeController::class, 'show_sorted']);
 
 // Event Controller
 Route::get('/events/index', [App\Http\Controllers\EventController::class, 'index']);
 Route::post('/events/store', [App\Http\Controllers\EventController::class, 'store']);
+// FE
 Route::get('/events/show/{id}', [App\Http\Controllers\EventController::class, 'show']);
 Route::patch('/events/update/{id}', [App\Http\Controllers\EventController::class, 'update']);
 Route::delete('/events/destroy/{id}', [App\Http\Controllers\EventController::class, 'destroy']);
@@ -89,21 +100,26 @@ Route::get('/events/passed/eventsbyeventtypeid/{id}', [App\Http\Controllers\Even
 
 // News Controller
 Route::get('/news/index', [App\Http\Controllers\NewsController::class, 'index']);
+// FE
 Route::get('/news/frontend_index', [App\Http\Controllers\NewsController::class, 'frontend_index']);
 Route::post('/news/store', [App\Http\Controllers\NewsController::class, 'store']);
+// FE
 Route::get('/news/show/{id}', [App\Http\Controllers\NewsController::class, 'show']);
 Route::patch('/news/update/{id}', [App\Http\Controllers\NewsController::class, 'update']);
 Route::delete('/news/destroy/{id}', [App\Http\Controllers\NewsController::class, 'destroy']);
 
 // Resource Types Controller
+// FE
 Route::get('/resource_type/index', [App\Http\Controllers\ResourceTypeController::class, 'index']);
 Route::get('/resource_type/frontend_index', [App\Http\Controllers\ResourceTypeController::class, 'frontend_index']);
 Route::post('/resource_type/store', [App\Http\Controllers\ResourceTypeController::class, 'store']);
+// FE
 Route::get('/resource_type/show/{id}', [App\Http\Controllers\ResourceTypeController::class, 'show']);
 Route::patch('/resource_type/update/{id}', [App\Http\Controllers\ResourceTypeController::class, 'update']);
 Route::delete('/resource_type/destroy/{id}', [App\Http\Controllers\ResourceTypeController::class, 'destroy']);
 
 // Resource Controller
+// FE
 Route::get('/resource/index', [App\Http\Controllers\ResourceController::class, 'index']);
 Route::post('/resource/store', [App\Http\Controllers\ResourceController::class, 'store']);
 Route::get('/resource/show/{id}', [App\Http\Controllers\ResourceController::class, 'show']);
@@ -112,15 +128,18 @@ Route::delete('/resource/destroy/{id}', [App\Http\Controllers\ResourceController
 
 // Contact Us Controller
 Route::get('/contact_us/index', [App\Http\Controllers\ContactUsController::class, 'index']);
+// FE
 Route::post('/contact_us/store', [App\Http\Controllers\ContactUsController::class, 'store']);
 Route::get('/contact_us/show/{id}', [App\Http\Controllers\ContactUsController::class, 'show']);
 Route::patch('/contact_us/update/{id}', [App\Http\Controllers\ContactUsController::class, 'update']);
 Route::delete('/contact_us/destroy/{id}', [App\Http\Controllers\ContactUsController::class, 'destroy']);
 
 // Gallery Name Controller
+// FE
 Route::get('/gallery/name/index', [App\Http\Controllers\GalleryNameController::class, 'index']);
 Route::get('/gallery/name/frontend_index', [App\Http\Controllers\GalleryNameController::class, 'frontend_index']);
 Route::post('/gallery/name/store', [App\Http\Controllers\GalleryNameController::class, 'store']);
+// FE
 Route::get('/gallery/name/show/{id}', [App\Http\Controllers\GalleryNameController::class, 'show']);
 Route::patch('/gallery/name/update/{id}', [App\Http\Controllers\GalleryNameController::class, 'update']);
 Route::delete('/gallery/name/destroy/{id}', [App\Http\Controllers\GalleryNameController::class, 'destroy']);
@@ -135,9 +154,12 @@ Route::get('/gallery/photos/photosbygalleryid/{id}', [App\Http\Controllers\Galle
 
 // Publication Types Controller
 Route::get('/publication_type_info/index', [App\Http\Controllers\PublicationTypeInfoController::class, 'index']);
+// FE
 Route::get('/publication_type_info/frontend_index', [App\Http\Controllers\PublicationTypeInfoController::class, 'frontend_index']);
 Route::post('/publication_type_info/store', [App\Http\Controllers\PublicationTypeInfoController::class, 'store']);
+// FE
 Route::get('/publication_type_info/show/{id}', [App\Http\Controllers\PublicationTypeInfoController::class, 'show']);
+// FE
 Route::get('/publication_type_info/show_with_publications/{id}', [App\Http\Controllers\PublicationTypeInfoController::class, 'show_with_publications']);
 Route::patch('/publication_type_info/update/{id}', [App\Http\Controllers\PublicationTypeInfoController::class, 'update']);
 Route::delete('/publication_type_info/destroy/{id}', [App\Http\Controllers\PublicationTypeInfoController::class, 'destroy']);
@@ -150,6 +172,9 @@ Route::patch('/publications/update/{id}', [App\Http\Controllers\PublicationContr
 Route::delete('/publications/destroy/{id}', [App\Http\Controllers\PublicationController::class, 'destroy']);
 
 //Publication Token
+// FE
 Route::post('/publication_token/create_token', [App\Http\Controllers\PublicationTokenController::class, 'create_publication_token']);
+//FE
 Route::post('/publication_token/token_exists', [App\Http\Controllers\PublicationTokenController::class, 'token_exists']);
+// FE
 Route::get('/publication_token/clear_tokens', [App\Http\Controllers\PublicationTokenController::class, 'clear_tokens']);

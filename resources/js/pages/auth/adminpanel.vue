@@ -1,5 +1,5 @@
 <template>
-   <div class="">      
+   <div class="">
       <v-row>
          <v-col md="3">
             <!-- For Smaller Screens -->

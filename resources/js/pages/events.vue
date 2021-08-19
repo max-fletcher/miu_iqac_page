@@ -263,20 +263,6 @@ export default {
             // this.errors = error.response.data.errors
             this.$router.push({ name: 'ResourceNotFound' })
          });
-
-      // Passed Events
-      // axios
-      //    .get("/api/events/passed/eventsbyeventtypeid/" + this.$route.params.id)
-      //    .then((res) => {
-      //       this.passed_events = res.data;
-      //       this.loading2 = false;
-      //    })
-      //    .catch((error) => {
-      //       // console.log(error);
-      //       // this.errors = error.response.data.errors
-      //       this.not_found2 = true
-      //       this.loading2 = false;
-      //    });
    },
 };
 </script>

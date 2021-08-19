@@ -34,7 +34,7 @@
                </v-col>
             </v-row>
 
-            <v-row class="px-5 mb-2 pb-2" justify="center">
+            <v-row class="px-5 mb-2 pb-2">
                <v-col v-for="(photo_gallery, index) in photo_galleries" :key="index" cols="12" sm="6">
                   <v-card
                      class="mx-auto"
