@@ -1,28 +1,78 @@
 <template>
    <div>
-      <div v-if="unauthenticated"> You Are Not Authenticated !! </div>
-      <v-form ref="form" lazy-validation class="px-10 pt-8">
-         <v-text-field v-model="email" :rules="emailRules" label="E-mail" type="email" required outlined></v-text-field>
-         <span v-if="errors.email">{{ errors.email[0] }}</span>
+      <div v-if="unauthenticated">You Are Not Authenticated !!</div>
+      <v-form
+         ref="form"
+         :disabled="form_disabled"
+         lazy-validation
+         class="px-10 pt-8"
+      >
+
+         <!-- Snackbar For backend validation failure -->
+         <v-snackbar
+            v-model="error_snackbar"
+            color="red"
+            :timeout="timeout"                             
+            top
+            right
+         >
+         <v-icon left>
+            mdi-alert-octagon-outline
+         </v-icon>
+            {{error_message}}
+
+            <template v-slot:action="{ attrs }">
+            <v-btn
+               color="white"
+               text
+               v-bind="attrs"
+               @click="error_snackbar = false"
+            >
+               Close
+            </v-btn>
+            </template>
+         </v-snackbar>
+         <!-- End Snackbar For Failed Form Submission -->
 
          <v-text-field
-            class="my-2"
+            v-model="email"
+            :rules="emailRules"
+            :error-messages="errors.email"
+            label="E-mail"
+            type="email"
+            required
+            outlined
+         ></v-text-field>
+         <!-- <span v-if="errors.email">{{ errors.email[0] }}</span> -->
+
+         <v-text-field
             v-model="password"
             :rules="passwordRules"
+            :error-messages="errors.password"
             label="Password"
             type="password"
             required
             outlined
          ></v-text-field>
-         <span v-if="errors.password">{{ errors.password[0] }}</span>
+         <!-- <span v-if="errors.password">{{ errors.password[0] }}</span> -->
+
          <div class="mt-2">
-            <v-btn color="success" @click.prevent="submitForm" type="submit">Login</v-btn>
+            <v-btn
+               color="success"
+               :loading="form_loading"
+               :disabled="form_loading"
+               @click.prevent="submitForm"
+               type="submit"
+               >Login</v-btn
+            >
 
             <v-btn color="success" @click="validate">Validate</v-btn>
 
             <v-btn color="warning" @click="reset">Reset Form</v-btn>
 
-            <v-btn color="info" @click="resetValidation">Reset Validation</v-btn>
+            <v-btn color="info" @click="resetValidation"
+               >Reset Validation</v-btn
+            >
          </div>
          <br />
          <div>
@@ -44,7 +94,13 @@
 <script>
 export default {
    data: () => ({
-      unauthenticated: false,      
+      unauthenticated: false,
+      errors: [],
+      error_message: "",
+      error_snackbar: false,
+      form_disabled: false,
+      form_loading: false,
+      timeout: 3000,
       email: "",
       emailRules: [
          (v) => !!v || "E-mail is required",
@@ -56,7 +112,6 @@ export default {
          (v) =>
             (v && v.length >= 8) || "Password must be more than 8 characters",
       ],
-      errors: [],
       dummy: "",
       validation: "",
    }),
@@ -73,8 +128,9 @@ export default {
          this.dummy = "";
       },
       submitForm() {
-         this.validation = this.$refs.form.validate();
          if (this.$refs.form.validate()) {
+            this.form_loading = true;
+            this.form_disabled = true;
             axios.get("/sanctum/csrf-cookie").then((response) => {
                // Login...
                axios
@@ -83,13 +139,19 @@ export default {
                      password: this.password,
                   })
                   .then((res) => {
-                     this.dummy = "Login Post Request Sent Successfully !!";
+                     this.form_loading = false
+                     this.form_disabled = false
+                     console.log("Login Post Request Sent Successfully !!")
                      // console.log(res);
-                     this.$router.push({ name: "AdminPanel" });
+                     this.$router.push({ name: "AdminPanel" })
                   })
                   .catch((error) => {
-                     this.errors = error.response.data.errors;
-                     this.dummy = "Request Not Sent !!";
+                     this.form_loading = false
+                     this.form_disabled = false
+                     this.errors = error.response.data.errors
+                     this.error_message = error.response.data.message
+                     this.error_snackbar = true
+                     console.log("Error Response !!")
                   });
             });
          } else {
@@ -106,10 +168,10 @@ export default {
    },
    created() {
       // console.log(this.$route.query.message)
-      if(this.$route.query.message){
-         this.unauthenticated = true
-         this.message = this.$route.query.message
+      if (this.$route.query.message) {
+         this.unauthenticated = true;
+         this.message = this.$route.query.message;
       }
-   }
+   },
 };
-</script> 
+</script>

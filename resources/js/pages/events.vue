@@ -1,10 +1,14 @@
 <template>
-   <div class="px-2 py-2">
+   <div>
+      <TopBar />
+      
+      <v-sheet class="mx-4 mb-3 mt-5 mt-md-3" min-height="450">
+
       <div v-if="loading">
          <Loading />
       </div>
-      <div v-else>
-         <v-row class="mx-2 mt-2" no-gutters>
+      <div v-else class="mb-5">
+         <v-row class="mx-2 pt-4" no-gutters>
             <v-col cols="12">
                <v-card flat tile class="mx-auto px-0">
                   <v-card-subtitle
@@ -230,11 +234,14 @@
             </v-col>
          </v-row>
       </div>
+   </v-sheet>
+
    </div>
 </template>
 
 <script>
 import moment from "moment";
+import TopBar from './components/topbar';
 import QuickLinks from "./components/quicklinks";
 import Loading from "./components/loading";
 export default {
@@ -246,7 +253,7 @@ export default {
       not_found: false,
    }),
    components: {
-      QuickLinks, Loading
+      QuickLinks, Loading, TopBar
    },
    created() {
       axios

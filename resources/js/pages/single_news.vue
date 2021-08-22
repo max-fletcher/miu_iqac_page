@@ -1,15 +1,30 @@
 <template>
-  <div class="pt-3">
+  <div>
+
+      <TopBar />
+
+      <v-sheet class="mx-4 mb-3 mt-5 mt-md-3" min-height="450">
+
       <div v-if="loading">
          <Loading />
       </div>
       <div v-else>
-         <v-row>
-            <v-card flat tile class="mx-auto mt-2">
-               <v-card-title class="text-center text-h3 blue--text text--darken-4">
-                  NEWS
-               </v-card-title>
-            </v-card>
+         <v-row class="mx-2 pt-4" no-gutters>
+            <v-col cols="12">
+               <v-card flat tile class="mx-auto px-0">
+                  <v-card-subtitle
+                     class="
+                        text-center text-h3
+                        blue--text
+                        text--darken-4
+                        py-0                           
+                        mb-2
+                        pl-lg-4
+                        text-uppercase
+                     "
+                  >single news</v-card-subtitle>
+               </v-card>
+            </v-col>
          </v-row>
          <v-row class="mx-1 py-2 mt-n3 mb-2">
             <v-col cols="12">
@@ -40,12 +55,15 @@
                </v-card>
             </v-col>
          </v-row>
+
       </div>
+   </v-sheet>
    </div>
 </template>
 
 <script>
 import moment from 'moment'
+import TopBar from "./components/topbar";
 import Loading from "./components/loading";
 export default {
    data: () => ({
@@ -54,7 +72,7 @@ export default {
       loading: true,
    }),
    components: {
-      Loading
+      Loading, TopBar
    },
    created() {
       axios

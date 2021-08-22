@@ -1,5 +1,10 @@
 <template>
-   <div class="pt-3 pb-3">      
+   <div>
+
+      <TopBar />
+
+      <v-sheet class="mx-4 mb-3 mt-5 mt-md-3" min-height="450">
+
       <div v-if="loading">
          <Loading />
       </div>
@@ -14,8 +19,8 @@
                </v-row>
             </v-container>
          </v-card>
-         <div v-else>
-            <v-row class="mx-2 mt-2" no-gutters>
+         <div v-else class="pb-3">
+            <v-row class="mx-2 mt-2 pt-4" no-gutters>
                <v-col cols="12">
                   <v-card flat tile class="mx-auto px-0">
                      <v-card-subtitle
@@ -82,10 +87,12 @@
 
          </div>
       </div>
+      </v-sheet>
    </div>
 </template>
 
 <script>
+import TopBar from "./components/topbar";
 import Loading from "./components/loading";
 export default {
    data: () => ({
@@ -93,7 +100,7 @@ export default {
       loading: true,
    }),
    components: {
-      Loading
+      Loading, TopBar
    },
    created() {
 

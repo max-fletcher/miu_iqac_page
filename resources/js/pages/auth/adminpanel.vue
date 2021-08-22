@@ -1,9 +1,9 @@
 <template>
-   <div class="">
+   <div>
       <v-row>
          <v-col md="3">
             <!-- For Smaller Screens -->
-               <v-navigation-drawer permanent class="hidden-sm-and-down">
+               <v-navigation-drawer permanent class="hidden-sm-and-down mt-n3">
                   <v-sheet color="grey lighten-4" class="pa-4">
                      <v-avatar class="mb-4" color="grey darken-1" size="64"></v-avatar>
 
@@ -63,8 +63,10 @@
          <v-col xs="12" sm="12" md="9">
             <v-container class="" fluid>
                <v-row>
-                  <v-btn @click.stop="drawer = !drawer" class="hidden-md-and-up">
-                     Toggle Navigation
+                  <v-btn @click.stop="drawer = !drawer" class="hidden-md-and-up mt-n7 ml-3">
+                        <v-icon>
+                           mdi-format-list-bulleted-square
+                        </v-icon>
                   </v-btn>
                   <v-col v-for="card in cards" :key="card" cols="12">
                      <v-card>

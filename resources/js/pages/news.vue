@@ -1,9 +1,14 @@
 <template>
-<div class="pt-3">
+<div>
+
+   <TopBar />
+
+   <v-sheet class="mx-4 mb-3 mt-5 mt-md-3" min-height="450">
+
    <div v-if="loading">
       <Loading />
    </div>
-   <div v-else>
+   <div v-else class="pb-4">
       <v-card flat v-if="news.length === 0" height="480" min-height="300">
          <v-container fill-height fluid>
             <v-row align="center" justify="center">
@@ -15,7 +20,7 @@
          </v-container>
       </v-card>
       <div v-else>
-         <v-row class="mx-2 mt-2" no-gutters>
+         <v-row class="mx-2 pt-4" no-gutters>
             <v-col cols="12">
                <v-card flat tile class="mx-auto px-0">
                   <v-card-subtitle
@@ -84,12 +89,14 @@
             </v-col>
          </v-row>
       </div>
-   </div> 
+   </div>
+   </v-sheet>
 </div>
 </template>
 
 <script>
 import moment from 'moment'
+import TopBar from "./components/topbar";
 import QuickLinks from "./components/quicklinks";
 import Loading from "./components/loading";
 export default {
@@ -99,7 +106,7 @@ export default {
       loading: true,
    }),
    components: {
-      QuickLinks, Loading
+      QuickLinks, Loading, TopBar
    },
    computed: {
       cardBorderColor: function(){

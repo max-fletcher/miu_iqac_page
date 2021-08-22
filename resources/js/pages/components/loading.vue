@@ -1,6 +1,6 @@
 <template>
    <div>
-      <v-card flat class="mt-6">
+      <v-card flat class="pt-10">
          <div class="text-h6 text-center blue--text text--darken-4 font-weight-bold">
                Loading...
          </div>

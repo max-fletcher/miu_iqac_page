@@ -1,5 +1,9 @@
 <template>
-<div class="pt-3">  
+<div>
+   <TopBar />
+
+   <v-sheet class="mx-4 mb-3 mt-5 mt-md-3" min-height="450">
+
    <div v-if="loading">
       <loading />
    </div>
@@ -47,12 +51,14 @@
             </v-col>
          </v-row>
       </div>
-   </div> 
+   </div>
+   </v-sheet>
 </div>
 </template>
 
 <script>
 import moment from 'moment'
+import TopBar from "./components/topbar";
 import Loading from "./components/loading";
 export default {
    data: () => ({
@@ -61,7 +67,7 @@ export default {
       loading: true,
    }),
    components: {
-     Loading
+     Loading, TopBar
    },
    computed: {
       cardBorderColor: function(){
