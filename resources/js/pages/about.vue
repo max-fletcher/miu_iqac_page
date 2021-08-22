@@ -8,7 +8,7 @@
                <Loading />
             </div>
 
-            <v-row v-else class="mt-3 mb-3">
+            <v-row v-else class="mt-3 mb-3 pt-sm-3 pt-md-2">
                <v-col cols="12" md="3" lg="2" class="hidden-sm-and-down">
                   <QuickLinks />
                </v-col>

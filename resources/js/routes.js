@@ -18,7 +18,13 @@ import Login from "./pages/auth/login";
 import Register from "./pages/auth/register";
 import PublicationsAuth from "./pages/auth/publications_auth";
 // Admin Pages
-import AdminPanel from "./pages/auth/adminpanel";
+import AdminPanel from "./pages/admin_pages/adminpanel";
+import CarouselContent from "./pages/admin_pages/carousel_content"
+import AboutAdmin from "./pages/admin_pages/about_admin"
+import PeopleAdmin from "./pages/admin_pages/people_admin"
+import EventsAdmin from "./pages/admin_pages/events_admin"
+import NewsAdmin from "./pages/admin_pages/news_admin"
+import ResourcesAdmin from "./pages/admin_pages/resources_admin"
 // scrapped components
 import Topnav from "./pages/components/scrapped/topnav";
 import Tabsnav from "./pages/components/scrapped/tabsnav";
@@ -129,7 +135,13 @@ export default{
          path: '/login/:message?',
          component: Login,
          name: 'Login',
-         meta: { title: 'Login' }
+         meta: { title: 'Login' },
+         // beforeEnter: ( to, from, next) => {
+         //    axios.get('/api/authenticated')
+         //    .then(()=>{
+         //       next({path: '/adminpanel/'})
+         //    })
+         // }
       },
       {
          path: '/register',
@@ -137,11 +149,50 @@ export default{
          name: 'Register',
          meta: { title: 'Register' }
       },
+      // Admin Panel
       {
          path: '/adminpanel',
          component: AdminPanel,
          name: 'AdminPanel',
          meta: { title: 'Admin Panel' },
+         children: [
+            {
+               // UserProfile will be rendered inside User's <router-view>
+               // when /user/:id/profile is matched
+               path: 'carousel_content',
+               component: CarouselContent
+            },
+            {
+               // UserProfile will be rendered inside User's <router-view>
+               // when /user/:id/profile is matched
+               path: 'about',
+               component: AboutAdmin
+            },
+            {
+               // UserProfile will be rendered inside User's <router-view>
+               // when /user/:id/profile is matched
+               path: 'people',
+               component: PeopleAdmin
+            },
+            {
+               // UserProfile will be rendered inside User's <router-view>
+               // when /user/:id/profile is matched
+               path: 'events',
+               component: EventsAdmin
+            },
+            {
+               // UserProfile will be rendered inside User's <router-view>
+               // when /user/:id/profile is matched
+               path: 'news',
+               component: NewsAdmin
+            },
+            {
+               // UserProfile will be rendered inside User's <router-view>
+               // when /user/:id/profile is matched
+               path: 'resources',
+               component: ResourcesAdmin
+            },
+         ],
          // To confirm if user is logged in or not
          beforeEnter: ( to, from, next) => {
             axios.get('/api/authenticated')

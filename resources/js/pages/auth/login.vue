@@ -1,18 +1,47 @@
 <template>
    <div>
-      <div v-if="unauthenticated">You Are Not Authenticated !!</div>
+
+      <TopBar />
+
+      <v-sheet class="mx-4 mb-3 mt-5 mt-md-3" min-height="450">
+
       <v-form
          ref="form"
          :disabled="form_disabled"
          lazy-validation
          class="px-10 pt-8"
       >
+         <!-- Snackbar For Unauthenticated -->
+         <v-snackbar
+            v-model="unauthenticated"
+            color="red"
+            :timeout="timeout"                             
+            top
+            right
+         >
+         <v-icon left>
+            mdi-alert-octagon-outline
+         </v-icon>
+            You Are Not Authenticated !!
 
+            <template v-slot:action="{ attrs }">
+            <v-btn
+               color="white"
+               text
+               v-bind="attrs"
+               @click="unauthenticated = ''"
+            >
+               Close
+            </v-btn>
+            </template>
+         </v-snackbar>
+         <!-- End Snackbar For Unauthenticated -->
+         
          <!-- Snackbar For backend validation failure -->
          <v-snackbar
             v-model="error_snackbar"
             color="red"
-            :timeout="timeout"                             
+            :timeout="timeout"
             top
             right
          >
@@ -86,12 +115,13 @@
             <br />
          </div>
       </v-form>
-      <!-- <div> {{unauthenticated}} </div>
-      <div> {{message}} </div> -->
+
+      </v-sheet>
    </div>
 </template>
 
 <script>
+import TopBar from "../components/topbar";
 export default {
    data: () => ({
       unauthenticated: false,
@@ -115,6 +145,9 @@ export default {
       dummy: "",
       validation: "",
    }),
+   components: {
+      TopBar,
+   },
    methods: {
       validate() {
          this.$refs.form.validate();
