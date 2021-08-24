@@ -58,7 +58,7 @@ class PublicationTypeInfoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'publication_type_name' => ['required', 'string', 'max:255'],
+            'publication_type_name' => ['required', 'string', 'max:255', 'unique:publication_type_infos'],
             'publication_password' => ['required', 'string','min:8' ,'max:255', 'confirmed'],
         ]);
 

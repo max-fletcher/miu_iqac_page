@@ -2136,12 +2136,215 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       user: '',
-      cards: ["Today", "Yesterday"],
-      drawer: false
+      // cards: ["Today", "Yesterday"],
+      admin_drawer: false,
+      loading_user: false
     };
   },
   methods: {
@@ -2158,10 +2361,13 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this2 = this;
 
-    axios.get("/api/user").then(function (res) {
-      _this2.user = res.data;
+    this.loading_user = true;
+    axios.get("/api/user").then(function (response) {
+      _this2.user = response.data;
+      _this2.loading_user = false;
     })["catch"](function (error) {
       console.log(error);
+      _this2.loading_user = false;
     });
   }
 });
@@ -2185,7 +2391,136 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      cards: ["Today", "Yesterday"],
+      carousel_content: [],
+      loading_content: false
+    };
+  },
+  methods: {// logout() {
+    //    axios.post("/api/carouselcontent/index")
+    //    .then((response) => {
+    //       this.carousel_content = response.data
+    //    });
+    // },
+  },
+  created: function created() {
+    var _this = this;
+
+    this.loading_content = true, axios.get("/api/carouselcontent/index").then(function (response) {
+      console.log("response");
+      _this.carousel_content = response.data;
+      _this.loading_content = false;
+    });
+  }
+});
 
 /***/ }),
 
@@ -2193,6 +2528,27 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin_pages/events_admin.vue?vue&type=script&lang=js& ***!
   \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin_pages/main_admin.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin_pages/main_admin.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2535,7 +2891,7 @@ __webpack_require__.r(__webpack_exports__);
             console.log("Login Post Request Sent Successfully !!"); // console.log(res);
 
             _this.$router.push({
-              name: "AdminPanel"
+              path: "/adminpanel/main"
             });
           })["catch"](function (error) {
             _this.form_loading = false;
@@ -6917,18 +7273,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_auth_publications_auth__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/auth/publications_auth */ "./resources/js/pages/auth/publications_auth.vue");
 /* harmony import */ var _pages_admin_pages_adminpanel__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./pages/admin_pages/adminpanel */ "./resources/js/pages/admin_pages/adminpanel.vue");
 /* harmony import */ var _pages_admin_pages_carousel_content__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./pages/admin_pages/carousel_content */ "./resources/js/pages/admin_pages/carousel_content.vue");
-/* harmony import */ var _pages_admin_pages_about_admin__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./pages/admin_pages/about_admin */ "./resources/js/pages/admin_pages/about_admin.vue");
-/* harmony import */ var _pages_admin_pages_people_admin__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./pages/admin_pages/people_admin */ "./resources/js/pages/admin_pages/people_admin.vue");
-/* harmony import */ var _pages_admin_pages_events_admin__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./pages/admin_pages/events_admin */ "./resources/js/pages/admin_pages/events_admin.vue");
-/* harmony import */ var _pages_admin_pages_news_admin__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./pages/admin_pages/news_admin */ "./resources/js/pages/admin_pages/news_admin.vue");
-/* harmony import */ var _pages_admin_pages_resources_admin__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./pages/admin_pages/resources_admin */ "./resources/js/pages/admin_pages/resources_admin.vue");
-/* harmony import */ var _pages_components_scrapped_topnav__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./pages/components/scrapped/topnav */ "./resources/js/pages/components/scrapped/topnav.vue");
-/* harmony import */ var _pages_components_scrapped_tabsnav__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./pages/components/scrapped/tabsnav */ "./resources/js/pages/components/scrapped/tabsnav.vue");
-/* harmony import */ var _pages_components_scrapped_quicklinksaccordion__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./pages/components/scrapped/quicklinksaccordion */ "./resources/js/pages/components/scrapped/quicklinksaccordion.vue");
-/* harmony import */ var _pages_components_scrapped_carouseltext__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./pages/components/scrapped/carouseltext */ "./resources/js/pages/components/scrapped/carouseltext.vue");
-/* harmony import */ var _pages_components_scrapped_overlay_carousel__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./pages/components/scrapped/overlay_carousel */ "./resources/js/pages/components/scrapped/overlay_carousel.vue");
-/* harmony import */ var _pages_components_scrapped_bars__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./pages/components/scrapped/bars */ "./resources/js/pages/components/scrapped/bars.vue");
-/* harmony import */ var _pages_components_scrapped_sandbox__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./pages/components/scrapped/sandbox */ "./resources/js/pages/components/scrapped/sandbox.vue");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module './pages/admin_pages/carousel_content_edit'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _pages_admin_pages_about_admin__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./pages/admin_pages/about_admin */ "./resources/js/pages/admin_pages/about_admin.vue");
+/* harmony import */ var _pages_admin_pages_people_admin__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./pages/admin_pages/people_admin */ "./resources/js/pages/admin_pages/people_admin.vue");
+/* harmony import */ var _pages_admin_pages_events_admin__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./pages/admin_pages/events_admin */ "./resources/js/pages/admin_pages/events_admin.vue");
+/* harmony import */ var _pages_admin_pages_news_admin__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./pages/admin_pages/news_admin */ "./resources/js/pages/admin_pages/news_admin.vue");
+/* harmony import */ var _pages_admin_pages_resources_admin__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./pages/admin_pages/resources_admin */ "./resources/js/pages/admin_pages/resources_admin.vue");
+/* harmony import */ var _pages_admin_pages_main_admin__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./pages/admin_pages/main_admin */ "./resources/js/pages/admin_pages/main_admin.vue");
+/* harmony import */ var _pages_components_scrapped_topnav__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./pages/components/scrapped/topnav */ "./resources/js/pages/components/scrapped/topnav.vue");
+/* harmony import */ var _pages_components_scrapped_tabsnav__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./pages/components/scrapped/tabsnav */ "./resources/js/pages/components/scrapped/tabsnav.vue");
+/* harmony import */ var _pages_components_scrapped_quicklinksaccordion__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./pages/components/scrapped/quicklinksaccordion */ "./resources/js/pages/components/scrapped/quicklinksaccordion.vue");
+/* harmony import */ var _pages_components_scrapped_carouseltext__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./pages/components/scrapped/carouseltext */ "./resources/js/pages/components/scrapped/carouseltext.vue");
+/* harmony import */ var _pages_components_scrapped_overlay_carousel__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./pages/components/scrapped/overlay_carousel */ "./resources/js/pages/components/scrapped/overlay_carousel.vue");
+/* harmony import */ var _pages_components_scrapped_bars__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./pages/components/scrapped/bars */ "./resources/js/pages/components/scrapped/bars.vue");
+/* harmony import */ var _pages_components_scrapped_sandbox__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./pages/components/scrapped/sandbox */ "./resources/js/pages/components/scrapped/sandbox.vue");
 // Pages
 
 
@@ -6948,6 +7306,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // Admin Pages
+
+
 
 
 
@@ -7102,35 +7462,29 @@ __webpack_require__.r(__webpack_exports__);
       title: 'Admin Panel'
     },
     children: [{
-      // UserProfile will be rendered inside User's <router-view>
-      // when /user/:id/profile is matched
+      path: 'main',
+      component: _pages_admin_pages_main_admin__WEBPACK_IMPORTED_MODULE_25__.default
+    }, {
       path: 'carousel_content',
       component: _pages_admin_pages_carousel_content__WEBPACK_IMPORTED_MODULE_18__.default
     }, {
-      // UserProfile will be rendered inside User's <router-view>
-      // when /user/:id/profile is matched
+      path: 'carousel_content/:id',
+      component: Object(function webpackMissingModule() { var e = new Error("Cannot find module './pages/admin_pages/carousel_content_edit'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+    }, {
       path: 'about',
-      component: _pages_admin_pages_about_admin__WEBPACK_IMPORTED_MODULE_19__.default
+      component: _pages_admin_pages_about_admin__WEBPACK_IMPORTED_MODULE_20__.default
     }, {
-      // UserProfile will be rendered inside User's <router-view>
-      // when /user/:id/profile is matched
       path: 'people',
-      component: _pages_admin_pages_people_admin__WEBPACK_IMPORTED_MODULE_20__.default
+      component: _pages_admin_pages_people_admin__WEBPACK_IMPORTED_MODULE_21__.default
     }, {
-      // UserProfile will be rendered inside User's <router-view>
-      // when /user/:id/profile is matched
       path: 'events',
-      component: _pages_admin_pages_events_admin__WEBPACK_IMPORTED_MODULE_21__.default
+      component: _pages_admin_pages_events_admin__WEBPACK_IMPORTED_MODULE_22__.default
     }, {
-      // UserProfile will be rendered inside User's <router-view>
-      // when /user/:id/profile is matched
       path: 'news',
-      component: _pages_admin_pages_news_admin__WEBPACK_IMPORTED_MODULE_22__.default
+      component: _pages_admin_pages_news_admin__WEBPACK_IMPORTED_MODULE_23__.default
     }, {
-      // UserProfile will be rendered inside User's <router-view>
-      // when /user/:id/profile is matched
       path: 'resources',
-      component: _pages_admin_pages_resources_admin__WEBPACK_IMPORTED_MODULE_23__.default
+      component: _pages_admin_pages_resources_admin__WEBPACK_IMPORTED_MODULE_24__.default
     }],
     // To confirm if user is logged in or not
     beforeEnter: function beforeEnter(to, from, next) {
@@ -7148,45 +7502,45 @@ __webpack_require__.r(__webpack_exports__);
   }, // Scrapped Components pages
   {
     path: '/topnav',
-    component: _pages_components_scrapped_topnav__WEBPACK_IMPORTED_MODULE_24__.default,
+    component: _pages_components_scrapped_topnav__WEBPACK_IMPORTED_MODULE_26__.default,
     meta: {
       title: 'Scrapped Topnav'
     }
   }, {
     path: '/tabsnav',
-    component: _pages_components_scrapped_tabsnav__WEBPACK_IMPORTED_MODULE_25__.default,
+    component: _pages_components_scrapped_tabsnav__WEBPACK_IMPORTED_MODULE_27__.default,
     meta: {
       title: 'Scrapped Tabsnav'
     }
   }, {
     path: '/quicklinksaccordion',
-    component: _pages_components_scrapped_quicklinksaccordion__WEBPACK_IMPORTED_MODULE_26__.default,
+    component: _pages_components_scrapped_quicklinksaccordion__WEBPACK_IMPORTED_MODULE_28__.default,
     meta: {
       title: 'Scrapped Quick Links Accordion'
     }
   }, {
     path: '/carouseltext',
-    component: _pages_components_scrapped_carouseltext__WEBPACK_IMPORTED_MODULE_27__.default,
+    component: _pages_components_scrapped_carouseltext__WEBPACK_IMPORTED_MODULE_29__.default,
     meta: {
       title: 'Scrapped Carousel Text'
     }
   }, {
     path: '/overlay-carousel/:id',
-    component: _pages_components_scrapped_overlay_carousel__WEBPACK_IMPORTED_MODULE_28__.default,
+    component: _pages_components_scrapped_overlay_carousel__WEBPACK_IMPORTED_MODULE_30__.default,
     name: 'OverlayCarousel',
     meta: {
       title: 'Scrapped Overlay Carousel for Photo Gallery'
     }
   }, {
     path: '/bars',
-    component: _pages_components_scrapped_bars__WEBPACK_IMPORTED_MODULE_29__.default,
+    component: _pages_components_scrapped_bars__WEBPACK_IMPORTED_MODULE_31__.default,
     name: 'Bars',
     meta: {
       title: 'Scrapped Bars'
     }
   }, {
     path: '/sandbox',
-    component: _pages_components_scrapped_sandbox__WEBPACK_IMPORTED_MODULE_30__.default,
+    component: _pages_components_scrapped_sandbox__WEBPACK_IMPORTED_MODULE_32__.default,
     name: 'Sandbox',
     meta: {
       title: 'Scrapped Sandbox'
@@ -8058,30 +8412,6 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".theme--light.v-snack__wrapper {\n  color: rgba(0, 0, 0, 0.87);\n}\n\n.theme--dark.v-snack__wrapper {\n  color: #FFFFFF;\n}\n\n.v-sheet.v-snack__wrapper {\n  border-radius: 4px;\n}\n.v-sheet.v-snack__wrapper:not(.v-sheet--outlined) {\n  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);\n}\n.v-sheet.v-snack__wrapper.v-sheet--shaped {\n  border-radius: 24px 4px;\n}\n\n.v-snack {\n  bottom: 0;\n  display: flex;\n  font-size: 0.875rem;\n  justify-content: center;\n  left: 0;\n  pointer-events: none;\n  right: 0;\n  top: 0;\n  width: 100%;\n}\n.v-snack:not(.v-snack--absolute) {\n  height: 100vh;\n  position: fixed;\n  z-index: 1000;\n}\n.v-snack:not(.v-snack--centered):not(.v-snack--top) {\n  align-items: flex-end;\n}\n.v-snack__wrapper {\n  align-items: center;\n  border-color: currentColor !important;\n  display: flex;\n  margin: 8px;\n  max-width: 672px;\n  min-height: 48px;\n  min-width: 344px;\n  padding: 0;\n  pointer-events: auto;\n  position: relative;\n  transition-duration: 0.15s;\n  transition-property: opacity, transform;\n  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);\n}\n.v-snack__wrapper.theme--dark {\n  background-color: #333333;\n  color: rgba(255, 255, 255, 0.87);\n}\n.v-snack__content {\n  flex-grow: 1;\n  font-size: 0.875rem;\n  font-weight: 400;\n  letter-spacing: 0.0178571429em;\n  line-height: 1.25rem;\n  margin-right: auto;\n  padding: 14px 16px;\n  text-align: initial;\n}\n.v-snack__action {\n  align-items: center;\n  align-self: center;\n  display: flex;\n}\n.v-snack__action .v-ripple__container {\n  display: none;\n}\n.v-application--is-ltr .v-snack__action {\n  margin-right: 8px;\n}\n.v-application--is-rtl .v-snack__action {\n  margin-left: 8px;\n}\n.v-snack__action > .v-snack__btn.v-btn {\n  padding: 0 8px;\n}\n.v-snack__btn {\n  margin-left: 0;\n  margin-right: 0;\n  margin: 0;\n  min-width: auto;\n}\n.v-snack--absolute {\n  height: 100%;\n  position: absolute;\n  z-index: 1;\n}\n.v-snack--centered {\n  align-items: center;\n}\n.v-snack--left {\n  justify-content: flex-start;\n  right: auto;\n}\n.v-snack--multi-line .v-snack__wrapper {\n  min-height: 68px;\n}\n.v-snack--right {\n  justify-content: flex-end;\n  left: auto;\n}\n.v-snack:not(.v-snack--has-background) .v-snack__wrapper {\n  box-shadow: none !important;\n}\n.v-snack--bottom {\n  top: auto;\n}\n.v-snack--text .v-snack__wrapper:before {\n  background-color: currentColor;\n  border-radius: inherit;\n  bottom: 0;\n  content: \"\";\n  left: 0;\n  opacity: 0.12;\n  pointer-events: none;\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n.v-snack--top {\n  align-items: flex-start;\n  bottom: auto;\n}\n.v-snack--vertical .v-snack__wrapper {\n  flex-direction: column;\n}\n.v-snack--vertical .v-snack__wrapper .v-snack__action {\n  align-self: flex-end;\n  margin-bottom: 8px;\n}\n\n.v-snack-transition-enter.v-snack__wrapper {\n  transform: scale(0.8);\n}\n.v-snack-transition-enter.v-snack__wrapper, .v-snack-transition-leave-to.v-snack__wrapper {\n  opacity: 0;\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[3]!./node_modules/vuetify/src/components/VSubheader/VSubheader.sass":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[3]!./node_modules/vuetify/src/components/VSubheader/VSubheader.sass ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".theme--light.v-subheader {\n  color: rgba(0, 0, 0, 0.6);\n}\n\n.theme--dark.v-subheader {\n  color: rgba(255, 255, 255, 0.7);\n}\n\n.v-subheader {\n  align-items: center;\n  display: flex;\n  height: 48px;\n  font-size: 0.875rem;\n  font-weight: 400;\n  padding: 0 16px 0 16px;\n}\n.v-subheader--inset {\n  margin-left: 56px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -47306,6 +47636,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/admin_pages/main_admin.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/pages/admin_pages/main_admin.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_main_admin_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./main_admin.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin_pages/main_admin.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_main_admin_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/pages/admin_pages/news_admin.vue?vue&type=script&lang=js&":
 /*!********************************************************************************!*\
   !*** ./resources/js/pages/admin_pages/news_admin.vue?vue&type=script&lang=js& ***!
@@ -47883,6 +48229,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_events_admin_vue_vue_type_template_id_09a62e6d___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_events_admin_vue_vue_type_template_id_09a62e6d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./events_admin.vue?vue&type=template&id=09a62e6d& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin_pages/events_admin.vue?vue&type=template&id=09a62e6d&");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin_pages/main_admin.vue?vue&type=template&id=3e42060d&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/pages/admin_pages/main_admin.vue?vue&type=template&id=3e42060d& ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_main_admin_vue_vue_type_template_id_3e42060d___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_main_admin_vue_vue_type_template_id_3e42060d___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_main_admin_vue_vue_type_template_id_3e42060d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./main_admin.vue?vue&type=template&id=3e42060d& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin_pages/main_admin.vue?vue&type=template&id=3e42060d&");
 
 
 /***/ }),
@@ -48642,34 +49005,1363 @@ var render = function() {
     "div",
     [
       _c(
-        "v-row",
+        "v-navigation-drawer",
+        {
+          staticClass: "hidden-md-and-up",
+          attrs: { absolute: "", temporary: "" },
+          model: {
+            value: _vm.admin_drawer,
+            callback: function($$v) {
+              _vm.admin_drawer = $$v
+            },
+            expression: "admin_drawer"
+          }
+        },
         [
           _c(
-            "v-col",
-            { attrs: { md: "3" } },
+            "v-sheet",
+            { staticClass: "pa-4", attrs: { color: "grey lighten-4" } },
+            [
+              _vm.loading_user
+                ? _c("div", [
+                    _c(
+                      "div",
+                      { staticClass: "blue-grey--text text--lighten-1 " },
+                      [_vm._v("\n               Loading...\n            ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "svg",
+                      {
+                        staticStyle: {
+                          margin: "auto",
+                          background:
+                            "rgb(241, 242, 243) none repeat scroll 0% 0%",
+                          display: "block",
+                          "shape-rendering": "auto"
+                        },
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                          width: "71px",
+                          height: "71px",
+                          viewBox: "0 0 100 100",
+                          preserveAspectRatio: "xMidYMid"
+                        }
+                      },
+                      [
+                        _c("g", { attrs: { transform: "rotate(0 50 50)" } }, [
+                          _c(
+                            "rect",
+                            {
+                              attrs: {
+                                x: "47.5",
+                                y: "28.5",
+                                rx: "2.5",
+                                ry: "4.5",
+                                width: "5",
+                                height: "9",
+                                fill: "#85a2b6"
+                              }
+                            },
+                            [
+                              _c("animate", {
+                                attrs: {
+                                  attributeName: "opacity",
+                                  values: "1;0",
+                                  keyTimes: "0;1",
+                                  dur: "1s",
+                                  begin: "-0.9285714285714286s",
+                                  repeatCount: "indefinite"
+                                }
+                              })
+                            ]
+                          )
+                        ]),
+                        _c(
+                          "g",
+                          {
+                            attrs: {
+                              transform: "rotate(25.714285714285715 50 50)"
+                            }
+                          },
+                          [
+                            _c(
+                              "rect",
+                              {
+                                attrs: {
+                                  x: "47.5",
+                                  y: "28.5",
+                                  rx: "2.5",
+                                  ry: "4.5",
+                                  width: "5",
+                                  height: "9",
+                                  fill: "#85a2b6"
+                                }
+                              },
+                              [
+                                _c("animate", {
+                                  attrs: {
+                                    attributeName: "opacity",
+                                    values: "1;0",
+                                    keyTimes: "0;1",
+                                    dur: "1s",
+                                    begin: "-0.8571428571428571s",
+                                    repeatCount: "indefinite"
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        ),
+                        _c(
+                          "g",
+                          {
+                            attrs: {
+                              transform: "rotate(51.42857142857143 50 50)"
+                            }
+                          },
+                          [
+                            _c(
+                              "rect",
+                              {
+                                attrs: {
+                                  x: "47.5",
+                                  y: "28.5",
+                                  rx: "2.5",
+                                  ry: "4.5",
+                                  width: "5",
+                                  height: "9",
+                                  fill: "#85a2b6"
+                                }
+                              },
+                              [
+                                _c("animate", {
+                                  attrs: {
+                                    attributeName: "opacity",
+                                    values: "1;0",
+                                    keyTimes: "0;1",
+                                    dur: "1s",
+                                    begin: "-0.7857142857142857s",
+                                    repeatCount: "indefinite"
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        ),
+                        _c(
+                          "g",
+                          {
+                            attrs: {
+                              transform: "rotate(77.14285714285714 50 50)"
+                            }
+                          },
+                          [
+                            _c(
+                              "rect",
+                              {
+                                attrs: {
+                                  x: "47.5",
+                                  y: "28.5",
+                                  rx: "2.5",
+                                  ry: "4.5",
+                                  width: "5",
+                                  height: "9",
+                                  fill: "#85a2b6"
+                                }
+                              },
+                              [
+                                _c("animate", {
+                                  attrs: {
+                                    attributeName: "opacity",
+                                    values: "1;0",
+                                    keyTimes: "0;1",
+                                    dur: "1s",
+                                    begin: "-0.7142857142857143s",
+                                    repeatCount: "indefinite"
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        ),
+                        _c(
+                          "g",
+                          {
+                            attrs: {
+                              transform: "rotate(102.85714285714286 50 50)"
+                            }
+                          },
+                          [
+                            _c(
+                              "rect",
+                              {
+                                attrs: {
+                                  x: "47.5",
+                                  y: "28.5",
+                                  rx: "2.5",
+                                  ry: "4.5",
+                                  width: "5",
+                                  height: "9",
+                                  fill: "#85a2b6"
+                                }
+                              },
+                              [
+                                _c("animate", {
+                                  attrs: {
+                                    attributeName: "opacity",
+                                    values: "1;0",
+                                    keyTimes: "0;1",
+                                    dur: "1s",
+                                    begin: "-0.6428571428571429s",
+                                    repeatCount: "indefinite"
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        ),
+                        _c(
+                          "g",
+                          {
+                            attrs: {
+                              transform: "rotate(128.57142857142858 50 50)"
+                            }
+                          },
+                          [
+                            _c(
+                              "rect",
+                              {
+                                attrs: {
+                                  x: "47.5",
+                                  y: "28.5",
+                                  rx: "2.5",
+                                  ry: "4.5",
+                                  width: "5",
+                                  height: "9",
+                                  fill: "#85a2b6"
+                                }
+                              },
+                              [
+                                _c("animate", {
+                                  attrs: {
+                                    attributeName: "opacity",
+                                    values: "1;0",
+                                    keyTimes: "0;1",
+                                    dur: "1s",
+                                    begin: "-0.5714285714285714s",
+                                    repeatCount: "indefinite"
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        ),
+                        _c(
+                          "g",
+                          {
+                            attrs: {
+                              transform: "rotate(154.28571428571428 50 50)"
+                            }
+                          },
+                          [
+                            _c(
+                              "rect",
+                              {
+                                attrs: {
+                                  x: "47.5",
+                                  y: "28.5",
+                                  rx: "2.5",
+                                  ry: "4.5",
+                                  width: "5",
+                                  height: "9",
+                                  fill: "#85a2b6"
+                                }
+                              },
+                              [
+                                _c("animate", {
+                                  attrs: {
+                                    attributeName: "opacity",
+                                    values: "1;0",
+                                    keyTimes: "0;1",
+                                    dur: "1s",
+                                    begin: "-0.5s",
+                                    repeatCount: "indefinite"
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        ),
+                        _c("g", { attrs: { transform: "rotate(180 50 50)" } }, [
+                          _c(
+                            "rect",
+                            {
+                              attrs: {
+                                x: "47.5",
+                                y: "28.5",
+                                rx: "2.5",
+                                ry: "4.5",
+                                width: "5",
+                                height: "9",
+                                fill: "#85a2b6"
+                              }
+                            },
+                            [
+                              _c("animate", {
+                                attrs: {
+                                  attributeName: "opacity",
+                                  values: "1;0",
+                                  keyTimes: "0;1",
+                                  dur: "1s",
+                                  begin: "-0.42857142857142855s",
+                                  repeatCount: "indefinite"
+                                }
+                              })
+                            ]
+                          )
+                        ]),
+                        _c(
+                          "g",
+                          {
+                            attrs: {
+                              transform: "rotate(205.71428571428572 50 50)"
+                            }
+                          },
+                          [
+                            _c(
+                              "rect",
+                              {
+                                attrs: {
+                                  x: "47.5",
+                                  y: "28.5",
+                                  rx: "2.5",
+                                  ry: "4.5",
+                                  width: "5",
+                                  height: "9",
+                                  fill: "#85a2b6"
+                                }
+                              },
+                              [
+                                _c("animate", {
+                                  attrs: {
+                                    attributeName: "opacity",
+                                    values: "1;0",
+                                    keyTimes: "0;1",
+                                    dur: "1s",
+                                    begin: "-0.35714285714285715s",
+                                    repeatCount: "indefinite"
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        ),
+                        _c(
+                          "g",
+                          {
+                            attrs: {
+                              transform: "rotate(231.42857142857142 50 50)"
+                            }
+                          },
+                          [
+                            _c(
+                              "rect",
+                              {
+                                attrs: {
+                                  x: "47.5",
+                                  y: "28.5",
+                                  rx: "2.5",
+                                  ry: "4.5",
+                                  width: "5",
+                                  height: "9",
+                                  fill: "#85a2b6"
+                                }
+                              },
+                              [
+                                _c("animate", {
+                                  attrs: {
+                                    attributeName: "opacity",
+                                    values: "1;0",
+                                    keyTimes: "0;1",
+                                    dur: "1s",
+                                    begin: "-0.2857142857142857s",
+                                    repeatCount: "indefinite"
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        ),
+                        _c(
+                          "g",
+                          {
+                            attrs: {
+                              transform: "rotate(257.14285714285717 50 50)"
+                            }
+                          },
+                          [
+                            _c(
+                              "rect",
+                              {
+                                attrs: {
+                                  x: "47.5",
+                                  y: "28.5",
+                                  rx: "2.5",
+                                  ry: "4.5",
+                                  width: "5",
+                                  height: "9",
+                                  fill: "#85a2b6"
+                                }
+                              },
+                              [
+                                _c("animate", {
+                                  attrs: {
+                                    attributeName: "opacity",
+                                    values: "1;0",
+                                    keyTimes: "0;1",
+                                    dur: "1s",
+                                    begin: "-0.21428571428571427s",
+                                    repeatCount: "indefinite"
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        ),
+                        _c(
+                          "g",
+                          {
+                            attrs: {
+                              transform: "rotate(282.85714285714283 50 50)"
+                            }
+                          },
+                          [
+                            _c(
+                              "rect",
+                              {
+                                attrs: {
+                                  x: "47.5",
+                                  y: "28.5",
+                                  rx: "2.5",
+                                  ry: "4.5",
+                                  width: "5",
+                                  height: "9",
+                                  fill: "#85a2b6"
+                                }
+                              },
+                              [
+                                _c("animate", {
+                                  attrs: {
+                                    attributeName: "opacity",
+                                    values: "1;0",
+                                    keyTimes: "0;1",
+                                    dur: "1s",
+                                    begin: "-0.14285714285714285s",
+                                    repeatCount: "indefinite"
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        ),
+                        _c(
+                          "g",
+                          {
+                            attrs: {
+                              transform: "rotate(308.57142857142856 50 50)"
+                            }
+                          },
+                          [
+                            _c(
+                              "rect",
+                              {
+                                attrs: {
+                                  x: "47.5",
+                                  y: "28.5",
+                                  rx: "2.5",
+                                  ry: "4.5",
+                                  width: "5",
+                                  height: "9",
+                                  fill: "#85a2b6"
+                                }
+                              },
+                              [
+                                _c("animate", {
+                                  attrs: {
+                                    attributeName: "opacity",
+                                    values: "1;0",
+                                    keyTimes: "0;1",
+                                    dur: "1s",
+                                    begin: "-0.07142857142857142s",
+                                    repeatCount: "indefinite"
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        ),
+                        _c(
+                          "g",
+                          {
+                            attrs: {
+                              transform: "rotate(334.2857142857143 50 50)"
+                            }
+                          },
+                          [
+                            _c(
+                              "rect",
+                              {
+                                attrs: {
+                                  x: "47.5",
+                                  y: "28.5",
+                                  rx: "2.5",
+                                  ry: "4.5",
+                                  width: "5",
+                                  height: "9",
+                                  fill: "#85a2b6"
+                                }
+                              },
+                              [
+                                _c("animate", {
+                                  attrs: {
+                                    attributeName: "opacity",
+                                    values: "1;0",
+                                    keyTimes: "0;1",
+                                    dur: "1s",
+                                    begin: "0s",
+                                    repeatCount: "indefinite"
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ])
+                : _c("div", [
+                    _c("div", [_vm._v("Welcome " + _vm._s(_vm.user.name))]),
+                    _vm._v(" "),
+                    _c("div", [_vm._v("Email: " + _vm._s(_vm.user.email))])
+                  ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("v-divider"),
+          _vm._v(" "),
+          _c(
+            "v-list",
+            [
+              _c(
+                "v-list-item",
+                {
+                  attrs: {
+                    to: "/adminpanel/main",
+                    "exact-path-active-class": "lighten-1",
+                    link: ""
+                  }
+                },
+                [
+                  _c(
+                    "v-list-item-icon",
+                    [_c("v-icon", [_vm._v("mdi-clipboard-list")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-content",
+                    [_c("v-list-item-title", [_vm._v(" Main Menu ")])],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-list-item",
+                {
+                  attrs: {
+                    to: "/adminpanel/carousel_content",
+                    "exact-path-active-class": "lighten-1",
+                    link: ""
+                  }
+                },
+                [
+                  _c(
+                    "v-list-item-icon",
+                    [_c("v-icon", [_vm._v("mdi-image-move")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-content",
+                    [_c("v-list-item-title", [_vm._v(" Carousel Options ")])],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-list-item",
+                {
+                  attrs: {
+                    to: "/adminpanel/about",
+                    "exact-path-active-class": "lighten-1",
+                    link: ""
+                  }
+                },
+                [
+                  _c(
+                    "v-list-item-icon",
+                    [_c("v-icon", [_vm._v("mdi-information-outline")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-content",
+                    [_c("v-list-item-title", [_vm._v(" About Page ")])],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-list-item",
+                {
+                  attrs: {
+                    to: "/adminpanel/people",
+                    "exact-path-active-class": "lighten-1",
+                    link: ""
+                  }
+                },
+                [
+                  _c(
+                    "v-list-item-icon",
+                    [_c("v-icon", [_vm._v("mdi-account")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-content",
+                    [_c("v-list-item-title", [_vm._v(" People ")])],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-list-item",
+                {
+                  attrs: {
+                    to: "/adminpanel/events",
+                    "exact-path-active-class": "lighten-1",
+                    link: ""
+                  }
+                },
+                [
+                  _c(
+                    "v-list-item-icon",
+                    [_c("v-icon", [_vm._v("mdi-calendar-clock")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-content",
+                    [_c("v-list-item-title", [_vm._v(" Events ")])],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-list-item",
+                {
+                  attrs: {
+                    to: "/adminpanel/news",
+                    "exact-path-active-class": "lighten-1",
+                    link: ""
+                  }
+                },
+                [
+                  _c(
+                    "v-list-item-icon",
+                    [_c("v-icon", [_vm._v("mdi-newspaper-variant")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-content",
+                    [_c("v-list-item-title", [_vm._v(" News ")])],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-list-item",
+                {
+                  attrs: {
+                    to: "/adminpanel/resources",
+                    "exact-path-active-class": "lighten-1",
+                    link: ""
+                  }
+                },
+                [
+                  _c(
+                    "v-list-item-icon",
+                    [_c("v-icon", [_vm._v("mdi-phone")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-content",
+                    [_c("v-list-item-title", [_vm._v(" Contact Us ")])],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-list-item",
+                {
+                  attrs: { link: "" },
+                  on: {
+                    click: function($event) {
+                      $event.stopPropagation()
+                      return _vm.logout.apply(null, arguments)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "v-list-item-icon",
+                    [_c("v-icon", [_vm._v("mdi-power")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-content",
+                    [_c("v-list-item-title", [_vm._v("Logout")])],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "d-flex" },
+        [
+          _c(
+            "div",
+            { staticClass: "blue hidden-sm-and-down" },
             [
               _c(
                 "v-navigation-drawer",
                 { staticClass: "hidden-sm-and-down", attrs: { permanent: "" } },
                 [
-                  _c(
-                    "v-sheet",
-                    { staticClass: "pa-4", attrs: { color: "grey lighten-4" } },
-                    [
-                      _c("div", [_vm._v("Welcome " + _vm._s(_vm.user.name))]),
-                      _vm._v(" "),
-                      _c("div", [_vm._v("Email: " + _vm._s(_vm.user.email))])
-                    ]
-                  ),
+                  _c("v-sheet", { attrs: { color: "grey lighten-4 pa-3" } }, [
+                    _vm.loading_user
+                      ? _c("div", [
+                          _c(
+                            "div",
+                            { staticClass: "blue-grey--text text--lighten-1 " },
+                            [
+                              _vm._v(
+                                "\n                     Loading...\n                  "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "svg",
+                            {
+                              staticStyle: {
+                                margin: "auto",
+                                background:
+                                  "rgb(241, 242, 243) none repeat scroll 0% 0%",
+                                display: "block",
+                                "shape-rendering": "auto"
+                              },
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                                width: "71px",
+                                height: "71px",
+                                viewBox: "0 0 100 100",
+                                preserveAspectRatio: "xMidYMid"
+                              }
+                            },
+                            [
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(0 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47.5",
+                                        y: "28.5",
+                                        rx: "2.5",
+                                        ry: "4.5",
+                                        width: "5",
+                                        height: "9",
+                                        fill: "#85a2b6"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.9285714285714286s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                {
+                                  attrs: {
+                                    transform:
+                                      "rotate(25.714285714285715 50 50)"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47.5",
+                                        y: "28.5",
+                                        rx: "2.5",
+                                        ry: "4.5",
+                                        width: "5",
+                                        height: "9",
+                                        fill: "#85a2b6"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.8571428571428571s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                {
+                                  attrs: {
+                                    transform: "rotate(51.42857142857143 50 50)"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47.5",
+                                        y: "28.5",
+                                        rx: "2.5",
+                                        ry: "4.5",
+                                        width: "5",
+                                        height: "9",
+                                        fill: "#85a2b6"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.7857142857142857s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                {
+                                  attrs: {
+                                    transform: "rotate(77.14285714285714 50 50)"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47.5",
+                                        y: "28.5",
+                                        rx: "2.5",
+                                        ry: "4.5",
+                                        width: "5",
+                                        height: "9",
+                                        fill: "#85a2b6"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.7142857142857143s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                {
+                                  attrs: {
+                                    transform:
+                                      "rotate(102.85714285714286 50 50)"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47.5",
+                                        y: "28.5",
+                                        rx: "2.5",
+                                        ry: "4.5",
+                                        width: "5",
+                                        height: "9",
+                                        fill: "#85a2b6"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.6428571428571429s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                {
+                                  attrs: {
+                                    transform:
+                                      "rotate(128.57142857142858 50 50)"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47.5",
+                                        y: "28.5",
+                                        rx: "2.5",
+                                        ry: "4.5",
+                                        width: "5",
+                                        height: "9",
+                                        fill: "#85a2b6"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.5714285714285714s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                {
+                                  attrs: {
+                                    transform:
+                                      "rotate(154.28571428571428 50 50)"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47.5",
+                                        y: "28.5",
+                                        rx: "2.5",
+                                        ry: "4.5",
+                                        width: "5",
+                                        height: "9",
+                                        fill: "#85a2b6"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.5s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(180 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47.5",
+                                        y: "28.5",
+                                        rx: "2.5",
+                                        ry: "4.5",
+                                        width: "5",
+                                        height: "9",
+                                        fill: "#85a2b6"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.42857142857142855s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                {
+                                  attrs: {
+                                    transform:
+                                      "rotate(205.71428571428572 50 50)"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47.5",
+                                        y: "28.5",
+                                        rx: "2.5",
+                                        ry: "4.5",
+                                        width: "5",
+                                        height: "9",
+                                        fill: "#85a2b6"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.35714285714285715s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                {
+                                  attrs: {
+                                    transform:
+                                      "rotate(231.42857142857142 50 50)"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47.5",
+                                        y: "28.5",
+                                        rx: "2.5",
+                                        ry: "4.5",
+                                        width: "5",
+                                        height: "9",
+                                        fill: "#85a2b6"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.2857142857142857s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                {
+                                  attrs: {
+                                    transform:
+                                      "rotate(257.14285714285717 50 50)"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47.5",
+                                        y: "28.5",
+                                        rx: "2.5",
+                                        ry: "4.5",
+                                        width: "5",
+                                        height: "9",
+                                        fill: "#85a2b6"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.21428571428571427s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                {
+                                  attrs: {
+                                    transform:
+                                      "rotate(282.85714285714283 50 50)"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47.5",
+                                        y: "28.5",
+                                        rx: "2.5",
+                                        ry: "4.5",
+                                        width: "5",
+                                        height: "9",
+                                        fill: "#85a2b6"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.14285714285714285s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                {
+                                  attrs: {
+                                    transform:
+                                      "rotate(308.57142857142856 50 50)"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47.5",
+                                        y: "28.5",
+                                        rx: "2.5",
+                                        ry: "4.5",
+                                        width: "5",
+                                        height: "9",
+                                        fill: "#85a2b6"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.07142857142857142s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                {
+                                  attrs: {
+                                    transform: "rotate(334.2857142857143 50 50)"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47.5",
+                                        y: "28.5",
+                                        rx: "2.5",
+                                        ry: "4.5",
+                                        width: "5",
+                                        height: "9",
+                                        fill: "#85a2b6"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "0s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ])
+                      : _c("div", [
+                          _c("div", [
+                            _vm._v("Welcome " + _vm._s(_vm.user.name))
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _vm._v("Email: " + _vm._s(_vm.user.email))
+                          ])
+                        ])
+                  ]),
                   _vm._v(" "),
                   _c("v-divider"),
                   _vm._v(" "),
                   _c(
                     "v-list",
+                    { staticClass: "pt-0", attrs: { "min-height": "600" } },
                     [
                       _c(
                         "v-list-item",
                         {
+                          staticClass: "pl-2",
+                          attrs: {
+                            to: "/adminpanel/main",
+                            "exact-path-active-class": "lighten-1",
+                            link: ""
+                          }
+                        },
+                        [
+                          _c(
+                            "v-list-item-icon",
+                            [_c("v-icon", [_vm._v("mdi-clipboard-list")])],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item-content",
+                            [_c("v-list-item-title", [_vm._v(" Main Menu ")])],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-list-item",
+                        {
+                          staticClass: "pl-2",
                           attrs: {
                             to: "/adminpanel/carousel_content",
                             "exact-path-active-class": "lighten-1",
@@ -48699,6 +50391,7 @@ var render = function() {
                       _c(
                         "v-list-item",
                         {
+                          staticClass: "pl-2",
                           attrs: {
                             to: "/adminpanel/about",
                             "exact-path-active-class": "lighten-1",
@@ -48724,6 +50417,7 @@ var render = function() {
                       _c(
                         "v-list-item",
                         {
+                          staticClass: "pl-2",
                           attrs: {
                             to: "/adminpanel/people",
                             "exact-path-active-class": "lighten-1",
@@ -48749,6 +50443,7 @@ var render = function() {
                       _c(
                         "v-list-item",
                         {
+                          staticClass: "pl-2",
                           attrs: {
                             to: "/adminpanel/events",
                             "exact-path-active-class": "lighten-1",
@@ -48774,6 +50469,7 @@ var render = function() {
                       _c(
                         "v-list-item",
                         {
+                          staticClass: "pl-2",
                           attrs: {
                             to: "/adminpanel/news",
                             "exact-path-active-class": "lighten-1",
@@ -48799,6 +50495,7 @@ var render = function() {
                       _c(
                         "v-list-item",
                         {
+                          staticClass: "pl-2",
                           attrs: {
                             to: "/adminpanel/resources",
                             "exact-path-active-class": "lighten-1",
@@ -48824,68 +50521,7 @@ var render = function() {
                       _c(
                         "v-list-item",
                         {
-                          attrs: { link: "" },
-                          on: {
-                            click: function($event) {
-                              $event.stopPropagation()
-                              return _vm.logout.apply(null, arguments)
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "v-list-item-icon",
-                            [_c("v-icon", [_vm._v("mdi-power")])],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-list-item-content",
-                            [_c("v-list-item-title", [_vm._v("Logout")])],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-navigation-drawer",
-                {
-                  staticClass: "hidden-md-and-up",
-                  attrs: { absolute: "", temporary: "" },
-                  model: {
-                    value: _vm.drawer,
-                    callback: function($$v) {
-                      _vm.drawer = $$v
-                    },
-                    expression: "drawer"
-                  }
-                },
-                [
-                  _c(
-                    "v-sheet",
-                    { staticClass: "pa-4", attrs: { color: "grey lighten-4" } },
-                    [
-                      _c("div", [_vm._v("Welcome " + _vm._s(_vm.user.name))]),
-                      _vm._v(" "),
-                      _c("div", [_vm._v("Email: " + _vm._s(_vm.user.email))])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("v-divider"),
-                  _vm._v(" "),
-                  _c(
-                    "v-list",
-                    [
-                      _c(
-                        "v-list-item",
-                        {
+                          staticClass: "pl-2",
                           attrs: { link: "" },
                           on: {
                             click: function($event) {
@@ -48920,110 +50556,31 @@ var render = function() {
           ),
           _vm._v(" "),
           _c(
-            "v-col",
-            { attrs: { xs: "12", sm: "12", md: "9" } },
+            "v-card",
+            { staticClass: "pa-5", attrs: { width: "100%" } },
             [
-              _c("router-view"),
-              _vm._v(" "),
               _c(
-                "v-container",
-                { attrs: { fluid: "" } },
+                "v-btn",
+                {
+                  staticClass: "hidden-md-and-up mb-3",
+                  on: {
+                    click: function($event) {
+                      $event.stopPropagation()
+                      _vm.admin_drawer = !_vm.admin_drawer
+                    }
+                  }
+                },
                 [
-                  _c(
-                    "v-row",
-                    [
-                      _c(
-                        "v-btn",
-                        {
-                          staticClass: "hidden-md-and-up mt-n7 ml-3",
-                          on: {
-                            click: function($event) {
-                              $event.stopPropagation()
-                              _vm.drawer = !_vm.drawer
-                            }
-                          }
-                        },
-                        [
-                          _c("v-icon", [
-                            _vm._v(
-                              "\n                     mdi-format-list-bulleted-square\n                  "
-                            )
-                          ])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _vm._l(_vm.cards, function(card) {
-                        return _c(
-                          "v-col",
-                          { key: card, attrs: { cols: "12" } },
-                          [
-                            _c(
-                              "v-card",
-                              [
-                                _c("v-subheader", [_vm._v(_vm._s(card))]),
-                                _vm._v(" "),
-                                _c(
-                                  "v-list",
-                                  { attrs: { "two-line": "" } },
-                                  [
-                                    _vm._l(6, function(n) {
-                                      return [
-                                        _c(
-                                          "v-list-item",
-                                          { key: n },
-                                          [
-                                            _c("v-list-item-avatar", {
-                                              attrs: { color: "grey darken-1" }
-                                            }),
-                                            _vm._v(" "),
-                                            _c(
-                                              "v-list-item-content",
-                                              [
-                                                _c("v-list-item-title", [
-                                                  _vm._v(
-                                                    "\n                                    Message\n                                    " +
-                                                      _vm._s(n) +
-                                                      "\n                                 "
-                                                  )
-                                                ]),
-                                                _vm._v(" "),
-                                                _c("v-list-item-subtitle", [
-                                                  _vm._v(
-                                                    "\n                                    Lorem ipsum dolor sit amet,\n                                    consectetur adipisicing elit.\n                                    Nihil repellendus distinctio\n                                    similique\n                                 "
-                                                  )
-                                                ])
-                                              ],
-                                              1
-                                            )
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        n !== 6
-                                          ? _c("v-divider", {
-                                              key: "divider-" + n,
-                                              attrs: { inset: "" }
-                                            })
-                                          : _vm._e()
-                                      ]
-                                    })
-                                  ],
-                                  2
-                                )
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      })
-                    ],
-                    2
-                  )
+                  _c("v-icon", [
+                    _vm._v(
+                      "\n               mdi-format-list-bulleted-square\n            "
+                    )
+                  ])
                 ],
                 1
-              )
+              ),
+              _vm._v(" "),
+              _c("router-view")
             ],
             1
           )
@@ -49057,7 +50614,561 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n   Carousel Content Admin\n")])
+  return _c(
+    "div",
+    [
+      _vm.loading_content
+        ? _c("div", [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "text-h6 text-center blue--text text--darken-4 font-weight-bold pt-10"
+              },
+              [_vm._v("\n            Loading...\n      ")]
+            ),
+            _vm._v(" "),
+            _c("div", [
+              _c(
+                "svg",
+                {
+                  staticStyle: {
+                    margin: "auto",
+                    background: "rgba(0, 0, 0, 0) none repeat scroll 0% 0%",
+                    display: "block",
+                    "shape-rendering": "auto"
+                  },
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                    width: "291px",
+                    height: "291px",
+                    viewBox: "0 0 100 100",
+                    preserveAspectRatio: "xMidYMid"
+                  }
+                },
+                [
+                  _c("g", { attrs: { transform: "rotate(0 50 50)" } }, [
+                    _c(
+                      "rect",
+                      {
+                        attrs: {
+                          x: "47.5",
+                          y: "28.5",
+                          rx: "2.5",
+                          ry: "4.5",
+                          width: "5",
+                          height: "9",
+                          fill: "#85a2b6"
+                        }
+                      },
+                      [
+                        _c("animate", {
+                          attrs: {
+                            attributeName: "opacity",
+                            values: "1;0",
+                            keyTimes: "0;1",
+                            dur: "1s",
+                            begin: "-0.9090909090909091s",
+                            repeatCount: "indefinite"
+                          }
+                        })
+                      ]
+                    )
+                  ]),
+                  _c(
+                    "g",
+                    { attrs: { transform: "rotate(32.72727272727273 50 50)" } },
+                    [
+                      _c(
+                        "rect",
+                        {
+                          attrs: {
+                            x: "47.5",
+                            y: "28.5",
+                            rx: "2.5",
+                            ry: "4.5",
+                            width: "5",
+                            height: "9",
+                            fill: "#85a2b6"
+                          }
+                        },
+                        [
+                          _c("animate", {
+                            attrs: {
+                              attributeName: "opacity",
+                              values: "1;0",
+                              keyTimes: "0;1",
+                              dur: "1s",
+                              begin: "-0.8181818181818182s",
+                              repeatCount: "indefinite"
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  ),
+                  _c(
+                    "g",
+                    { attrs: { transform: "rotate(65.45454545454545 50 50)" } },
+                    [
+                      _c(
+                        "rect",
+                        {
+                          attrs: {
+                            x: "47.5",
+                            y: "28.5",
+                            rx: "2.5",
+                            ry: "4.5",
+                            width: "5",
+                            height: "9",
+                            fill: "#85a2b6"
+                          }
+                        },
+                        [
+                          _c("animate", {
+                            attrs: {
+                              attributeName: "opacity",
+                              values: "1;0",
+                              keyTimes: "0;1",
+                              dur: "1s",
+                              begin: "-0.7272727272727273s",
+                              repeatCount: "indefinite"
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  ),
+                  _c(
+                    "g",
+                    { attrs: { transform: "rotate(98.18181818181819 50 50)" } },
+                    [
+                      _c(
+                        "rect",
+                        {
+                          attrs: {
+                            x: "47.5",
+                            y: "28.5",
+                            rx: "2.5",
+                            ry: "4.5",
+                            width: "5",
+                            height: "9",
+                            fill: "#85a2b6"
+                          }
+                        },
+                        [
+                          _c("animate", {
+                            attrs: {
+                              attributeName: "opacity",
+                              values: "1;0",
+                              keyTimes: "0;1",
+                              dur: "1s",
+                              begin: "-0.6363636363636364s",
+                              repeatCount: "indefinite"
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  ),
+                  _c(
+                    "g",
+                    { attrs: { transform: "rotate(130.9090909090909 50 50)" } },
+                    [
+                      _c(
+                        "rect",
+                        {
+                          attrs: {
+                            x: "47.5",
+                            y: "28.5",
+                            rx: "2.5",
+                            ry: "4.5",
+                            width: "5",
+                            height: "9",
+                            fill: "#85a2b6"
+                          }
+                        },
+                        [
+                          _c("animate", {
+                            attrs: {
+                              attributeName: "opacity",
+                              values: "1;0",
+                              keyTimes: "0;1",
+                              dur: "1s",
+                              begin: "-0.5454545454545454s",
+                              repeatCount: "indefinite"
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  ),
+                  _c(
+                    "g",
+                    {
+                      attrs: { transform: "rotate(163.63636363636363 50 50)" }
+                    },
+                    [
+                      _c(
+                        "rect",
+                        {
+                          attrs: {
+                            x: "47.5",
+                            y: "28.5",
+                            rx: "2.5",
+                            ry: "4.5",
+                            width: "5",
+                            height: "9",
+                            fill: "#85a2b6"
+                          }
+                        },
+                        [
+                          _c("animate", {
+                            attrs: {
+                              attributeName: "opacity",
+                              values: "1;0",
+                              keyTimes: "0;1",
+                              dur: "1s",
+                              begin: "-0.45454545454545453s",
+                              repeatCount: "indefinite"
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  ),
+                  _c(
+                    "g",
+                    {
+                      attrs: { transform: "rotate(196.36363636363637 50 50)" }
+                    },
+                    [
+                      _c(
+                        "rect",
+                        {
+                          attrs: {
+                            x: "47.5",
+                            y: "28.5",
+                            rx: "2.5",
+                            ry: "4.5",
+                            width: "5",
+                            height: "9",
+                            fill: "#85a2b6"
+                          }
+                        },
+                        [
+                          _c("animate", {
+                            attrs: {
+                              attributeName: "opacity",
+                              values: "1;0",
+                              keyTimes: "0;1",
+                              dur: "1s",
+                              begin: "-0.36363636363636365s",
+                              repeatCount: "indefinite"
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  ),
+                  _c(
+                    "g",
+                    { attrs: { transform: "rotate(229.0909090909091 50 50)" } },
+                    [
+                      _c(
+                        "rect",
+                        {
+                          attrs: {
+                            x: "47.5",
+                            y: "28.5",
+                            rx: "2.5",
+                            ry: "4.5",
+                            width: "5",
+                            height: "9",
+                            fill: "#85a2b6"
+                          }
+                        },
+                        [
+                          _c("animate", {
+                            attrs: {
+                              attributeName: "opacity",
+                              values: "1;0",
+                              keyTimes: "0;1",
+                              dur: "1s",
+                              begin: "-0.2727272727272727s",
+                              repeatCount: "indefinite"
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  ),
+                  _c(
+                    "g",
+                    { attrs: { transform: "rotate(261.8181818181818 50 50)" } },
+                    [
+                      _c(
+                        "rect",
+                        {
+                          attrs: {
+                            x: "47.5",
+                            y: "28.5",
+                            rx: "2.5",
+                            ry: "4.5",
+                            width: "5",
+                            height: "9",
+                            fill: "#85a2b6"
+                          }
+                        },
+                        [
+                          _c("animate", {
+                            attrs: {
+                              attributeName: "opacity",
+                              values: "1;0",
+                              keyTimes: "0;1",
+                              dur: "1s",
+                              begin: "-0.18181818181818182s",
+                              repeatCount: "indefinite"
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  ),
+                  _c(
+                    "g",
+                    {
+                      attrs: { transform: "rotate(294.54545454545456 50 50)" }
+                    },
+                    [
+                      _c(
+                        "rect",
+                        {
+                          attrs: {
+                            x: "47.5",
+                            y: "28.5",
+                            rx: "2.5",
+                            ry: "4.5",
+                            width: "5",
+                            height: "9",
+                            fill: "#85a2b6"
+                          }
+                        },
+                        [
+                          _c("animate", {
+                            attrs: {
+                              attributeName: "opacity",
+                              values: "1;0",
+                              keyTimes: "0;1",
+                              dur: "1s",
+                              begin: "-0.09090909090909091s",
+                              repeatCount: "indefinite"
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  ),
+                  _c(
+                    "g",
+                    {
+                      attrs: { transform: "rotate(327.27272727272725 50 50)" }
+                    },
+                    [
+                      _c(
+                        "rect",
+                        {
+                          attrs: {
+                            x: "47.5",
+                            y: "28.5",
+                            rx: "2.5",
+                            ry: "4.5",
+                            width: "5",
+                            height: "9",
+                            fill: "#85a2b6"
+                          }
+                        },
+                        [
+                          _c("animate", {
+                            attrs: {
+                              attributeName: "opacity",
+                              values: "1;0",
+                              keyTimes: "0;1",
+                              dur: "1s",
+                              begin: "0s",
+                              repeatCount: "indefinite"
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        : _c(
+            "v-card",
+            [
+              _c(
+                "v-card",
+                { attrs: { flat: "", tile: "", outlined: "", width: "100%" } },
+                [_c("v-card-title", [_vm._v(" Carousel Content ")])],
+                1
+              ),
+              _vm._v(" "),
+              _vm._l(_vm.carousel_content, function(carousel_content, index) {
+                return _c(
+                  "div",
+                  { key: index },
+                  [
+                    _c(
+                      "v-card",
+                      {
+                        staticClass: "mx-auto px-1 py-1",
+                        attrs: { tile: "", outlined: "" }
+                      },
+                      [
+                        _c("v-card-title", { staticClass: "py-1" }, [
+                          _c(
+                            "span",
+                            { staticClass: "text-h6 font-weight-medium" },
+                            [
+                              _vm._v(
+                                " " +
+                                  _vm._s(carousel_content.carousel_title) +
+                                  " Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid placeat sed labore aliquam ut corrupti reprehenderit facilis esse eius quidem. "
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "v-card-text",
+                          {
+                            staticClass: "text-body-1 font-weight-medium py-0"
+                          },
+                          [
+                            _vm._v(
+                              "\n               " +
+                                _vm._s(carousel_content.carousel_title) +
+                                " Lorem ipsum dolor sit amet consectetur adipisicing elit. A totam optio vel eaque nulla omnis, placeat eveniet. Odio, delectus totam.\n            "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-card-actions",
+                          { staticClass: "py-0" },
+                          [
+                            _c(
+                              "v-list-item",
+                              { staticClass: "grow" },
+                              [
+                                _c(
+                                  "v-list-item-avatar",
+                                  {
+                                    attrs: {
+                                      color: "grey darken-3",
+                                      tile: "",
+                                      width: "150",
+                                      height: "100"
+                                    }
+                                  },
+                                  [
+                                    _c("v-img", {
+                                      staticClass: "elevation-6",
+                                      attrs: {
+                                        src:
+                                          "/storage/carousel_images/" +
+                                          carousel_content.carousel_image,
+                                        alt: "",
+                                        position: "center center",
+                                        "aspect-ratio": "2"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-row",
+                                  {
+                                    attrs: { align: "center", justify: "end" }
+                                  },
+                                  [
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        staticClass:
+                                          "ma-1 indigo darken-3 rounded-1",
+                                        attrs: {
+                                          elevation: "2",
+                                          fab: "",
+                                          rounded: ""
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "v-icon",
+                                          { attrs: { color: "white" } },
+                                          [
+                                            _vm._v(
+                                              "\n                           mdi-clipboard-edit\n                        "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        staticClass:
+                                          "ma-1 red darken-4 rounded-1",
+                                        attrs: {
+                                          elevation: "2",
+                                          fab: "",
+                                          rounded: ""
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "v-icon",
+                                          { attrs: { color: "white" } },
+                                          [
+                                            _vm._v(
+                                              "\n                           mdi-trash-can\n                        "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              })
+            ],
+            2
+          )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -49083,6 +51194,31 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [_vm._v("\n   Events Admin\n")])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin_pages/main_admin.vue?vue&type=template&id=3e42060d&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin_pages/main_admin.vue?vue&type=template&id=3e42060d& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_vm._v("\n   Main Page Admin\n")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -60688,27 +62824,6 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! !../../../../vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("6b5ef5c7", content, false, {});
-// Hot Module Replacement
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/vuetify/src/components/VSubheader/VSubheader.sass":
-/*!************************************************************************!*\
-  !*** ./node_modules/vuetify/src/components/VSubheader/VSubheader.sass ***!
-  \************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(/*! !!../../../../css-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[1]!../../../../postcss-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[2]!../../../../sass-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[3]!./VSubheader.sass */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[3]!./node_modules/vuetify/src/components/VSubheader/VSubheader.sass");
-if(content.__esModule) content = content.default;
-if(typeof content === 'string') content = [[module.id, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var add = __webpack_require__(/*! !../../../../vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
-var update = add("2e4a96f5", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -73322,19 +75437,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VBtn */ "./node_modules/vuetify/lib/components/VBtn/VBtn.js");
 /* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/VCard.js");
-/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VCol.js");
-/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VContainer.js");
-/* harmony import */ var vuetify_lib_components_VDivider__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VDivider */ "./node_modules/vuetify/lib/components/VDivider/VDivider.js");
-/* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/VIcon.js");
-/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/VList.js");
-/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/VListItem.js");
-/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/VListItemAvatar.js");
-/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/index.js");
-/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/VListItemIcon.js");
-/* harmony import */ var vuetify_lib_components_VNavigationDrawer__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! vuetify/lib/components/VNavigationDrawer */ "./node_modules/vuetify/lib/components/VNavigationDrawer/VNavigationDrawer.js");
-/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
-/* harmony import */ var vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! vuetify/lib/components/VSheet */ "./node_modules/vuetify/lib/components/VSheet/VSheet.js");
-/* harmony import */ var vuetify_lib_components_VSubheader__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! vuetify/lib/components/VSubheader */ "./node_modules/vuetify/lib/components/VSubheader/VSubheader.js");
+/* harmony import */ var vuetify_lib_components_VDivider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VDivider */ "./node_modules/vuetify/lib/components/VDivider/VDivider.js");
+/* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/VIcon.js");
+/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/VList.js");
+/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/VListItem.js");
+/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/index.js");
+/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/VListItemIcon.js");
+/* harmony import */ var vuetify_lib_components_VNavigationDrawer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vuetify/lib/components/VNavigationDrawer */ "./node_modules/vuetify/lib/components/VNavigationDrawer/VNavigationDrawer.js");
+/* harmony import */ var vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuetify/lib/components/VSheet */ "./node_modules/vuetify/lib/components/VSheet/VSheet.js");
 
 
 
@@ -73366,13 +75476,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 
 
-
-
-
-
-
-
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VBtn: vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCol: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_6__.default,VContainer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_7__.default,VDivider: vuetify_lib_components_VDivider__WEBPACK_IMPORTED_MODULE_8__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_9__.default,VList: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_10__.default,VListItem: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_11__.default,VListItemAvatar: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_12__.default,VListItemContent: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_13__.VListItemContent,VListItemIcon: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_14__.default,VListItemSubtitle: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_13__.VListItemSubtitle,VListItemTitle: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_13__.VListItemTitle,VNavigationDrawer: vuetify_lib_components_VNavigationDrawer__WEBPACK_IMPORTED_MODULE_15__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_16__.default,VSheet: vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_17__.default,VSubheader: vuetify_lib_components_VSubheader__WEBPACK_IMPORTED_MODULE_18__.default})
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VBtn: vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VDivider: vuetify_lib_components_VDivider__WEBPACK_IMPORTED_MODULE_6__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_7__.default,VList: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_8__.default,VListItem: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_9__.default,VListItemContent: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_10__.VListItemContent,VListItemIcon: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_11__.default,VListItemTitle: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_10__.VListItemTitle,VNavigationDrawer: vuetify_lib_components_VNavigationDrawer__WEBPACK_IMPORTED_MODULE_12__.default,VSheet: vuetify_lib_components_VSheet__WEBPACK_IMPORTED_MODULE_13__.default})
 
 
 /* hot reload */
@@ -73396,6 +75500,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _carousel_content_vue_vue_type_template_id_0aa8b844___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./carousel_content.vue?vue&type=template&id=0aa8b844& */ "./resources/js/pages/admin_pages/carousel_content.vue?vue&type=template&id=0aa8b844&");
 /* harmony import */ var _carousel_content_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./carousel_content.vue?vue&type=script&lang=js& */ "./resources/js/pages/admin_pages/carousel_content.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vuetify-loader/lib/runtime/installComponents.js */ "./node_modules/vuetify-loader/lib/runtime/installComponents.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VBtn */ "./node_modules/vuetify/lib/components/VBtn/VBtn.js");
+/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/VCard.js");
+/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/index.js");
+/* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/VIcon.js");
+/* harmony import */ var vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VImg */ "./node_modules/vuetify/lib/components/VImg/VImg.js");
+/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/VListItem.js");
+/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/VListItemAvatar.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
 
 
 
@@ -73413,6 +75527,21 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
   null
   
 )
+
+/* vuetify-loader */
+;
+
+
+
+
+
+
+
+
+
+
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VBtn: vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCardActions: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardActions,VCardText: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardText,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardTitle,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_7__.default,VImg: vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_8__.default,VListItem: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_9__.default,VListItemAvatar: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_10__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_11__.default})
+
 
 /* hot reload */
 if (false) { var api; }
@@ -73456,6 +75585,45 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/pages/admin_pages/events_admin.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin_pages/main_admin.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/pages/admin_pages/main_admin.vue ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _main_admin_vue_vue_type_template_id_3e42060d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./main_admin.vue?vue&type=template&id=3e42060d& */ "./resources/js/pages/admin_pages/main_admin.vue?vue&type=template&id=3e42060d&");
+/* harmony import */ var _main_admin_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./main_admin.vue?vue&type=script&lang=js& */ "./resources/js/pages/admin_pages/main_admin.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _main_admin_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _main_admin_vue_vue_type_template_id_3e42060d___WEBPACK_IMPORTED_MODULE_0__.render,
+  _main_admin_vue_vue_type_template_id_3e42060d___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/admin_pages/main_admin.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -82630,51 +84798,6 @@ __webpack_require__.r(__webpack_exports__);
 
 }));
 //# sourceMappingURL=VSnackbar.js.map
-
-/***/ }),
-
-/***/ "./node_modules/vuetify/lib/components/VSubheader/VSubheader.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/vuetify/lib/components/VSubheader/VSubheader.js ***!
-  \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _src_components_VSubheader_VSubheader_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../src/components/VSubheader/VSubheader.sass */ "./node_modules/vuetify/src/components/VSubheader/VSubheader.sass");
-/* harmony import */ var _src_components_VSubheader_VSubheader_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VSubheader_VSubheader_sass__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mixins_themeable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/themeable */ "./node_modules/vuetify/lib/mixins/themeable/index.js");
-/* harmony import */ var _util_mixins__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/mixins */ "./node_modules/vuetify/lib/util/mixins.js");
-// Styles
- // Mixins
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_util_mixins__WEBPACK_IMPORTED_MODULE_1__.default)(_mixins_themeable__WEBPACK_IMPORTED_MODULE_2__.default
-/* @vue/component */
-).extend({
-  name: 'v-subheader',
-  props: {
-    inset: Boolean
-  },
-
-  render(h) {
-    return h('div', {
-      staticClass: 'v-subheader',
-      class: {
-        'v-subheader--inset': this.inset,
-        ...this.themeClasses
-      },
-      attrs: this.$attrs,
-      on: this.$listeners
-    }, this.$slots.default);
-  }
-
-}));
-//# sourceMappingURL=VSubheader.js.map
 
 /***/ }),
 

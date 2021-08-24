@@ -12,7 +12,8 @@ class CarouselContentController extends Controller
 {
     public function index()
     {
-        return response()->json(CarouselContent::all() ,200);
+        // return response()->json(CarouselContent::all() ,200);
+        return response()->json(CarouselContent::select(['id', 'carousel_title', 'carousel_subtitle', 'carousel_image'])->get() ,200);
     }
 
     public function frontend_index()
@@ -27,7 +28,7 @@ class CarouselContentController extends Controller
             'carousel_subtitle' => ['required', 'string', 'max:176'],
             'carousel_image' => ['required', 'image', 'max:3000'],
             'resize_image' => ['required', 'numeric', 'integer'],
-        ]);        
+        ]);
 
         //get filename with extension
         $filenameWithExt = $request->file('carousel_image')->getClientOriginalName();

@@ -41,6 +41,7 @@ Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout']);
 // Refactor Controller to use Restful Controllers later maybe
 
 // Carousel Content Controller
+// BE
 Route::get('/carouselcontent/index', [App\Http\Controllers\CarouselContentController::class, 'index']);
 // FE
 Route::get('/carouselcontent/frontend_index', [App\Http\Controllers\CarouselContentController::class, 'frontend_index']);

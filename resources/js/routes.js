@@ -20,11 +20,13 @@ import PublicationsAuth from "./pages/auth/publications_auth";
 // Admin Pages
 import AdminPanel from "./pages/admin_pages/adminpanel";
 import CarouselContent from "./pages/admin_pages/carousel_content"
+import CarouselContentEdit from "./pages/admin_pages/carousel_content_edit"
 import AboutAdmin from "./pages/admin_pages/about_admin"
 import PeopleAdmin from "./pages/admin_pages/people_admin"
 import EventsAdmin from "./pages/admin_pages/events_admin"
 import NewsAdmin from "./pages/admin_pages/news_admin"
 import ResourcesAdmin from "./pages/admin_pages/resources_admin"
+import MainAdmin from "./pages/admin_pages/main_admin"
 // scrapped components
 import Topnav from "./pages/components/scrapped/topnav";
 import Tabsnav from "./pages/components/scrapped/tabsnav";
@@ -157,38 +159,34 @@ export default{
          meta: { title: 'Admin Panel' },
          children: [
             {
-               // UserProfile will be rendered inside User's <router-view>
-               // when /user/:id/profile is matched
+               path: 'main',
+               component: MainAdmin
+            },
+            {
                path: 'carousel_content',
                component: CarouselContent
             },
             {
-               // UserProfile will be rendered inside User's <router-view>
-               // when /user/:id/profile is matched
+               path: 'carousel_content/:id',
+               component: CarouselContentEdit
+            },
+            {
                path: 'about',
                component: AboutAdmin
             },
             {
-               // UserProfile will be rendered inside User's <router-view>
-               // when /user/:id/profile is matched
                path: 'people',
                component: PeopleAdmin
             },
             {
-               // UserProfile will be rendered inside User's <router-view>
-               // when /user/:id/profile is matched
                path: 'events',
                component: EventsAdmin
             },
             {
-               // UserProfile will be rendered inside User's <router-view>
-               // when /user/:id/profile is matched
                path: 'news',
                component: NewsAdmin
             },
             {
-               // UserProfile will be rendered inside User's <router-view>
-               // when /user/:id/profile is matched
                path: 'resources',
                component: ResourcesAdmin
             },

@@ -176,7 +176,7 @@ export default {
                      this.form_disabled = false
                      console.log("Login Post Request Sent Successfully !!")
                      // console.log(res);
-                     this.$router.push({ name: "AdminPanel" })
+                     this.$router.push({ path: "/adminpanel/main" })
                   })
                   .catch((error) => {
                      this.form_loading = false
