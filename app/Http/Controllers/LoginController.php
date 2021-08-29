@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 
+use App\Models\AboutContent;
+
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -26,6 +28,6 @@ class LoginController extends Controller
     }
 
     public function logout(){
-        Auth::logout();        
+        Auth::logout();
     }
 }

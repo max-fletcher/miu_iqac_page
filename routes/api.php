@@ -37,7 +37,6 @@ Route::post('/login', [App\Http\Controllers\LoginController::class, 'login']);
 // FE
 Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout']);
 
-
 // Refactor Controller to use Restful Controllers later maybe
 
 // Carousel Content Controller

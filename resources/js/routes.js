@@ -1,24 +1,24 @@
 // Pages
-import Home from "./pages/home";
-import About from "./pages/about";
-import Events from "./pages/events";
-import SingleEvent from "./pages/single_event";
-import News from "./pages/news";
-import SingleNews from "./pages/single_news";
-import Resources from "./pages/resources";
-import People from "./pages/people";
-import ContactUs from "./pages/contactus";
-import NotFound from "./pages/notfound";
-import ResourceNotFound from "./pages/resource_not_found";
-import PhotoGallery from "./pages/photo_gallery";
-import SinglePhotoGallery from "./pages/single_photo_gallery";
-import Publications from "./pages/publications";
+import Home from "./pages/home"
+import About from "./pages/about"
+import Events from "./pages/events"
+import SingleEvent from "./pages/single_event"
+import News from "./pages/news"
+import SingleNews from "./pages/single_news"
+import Resources from "./pages/resources"
+import People from "./pages/people"
+import ContactUs from "./pages/contactus"
+import NotFound from "./pages/notfound"
+import ResourceNotFound from "./pages/resource_not_found"
+import PhotoGallery from "./pages/photo_gallery"
+import SinglePhotoGallery from "./pages/single_photo_gallery"
+import Publications from "./pages/publications"
 // Auth Pages
-import Login from "./pages/auth/login";
-import Register from "./pages/auth/register";
-import PublicationsAuth from "./pages/auth/publications_auth";
+import Login from "./pages/auth/login"
+import Register from "./pages/auth/register"
+import PublicationsAuth from "./pages/auth/publications_auth"
 // Admin Pages
-import AdminPanel from "./pages/admin_pages/adminpanel";
+import AdminPanel from "./pages/admin_pages/adminpanel"
 import CarouselContent from "./pages/admin_pages/carousel_content"
 import CarouselContentEdit from "./pages/admin_pages/carousel_content_edit"
 import AboutAdmin from "./pages/admin_pages/about_admin"
@@ -28,13 +28,13 @@ import NewsAdmin from "./pages/admin_pages/news_admin"
 import ResourcesAdmin from "./pages/admin_pages/resources_admin"
 import MainAdmin from "./pages/admin_pages/main_admin"
 // scrapped components
-import Topnav from "./pages/components/scrapped/topnav";
-import Tabsnav from "./pages/components/scrapped/tabsnav";
-import QuickLinksAccordion from "./pages/components/scrapped/quicklinksaccordion";
-import CarouselText from "./pages/components/scrapped/carouseltext";
-import OverlayCarousel from "./pages/components/scrapped/overlay_carousel";
-import Bars from "./pages/components/scrapped/bars";
-import Sandbox from "./pages/components/scrapped/sandbox";
+import Topnav from "./pages/components/scrapped/topnav"
+import Tabsnav from "./pages/components/scrapped/tabsnav"
+import QuickLinksAccordion from "./pages/components/scrapped/quicklinksaccordion"
+import CarouselText from "./pages/components/scrapped/carouseltext"
+import OverlayCarousel from "./pages/components/scrapped/overlay_carousel"
+import Bars from "./pages/components/scrapped/bars"
+import Sandbox from "./pages/components/scrapped/sandbox"
 
 
 export default{
