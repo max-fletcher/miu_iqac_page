@@ -2045,6 +2045,114 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin_pages/admin_components/carousel_content_dialog.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin_pages/admin_components/carousel_content_dialog.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['carousel_content_id'],
+  data: function data() {
+    return {
+      dialog: false,
+      disable_buttons: false
+    };
+  },
+  methods: {
+    // logout() {
+    //    axios.post("/api/carouselcontent/index")
+    //    .then((response) => {
+    //       this.carousel_content = response.data
+    //    });
+    // },
+    delete_carousel_content: function delete_carousel_content(id) {
+      var _this = this;
+
+      console.log(id);
+      this.disable_buttons = true; // this.$emit('carousel_content_deleted', id)
+
+      axios["delete"]("/api/carouselcontent/destroy/" + id).then(function (res) {
+        console.log(res.data);
+        _this.dialog = false;
+        _this.disable_buttons = false;
+
+        _this.$emit('carousel_content_deleted', id);
+      })["catch"](function (error) {
+        _this.dialog = false;
+        _this.disable_buttons = false;
+
+        _this.$emit('carousel_content_deleted', id);
+
+        alert('Internal Error ! Cannot Delete Contact !!');
+      }); // this.carousel_content = this.carousel_content.filter(function(obj) {
+      //    return obj.id !== id; // Or whatever value you want to use
+      // });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin_pages/adminpanel.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin_pages/adminpanel.vue?vue&type=script&lang=js& ***!
@@ -2459,44 +2567,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _admin_components_admin_loading__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./admin_components/admin_loading */ "./resources/js/pages/admin_pages/admin_components/admin_loading.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _admin_components_carousel_content_dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./admin_components/carousel_content_dialog */ "./resources/js/pages/admin_pages/admin_components/carousel_content_dialog.vue");
 //
 //
 //
@@ -2562,18 +2633,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       cards: ["Today", "Yesterday"],
       carousel_content: [],
       loading_content: false,
-      dialog: false,
-      disable_buttons: false
+      disable_buttons: false // dialog: false,
+
     };
   },
   components: {
-    AdminLoading: _admin_components_admin_loading__WEBPACK_IMPORTED_MODULE_0__.default
+    AdminLoading: _admin_components_admin_loading__WEBPACK_IMPORTED_MODULE_0__.default,
+    CarouselContentDialog: _admin_components_carousel_content_dialog__WEBPACK_IMPORTED_MODULE_1__.default
   },
   methods: {
     // logout() {
@@ -2582,21 +2655,26 @@ __webpack_require__.r(__webpack_exports__);
     //       this.carousel_content = response.data
     //    });
     // },
-    delete_carousel_content: function delete_carousel_content(id) {
-      console.log(id);
-      this.disable_buttons = true; // axios
-      //    .delete("/api/form/destroy/" + id)
-      //    .then((res) => {
-      //       console.log(res.data);
-      //    }).catch(error => {
-      //       alert('Internal Error ! Cannot Delete Contact !!');
-      //    })
-      //    this.carousel_content = this.carousel_content.filter(function(obj) {
-      //       return obj.id !== id; // Or whatever value you want to use
-      //    });
-
-      this.disable_buttons = false;
-      this.dialog = false;
+    // delete_carousel_content(id) {
+    //    console.log(id)
+    //    this.disable_buttons = true
+    //    // axios
+    //    //    .delete("/api/form/destroy/" + id)
+    //    //    .then((res) => {
+    //    //       console.log(res.data);
+    //    //    }).catch(error => {
+    //    //       alert('Internal Error ! Cannot Delete Contact !!');
+    //    //    })
+    //    //    this.carousel_content = this.carousel_content.filter(function(obj) {
+    //    //       return obj.id !== id; // Or whatever value you want to use
+    //    //    });
+    //    this.disable_buttons = false
+    //    this.dialog = false
+    // }
+    carousel_content_update: function carousel_content_update(deleted_id) {
+      this.carousel_content = this.carousel_content.filter(function (obj) {
+        return obj.id !== deleted_id; // Or whatever value you want to use
+      });
     }
   },
   created: function created() {
@@ -8647,30 +8725,6 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".theme--light.v-toolbar.v-sheet {\n  background-color: #FFFFFF;\n}\n\n.theme--dark.v-toolbar.v-sheet {\n  background-color: #272727;\n}\n\n.v-sheet.v-toolbar {\n  border-radius: 0;\n}\n.v-sheet.v-toolbar:not(.v-sheet--outlined) {\n  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);\n}\n.v-sheet.v-toolbar.v-sheet--shaped {\n  border-radius: 24px 0;\n}\n\n.v-toolbar {\n  contain: layout;\n  display: block;\n  flex: 1 1 auto;\n  max-width: 100%;\n  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1) transform, 0.2s cubic-bezier(0.4, 0, 0.2, 1) background-color, 0.2s cubic-bezier(0.4, 0, 0.2, 1) left, 0.2s cubic-bezier(0.4, 0, 0.2, 1) right, 280ms cubic-bezier(0.4, 0, 0.2, 1) box-shadow, 0.25s cubic-bezier(0.4, 0, 0.2, 1) max-width, 0.25s cubic-bezier(0.4, 0, 0.2, 1) width;\n  position: relative;\n  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);\n}\n.v-toolbar .v-input {\n  padding-top: 0;\n  margin-top: 0;\n}\n\n.v-toolbar__content,\n.v-toolbar__extension {\n  padding: 4px 16px;\n}\n.v-toolbar__content .v-btn.v-btn--icon.v-size--default,\n.v-toolbar__extension .v-btn.v-btn--icon.v-size--default {\n  height: 48px;\n  width: 48px;\n}\n.v-application--is-ltr .v-toolbar__content > .v-btn.v-btn--icon:first-child,\n.v-application--is-ltr .v-toolbar__extension > .v-btn.v-btn--icon:first-child {\n  margin-left: -12px;\n}\n.v-application--is-rtl .v-toolbar__content > .v-btn.v-btn--icon:first-child,\n.v-application--is-rtl .v-toolbar__extension > .v-btn.v-btn--icon:first-child {\n  margin-right: -12px;\n}\n.v-application--is-ltr .v-toolbar__content > .v-btn.v-btn--icon:first-child + .v-toolbar__title,\n.v-application--is-ltr .v-toolbar__extension > .v-btn.v-btn--icon:first-child + .v-toolbar__title {\n  padding-left: 20px;\n}\n.v-application--is-rtl .v-toolbar__content > .v-btn.v-btn--icon:first-child + .v-toolbar__title,\n.v-application--is-rtl .v-toolbar__extension > .v-btn.v-btn--icon:first-child + .v-toolbar__title {\n  padding-right: 20px;\n}\n.v-application--is-ltr .v-toolbar__content > .v-btn.v-btn--icon:last-child,\n.v-application--is-ltr .v-toolbar__extension > .v-btn.v-btn--icon:last-child {\n  margin-right: -12px;\n}\n.v-application--is-rtl .v-toolbar__content > .v-btn.v-btn--icon:last-child,\n.v-application--is-rtl .v-toolbar__extension > .v-btn.v-btn--icon:last-child {\n  margin-left: -12px;\n}\n.v-toolbar__content > .v-tabs,\n.v-toolbar__extension > .v-tabs {\n  height: inherit;\n  margin-top: -4px;\n  margin-bottom: -4px;\n}\n.v-toolbar__content > .v-tabs > .v-slide-group.v-tabs-bar,\n.v-toolbar__extension > .v-tabs > .v-slide-group.v-tabs-bar {\n  background-color: inherit;\n  height: inherit;\n}\n.v-toolbar__content > .v-tabs:first-child,\n.v-toolbar__extension > .v-tabs:first-child {\n  margin-left: -16px;\n}\n.v-toolbar__content > .v-tabs:last-child,\n.v-toolbar__extension > .v-tabs:last-child {\n  margin-right: -16px;\n}\n\n.v-toolbar__content,\n.v-toolbar__extension {\n  align-items: center;\n  display: flex;\n  position: relative;\n  z-index: 0;\n}\n\n.v-toolbar__image {\n  border-radius: inherit;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  width: 100%;\n  z-index: 0;\n  contain: strict;\n}\n.v-toolbar__image .v-image {\n  border-radius: inherit;\n}\n\n.v-toolbar__items {\n  display: flex;\n  height: inherit;\n}\n.v-toolbar__items > .v-btn {\n  border-radius: 0;\n  height: 100% !important;\n  max-height: none;\n}\n\n.v-toolbar__title {\n  font-size: 1.25rem;\n  line-height: 1.5;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.v-toolbar.v-toolbar--absolute {\n  position: absolute;\n  top: 0;\n  z-index: 1;\n}\n\n.v-toolbar.v-toolbar--bottom {\n  top: initial;\n  bottom: 0;\n}\n\n.v-toolbar.v-toolbar--collapse .v-toolbar__title {\n  white-space: nowrap;\n}\n\n.v-toolbar.v-toolbar--collapsed {\n  max-width: 112px;\n  overflow: hidden;\n}\n.v-application--is-ltr .v-toolbar.v-toolbar--collapsed {\n  border-bottom-right-radius: 24px;\n}\n.v-application--is-rtl .v-toolbar.v-toolbar--collapsed {\n  border-bottom-left-radius: 24px;\n}\n.v-toolbar.v-toolbar--collapsed .v-toolbar__title,\n.v-toolbar.v-toolbar--collapsed .v-toolbar__extension {\n  display: none;\n}\n\n.v-toolbar--dense .v-toolbar__content,\n.v-toolbar--dense .v-toolbar__extension {\n  padding-top: 0;\n  padding-bottom: 0;\n}\n\n.v-toolbar--flat {\n  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12) !important;\n}\n\n.v-toolbar--floating {\n  display: inline-flex;\n}\n\n.v-toolbar--prominent .v-toolbar__content {\n  align-items: flex-start;\n}\n.v-toolbar--prominent .v-toolbar__title {\n  font-size: 1.5rem;\n  padding-top: 6px;\n}\n.v-toolbar--prominent:not(.v-toolbar--bottom) .v-toolbar__title {\n  align-self: flex-end;\n  padding-bottom: 6px;\n  padding-top: 0;\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[3]!./node_modules/vuetify/src/components/VTooltip/VTooltip.sass":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[3]!./node_modules/vuetify/src/components/VTooltip/VTooltip.sass ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".v-tooltip {\n  display: none;\n}\n.v-tooltip--attached {\n  display: inline;\n}\n.v-tooltip__content {\n  background: rgba(97, 97, 97, 0.9);\n  color: #FFFFFF;\n  border-radius: 4px;\n  font-size: 14px;\n  line-height: 22px;\n  display: inline-block;\n  padding: 5px 16px;\n  position: absolute;\n  text-transform: initial;\n  width: auto;\n  opacity: 1;\n  pointer-events: none;\n}\n.v-tooltip__content--fixed {\n  position: fixed;\n}\n.v-tooltip__content[class*=-active] {\n  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);\n}\n.v-tooltip__content[class*=enter-active] {\n  transition-duration: 150ms;\n}\n.v-tooltip__content[class*=leave-active] {\n  transition-duration: 75ms;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -47767,6 +47821,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/admin_pages/admin_components/carousel_content_dialog.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/pages/admin_pages/admin_components/carousel_content_dialog.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_carousel_content_dialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./carousel_content_dialog.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin_pages/admin_components/carousel_content_dialog.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_carousel_content_dialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/pages/admin_pages/adminpanel.vue?vue&type=script&lang=js&":
 /*!********************************************************************************!*\
   !*** ./resources/js/pages/admin_pages/adminpanel.vue?vue&type=script&lang=js& ***!
@@ -48390,6 +48460,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_admin_loading_vue_vue_type_template_id_60b259c7___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_admin_loading_vue_vue_type_template_id_60b259c7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./admin_loading.vue?vue&type=template&id=60b259c7& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin_pages/admin_components/admin_loading.vue?vue&type=template&id=60b259c7&");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin_pages/admin_components/carousel_content_dialog.vue?vue&type=template&id=c3fabc70&":
+/*!********************************************************************************************************************!*\
+  !*** ./resources/js/pages/admin_pages/admin_components/carousel_content_dialog.vue?vue&type=template&id=c3fabc70& ***!
+  \********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_carousel_content_dialog_vue_vue_type_template_id_c3fabc70___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_carousel_content_dialog_vue_vue_type_template_id_c3fabc70___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_carousel_content_dialog_vue_vue_type_template_id_c3fabc70___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./carousel_content_dialog.vue?vue&type=template&id=c3fabc70& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin_pages/admin_components/carousel_content_dialog.vue?vue&type=template&id=c3fabc70&");
 
 
 /***/ }),
@@ -49588,6 +49675,140 @@ var render = function() {
       )
     ])
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin_pages/admin_components/carousel_content_dialog.vue?vue&type=template&id=c3fabc70&":
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin_pages/admin_components/carousel_content_dialog.vue?vue&type=template&id=c3fabc70& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _vm._v(
+        "\n   " +
+          _vm._s(_vm.carousel_content_id) +
+          "\n   " +
+          _vm._s(_vm.dialog) +
+          "\n   " +
+          _vm._s(_vm.disable_buttons) +
+          "\n\n   "
+      ),
+      _c(
+        "v-btn",
+        _vm._g(
+          {
+            staticClass: "ma-1 red darken-4 rounded-1 white--text",
+            attrs: { disabled: _vm.disable_buttons, elevation: "2" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.dialog = true
+              }
+            }
+          },
+          _vm.onTooltip
+        ),
+        [
+          _c("v-icon", { attrs: { left: "", color: "white" } }, [
+            _vm._v("\n         mdi-trash-can\n      ")
+          ]),
+          _vm._v("\n      DELETE\n   ")
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-dialog",
+        {
+          model: {
+            value: _vm.dialog,
+            callback: function($$v) {
+              _vm.dialog = $$v
+            },
+            expression: "dialog"
+          }
+        },
+        [
+          _c(
+            "v-card",
+            [
+              _c("v-card-title", { staticClass: "text-h6" }, [
+                _vm._v(
+                  "\n            Are you sure you want to delete this entry ??\n         "
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "v-card-text",
+                {
+                  staticClass: "text-subtitle-1 red--text text--accent-4 py-0"
+                },
+                [_vm._v("\n            (Click Outside To Exit)\n         ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card-actions",
+                [
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    _vm._g(
+                      _vm._b(
+                        {
+                          attrs: {
+                            color: "red accent-4",
+                            text: "",
+                            disabled: _vm.disable_buttons,
+                            loading: _vm.disable_buttons
+                          },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.delete_carousel_content(
+                                _vm.carousel_content_id
+                              )
+                            }
+                          }
+                        },
+                        "v-btn",
+                        _vm.attrs,
+                        false
+                      ),
+                      _vm.tooltip
+                    ),
+                    [_vm._v("\n               DELETE\n            ")]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -51321,220 +51542,51 @@ var render = function() {
                                     attrs: { align: "center", justify: "end" }
                                   },
                                   [
+                                    _c("CarouselContentDialog", {
+                                      attrs: {
+                                        carousel_content_id: carousel_content.id
+                                      },
+                                      on: {
+                                        carousel_content_deleted: function(
+                                          $event
+                                        ) {
+                                          return _vm.carousel_content_update(
+                                            $event
+                                          )
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
                                     _c(
-                                      "v-dialog",
+                                      "v-btn",
                                       {
-                                        scopedSlots: _vm._u(
-                                          [
-                                            {
-                                              key: "activator",
-                                              fn: function(ref) {
-                                                var dialog = ref.on
-                                                var attrs = ref.attrs
-                                                return [
-                                                  _c(
-                                                    "v-tooltip",
-                                                    {
-                                                      scopedSlots: _vm._u(
-                                                        [
-                                                          {
-                                                            key: "activator",
-                                                            fn: function(ref) {
-                                                              var tooltip =
-                                                                ref.on
-                                                              return [
-                                                                _c(
-                                                                  "v-btn",
-                                                                  _vm._g(
-                                                                    {
-                                                                      staticClass:
-                                                                        "ma-1 red darken-4 rounded-1",
-                                                                      attrs: {
-                                                                        disabled:
-                                                                          _vm.disable_buttons,
-                                                                        elevation:
-                                                                          "2",
-                                                                        fab: "",
-                                                                        rounded:
-                                                                          ""
-                                                                      }
-                                                                    },
-                                                                    Object.assign(
-                                                                      {},
-                                                                      tooltip,
-                                                                      dialog
-                                                                    )
-                                                                  ),
-                                                                  [
-                                                                    _c(
-                                                                      "v-icon",
-                                                                      {
-                                                                        attrs: {
-                                                                          color:
-                                                                            "white"
-                                                                        }
-                                                                      },
-                                                                      [
-                                                                        _vm._v(
-                                                                          "\n                                       mdi-trash-can\n                                    "
-                                                                        )
-                                                                      ]
-                                                                    )
-                                                                  ],
-                                                                  1
-                                                                )
-                                                              ]
-                                                            }
-                                                          }
-                                                        ],
-                                                        null,
-                                                        true
-                                                      )
-                                                    },
-                                                    [
-                                                      _vm._v(" "),
-                                                      _c("span", [
-                                                        _vm._v("Tooltip text")
-                                                      ])
-                                                    ]
-                                                  )
-                                                ]
-                                              }
-                                            }
-                                          ],
-                                          null,
-                                          true
-                                        )
+                                        staticClass:
+                                          "ma-1 indigo darken-3 rounded-1 white--text",
+                                        attrs: {
+                                          to:
+                                            "/adminpanel/carousel_content/" +
+                                            carousel_content.id,
+                                          disabled: _vm.disable_buttons,
+                                          elevation: "2"
+                                        }
                                       },
                                       [
-                                        _vm._v(" "),
                                         _c(
-                                          "v-card",
+                                          "v-icon",
+                                          {
+                                            attrs: { left: "", color: "white" }
+                                          },
                                           [
-                                            _c(
-                                              "v-card-title",
-                                              { staticClass: "text-h6" },
-                                              [
-                                                _vm._v(
-                                                  "\n                              Are you sure you want to delete this entry ??\n                           "
-                                                )
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "v-card-text",
-                                              {
-                                                staticClass:
-                                                  "text-subtitle-1 red--text text--accent-4 py-0"
-                                              },
-                                              [
-                                                _vm._v(
-                                                  "\n                              (Click Outside To Exit)\n                           "
-                                                )
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "v-card-actions",
-                                              [
-                                                _c("v-spacer"),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "v-btn",
-                                                  {
-                                                    attrs: {
-                                                      color: "red accent-4",
-                                                      text: "",
-                                                      disabled:
-                                                        _vm.disable_buttons,
-                                                      loading:
-                                                        _vm.disable_buttons
-                                                    },
-                                                    on: {
-                                                      click: function($event) {
-                                                        $event.preventDefault()
-                                                        return _vm.delete_carousel_content(
-                                                          carousel_content.id
-                                                        )
-                                                      }
-                                                    }
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      "\n                                 DELETE\n                              "
-                                                    )
-                                                  ]
-                                                )
-                                              ],
-                                              1
+                                            _vm._v(
+                                              "\n                              mdi-clipboard-edit\n                           "
                                             )
-                                          ],
-                                          1
+                                          ]
+                                        ),
+                                        _vm._v(
+                                          "\n                           EDIT\n                        "
                                         )
                                       ],
                                       1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-tooltip",
-                                      {
-                                        attrs: { top: "" },
-                                        scopedSlots: _vm._u(
-                                          [
-                                            {
-                                              key: "activator",
-                                              fn: function(ref) {
-                                                var on = ref.on
-                                                var attrs = ref.attrs
-                                                return [
-                                                  _c(
-                                                    "v-btn",
-                                                    _vm._g(
-                                                      {
-                                                        staticClass:
-                                                          "ma-1 indigo darken-3 rounded-1",
-                                                        attrs: {
-                                                          to:
-                                                            "/adminpanel/carousel_content/" +
-                                                            carousel_content.id,
-                                                          disabled:
-                                                            _vm.disable_buttons,
-                                                          elevation: "2",
-                                                          fab: "",
-                                                          rounded: ""
-                                                        }
-                                                      },
-                                                      on
-                                                    ),
-                                                    [
-                                                      _c(
-                                                        "v-icon",
-                                                        {
-                                                          attrs: {
-                                                            color: "white"
-                                                          }
-                                                        },
-                                                        [
-                                                          _vm._v(
-                                                            "\n                                 mdi-clipboard-edit\n                              "
-                                                          )
-                                                        ]
-                                                      )
-                                                    ],
-                                                    1
-                                                  )
-                                                ]
-                                              }
-                                            }
-                                          ],
-                                          null,
-                                          true
-                                        )
-                                      },
-                                      [
-                                        _vm._v(" "),
-                                        _c("span", [_vm._v("EDIT")])
-                                      ]
                                     )
                                   ],
                                   1
@@ -63343,27 +63395,6 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! !../../../../vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("4c386723", content, false, {});
-// Hot Module Replacement
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/vuetify/src/components/VTooltip/VTooltip.sass":
-/*!********************************************************************!*\
-  !*** ./node_modules/vuetify/src/components/VTooltip/VTooltip.sass ***!
-  \********************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(/*! !!../../../../css-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[1]!../../../../postcss-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[2]!../../../../sass-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[3]!./VTooltip.sass */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-15[0].rules[0].use[3]!./node_modules/vuetify/src/components/VTooltip/VTooltip.sass");
-if(content.__esModule) content = content.default;
-if(typeof content === 'string') content = [[module.id, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var add = __webpack_require__(/*! !../../../../vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
-var update = add("c3dc06aa", content, false, {});
 // Hot Module Replacement
 if(false) {}
 
@@ -75914,6 +75945,66 @@ component.options.__file = "resources/js/pages/admin_pages/admin_components/admi
 
 /***/ }),
 
+/***/ "./resources/js/pages/admin_pages/admin_components/carousel_content_dialog.vue":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/pages/admin_pages/admin_components/carousel_content_dialog.vue ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _carousel_content_dialog_vue_vue_type_template_id_c3fabc70___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./carousel_content_dialog.vue?vue&type=template&id=c3fabc70& */ "./resources/js/pages/admin_pages/admin_components/carousel_content_dialog.vue?vue&type=template&id=c3fabc70&");
+/* harmony import */ var _carousel_content_dialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./carousel_content_dialog.vue?vue&type=script&lang=js& */ "./resources/js/pages/admin_pages/admin_components/carousel_content_dialog.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/vuetify-loader/lib/runtime/installComponents.js */ "./node_modules/vuetify-loader/lib/runtime/installComponents.js");
+/* harmony import */ var _node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VBtn */ "./node_modules/vuetify/lib/components/VBtn/VBtn.js");
+/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/VCard.js");
+/* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/index.js");
+/* harmony import */ var vuetify_lib_components_VDialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VDialog */ "./node_modules/vuetify/lib/components/VDialog/VDialog.js");
+/* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/VIcon.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VSpacer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _carousel_content_dialog_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _carousel_content_dialog_vue_vue_type_template_id_c3fabc70___WEBPACK_IMPORTED_MODULE_0__.render,
+  _carousel_content_dialog_vue_vue_type_template_id_c3fabc70___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* vuetify-loader */
+;
+
+
+
+
+
+
+
+
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VBtn: vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCardActions: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardActions,VCardText: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardText,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardTitle,VDialog: vuetify_lib_components_VDialog__WEBPACK_IMPORTED_MODULE_7__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_8__.default,VSpacer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_9__.default})
+
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/admin_pages/admin_components/carousel_content_dialog.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/pages/admin_pages/adminpanel.vue":
 /*!*******************************************************!*\
   !*** ./resources/js/pages/admin_pages/adminpanel.vue ***!
@@ -76000,14 +76091,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/lib/components/VBtn */ "./node_modules/vuetify/lib/components/VBtn/VBtn.js");
 /* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/VCard.js");
 /* harmony import */ var vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuetify/lib/components/VCard */ "./node_modules/vuetify/lib/components/VCard/index.js");
-/* harmony import */ var vuetify_lib_components_VDialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VDialog */ "./node_modules/vuetify/lib/components/VDialog/VDialog.js");
-/* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/VIcon.js");
-/* harmony import */ var vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VImg */ "./node_modules/vuetify/lib/components/VImg/VImg.js");
-/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/VListItem.js");
-/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/VListItemAvatar.js");
-/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
-/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VSpacer.js");
-/* harmony import */ var vuetify_lib_components_VTooltip__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vuetify/lib/components/VTooltip */ "./node_modules/vuetify/lib/components/VTooltip/VTooltip.js");
+/* harmony import */ var vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuetify/lib/components/VIcon */ "./node_modules/vuetify/lib/components/VIcon/VIcon.js");
+/* harmony import */ var vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuetify/lib/components/VImg */ "./node_modules/vuetify/lib/components/VImg/VImg.js");
+/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/VListItem.js");
+/* harmony import */ var vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuetify/lib/components/VList */ "./node_modules/vuetify/lib/components/VList/VListItemAvatar.js");
+/* harmony import */ var vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuetify/lib/components/VGrid */ "./node_modules/vuetify/lib/components/VGrid/VRow.js");
 
 
 
@@ -76038,10 +76126,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 
 
-
-
-
-_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VBtn: vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCardActions: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardActions,VCardText: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardText,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardTitle,VDialog: vuetify_lib_components_VDialog__WEBPACK_IMPORTED_MODULE_7__.default,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_8__.default,VImg: vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_9__.default,VListItem: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_10__.default,VListItemAvatar: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_11__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_12__.default,VSpacer: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_13__.default,VTooltip: vuetify_lib_components_VTooltip__WEBPACK_IMPORTED_MODULE_14__.default})
+_node_modules_vuetify_loader_lib_runtime_installComponents_js__WEBPACK_IMPORTED_MODULE_3___default()(component, {VBtn: vuetify_lib_components_VBtn__WEBPACK_IMPORTED_MODULE_4__.default,VCard: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_5__.default,VCardActions: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardActions,VCardText: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardText,VCardTitle: vuetify_lib_components_VCard__WEBPACK_IMPORTED_MODULE_6__.VCardTitle,VIcon: vuetify_lib_components_VIcon__WEBPACK_IMPORTED_MODULE_7__.default,VImg: vuetify_lib_components_VImg__WEBPACK_IMPORTED_MODULE_8__.default,VListItem: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_9__.default,VListItemAvatar: vuetify_lib_components_VList__WEBPACK_IMPORTED_MODULE_10__.default,VRow: vuetify_lib_components_VGrid__WEBPACK_IMPORTED_MODULE_11__.default})
 
 
 /* hot reload */
@@ -87187,245 +87272,6 @@ const VToolbarItems = (0,_util_helpers__WEBPACK_IMPORTED_MODULE_0__.createSimple
   }
 });
 //# sourceMappingURL=index.js.map
-
-/***/ }),
-
-/***/ "./node_modules/vuetify/lib/components/VTooltip/VTooltip.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/vuetify/lib/components/VTooltip/VTooltip.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _src_components_VTooltip_VTooltip_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../src/components/VTooltip/VTooltip.sass */ "./node_modules/vuetify/src/components/VTooltip/VTooltip.sass");
-/* harmony import */ var _src_components_VTooltip_VTooltip_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VTooltip_VTooltip_sass__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mixins_activatable__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../mixins/activatable */ "./node_modules/vuetify/lib/mixins/activatable/index.js");
-/* harmony import */ var _mixins_colorable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/colorable */ "./node_modules/vuetify/lib/mixins/colorable/index.js");
-/* harmony import */ var _mixins_delayable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mixins/delayable */ "./node_modules/vuetify/lib/mixins/delayable/index.js");
-/* harmony import */ var _mixins_dependent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../mixins/dependent */ "./node_modules/vuetify/lib/mixins/dependent/index.js");
-/* harmony import */ var _mixins_menuable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../mixins/menuable */ "./node_modules/vuetify/lib/mixins/menuable/index.js");
-/* harmony import */ var _mixins_toggleable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../mixins/toggleable */ "./node_modules/vuetify/lib/mixins/toggleable/index.js");
-/* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../util/helpers */ "./node_modules/vuetify/lib/util/helpers.js");
-/* harmony import */ var _util_console__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../util/console */ "./node_modules/vuetify/lib/util/console.js");
-/* harmony import */ var _util_mixins__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/mixins */ "./node_modules/vuetify/lib/util/mixins.js");
- // Mixins
-
-
-
-
-
-
- // Helpers
-
-
-
-
-/* @vue/component */
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_util_mixins__WEBPACK_IMPORTED_MODULE_1__.default)(_mixins_colorable__WEBPACK_IMPORTED_MODULE_2__.default, _mixins_delayable__WEBPACK_IMPORTED_MODULE_3__.default, _mixins_dependent__WEBPACK_IMPORTED_MODULE_4__.default, _mixins_menuable__WEBPACK_IMPORTED_MODULE_5__.default, _mixins_toggleable__WEBPACK_IMPORTED_MODULE_6__.default).extend({
-  name: 'v-tooltip',
-  props: {
-    closeDelay: {
-      type: [Number, String],
-      default: 0
-    },
-    disabled: Boolean,
-    fixed: {
-      type: Boolean,
-      default: true
-    },
-    openDelay: {
-      type: [Number, String],
-      default: 0
-    },
-    openOnHover: {
-      type: Boolean,
-      default: true
-    },
-    tag: {
-      type: String,
-      default: 'span'
-    },
-    transition: String
-  },
-  data: () => ({
-    calculatedMinWidth: 0,
-    closeDependents: false
-  }),
-  computed: {
-    calculatedLeft() {
-      const {
-        activator,
-        content
-      } = this.dimensions;
-      const unknown = !this.bottom && !this.left && !this.top && !this.right;
-      const activatorLeft = this.attach !== false ? activator.offsetLeft : activator.left;
-      let left = 0;
-
-      if (this.top || this.bottom || unknown) {
-        left = activatorLeft + activator.width / 2 - content.width / 2;
-      } else if (this.left || this.right) {
-        left = activatorLeft + (this.right ? activator.width : -content.width) + (this.right ? 10 : -10);
-      }
-
-      if (this.nudgeLeft) left -= parseInt(this.nudgeLeft);
-      if (this.nudgeRight) left += parseInt(this.nudgeRight);
-      return `${this.calcXOverflow(left, this.dimensions.content.width)}px`;
-    },
-
-    calculatedTop() {
-      const {
-        activator,
-        content
-      } = this.dimensions;
-      const activatorTop = this.attach !== false ? activator.offsetTop : activator.top;
-      let top = 0;
-
-      if (this.top || this.bottom) {
-        top = activatorTop + (this.bottom ? activator.height : -content.height) + (this.bottom ? 10 : -10);
-      } else if (this.left || this.right) {
-        top = activatorTop + activator.height / 2 - content.height / 2;
-      }
-
-      if (this.nudgeTop) top -= parseInt(this.nudgeTop);
-      if (this.nudgeBottom) top += parseInt(this.nudgeBottom);
-      return `${this.calcYOverflow(top + this.pageYOffset)}px`;
-    },
-
-    classes() {
-      return {
-        'v-tooltip--top': this.top,
-        'v-tooltip--right': this.right,
-        'v-tooltip--bottom': this.bottom,
-        'v-tooltip--left': this.left,
-        'v-tooltip--attached': this.attach === '' || this.attach === true || this.attach === 'attach'
-      };
-    },
-
-    computedTransition() {
-      if (this.transition) return this.transition;
-      return this.isActive ? 'scale-transition' : 'fade-transition';
-    },
-
-    offsetY() {
-      return this.top || this.bottom;
-    },
-
-    offsetX() {
-      return this.left || this.right;
-    },
-
-    styles() {
-      return {
-        left: this.calculatedLeft,
-        maxWidth: (0,_util_helpers__WEBPACK_IMPORTED_MODULE_7__.convertToUnit)(this.maxWidth),
-        minWidth: (0,_util_helpers__WEBPACK_IMPORTED_MODULE_7__.convertToUnit)(this.minWidth),
-        opacity: this.isActive ? 0.9 : 0,
-        top: this.calculatedTop,
-        zIndex: this.zIndex || this.activeZIndex
-      };
-    }
-
-  },
-
-  beforeMount() {
-    this.$nextTick(() => {
-      this.value && this.callActivate();
-    });
-  },
-
-  mounted() {
-    if ((0,_util_helpers__WEBPACK_IMPORTED_MODULE_7__.getSlotType)(this, 'activator', true) === 'v-slot') {
-      (0,_util_console__WEBPACK_IMPORTED_MODULE_8__.consoleError)(`v-tooltip's activator slot must be bound, try '<template #activator="data"><v-btn v-on="data.on>'`, this);
-    }
-  },
-
-  methods: {
-    activate() {
-      // Update coordinates and dimensions of menu
-      // and its activator
-      this.updateDimensions(); // Start the transition
-
-      requestAnimationFrame(this.startTransition);
-    },
-
-    deactivate() {
-      this.runDelay('close');
-    },
-
-    genActivatorListeners() {
-      const listeners = _mixins_activatable__WEBPACK_IMPORTED_MODULE_9__.default.options.methods.genActivatorListeners.call(this);
-
-      listeners.focus = e => {
-        this.getActivator(e);
-        this.runDelay('open');
-      };
-
-      listeners.blur = e => {
-        this.getActivator(e);
-        this.runDelay('close');
-      };
-
-      listeners.keydown = e => {
-        if (e.keyCode === _util_helpers__WEBPACK_IMPORTED_MODULE_7__.keyCodes.esc) {
-          this.getActivator(e);
-          this.runDelay('close');
-        }
-      };
-
-      return listeners;
-    },
-
-    genActivatorAttributes() {
-      return {
-        'aria-haspopup': true,
-        'aria-expanded': String(this.isActive)
-      };
-    },
-
-    genTransition() {
-      const content = this.genContent();
-      if (!this.computedTransition) return content;
-      return this.$createElement('transition', {
-        props: {
-          name: this.computedTransition
-        }
-      }, [content]);
-    },
-
-    genContent() {
-      return this.$createElement('div', this.setBackgroundColor(this.color, {
-        staticClass: 'v-tooltip__content',
-        class: {
-          [this.contentClass]: true,
-          menuable__content__active: this.isActive,
-          'v-tooltip__content--fixed': this.activatorFixed
-        },
-        style: this.styles,
-        attrs: this.getScopeIdAttrs(),
-        directives: [{
-          name: 'show',
-          value: this.isContentActive
-        }],
-        ref: 'content'
-      }), this.getContentSlot());
-    }
-
-  },
-
-  render(h) {
-    return h(this.tag, {
-      staticClass: 'v-tooltip',
-      class: this.classes
-    }, [this.showLazyContent(() => [this.genTransition()]), this.genActivator()]);
-  }
-
-}));
-//# sourceMappingURL=VTooltip.js.map
 
 /***/ }),
 
