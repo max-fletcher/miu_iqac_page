@@ -1,6 +1,6 @@
 <template>
    <div>
-      {{carousel_content}}
+      <!-- {{carousel_content}} -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>
@@ -13,11 +13,11 @@
          <div v-for="(carousel_content, index) in carousel_content" :key="index">
             <v-card tile outlined class="mx-auto px-1 py-1">
                <v-card-title class="py-1">
-                  <span class="text-h6 font-weight-medium"> {{ carousel_content.carousel_title }} Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid placeat sed labore aliquam ut corrupti reprehenderit facilis esse eius quidem. </span>
+                  <span class="text-h6 font-weight-medium"> {{ carousel_content.carousel_title }} </span>
                </v-card-title>
 
                <v-card-text class="text-body-1 font-weight-medium py-0">
-                  {{ carousel_content.carousel_title }} Lorem ipsum dolor sit amet consectetur adipisicing elit. A totam optio vel eaque nulla omnis, placeat eveniet. Odio, delectus totam.
+                  {{ carousel_content.carousel_title }}
                </v-card-text>
 
                <v-card-actions class="py-0">

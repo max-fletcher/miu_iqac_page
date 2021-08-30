@@ -1,15 +1,14 @@
 <template>
    <div>
-      {{ carousel_content_id }}
+      <!-- {{ carousel_content_id }}
       {{ dialog }}
-      {{ disable_buttons }}
+      {{ disable_buttons }} -->
 
       <v-btn
          @click.prevent="dialog = true"
          :disabled="disable_buttons"
          elevation="2"
          class="ma-1 red darken-4 rounded-1 white--text"
-         v-on="onTooltip"
       >
          <v-icon left color="white">
             mdi-trash-can
@@ -32,19 +31,24 @@
                <v-spacer></v-spacer>
 
                <v-btn
+                  color="blue-grey darken-3"
+                  text
+                  :disabled="disable_buttons"
+                  :loading="disable_buttons"
+                  @click.prevent = "dialog = false"
+               >
+                  CANCEL
+               </v-btn>
+
+               <v-btn
                   color="red accent-4"
                   text
                   :disabled="disable_buttons"
                   :loading="disable_buttons"
                   @click.prevent = "delete_carousel_content(carousel_content_id)"
-                  v-bind="attrs"
-                  v-on="tooltip"
                >
                   DELETE
                </v-btn>
-                                                <!-- </template>
-                                 <span>Tooltip</span>
-                              </v-tooltip> -->
                
             </v-card-actions>
          </v-card>

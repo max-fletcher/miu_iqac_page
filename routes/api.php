@@ -47,6 +47,7 @@ Route::get('/carouselcontent/frontend_index', [App\Http\Controllers\CarouselCont
 Route::post('/carouselcontent/store', [App\Http\Controllers\CarouselContentController::class, 'store']);
 Route::get('/carouselcontent/show/{id}', [App\Http\Controllers\CarouselContentController::class, 'show']);
 Route::patch('/carouselcontent/update/{id}', [App\Http\Controllers\CarouselContentController::class, 'update']);
+//BE
 Route::delete('/carouselcontent/destroy/{id}', [App\Http\Controllers\CarouselContentController::class, 'destroy']);
 
 // About Content Controller
