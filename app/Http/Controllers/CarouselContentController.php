@@ -7,13 +7,14 @@ use Illuminate\Support\Str;
 use App\Models\CarouselContent;
 use Intervention\Image\Facades\Image;
 Use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
 
 class CarouselContentController extends Controller
 {
     public function index()
     {
         // return response()->json(CarouselContent::all() ,200);
-        return response()->json(CarouselContent::select(['id', 'carousel_title', 'carousel_subtitle', 'carousel_image'])->get() ,200);
+        return response()->json(CarouselContent::select(['id', 'carousel_title', 'carousel_subtitle', 'carousel_image', 'created_at'])->get() ,200);
     }
 
     public function frontend_index()
@@ -83,47 +84,60 @@ class CarouselContentController extends Controller
         $request->validate([
             'carousel_title' => ['required', 'string', 'max:133'],
             'carousel_subtitle' => ['required', 'string', 'max:176'],
-            'carousel_image' => ['required', 'image', 'max:3000'],
-            'resize_image' => ['required', 'numeric', 'integer'],
+            // 'carousel_image' => ['sometimes', 'image', 'max:3000'],
+            // 'resize_image' => ['required', 'numeric', 'integer'],
         ]);
-
-        //get filename with extension
-        $filenameWithExt = $request->file('carousel_image')->getClientOriginalName();
-        //get just file name (using standard php function)
-        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        //get just extension
-        $extension = $request->file('carousel_image')->getClientOriginalExtension();
-        //filename to store(uses a time php function to get current time)
-        //this string is a unique name so that file with duplicate name do not get uploaded and
-        //cause problems when viewing(same problem that occured in CISV photo gallery)
-        $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-
-        // Make Folder if it doesn't exist
-        $path = public_path('storage/carousel_images');
-        if(!File::isDirectory($path)){
-            File::makeDirectory($path, 0777, true, true);
-        }
-        
-        // Resize image if needed and store it in $image variable
-        // Save image to designated folder inside storage
-        if($request->resize_image == 1){
-            $image = Image::make($request->file('carousel_image'))->resize(2000, 1150);
-        }
-        else{
-            $image = Image::make($request->file('carousel_image'));
-        }
-
-        // Save image to designated folder inside storage
-        $image->save(public_path('storage/carousel_images/'. $filenameToStore));
 
         $carousel_content = CarouselContent::find($id);
         if($carousel_content){
+
+            if($request->hasFile('carousel_image')) {
+
+                $request->validate([
+                    'carousel_image' => ['required', 'image', 'max:3000'],
+                    'resize_image' => ['required', 'numeric', 'integer'],
+                ]);
+                
+                // deletes previous file
+                File::delete(public_path('storage/carousel_images/'.$carousel_content->carousel_image));
+                // Storage::delete('public/carousel_images/'.$carousel_content->carousel_image);
+
+                //get filename with extension
+                $filenameWithExt = $request->file('carousel_image')->getClientOriginalName();
+                //get just file name (using standard php function)
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                //get just extension
+                $extension = $request->file('carousel_image')->getClientOriginalExtension();
+                //filename to store(uses a time php function to get current time)
+                //this string is a unique name so that file with duplicate name do not get uploaded and
+                //cause problems when viewing(same problem that occured in CISV photo gallery)
+                $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
+
+                // Make Folder if it doesn't exist
+                $path = public_path('storage/carousel_images');
+                if(!File::isDirectory($path)){
+                    File::makeDirectory($path, 0777, true, true);
+                }
+
+                // Resize image if needed and store it in $image variable
+                // Save image to designated folder inside storage
+                if($request->resize_image == 1){
+                    $image = Image::make($request->file('carousel_image'))->resize(2000, 1150);
+                }
+                else{
+                    $image = Image::make($request->file('carousel_image'));
+                }
+
+                // Save image to designated folder inside storage
+                $image->save(public_path('storage/carousel_images/'. $filenameToStore));
+            }
+            else{
+                $filenameToStore = $carousel_content->carousel_image;
+            }
+
+            
             $carousel_content->carousel_title = $request->carousel_title;
             $carousel_content->carousel_subtitle = $request->carousel_subtitle;
-            
-            File::delete(public_path('storage/carousel_images/'.$carousel_content->carousel_image));  //deletes previous file
-            // Storage::delete('public/carousel_images/'.$carousel_content->carousel_image);
-            
             $carousel_content->carousel_image = $filenameToStore;
 
             $carousel_content->save();

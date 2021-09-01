@@ -22,14 +22,14 @@
                            <v-icon large left color="blue-grey darken-3"
                               >mdi-user
                            </v-icon>
-                           Edit Carousel Content</v-card-title>
+                           Create New Carousel Content</v-card-title>
                      </v-card>
                   </div>
                </v-row>
                <v-row>
                   <v-col class="mb-3">
                      <!-- Contact us Form -->
-                     <v-form ref="edit_carousel_content" :disabled="form_disabled" lazy-validation>
+                     <v-form ref="store_carousel_image" :disabled="form_disabled" lazy-validation>
 
                      <!-- Snackbar For successful Form Submission -->
                      <v-snackbar
@@ -42,6 +42,7 @@
                      <v-icon left>
                         mdi-check-circle
                      </v-icon>
+                        <!-- Content Saved Successfully !! -->
                         {{ success_message }}
 
                         <template v-slot:action="{ attrs }">
@@ -118,6 +119,7 @@
                            truncate-length="15"
                            label="Select New Image"
                            @change="select_file"
+                           :rules="carousel_image_rules"
                            prepend-inner-icon="mdi-paperclip"
                            prepend-icon=""
                            :error="errors && errors.carousel_image"
@@ -133,32 +135,33 @@
                            Otherwise, part of your image might be cropped out from the front-end.
                         </div>
 
-                        <!-- Gender Radio Buttons -->
+                        <!-- Resize Image Radio Buttons -->
                         <v-container fluid class="pt-0">
                            <v-radio-group
                               v-model="resize_image"
-                              column
                               mandatory
+                              column
+                              :rules="resize_image"
                               :error="errors && errors.resize_image"
                               :error-messages="errors.resize_image"
-                              :disabled="!carousel_image"
                            >
+                           
                               <template v-slot:label>
                                  <div> Do You Want to Resize Image ?? </div>
                               </template>
                               <v-radio value="1">
-                              <template v-slot:label>
-                                 <div> Yes </div>
-                              </template>
+                                 <template v-slot:label>
+                                    <div> Yes </div>
+                                 </template>
                               </v-radio>
                               <v-radio value="0">
-                              <template v-slot:label>
-                                 <div> No </div>
-                              </template>
+                                 <template v-slot:label>
+                                    <div> No </div>
+                                 </template>
                               </v-radio>
                            </v-radio-group>
                         </v-container>
-                        <!-- End Gender Radio Buttons -->
+                        <!-- End Resize Image Radio Buttons -->
 
                         <!-- Validate and Submit -->
                         <v-row class="">
@@ -214,6 +217,7 @@ export default {
          (v) => (v && v.length <= 176) || 'Name must be less than 176 characters',
       ],
       carousel_image: null,
+      carousel_image_rules: [ (v) => !!v || "Image is required" ],
       resize_image: "",
       resize_rules: [
          (v) => !!v || "Resize Parameter is required"
@@ -228,17 +232,19 @@ export default {
 
       submitForm() {
          console.log("trigger 1")
-         if (this.$refs.edit_carousel_content.validate()) {
+         if (this.$refs.store_carousel_image.validate()) {
             this.form_disabled = true
             this.form_loading = true
             
             console.log("trigger 2")
-            // if (!this.carousel_image) {
-            //    this.error_message = "Please select a file!";
-            //    this.form_disabled = false
-            //    this.form_loading = false
-            //    return;
-            // }
+            if (!this.carousel_image) {
+               this.error_message = "Please select a file!";
+               this.form_disabled = false
+               this.form_loading = false
+               return;
+            }
+
+            console.log("trigger 3")
 
             this.error_message = "";
 
@@ -247,18 +253,18 @@ export default {
             formData.append('carousel_subtitle', this.carousel_subtitle)
             formData.append('carousel_image', this.carousel_image)
             formData.append('resize_image', this.resize_image)
-            formData.append('_method', 'PATCH')
 
             console.log("trigger 3")
             // console.log(formData);
 
-            axios.post("/api/carouselcontent/update/" + this.$route.params.id, formData)
+            axios.post("/api/carouselcontent/store", formData)
             .then((res) => {
                console.log(res.data)
                this.success_message = res.data
                this.success_snackbar = true
                this.form_disabled = false
                this.form_loading = false
+               this.$refs.store_carousel_image.reset()
             })
             .catch((error) => {
                console.log(error)
@@ -270,36 +276,16 @@ export default {
             });
          } else {
             //false
-            this.$refs.edit_carousel_content.validate()
+            this.$refs.store_carousel_image.validate()
          }
       },
       // reset() {
-      //    this.$refs.edit_carousel_content.reset()
+      //    this.$refs.store_carousel_image.reset()
       // },
       // resetValidation() {
-      //    this.$refs.edit_carousel_content.resetValidation()
+      //    this.$refs.store_carousel_image.resetValidation()
       // },
    },
-   created(){
-      axios.get("/api/carouselcontent/show/" + this.$route.params.id)
-         .then((res) => {
-            console.log(res.data)
-            this.carousel_title = res.data.carousel_title
-            this.carousel_subtitle = res.data.carousel_subtitle
-            
-            this.form_disabled = false
-            this.form_loading = false
-            // this.$refs.edit_carousel_content.reset()
-         })
-         .catch((error) => {
-            console.log(error)
-            this.error_message = error.response.data.message
-            this.error_snackbar = true
-            this.errors = error.response.data.errors
-            this.form_disabled = false
-            this.form_loading = false
-         })
-  }
 };
 </script>
 

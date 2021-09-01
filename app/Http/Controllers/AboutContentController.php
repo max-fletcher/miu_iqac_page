@@ -9,7 +9,9 @@ class AboutContentController extends Controller
 {
     public function index()
     {
-        return response()->json(AboutContent::all(), 200);
+        $about_content = AboutContent::select('id', 'name','icon','content', 'created_at')->get();
+
+        return response()->json($about_content, 200);
     }
 
     public function frontend_index()
@@ -22,9 +24,9 @@ class AboutContentController extends Controller
     public function store(Request $request)
     {
         $request->validate([            
-            'name' => ['required', 'string', 'unique:about_contents'],
-            'content' => ['required', 'string'],
-            'icon' => ['required', 'string'],
+            'name' => ['required', 'string', 'max:255', 'unique:about_contents'],
+            'content' => ['required', 'string', 'max:65000'],
+            'icon' => ['required', 'string', 'max:255'],
         ]);
 
         AboutContent::Create([
@@ -49,9 +51,9 @@ class AboutContentController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => ['required', 'string'],
-            'content' => ['required', 'string'],
-            'icon' => ['required', 'string'],
+            'name' => ['required', 'string', 'max:255', 'unique:about_contents'],
+            'content' => ['required', 'string', 'max:65000'],
+            'icon' => ['required', 'string', 'max:255'],
         ]);
 
         $duplicate_content = AboutContent::where('name', $request->name)->first();

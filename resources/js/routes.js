@@ -19,9 +19,15 @@ import Register from "./pages/auth/register"
 import PublicationsAuth from "./pages/auth/publications_auth"
 // Admin Pages
 import AdminPanel from "./pages/admin_pages/adminpanel"
+// Carousel
 import CarouselContent from "./pages/admin_pages/carousel_content"
+import CarouselContentStore from "./pages/admin_pages/carousel_content_store"
 import CarouselContentEdit from "./pages/admin_pages/carousel_content_edit"
+// About
 import AboutAdmin from "./pages/admin_pages/about_admin"
+import AboutContentStore from "./pages/admin_pages/about_content_store"
+import AboutContentEdit from "./pages/admin_pages/about_content_edit"
+
 import PeopleAdmin from "./pages/admin_pages/people_admin"
 import EventsAdmin from "./pages/admin_pages/events_admin"
 import NewsAdmin from "./pages/admin_pages/news_admin"
@@ -156,39 +162,62 @@ export default{
          path: '/adminpanel',
          component: AdminPanel,
          name: 'AdminPanel',
-         meta: { title: 'Admin Panel' },
+         // meta: { title: 'Admin Panel' },
          children: [
             {
                path: 'main',
-               component: MainAdmin
+               component: MainAdmin,
+               meta: { title: 'Admin Panel - Main Menu' },
             },
             {
                path: 'carousel_content',
-               component: CarouselContent
+               component: CarouselContent,
+               meta: { title: 'Admin Panel - All Carousel Content' },
             },
             {
-               path: 'carousel_content/:id',
-               component: CarouselContentEdit
+               path: 'carousel_content/store',
+               component: CarouselContentStore,
+               meta: { title: 'Admin Panel - Store Carousel Content' },
+            },
+            {
+               path: 'carousel_content/edit/:id',
+               component: CarouselContentEdit,
+               meta: { title: 'Admin Panel - Edit Carousel Content' },
             },
             {
                path: 'about',
-               component: AboutAdmin
+               component: AboutAdmin,
+               meta: { title: 'Admin Panel - All About Content' },
+            },
+            {
+               path: 'about_content/store',
+               component: AboutContentStore,
+               meta: { title: 'Admin Panel - Store About Content' },
+            },
+            {
+               path: 'about_content/edit/:id',
+               component: AboutContentEdit,
+               meta: { title: 'Admin Panel - Edit About Content' },
             },
             {
                path: 'people',
-               component: PeopleAdmin
+               component: PeopleAdmin,
+               meta: { title: 'Admin Panel - All People Content' },
             },
             {
                path: 'events',
-               component: EventsAdmin
+               component: EventsAdmin,
+               meta: { title: 'Admin Panel - All Events Content' },
             },
             {
                path: 'news',
-               component: NewsAdmin
+               component: NewsAdmin,
+               meta: { title: 'Admin Panel - All News Content' },
             },
             {
                path: 'resources',
-               component: ResourcesAdmin
+               component: ResourcesAdmin,
+               meta: { title: 'Admin Panel - All Resources Content' },
             },
          ],
          // To confirm if user is logged in or not

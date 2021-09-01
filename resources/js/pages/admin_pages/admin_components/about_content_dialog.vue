@@ -1,6 +1,6 @@
 <template>
    <div>
-      <!-- {{ carousel_content_id }}
+      <!-- {{ about_content_id }}
       {{ dialog }}
       {{ disable_buttons }} -->
 
@@ -42,7 +42,7 @@
                   text
                   :disabled="disable_buttons"
                   :loading="disable_buttons"
-                  @click.prevent = "delete_carousel_content(carousel_content_id)"
+                  @click.prevent = "delete_about_content(about_content_id)"
                >
                   DELETE
                </v-btn>
@@ -55,7 +55,7 @@
 
 <script>
 export default {
-   props: ['carousel_content_id'],
+   props: ['about_content_id'],
    data: () => ({
       dialog: false,
       disable_buttons: false
@@ -67,22 +67,23 @@ export default {
       //       this.carousel_content = response.data
       //    });
       // },
-      delete_carousel_content(id) {
+      delete_about_content(id) {
          console.log(id)
          this.disable_buttons = true
 
          // this.$emit('carousel_content_deleted', id)
 
-         axios.delete( "/api/carouselcontent/destroy/" + id )
+         axios.delete( "/api/about/content/destroy/" + id )
             .then((res) => {
                console.log(res.data);
                this.dialog = false
                this.disable_buttons = false
-               this.$emit('carousel_content_deleted', id)
+               this.$emit('about_content_deleted', id)
             }).catch(error => {
                this.dialog = false
                this.disable_buttons = false
-               this.$emit('carousel_content_delete_failed', id)
+               this.$emit('about_content_delete_failed', id)
+               // alert('Internal Error ! Cannot Delete Contact !!');
             })
 
             // this.carousel_content = this.carousel_content.filter(function(obj) {

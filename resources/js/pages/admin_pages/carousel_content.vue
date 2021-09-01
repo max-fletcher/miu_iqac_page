@@ -6,18 +6,65 @@
       </div>
 
       <v-card v-else>
-         <v-card flat tile outlined width="100%">
+         <!-- Snackbar For Internal Server Error -->
+         <v-snackbar
+              v-model="error_snackbar"
+              color="red"
+              :timeout="timeout"
+              top
+              right
+          >
+          <v-icon left>
+              mdi-cancel
+          </v-icon>
+              {{error_message}}
+
+              <template v-slot:action="{ attrs }">
+              <v-btn
+                color="white"
+                text
+                v-bind="attrs"
+                @click="error_snackbar = false"
+              >
+                Close
+              </v-btn>
+              </template>
+         </v-snackbar>
+         <!-- End Snackbar For Internal Server Error -->
+
+         <v-card flat tile outlined width="100%" class="d-flex">
             <v-card-title> Carousel Content </v-card-title>
+
+               <v-spacer></v-spacer>
+
+               <v-btn
+                  to="/adminpanel/carousel_content/store"
+                  :disabled="disable_buttons"
+                  elevation="2"
+                  class="ma-1 orange darken-3 rounded-1 white--text mt-4 mr-4"
+               >
+                  <v-icon left color="white">
+                     mdi-plus
+                  </v-icon>
+                  CREATE NEW
+               </v-btn>
+
          </v-card>
 
          <div v-for="(carousel_content, index) in carousel_content" :key="index">
-            <v-card tile outlined class="mx-auto px-1 py-1">
-               <v-card-title class="py-1">
-                  <span class="text-h6 font-weight-medium"> {{ carousel_content.carousel_title }} </span>
+            <v-card tile outlined class="mx-auto px-1 py-2">
+               <v-card-title class="py-0">
+                  <span class="text-h6 font-weight-medium">
+                     Title: {{ carousel_content.carousel_title }}
+                  </span>
                </v-card-title>
 
                <v-card-text class="text-body-1 font-weight-medium py-0">
-                  {{ carousel_content.carousel_title }}
+                  Subtitle: {{ carousel_content.carousel_subtitle }}
+               </v-card-text>
+
+               <v-card-text class="text-caption font-weight-medium py-0">
+                  Created At: {{ moment(carousel_content.created_at).format('MMMM Do YYYY, h:mm a') }}
                </v-card-text>
 
                <v-card-actions class="py-0">
@@ -38,10 +85,10 @@
                         justify="end"
                      >
                            <!-- Delete Button With v-menu -->
-                           <CarouselContentDialog :carousel_content_id="carousel_content.id" @carousel_content_deleted="carousel_content_update($event)"/>
+                           <CarouselContentDialog :carousel_content_id="carousel_content.id" @carousel_content_deleted="carousel_content_update($event)" @carousel_content_delete_failed="carousel_content_delete_failed($event)" />
 
                            <v-btn
-                              :to="'/adminpanel/carousel_content/' + carousel_content.id"
+                              :to="'/adminpanel/carousel_content/edit/' + carousel_content.id"
                               :disabled="disable_buttons"
                               elevation="2"
                               class="ma-1 indigo darken-3 rounded-1 white--text"
@@ -63,14 +110,18 @@
 </template>
 
 <script>
+import moment from 'moment'
 import AdminLoading from "./admin_components/admin_loading"
 import CarouselContentDialog from "./admin_components/carousel_content_dialog"
 export default {
    data: () => ({
-      cards: ["Today", "Yesterday"],
+      moment: moment,
       carousel_content: [],
       loading_content: false,
       disable_buttons: false,
+      timeout: 3000,
+      error_snackbar: false,
+      error_message: "",
       // dialog: false,
    }),
    components: {
@@ -107,6 +158,12 @@ export default {
             return obj.id !== deleted_id; // Or whatever value you want to use
          })
       },
+
+      carousel_content_delete_failed($deleted_id)
+      {
+        this.error_message = "Server Error !! Failed to Delete Content with ID: " + $deleted_id + "."
+        this.error_snackbar = true
+      }
    },
 
    created() {

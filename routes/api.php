@@ -44,19 +44,23 @@ Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout']);
 Route::get('/carouselcontent/index', [App\Http\Controllers\CarouselContentController::class, 'index']);
 // FE
 Route::get('/carouselcontent/frontend_index', [App\Http\Controllers\CarouselContentController::class, 'frontend_index']);
+// BE
 Route::post('/carouselcontent/store', [App\Http\Controllers\CarouselContentController::class, 'store']);
 Route::get('/carouselcontent/show/{id}', [App\Http\Controllers\CarouselContentController::class, 'show']);
+// BE
 Route::patch('/carouselcontent/update/{id}', [App\Http\Controllers\CarouselContentController::class, 'update']);
 //BE
 Route::delete('/carouselcontent/destroy/{id}', [App\Http\Controllers\CarouselContentController::class, 'destroy']);
 
 // About Content Controller
+// BE
 Route::get('/about/content/index', [App\Http\Controllers\AboutContentController::class, 'index']);
 // FE
 Route::get('/about/content/frontend_index', [App\Http\Controllers\AboutContentController::class, 'frontend_index']);
 Route::post('/about/content/store', [App\Http\Controllers\AboutContentController::class, 'store']);
 Route::get('/about/content/show/{id}', [App\Http\Controllers\AboutContentController::class, 'show']);
 Route::patch('/about/content/update/{id}', [App\Http\Controllers\AboutContentController::class, 'update']);
+// BE
 Route::delete('/about/content/destroy/{id}', [App\Http\Controllers\AboutContentController::class, 'destroy']);
 Route::get('/about/content/contentbytypeid/{id}', [App\Http\Controllers\AboutContentController::class, 'find_all_content_by_type_id']);
 
