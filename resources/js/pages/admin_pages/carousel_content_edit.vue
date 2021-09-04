@@ -19,9 +19,6 @@
                               text--darken-3
                            "
                         >
-                           <v-icon large left color="blue-grey darken-3"
-                              >mdi-user
-                           </v-icon>
                            Edit Carousel Content</v-card-title>
                      </v-card>
                   </div>

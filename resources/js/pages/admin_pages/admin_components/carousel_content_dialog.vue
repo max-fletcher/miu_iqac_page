@@ -78,7 +78,7 @@ export default {
                console.log(res.data);
                this.dialog = false
                this.disable_buttons = false
-               this.$emit('carousel_content_deleted', id)
+               this.$emit('carousel_content_deleted', { deleted_id: id, delete_message: res.data} )
             }).catch(error => {
                this.dialog = false
                this.disable_buttons = false

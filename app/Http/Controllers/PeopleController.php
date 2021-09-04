@@ -11,7 +11,7 @@ class PeopleController extends Controller
 
     public function index()
     {
-        $people = People::all();
+        $people = People::select('id', 'name', 'created_at')->orderBy('id')->get();
         return response()->json($people, 200);
     }
 
@@ -33,7 +33,7 @@ class PeopleController extends Controller
             'name' => $request->name
         ]);
 
-        return response()->json('People Created Successfully !', 201);
+        return response()->json('People Section Created Successfully !', 201);
     }
 
     public function show($id)
@@ -45,7 +45,17 @@ class PeopleController extends Controller
             return response()->json($people, 201);
         }
         
-        return response()->json('The Provided ID doesn\'t match any People Records !!', 404);
+        return response()->json('The Provided ID Doesn\'t Match Any People Records !!', 404);
+    }
+
+    public function show_without_relations($id)
+    {        
+        $people = People::where('id', $id)->select('id', 'name')->first();;
+        if($people){
+            return response()->json($people, 201);
+        }
+        
+        return response()->json('The Provided ID Doesn\'t Match Any People Records !!', 404);
     }
 
     public function update(Request $request, $id)
@@ -58,10 +68,10 @@ class PeopleController extends Controller
         if($people){
             $people->name = $request->name;
             $people->save();
-            return response()->json('People Updated Successfully !', 201);
+            return response()->json('People Section Updated Successfully !', 201);
         }
 
-        return response()->json('The Provided ID doesn\'t match any People Records !!', 404);
+        return response()->json('The Provided ID doesn\'t Match Any People Records !!', 404);
 
     }
 
@@ -70,9 +80,9 @@ class PeopleController extends Controller
         $people = People::find($id);
         if($people){            
             $people->delete();
-            return response()->json('People Destroyed Successfully !', 201);
+            return response()->json('People Section Deleted Successfully !', 201);
         }
 
-        return response()->json('Can\'t delete because provided ID doesn\'t match any People Records !!', 404);
+        return response()->json('Can\'t Delete Because Provided ID Doesn\'t Match Any People Records !!', 404);
     }
 }

@@ -19,9 +19,6 @@
                               text--darken-3
                            "
                         >
-                           <v-icon large left color="blue-grey darken-3"
-                              >mdi-user
-                           </v-icon>
                            Create New Carousel Content</v-card-title>
                      </v-card>
                   </div>
@@ -141,9 +138,9 @@
                               v-model="resize_image"
                               mandatory
                               column
-                              :rules="resize_image"
                               :error="errors && errors.resize_image"
                               :error-messages="errors.resize_image"
+                              :disabled="!carousel_image"
                            >
                            
                               <template v-slot:label>
@@ -219,9 +216,9 @@ export default {
       carousel_image: null,
       carousel_image_rules: [ (v) => !!v || "Image is required" ],
       resize_image: "",
-      resize_rules: [
-         (v) => !!v || "Resize Parameter is required"
-      ],
+      // resize_rules: [
+      //    (v) => !!v || "Resize Parameter is required"
+      // ],
    }),
 
    methods: {

@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 use App\Models\CarouselContent;
 use Intervention\Image\Facades\Image;
 Use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Validator;
+use App\Rules\noimage;
 
 class CarouselContentController extends Controller
 {
@@ -27,7 +27,7 @@ class CarouselContentController extends Controller
         $request->validate([
             'carousel_title' => ['required', 'string', 'max:133'],
             'carousel_subtitle' => ['required', 'string', 'max:176'],
-            'carousel_image' => ['required', 'image', 'max:3000'],
+            'carousel_image' => ['required', 'image', 'max:3000', new noimage],
             'resize_image' => ['required', 'numeric', 'integer'],
         ]);
 
@@ -76,7 +76,7 @@ class CarouselContentController extends Controller
             return response()->json($carousel_content, 200);
         }
 
-        return response()->json('The Provided ID doesn\'t match any Carousel Content Records !!', 404);
+        return response()->json('The Provided ID Doesn\'t Match Any Carousel Content Records !!', 404);
     }
 
     public function update(Request $request, $id)
@@ -84,8 +84,6 @@ class CarouselContentController extends Controller
         $request->validate([
             'carousel_title' => ['required', 'string', 'max:133'],
             'carousel_subtitle' => ['required', 'string', 'max:176'],
-            // 'carousel_image' => ['sometimes', 'image', 'max:3000'],
-            // 'resize_image' => ['required', 'numeric', 'integer'],
         ]);
 
         $carousel_content = CarouselContent::find($id);
@@ -94,12 +92,13 @@ class CarouselContentController extends Controller
             if($request->hasFile('carousel_image')) {
 
                 $request->validate([
-                    'carousel_image' => ['required', 'image', 'max:3000'],
+                    'carousel_image' => ['required', 'image', 'max:3000', new noimage],
                     'resize_image' => ['required', 'numeric', 'integer'],
                 ]);
                 
                 // deletes previous file
-                File::delete(public_path('storage/carousel_images/'.$carousel_content->carousel_image));
+                if($carousel_content->carousel_image != "noimage.jpg")
+                    File::delete(public_path('storage/carousel_images/'.$carousel_content->carousel_image));
                 // Storage::delete('public/carousel_images/'.$carousel_content->carousel_image);
 
                 //get filename with extension
@@ -139,12 +138,11 @@ class CarouselContentController extends Controller
             $carousel_content->carousel_title = $request->carousel_title;
             $carousel_content->carousel_subtitle = $request->carousel_subtitle;
             $carousel_content->carousel_image = $filenameToStore;
-
             $carousel_content->save();
             return response()->json( "Carousel Content Updated Successfully !!" ,201);
         }
 
-        return response()->json('The Provided ID doesn\'t match any Carousel Content Records !!', 404);
+        return response()->json('The Provided ID Doesn\'t Match Any Carousel Content Records !!', 404);
 
     }
 
@@ -155,11 +153,12 @@ class CarouselContentController extends Controller
             // using this instead of Storage::delete since in create method, intervention image doesn't work with
             // storeAs method (uses GD library) so used File facade there as well as here to maintain consistency
             // Storage::delete('public/carousel_images/'.$carousel_content->carousel_image);  //deletes iamge
-            File::delete(public_path('storage/carousel_images/'.$carousel_content->carousel_image));
+            if($carousel_content->carousel_image != "noimage.jpg")
+                File::delete(public_path('storage/carousel_images/'.$carousel_content->carousel_image));
             $carousel_content->delete();
             return response()->json( "Carousel Content Deleted Successfully !!" ,201);
         }
 
-        return response()->json('The Provided ID doesn\'t match any Carousel Content Records !!', 404);
+        return response()->json('The Provided ID Doesn\'t Match Any Carousel Content Records !!', 404);
     }
 }

@@ -6,6 +6,33 @@
       </div>
 
       <v-card v-else>
+
+         <!-- Snackbar For successful Deletion -->
+          <v-snackbar
+              v-model="delete_success_snackbar"
+              color="green"
+              :timeout="timeout"
+              top
+              right
+          >
+          <v-icon left>
+              mdi-check-circle
+          </v-icon>
+              {{ delete_success_message }}
+
+              <template v-slot:action="{ attrs }">
+              <v-btn
+                color="white"
+                text
+                v-bind="attrs"
+                @click="delete_success_snackbar = false"
+              >
+                Close
+              </v-btn>
+              </template>
+          </v-snackbar>
+          <!-- End Snackbar For successful Deletion -->
+
          <!-- Snackbar For Internal Server Error -->
          <v-snackbar
               v-model="error_snackbar"
@@ -41,7 +68,7 @@
                   to="/adminpanel/carousel_content/store"
                   :disabled="disable_buttons"
                   elevation="2"
-                  class="ma-1 orange darken-3 rounded-1 white--text mt-4 mr-4"
+                  class="ma-1 orange darken-3 rounded-1 white--text mt-4 mr-5"
                >
                   <v-icon left color="white">
                      mdi-plus
@@ -84,9 +111,6 @@
                         align="center"
                         justify="end"
                      >
-                           <!-- Delete Button With v-menu -->
-                           <CarouselContentDialog :carousel_content_id="carousel_content.id" @carousel_content_deleted="carousel_content_update($event)" @carousel_content_delete_failed="carousel_content_delete_failed($event)" />
-
                            <v-btn
                               :to="'/adminpanel/carousel_content/edit/' + carousel_content.id"
                               :disabled="disable_buttons"
@@ -98,6 +122,9 @@
                               </v-icon>
                               EDIT
                            </v-btn>
+
+                           <!-- Delete Button With v-menu -->
+                           <CarouselContentDialog :carousel_content_id="carousel_content.id" @carousel_content_deleted="carousel_content_update($event)" @carousel_content_delete_failed="carousel_content_delete_failed($event)" />
 
                      </v-row>
 
@@ -122,6 +149,8 @@ export default {
       timeout: 3000,
       error_snackbar: false,
       error_message: "",
+      delete_success_snackbar: false,
+      delete_success_message: ""
       // dialog: false,
    }),
    components: {
@@ -153,10 +182,14 @@ export default {
       //    this.dialog = false
       // }
 
-      carousel_content_update(deleted_id){
+      carousel_content_update(deleted){
             this.carousel_content = this.carousel_content.filter(function(obj) {
-            return obj.id !== deleted_id; // Or whatever value you want to use
+            return obj.id !== deleted.deleted_id; // Or whatever value you want to use
          })
+
+         // console.log(deleted)
+         this.delete_success_message = deleted.delete_message
+         this.delete_success_snackbar = true
       },
 
       carousel_content_delete_failed($deleted_id)

@@ -46,6 +46,7 @@ Route::get('/carouselcontent/index', [App\Http\Controllers\CarouselContentContro
 Route::get('/carouselcontent/frontend_index', [App\Http\Controllers\CarouselContentController::class, 'frontend_index']);
 // BE
 Route::post('/carouselcontent/store', [App\Http\Controllers\CarouselContentController::class, 'store']);
+// BE
 Route::get('/carouselcontent/show/{id}', [App\Http\Controllers\CarouselContentController::class, 'show']);
 // BE
 Route::patch('/carouselcontent/update/{id}', [App\Http\Controllers\CarouselContentController::class, 'update']);
@@ -57,25 +58,34 @@ Route::delete('/carouselcontent/destroy/{id}', [App\Http\Controllers\CarouselCon
 Route::get('/about/content/index', [App\Http\Controllers\AboutContentController::class, 'index']);
 // FE
 Route::get('/about/content/frontend_index', [App\Http\Controllers\AboutContentController::class, 'frontend_index']);
+// BE
 Route::post('/about/content/store', [App\Http\Controllers\AboutContentController::class, 'store']);
+// BE
 Route::get('/about/content/show/{id}', [App\Http\Controllers\AboutContentController::class, 'show']);
+// BE
 Route::patch('/about/content/update/{id}', [App\Http\Controllers\AboutContentController::class, 'update']);
 // BE
 Route::delete('/about/content/destroy/{id}', [App\Http\Controllers\AboutContentController::class, 'destroy']);
-Route::get('/about/content/contentbytypeid/{id}', [App\Http\Controllers\AboutContentController::class, 'find_all_content_by_type_id']);
 
 // People Controller
+// BE
 Route::get('/people/index', [App\Http\Controllers\PeopleController::class, 'index']);
 // FE
 Route::get('/people/frontend_index', [App\Http\Controllers\PeopleController::class, 'frontend_index']);
+// BE
 Route::post('/people/store', [App\Http\Controllers\PeopleController::class, 'store']);
 // FE
 Route::get('/people/show/{id}', [App\Http\Controllers\PeopleController::class, 'show']);
+// BE
+Route::get('/people/show_without_relations/{id}', [App\Http\Controllers\PeopleController::class, 'show_without_relations']);
+// BE
 Route::patch('/people/update/{id}', [App\Http\Controllers\PeopleController::class, 'update']);
+// BE
 Route::delete('/people/destroy/{id}', [App\Http\Controllers\PeopleController::class, 'destroy']);
 
 // Member Controller
 Route::get('/people/members/index', [App\Http\Controllers\MemberController::class, 'index']);
+// BE
 Route::post('/people/members/store', [App\Http\Controllers\MemberController::class, 'store']);
 Route::get('/people/members/show/{id}', [App\Http\Controllers\MemberController::class, 'show']);
 Route::patch('/people/members/update/{id}', [App\Http\Controllers\MemberController::class, 'update']);

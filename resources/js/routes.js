@@ -27,8 +27,15 @@ import CarouselContentEdit from "./pages/admin_pages/carousel_content_edit"
 import AboutAdmin from "./pages/admin_pages/about_admin"
 import AboutContentStore from "./pages/admin_pages/about_content_store"
 import AboutContentEdit from "./pages/admin_pages/about_content_edit"
-
+// People
 import PeopleAdmin from "./pages/admin_pages/people_admin"
+import PeopleStore from "./pages/admin_pages/people_section_store"
+import PeopleEdit from "./pages/admin_pages/people_section_edit"
+// Members
+import MembersAdmin from "./pages/admin_pages/members_admin"
+import MembersStore from "./pages/admin_pages/members_store"
+import MembersEdit from "./pages/admin_pages/members_edit"
+
 import EventsAdmin from "./pages/admin_pages/events_admin"
 import NewsAdmin from "./pages/admin_pages/news_admin"
 import ResourcesAdmin from "./pages/admin_pages/resources_admin"
@@ -204,6 +211,33 @@ export default{
                component: PeopleAdmin,
                meta: { title: 'Admin Panel - All People Content' },
             },
+            {
+               path: 'people/store',
+               component: PeopleStore,
+               meta: { title: 'Admin Panel - Store People Section' },
+            },
+            {
+               path: 'people/edit/:id',
+               component: PeopleEdit,
+               meta: { title: 'Admin Panel - Edit People Section' },
+            },
+            {
+               path: 'members/:people_id',
+               component: MembersAdmin,
+               meta: { title: 'Admin Panel - All Members' },
+            },
+            {
+               path: 'members/:people_id/store',
+               component: MembersStore,
+               meta: { title: 'Admin Panel - Store Members Section' },
+            },
+            {
+               path: 'members/:people_id/edit/:id',
+               component: MembersEdit,
+               meta: { title: 'Admin Panel - Edit Members Section' },
+            },
+
+
             {
                path: 'events',
                component: EventsAdmin,

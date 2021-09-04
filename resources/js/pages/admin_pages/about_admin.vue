@@ -1,11 +1,38 @@
 <template>
    <div>
-      {{about_content}}
+      <!-- {{about_content}} -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>
 
-      <v-card v-else>          
+      <v-card v-else>
+
+         <!-- Snackbar For successful Deletion -->
+            <v-snackbar
+               v-model="delete_success_snackbar"
+               color="green"
+               :timeout="timeout"
+               top
+               right
+            >
+            <v-icon left>
+               mdi-check-circle
+            </v-icon>
+               {{ delete_success_message }}
+
+               <template v-slot:action="{ attrs }">
+               <v-btn
+                  color="white"
+                  text
+                  v-bind="attrs"
+                  @click="delete_success_snackbar = false"
+               >
+                  Close
+               </v-btn>
+               </template>
+            </v-snackbar>
+         <!-- End Snackbar For successful Deletion -->
+
           <!-- Snackbar For Internal Server Error -->
           <v-snackbar
               v-model="error_snackbar"
@@ -41,7 +68,7 @@
                 to="/adminpanel/about_content/store"
                 :disabled="disable_buttons"
                 elevation="2"
-                class="ma-1 orange darken-3 rounded-1 white--text mt-4 mr-4"
+                class="ma-1 orange darken-3 rounded-1 white--text mt-4 mr-5"
               >
                 <v-icon left color="white">
                     mdi-plus
@@ -89,8 +116,6 @@
                         justify="start"
                         justify-sm="end"
                      >
-                           <!-- Delete Button With v-menu -->
-                           <AboutContentDialog :about_content_id="about_content.id" @about_content_deleted="about_content_update($event)" @about_content_delete_failed="about_content_delete_failed($event)"/>
 
                            <v-btn
                               :to="'/adminpanel/about_content/edit/' + about_content.id"
@@ -103,6 +128,9 @@
                               </v-icon>
                               EDIT
                            </v-btn>
+
+                           <!-- Delete Button With v-menu -->
+                           <AboutContentDialog :about_content_id="about_content.id" @about_content_deleted="about_content_update($event)" @about_content_delete_failed="about_content_delete_failed($event)"/>
 
                      </v-row>
 
@@ -127,6 +155,8 @@ export default {
       timeout: 3000,
       error_snackbar: false,
       error_message: "",
+      delete_success_snackbar: false,
+      delete_success_message: ""
       // dialog: false,
    }),
    components: {
@@ -158,10 +188,14 @@ export default {
       //    this.dialog = false
       // }
 
-      about_content_update(deleted_id){
+      about_content_update(deleted){
         this.about_content = this.about_content.filter(function(obj) {
-          return obj.id !== deleted_id; // Or whatever value you want to use
+          return obj.id !== deleted.deleted_id; // Or whatever value you want to use
         })
+
+         // console.log(deleted)
+         this.delete_success_message = deleted.delete_message
+         this.delete_success_snackbar = true
       },
 
       about_content_delete_failed($deleted_id)

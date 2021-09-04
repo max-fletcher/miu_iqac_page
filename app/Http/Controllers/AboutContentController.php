@@ -40,12 +40,12 @@ class AboutContentController extends Controller
 
     public function show($id)
     {
-        $about_content = AboutContent::find($id);
+        $about_content = AboutContent::where('id', $id)->select('id', 'name','icon','content', 'created_at')->first();
         if($about_content){
             return response()->json( $about_content, 200 );
         }
 
-        return response()->json('The Provided ID doesn\'t match any Content Records !!', 404);
+        return response()->json('The Provided ID Doesn\'t Match Any Content Records !!', 404);
     }
 
     public function update(Request $request, $id)
@@ -59,7 +59,7 @@ class AboutContentController extends Controller
         $duplicate_content = AboutContent::where('name', $request->name)->first();
 
         if( $duplicate_content && $duplicate_content->id != $id ){
-            return response()->json('This content name is already taken !!', 404);
+            return response()->json('This Content Name is Already Taken !!', 404);
         }
 
         $about_content = AboutContent::find($id);
@@ -71,7 +71,7 @@ class AboutContentController extends Controller
             return response()->json('About Content Updated Successfully !', 201);
         }
 
-        return response()->json('The Provided ID doesn\'t match any Content Records !!', 404);
+        return response()->json('The Provided ID Doesn\'t Match Any Content Records !!', 404);
     }
 
     public function destroy($id)
@@ -79,9 +79,9 @@ class AboutContentController extends Controller
         $about_content = AboutContent::find($id);
         if($about_content){            
             $about_content->delete();
-            return response()->json('Content Destroyed Successfully !', 201);
+            return response()->json('About Content Destroyed Successfully !', 201);
         }
 
-        return response()->json('Can\'t delete because provided ID doesn\'t match any Content Records !!', 404);
+        return response()->json('Can\'t Delete Because Provided ID Doesn\'t Match Any Content Records !!', 404);
     }
 }

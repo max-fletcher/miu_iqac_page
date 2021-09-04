@@ -5,6 +5,7 @@
          icon: {{icon}} <br>
          content: {{ content }} <br>
          {{ errors }} <br>
+         {{ error_message }} <br>
          {{ name_rules }}
          <v-row class="mb-4 mx-sm-10">
             <v-col>
@@ -19,9 +20,6 @@
                               text--darken-3
                            "
                         >
-                           <v-icon large left color="blue-grey darken-3"
-                              >mdi-user
-                           </v-icon>
                            Create New About Content</v-card-title>
                      </v-card>
                   </div>
@@ -103,7 +101,7 @@
                            Format for using mdi icons is like this: mdi-iconname. Go to https://materialdesignicons.com/ ,
                            and choose an icon. Hovering over an icon shows you the icon name.
                            Just append "mdi-" to it, and enter into this field and it should work.
-                           e.g if an icon is named "user" you should enter "mdi-user" into this field and submit.
+                           e.g if an icon is named "account" you should enter "mdi-account" into this field and submit.
                         </div>
 
                         <!-- Icon Field -->
@@ -225,7 +223,7 @@ export default {
                this.$refs.store_about_content.reset()
             })
             .catch((error) => {
-               console.log(error)
+               console.log(error.message)
                this.error_message = error.response.data.message
                this.error_snackbar = true
                this.errors = error.response.data.errors
