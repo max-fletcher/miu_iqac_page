@@ -114,7 +114,7 @@
                         class="mt-0 mb-1 mt-sm-0 mb-sm-0"
                      >
                            <v-btn
-                              :to="'/adminpanel/members/' + people.id"
+                              :to="'/adminpanel/people/' + people.id + '/members'"
                               :disabled="disable_buttons"
                               elevation="2"
                               class="ma-1 green darken-1 rounded-1 white--text"

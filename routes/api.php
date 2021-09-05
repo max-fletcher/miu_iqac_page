@@ -104,6 +104,8 @@ Route::post('/events/types/store', [App\Http\Controllers\EventTypeController::cl
 // BE
 Route::get('/events/types/show/{id}', [App\Http\Controllers\EventTypeController::class, 'show']);
 // BE
+Route::get('/events/types/show_with_events/{id}', [App\Http\Controllers\EventTypeController::class, 'show_with_events']);
+// BE
 Route::patch('/events/types/update/{id}', [App\Http\Controllers\EventTypeController::class, 'update']);
 Route::delete('/events/types/destroy/{id}', [App\Http\Controllers\EventTypeController::class, 'destroy']);
 // FE
@@ -114,6 +116,7 @@ Route::get('/events/index', [App\Http\Controllers\EventController::class, 'index
 Route::post('/events/store', [App\Http\Controllers\EventController::class, 'store']);
 // FE
 Route::get('/events/show/{id}', [App\Http\Controllers\EventController::class, 'show']);
+// BE
 Route::patch('/events/update/{id}', [App\Http\Controllers\EventController::class, 'update']);
 Route::delete('/events/destroy/{id}', [App\Http\Controllers\EventController::class, 'destroy']);
 Route::get('/events/upcoming/eventsbyeventtypeid/{id}', [App\Http\Controllers\EventController::class, 'upcoming_events_by_event_type_id']);

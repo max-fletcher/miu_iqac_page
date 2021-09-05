@@ -33,7 +33,7 @@ class EventTypeController extends Controller
     }
 
     public function show($id)
-    {   
+    {
         $event_type = EventType::where('id', $id)->select('id', 'event_type', 'created_at')->first();
         if($event_type){
             return response()->json($event_type, 200);
@@ -41,7 +41,19 @@ class EventTypeController extends Controller
 
         return response()->json('Event Type Not Found !!', 404);
     }
-        
+
+    public function show_with_events($id)
+    {
+        $event_type = EventType::where('id', $id)->select('id', 'event_type', 'created_at')->with([
+            'events' => function($query) {
+                return $query->select(['id', 'event_type_id', 'event_name', 'event_description', 'event_image', 'event_date', 'created_at']);
+        }])->first();
+        if($event_type){
+            return response()->json($event_type, 200);
+        }
+
+        return response()->json('Event Type Not Found !!', 404);
+    }
 
     public function update(Request $request, $id)
     {

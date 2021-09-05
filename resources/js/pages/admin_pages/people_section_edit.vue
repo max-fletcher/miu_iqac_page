@@ -1,8 +1,12 @@
 <template>
-   <div>      
-      <v-sheet class="mt-3 pb-2 px-8">
-         <!-- name: {{name}} <br>
-         {{ errors }} <br> -->
+   <div>
+      <!-- name: {{name}} <br>
+      {{ errors }} <br> -->
+      <div v-if="loading_content">
+         <AdminLoading />
+      </div>
+
+      <v-sheet v-else class="mt-3 pb-2 px-8">
          <v-row class="mb-4 mx-sm-10">
             <v-col>
                <v-row>
@@ -125,6 +129,7 @@
 </template>
 
 <script>
+import AdminLoading from "./admin_components/admin_loading"
 export default {
    data: () => ({
       errors:[],
@@ -135,12 +140,17 @@ export default {
       success_message: "",
       success_snackbar: false,
       timeout: 3000,
+      loading_content: false,
       name: "",
       name_rules: [
          (v) => !!v || "People section name is required",
          (v) => (v && v.length <= 255) || 'People section name must be less than 255 characters',
       ],
    }),
+
+   components: {
+      AdminLoading
+   },
 
    methods: {
       submitForm() {
@@ -189,13 +199,14 @@ export default {
       // },
    },
    created(){
+      this.loading_content = true
       axios.get("/api/people/show/" + this.$route.params.id)
          .then((res) => {
             console.log(res.data)
             this.name = res.data.name
-            
             this.form_disabled = false
             this.form_loading = false
+            this.loading_content = false
             // this.$refs.store_about_content.reset()
          })
          .catch((error) => {
@@ -205,6 +216,7 @@ export default {
             this.errors = error.response.data.errors
             this.form_disabled = false
             this.form_loading = false
+            this.loading_content = false
          })
   }
 };

@@ -1,11 +1,15 @@
 <template>
-   <div>      
-      <v-sheet class="mt-3 pb-2 px-8">
-         name: {{name}} <br>
-         icon: {{icon}} <br>
-         content: {{ content }} <br>
-         {{ errors }} <br>
-         {{ name_rules }}
+   <div>
+      <!-- name: {{name}} <br>
+      icon: {{icon}} <br>
+      content: {{ content }} <br>
+      {{ errors }} <br>
+      {{ name_rules }} -->
+      <div v-if="loading_content">
+         <AdminLoading />
+      </div>
+
+      <v-sheet v-else class="mt-3 pb-2 px-8">
          <v-row class="mb-4 mx-sm-10">
             <v-col>
                <v-row>
@@ -167,6 +171,7 @@
 </template>
 
 <script>
+import AdminLoading from "./admin_components/admin_loading"
 export default {
    data: () => ({
       errors:[],
@@ -177,6 +182,7 @@ export default {
       success_message: "",
       success_snackbar: false,
       timeout: 3000,
+      loading_content: false,
       name: "",
       name_rules: [
          (v) => !!v || "About Content Title is required",
@@ -192,6 +198,10 @@ export default {
          (v) => !!v || "About paragraph is required",
       ],
    }),
+
+   components: {
+      AdminLoading
+   },
 
    methods: {
       submitForm() {
@@ -242,15 +252,16 @@ export default {
       // },
    },
    created(){
+      this.loading_content = true
       axios.get("/api/about/content/show/" + this.$route.params.id)
          .then((res) => {
             console.log(res.data)
             this.name = res.data.name
             this.icon = res.data.icon
             this.content = res.data.content
-            
             this.form_disabled = false
             this.form_loading = false
+            this.loading_content = false
             // this.$refs.store_about_content.reset()
          })
          .catch((error) => {
@@ -260,6 +271,7 @@ export default {
             this.errors = error.response.data.errors
             this.form_disabled = false
             this.form_loading = false
+            this.loading_content = false
          })
   }
 };

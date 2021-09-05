@@ -60,13 +60,11 @@
 
                      <v-img
                         width="auto"
-                        max-height="700"
-                        :src="
-                           '/storage/event_images/' + single_event.event_image
-                        "
+                        :src="'/storage/event_images/' + single_event.event_image"
                         alt=""
                         position="center center"
                         aspect-ratio="2"
+                        max-height="700"
                      ></v-img>
 
                      <v-card-subtitle

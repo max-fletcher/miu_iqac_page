@@ -1,11 +1,16 @@
 <template>
-   <div>      
-      <v-sheet class="mt-3 pb-2 px-8">
-         <!-- carousel_title: {{carousel_title}} <br>
-         carousel_subtitle: {{carousel_subtitle}} <br>
-         carousel_image: {{carousel_image}} <br>
-         resize_image: {{resize_image}} <br> -->
-         <!-- {{ errors }} -->
+   <div>
+      <!-- carousel_title: {{carousel_title}} <br>
+      carousel_subtitle: {{carousel_subtitle}} <br>
+      carousel_image: {{carousel_image}} <br>
+      resize_image: {{resize_image}} <br> -->
+      <!-- {{ errors }} -->
+
+      <div v-if="loading_content">
+         <AdminLoading />
+      </div>
+
+      <v-sheet v-else class="mt-3 pb-2 px-8">
          <v-row class="mb-4 mx-sm-10">
             <v-col>
                <v-row>
@@ -192,6 +197,7 @@
 </template>
 
 <script>
+import AdminLoading from "./admin_components/admin_loading"
 export default {
    data: () => ({
       errors:[],
@@ -202,6 +208,7 @@ export default {
       success_message: "",
       success_snackbar: false,
       timeout: 3000,
+      loading_content: false,
       carousel_title: "",
       carousel_title_rules: [
          (v) => !!v || "Carousel Title is required",
@@ -218,6 +225,10 @@ export default {
          (v) => !!v || "Resize Parameter is required"
       ],
    }),
+
+   components: {
+      AdminLoading
+   },
 
    methods: {
       select_file(file){
@@ -280,14 +291,15 @@ export default {
       // },
    },
    created(){
+      this.loading_content = true
       axios.get("/api/carouselcontent/show/" + this.$route.params.id)
          .then((res) => {
             console.log(res.data)
             this.carousel_title = res.data.carousel_title
             this.carousel_subtitle = res.data.carousel_subtitle
-            
             this.form_disabled = false
             this.form_loading = false
+            this.loading_content = false
             // this.$refs.edit_carousel_content.reset()
          })
          .catch((error) => {
@@ -297,6 +309,7 @@ export default {
             this.errors = error.response.data.errors
             this.form_disabled = false
             this.form_loading = false
+            this.loading_content = false
          })
   }
 };

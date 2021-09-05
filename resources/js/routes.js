@@ -35,10 +35,14 @@ import PeopleEdit from "./pages/admin_pages/people_section_edit"
 import MembersAdmin from "./pages/admin_pages/members_admin"
 import MembersStore from "./pages/admin_pages/members_store"
 import MembersEdit from "./pages/admin_pages/members_edit"
-// Events
+// Event Types
 import EventTypesAdmin from "./pages/admin_pages/event_types_admin"
 import EventTypesStore from "./pages/admin_pages/event_types_store"
 import EventTypesEdit from "./pages/admin_pages/event_types_edit"
+// Events
+import EventsAdmin from "./pages/admin_pages/events_admin"
+import EventsStore from "./pages/admin_pages/events_store"
+import EventsEdit from "./pages/admin_pages/events_edit"
 
 import NewsAdmin from "./pages/admin_pages/news_admin"
 import ResourcesAdmin from "./pages/admin_pages/resources_admin"
@@ -52,17 +56,15 @@ import OverlayCarousel from "./pages/components/scrapped/overlay_carousel"
 import Bars from "./pages/components/scrapped/bars"
 import Sandbox from "./pages/components/scrapped/sandbox"
 
-
 export default{
    mode: 'history',
-
    routes: [
       // Website Pages
       {
          path: '*',
          component: NotFound,
          name: 'NotFound',
-         meta: { title: '404 Not Found' }
+         meta: { title: '404 Not Found' },
       },
       {
          path: '/resource_not_found',
@@ -225,17 +227,17 @@ export default{
                meta: { title: 'Admin Panel - Edit People Section' },
             },
             {
-               path: 'members/:people_id',
+               path: 'people/:people_id/members',
                component: MembersAdmin,
                meta: { title: 'Admin Panel - All Members' },
             },
             {
-               path: 'members/:people_id/store',
+               path: 'people/:people_id/members/store',
                component: MembersStore,
                meta: { title: 'Admin Panel - Store Members Section' },
             },
             {
-               path: 'members/:people_id/edit/:id',
+               path: 'people/:people_id/members/edit/:id',
                component: MembersEdit,
                meta: { title: 'Admin Panel - Edit Members Section' },
             },
@@ -254,6 +256,22 @@ export default{
                component: EventTypesEdit,
                meta: { title: 'Admin Panel - Edit Event Types' },
             },
+            {
+               path: 'event_types/:event_type_id/events',
+               component: EventsAdmin,
+               meta: { title: 'Admin Panel - All Events' },
+            },
+            {
+               path: 'event_types/:event_type_id/events/store',
+               component: EventsStore,
+               meta: { title: 'Admin Panel - Store Events' },
+            },
+            {
+               path: 'event_types/:event_type_id/events/edit/:id',
+               component: EventsEdit,
+               meta: { title: 'Admin Panel - Edit Events' },
+            },
+            
 
             
             {
@@ -320,5 +338,12 @@ export default{
          name: 'Sandbox',
          meta: { title: 'Scrapped Sandbox' }
       },
-   ]
+   ],
+   scrollBehavior (to, from, savedPosition) {
+      if (savedPosition) {
+         return savedPosition
+      } else {
+         return { x: 0, y: 0 }
+      }
+   }
 }

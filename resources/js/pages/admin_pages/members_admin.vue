@@ -64,7 +64,7 @@
                <v-spacer></v-spacer>
 
                <v-btn
-                  :to="'/adminpanel/members/'+ this.$route.params.people_id +'/store'"
+                  :to="'/adminpanel/people/'+ this.$route.params.people_id +'/members/store'"
                   :disabled="disable_buttons"
                   elevation="2"
                   class="ma-1 orange darken-3 rounded-1 white--text mt-4 mr-5"
@@ -128,7 +128,7 @@
                           align="end"
                       >
                               <v-btn
-                                  :to="'/adminpanel/members/'+ $route.params.people_id +'/edit/' + member.id"
+                                  :to="'/adminpanel/people/'+ $route.params.people_id +'/members/edit/' + member.id"
                                   :disabled="disable_buttons"
                                   elevation="2"
                                   class="ma-1 indigo darken-3 rounded-1 white--text"

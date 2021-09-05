@@ -12,7 +12,7 @@
          <AdminLoading />
       </div>
 
-      <v-sheet class="mt-3 pb-2 px-8">
+      <v-sheet v-else class="mt-3 pb-2 px-8">
          <v-row class="mb-4 mx-sm-10">
             <v-col>
                <v-row>
@@ -275,7 +275,7 @@ export default {
    components: {
       AdminLoading
    },
-
+   
    methods: {
       select_file(file){
          // console.log(file)

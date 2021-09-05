@@ -101,10 +101,25 @@
                <v-card-actions class="py-0">
                   <v-list-item class="grow">
 
-                      <v-row
-                          justify="end"
-                          align="end"
-                      >
+                     <v-row
+                        align="start"
+                        align-sm="center"
+                        justify="start"
+                        justify-sm="end"
+                        class="mt-0 mb-1 mt-sm-0 mb-sm-0"
+                     >
+                           <v-btn
+                              :to="'/adminpanel/event_types/' + event_type.id + '/events'"
+                              :disabled="disable_buttons"
+                              elevation="2"
+                              class="ma-1 green darken-1 rounded-1 white--text"
+                           >
+                              <v-icon left color="white">
+                                 mdi-calendar-clock
+                              </v-icon>
+                              View Events
+                           </v-btn>
+                           
                            <v-btn
                                  :to="'/adminpanel/event_types/edit/' + event_type.id"
                                  :disabled="disable_buttons"

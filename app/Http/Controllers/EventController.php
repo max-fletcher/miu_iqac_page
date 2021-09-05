@@ -16,7 +16,7 @@ class EventController extends Controller
 {
     public function index()
     {
-        return response()->json( Event::with('event_type')->orderBy('created_at', 'desc')->get(), 200);
+        return response()->json( Event::orderBy('created_at', 'desc')->get(), 200);
     }
 
     public function store(Request $request)
