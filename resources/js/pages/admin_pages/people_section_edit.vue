@@ -137,8 +137,8 @@ export default {
       timeout: 3000,
       name: "",
       name_rules: [
-         (v) => !!v || "People section same is required",
-         (v) => (v && v.length <= 255) || 'People section same must be less than 255 characters',
+         (v) => !!v || "People section name is required",
+         (v) => (v && v.length <= 255) || 'People section name must be less than 255 characters',
       ],
    }),
 

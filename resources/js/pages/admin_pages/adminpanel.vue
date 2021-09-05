@@ -113,7 +113,7 @@
                </v-list-item-content>
             </v-list-item>
 
-            <v-list-item to="/adminpanel/events" exact-path-active-class="lighten-1" link>
+            <v-list-item to="/adminpanel/event_types" exact-path-active-class="lighten-1" link>
                <v-list-item-icon>
                   <v-icon>mdi-calendar-clock</v-icon>
                </v-list-item-icon>
@@ -268,7 +268,7 @@
                      </v-list-item-content>
                   </v-list-item>
 
-                  <v-list-item to="/adminpanel/events" exact-path-active-class="lighten-1" class="pl-2" link>
+                  <v-list-item to="/adminpanel/event_types" exact-path-active-class="lighten-1" class="pl-2" link>
                      <v-list-item-icon>
                         <v-icon>mdi-calendar-clock</v-icon>
                      </v-list-item-icon>

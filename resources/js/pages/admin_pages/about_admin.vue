@@ -77,7 +77,18 @@
               </v-btn>
          </v-card>
 
-         <div v-for="(about_content, index) in about_content" :key="index">
+         <v-card flat v-if="about_content.length === 0" height="480" min-height="300">
+            <v-container fill-height fluid>
+               <v-row align="center" justify="center">
+                  <div class="text-center">
+                     <h1>No About Content Has Been Added Yet</h1>
+                     <h2>Add About Content By Clicking the "Create New" Button Above</h2>
+                  </div>
+               </v-row>
+            </v-container>
+         </v-card>
+
+         <div v-else v-for="(about_content, index) in about_content" :key="index">
             <v-card tile outlined class="mx-auto px-1 py-2">
               <v-card-title class="py-0">
                 <span class="text-h6 font-weight-medium">

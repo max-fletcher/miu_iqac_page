@@ -74,10 +74,20 @@
                   </v-icon>
                   CREATE NEW
                </v-btn>
-
          </v-card>
 
-         <div v-for="(member, index) in members.members" :key="index">
+         <v-card flat v-if="members.members.length === 0" height="480" min-height="300">
+            <v-container fill-height fluid>
+               <v-row align="center" justify="center">
+                  <div class="text-center">
+                     <h1>No Members Has Been Added Yet</h1>
+                     <h2>Add Memebers By Clicking the "Create New" Button Above</h2>
+                  </div>
+               </v-row>
+            </v-container>
+         </v-card>
+
+         <div v-else v-for="(member, index) in members.members" :key="index">
             <v-card tile outlined class="mx-auto px-1 py-2">
 
                <v-card-text class="text-body-1 font-weight-medium py-0 black--text">
@@ -109,7 +119,7 @@
                           :src="'/storage/member_images/' + member.member_image"
                           alt=""
                           position="center center"
-                          aspect-ratio="0.5"
+                          aspect-ratio="0.9"
                         ></v-img>
                       </v-list-item-avatar>
 
@@ -163,30 +173,6 @@ export default {
       AdminLoading, MemberSectionDialog
    },
    methods: {
-      // logout() {
-      //    axios.post("/api/carouselcontent/index")
-      //    .then((response) => {
-      //       this.people = response.data
-      //    });
-      // },
-
-      // delete_people(id) {
-      //    console.log(id)
-      //    this.disable_buttons = true
-      //    // axios
-      //    //    .delete("/api/form/destroy/" + id)
-      //    //    .then((res) => {
-      //    //       console.log(res.data);
-      //    //    }).catch(error => {
-      //    //       alert('Internal Error ! Cannot Delete Contact !!');
-      //    //    })
-
-      //    //    this.people = this.people.filter(function(obj) {
-      //    //       return obj.id !== id; // Or whatever value you want to use
-      //    //    });
-      //    this.disable_buttons = false
-      //    this.dialog = false
-      // }
 
       people_update(deleted){
             this.members.members = this.members.members.filter(function(obj) {

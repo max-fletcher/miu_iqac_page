@@ -1,12 +1,12 @@
 <template>
    <div>
-     Name: {{ name }} <br>
+     <!-- Name: {{ name }} <br>
      Designation: {{ designation }} <br>
      Contact No: {{ cell_number }} <br>
      Email: {{ email }} <br>
      {{ error_message }} <br>
      {{ errors }} <br> <br>
-     {{ people_section }}
+     {{ people_section }} -->
 
       <div v-if="loading_content">
          <AdminLoading />
@@ -177,8 +177,11 @@
                         <!-- End File Upload -->
 
                         <div class="text-caption red--text">
-                           **Selecting "Yes" uses an auto-resizer to resize the image to have a dimension of 620x1250.
-                           If you select "No" it is recommended that you resize your image to an aspect ratio of about 0.5 for it to display correctly on the page.
+                           **Selecting "Yes" below uses an auto-resizer to resize the image to have a dimension of 1500x3000
+                           followed by a cropper that crops the top and bottom of the image so the final dimension is 1500x1700.
+                           It is applicable for most cell phone photos. Keep the person's face centered when taking the photo.
+                           However, if you select "No" it is recommended that you resize your image to an aspect ratio of about
+                           0.9 for it to display correctly on the page.
                            Otherwise, part of your image might be cropped out from the front-end.
                         </div>
 
@@ -361,15 +364,6 @@ export default {
             this.people_section = response.data
             this.loading_content = false
          });
-
-        //     this.loading_content = true
-        //     axios.get("/api/people/frontend_index")
-        //      .then((response) => {
-        //         console.log("response");
-        //         this.people = response.data
-        //         this.loading_content = false
-        //      });
-        // }
     }
 };
 </script>

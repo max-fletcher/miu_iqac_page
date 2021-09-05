@@ -56,7 +56,7 @@ class MemberController extends Controller
             // Save image to designated folder inside storage
             if($request->resize_image == 1){
                 // Aspect ratio of 0.56
-                $image = Image::make($request->file('member_image'))->resize(620, 1250);
+                $image = Image::make($request->file('member_image'))->resize(1500, 3000)->crop(1500, 1700);
             }
             else{
                 $image = Image::make($request->file('member_image'));
@@ -78,7 +78,7 @@ class MemberController extends Controller
         ]);
 
         //$request->file('member_image')->store('public/member_images');
-        return response()->json('Member Created Successfully !', 201);
+        return response()->json('Member Created Successfully !!', 201);
     }
 
     public function show($id)
@@ -137,7 +137,7 @@ class MemberController extends Controller
                 // Save image to designated folder inside storage
                 if($request->resize_image == 1){
                     // Aspect ratio of 0.56
-                    $image = Image::make($request->file('member_image'))->resize(620, 1250);
+                    $image = Image::make($request->file('member_image'))->resize(1500, 3000)->crop(1500, 1700);
                 }
                 else{
                     $image = Image::make($request->file('member_image'));
@@ -159,7 +159,7 @@ class MemberController extends Controller
             $member->email = $request->email;
             $member->member_image = $filenameToStore;
             $member->save();
-            return response()->json('Member Updated Successfully !', 201);
+            return response()->json('Member Updated Successfully !!', 201);
         }
 
         return response()->json('The Provided ID Doesn\'t Match Any Member Records !!', 404);
@@ -175,7 +175,7 @@ class MemberController extends Controller
             if($member->member_image != "noimage.jpg")
                 File::delete(public_path('storage/member_images/'.$member->member_image));
             $member->delete();
-            return response()->json('Member Data Destroyed Successfully !', 201);
+            return response()->json('Member Data Destroyed Successfully !!', 201);
         }
 
         return response()->json('Can\'t Delete Because Provided ID Doesn\'t Match Any Member Records !!', 404);

@@ -35,8 +35,11 @@ import PeopleEdit from "./pages/admin_pages/people_section_edit"
 import MembersAdmin from "./pages/admin_pages/members_admin"
 import MembersStore from "./pages/admin_pages/members_store"
 import MembersEdit from "./pages/admin_pages/members_edit"
+// Events
+import EventTypesAdmin from "./pages/admin_pages/event_types_admin"
+import EventTypesStore from "./pages/admin_pages/event_types_store"
+import EventTypesEdit from "./pages/admin_pages/event_types_edit"
 
-import EventsAdmin from "./pages/admin_pages/events_admin"
 import NewsAdmin from "./pages/admin_pages/news_admin"
 import ResourcesAdmin from "./pages/admin_pages/resources_admin"
 import MainAdmin from "./pages/admin_pages/main_admin"
@@ -236,13 +239,23 @@ export default{
                component: MembersEdit,
                meta: { title: 'Admin Panel - Edit Members Section' },
             },
-
-
             {
-               path: 'events',
-               component: EventsAdmin,
-               meta: { title: 'Admin Panel - All Events Content' },
+               path: 'event_types',
+               component: EventTypesAdmin,
+               meta: { title: 'Admin Panel - All Event Types' },
             },
+            {
+               path: 'event_types/store',
+               component: EventTypesStore,
+               meta: { title: 'Admin Panel - Store Event Types' },
+            },
+            {
+               path: 'event_types/edit/:id',
+               component: EventTypesEdit,
+               meta: { title: 'Admin Panel - Edit Event Types' },
+            },
+
+            
             {
                path: 'news',
                component: NewsAdmin,

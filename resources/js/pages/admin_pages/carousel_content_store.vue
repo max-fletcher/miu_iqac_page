@@ -127,8 +127,10 @@
                         <!-- End File Upload -->
 
                         <div class="text-caption red--text">
-                           **Selecting "Yes" uses an auto-resizer to resize the image to have a dimension of 2000x1150.
-                           If you select "No" it is recommended that you resize your image to an aspect ratio of about 1.74 for it to display correctly on the page.
+                           **Selecting "Yes" below uses an auto-resizer to resize the image to have a dimension of 2000x1150.
+                           It is applicable for most cell phone photos.
+                           However, if you select "No" it is recommended that you resize your image to an aspect ratio of about
+                           1.74 for it to display correctly on the page.
                            Otherwise, part of your image might be cropped out from the front-end.
                         </div>
 

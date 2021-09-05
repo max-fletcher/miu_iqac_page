@@ -13,11 +13,11 @@ class EventTypeController extends Controller
         return response()->json( $event_types , 200);
     }
 
-    public function frontend_index()
-    {
-        $all_event_types = EventType::select('id', 'event_type')->get();
-        return response()->json( $all_event_types, 200);
-    }
+    // public function frontend_index()
+    // {
+    //     $all_event_types = EventType::select('id', 'event_type')->get();
+    //     return response()->json( $all_event_types, 200);
+    // }
 
     public function store(Request $request)
     {
@@ -29,7 +29,7 @@ class EventTypeController extends Controller
             'event_type' => $request->event_type
         ]);
 
-        return response()->json( 'Event Type Successfully Added !!' , 201);
+        return response()->json( 'Event Type Added Successfully !!' , 201);
     }
 
     public function show($id)
@@ -55,7 +55,7 @@ class EventTypeController extends Controller
             $event_type->event_type = $request->event_type;
             $event_type->save();
     
-            return response()->json('Event Type Updated Successfully', 201);
+            return response()->json('Event Type Updated Successfully !!', 201);
         }
 
         return response()->json('Event Type With ID Not Found !!', 404);
@@ -68,7 +68,7 @@ class EventTypeController extends Controller
         if($event_type){        
             $event_type->delete();
     
-            return response()->json('Event Type Deleted Successfully', 201);
+            return response()->json('Event Type Deleted Successfully !!', 201);
         }
 
         return response()->json('Event Type With ID Not Found !!', 404);
@@ -76,7 +76,8 @@ class EventTypeController extends Controller
 
     public function show_sorted($id)
     {   
-        $event_type = EventType::where('id', $id)->select('id', 'event_type', 'created_at')->with(['passed_events' => function($query) {
+        $event_type = EventType::where('id', $id)->select('id', 'event_type', 'created_at')->with([
+        'passed_events' => function($query) {
             return $query->select(['id', 'event_type_id', 'event_name', 'event_description', 'event_image', 'created_at']);
         },
         'upcoming_events' => function($query) {

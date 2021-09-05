@@ -78,7 +78,18 @@
 
          </v-card>
 
-         <div v-for="(carousel_content, index) in carousel_content" :key="index">
+         <v-card flat v-if="carousel_content.length === 0" height="480" min-height="300">
+            <v-container fill-height fluid>
+               <v-row align="center" justify="center">
+                  <div class="text-center">
+                     <h1>No Carousel Content Has Been Added Yet</h1>
+                     <h2>Add Carousel Content By Clicking the "Create New" Button Above</h2>
+                  </div>
+               </v-row>
+            </v-container>
+         </v-card>
+
+         <div v-else v-for="(carousel_content, index) in carousel_content" :key="index">
             <v-card tile outlined class="mx-auto px-1 py-2">
                <v-card-title class="py-0">
                   <span class="text-h6 font-weight-medium">

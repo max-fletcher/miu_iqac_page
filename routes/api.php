@@ -87,17 +87,23 @@ Route::delete('/people/destroy/{id}', [App\Http\Controllers\PeopleController::cl
 Route::get('/people/members/index', [App\Http\Controllers\MemberController::class, 'index']);
 // BE
 Route::post('/people/members/store', [App\Http\Controllers\MemberController::class, 'store']);
+// BE
 Route::get('/people/members/show/{id}', [App\Http\Controllers\MemberController::class, 'show']);
+// BE
 Route::patch('/people/members/update/{id}', [App\Http\Controllers\MemberController::class, 'update']);
+// BE
 Route::delete('/people/members/destroy/{id}', [App\Http\Controllers\MemberController::class, 'destroy']);
 Route::get('/people/members/membersbypeopleid/{id}', [App\Http\Controllers\MemberController::class, 'find_all_members_by_people_id']);
 
 // Event Types Controller
 // FE
 Route::get('/events/types/index', [App\Http\Controllers\EventTypeController::class, 'index']);
-Route::get('/events/types/frontend_index', [App\Http\Controllers\EventTypeController::class, 'frontend_index']);
+// Route::get('/events/types/frontend_index', [App\Http\Controllers\EventTypeController::class, 'frontend_index']);
+// BE
 Route::post('/events/types/store', [App\Http\Controllers\EventTypeController::class, 'store']);
+// BE
 Route::get('/events/types/show/{id}', [App\Http\Controllers\EventTypeController::class, 'show']);
+// BE
 Route::patch('/events/types/update/{id}', [App\Http\Controllers\EventTypeController::class, 'update']);
 Route::delete('/events/types/destroy/{id}', [App\Http\Controllers\EventTypeController::class, 'destroy']);
 // FE
