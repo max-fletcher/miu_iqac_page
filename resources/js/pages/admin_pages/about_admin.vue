@@ -141,7 +141,7 @@
                            </v-btn>
 
                            <!-- Delete Button With v-menu -->
-                           <AboutContentDialog :about_content_id="about_content.id" @about_content_deleted="about_content_update($event)" @about_content_delete_failed="about_content_delete_failed($event)"/>
+                           <ContentDeleteDialog axios_path="/api/about/content/destroy/" :content_id="about_content.id" @content_deleted="about_content_update($event)" @content_delete_failed="about_content_delete_failed($event)" />
 
                      </v-row>
 
@@ -156,7 +156,7 @@
 <script>
 import moment from 'moment'
 import AdminLoading from "./admin_components/admin_loading"
-import AboutContentDialog from "./admin_components/about_content_dialog"
+import ContentDeleteDialog from "./admin_components/content_delete_dialog"
 export default {
    data: () => ({
       moment: moment,
@@ -171,7 +171,7 @@ export default {
       // dialog: false,
    }),
    components: {
-      AdminLoading, AboutContentDialog
+      AdminLoading, ContentDeleteDialog
    },
    methods: {
       // logout() {

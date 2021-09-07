@@ -43,9 +43,21 @@ import EventTypesEdit from "./pages/admin_pages/event_types_edit"
 import EventsAdmin from "./pages/admin_pages/events_admin"
 import EventsStore from "./pages/admin_pages/events_store"
 import EventsEdit from "./pages/admin_pages/events_edit"
-
+// News
 import NewsAdmin from "./pages/admin_pages/news_admin"
+import NewsStore from "./pages/admin_pages/news_store"
+import NewsEdit from "./pages/admin_pages/news_edit"
+// Resources
 import ResourcesAdmin from "./pages/admin_pages/resources_admin"
+import ResourcesEdit from "./pages/admin_pages/resources_edit"
+
+
+import PublicationTypeAdmin from "./pages/admin_pages/publication_type_admin"
+import PublicationAdmin from "./pages/admin_pages/publication_admin"
+import GalleryAdmin from "./pages/admin_pages/gallery_admin"
+import galleryPhotoAdmin from "./pages/admin_pages/gallery_photo_admin"
+import ContactUsAdmin from "./pages/admin_pages/contact_us_admin"
+
 import MainAdmin from "./pages/admin_pages/main_admin"
 // scrapped components
 import Topnav from "./pages/components/scrapped/topnav"
@@ -271,19 +283,63 @@ export default{
                component: EventsEdit,
                meta: { title: 'Admin Panel - Edit Events' },
             },
-            
-
-            
             {
                path: 'news',
                component: NewsAdmin,
                meta: { title: 'Admin Panel - All News Content' },
             },
             {
-               path: 'resources',
+               path: 'news/store',
+               component: NewsStore,
+               meta: { title: 'Admin Panel - Store News' },
+            },
+            {
+               path: 'news/edit/:id',
+               component: NewsEdit,
+               meta: { title: 'Admin Panel - Edit News' },
+            },
+
+
+            {
+               path: 'resource_types',
                component: ResourcesAdmin,
                meta: { title: 'Admin Panel - All Resources Content' },
             },
+            {
+               path: 'resource_types/edit/:id',
+               component: ResourcesAdmin,
+               meta: { title: 'Admin Panel - All Resources Content' },
+            },
+
+
+
+
+            {
+               path: 'publication_types',
+               component: PublicationTypeAdmin,
+               meta: { title: 'Admin Panel - All Publication Types' },
+            },
+            {
+               path: 'publications',
+               component: PublicationAdmin,
+               meta: { title: 'Admin Panel - All Publications' },
+            },
+            {
+               path: 'all_galleries',
+               component: GalleryAdmin,
+               meta: { title: 'Admin Panel - All Photo Galleries' },
+            },
+            {
+               path: 'gallery',
+               component: galleryPhotoAdmin,
+               meta: { title: 'Admin Panel - All Gallery Photos' },
+            },
+            {
+               path: 'contact_us',
+               component: ContactUsAdmin,
+               meta: { title: 'Admin Panel - All Contact Us Info' },
+            },
+
          ],
          // To confirm if user is logged in or not
          beforeEnter: ( to, from, next) => {

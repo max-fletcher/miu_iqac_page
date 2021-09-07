@@ -13,11 +13,6 @@
       </div>
 
       <v-sheet v-else class="mt-3 pb-2 px-8">
-         <!-- carousel_title: {{carousel_title}} <br>
-         carousel_subtitle: {{carousel_subtitle}} <br>
-         carousel_image: {{carousel_image}} <br>
-         resize_image: {{resize_image}} <br> -->
-         <!-- {{ errors }} -->
          <v-row class="mb-4 mx-sm-10">
             <v-col>
                <v-row>
@@ -92,15 +87,6 @@
                         </template>
                      </v-snackbar>
                      <!-- End Snackbar For successful Form Submission -->
-
-                      <!-- <v-select
-                        :items="people_section"
-                        label="Select People Section"
-                        item-text="name"
-                        item-value="id"
-                        outlined
-                        class="mb-1"
-                      ></v-select> -->
 
                        <!-- Member Name Field -->
                       <v-text-field

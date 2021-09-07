@@ -208,19 +208,19 @@ export default {
       carousel_title: "",
       carousel_title_rules: [
          (v) => !!v || "Carousel Title is required",
-         (v) => (v && v.length <= 133) || 'Name must be less than 133 characters',
+         (v) => (v && v.length <= 133) || 'Carousel Title must be less than 133 characters',
       ],
       carousel_subtitle: "",
       carousel_subtitle_rules: [
          (v) => !!v || "Carousel Subtitle is required",
-         (v) => (v && v.length <= 176) || 'Name must be less than 176 characters',
+         (v) => (v && v.length <= 176) || 'Carousel Subtitle must be less than 176 characters',
       ],
       carousel_image: null,
       carousel_image_rules: [ (v) => !!v || "Image is required" ],
       resize_image: "",
-      // resize_rules: [
-      //    (v) => !!v || "Resize Parameter is required"
-      // ],
+      resize_rules: [
+         (v) => !!v || "Resize Parameter is required"
+      ],
    }),
 
    methods: {

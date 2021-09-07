@@ -24,7 +24,7 @@
                               text--darken-3
                            "
                         >
-                           Edit Carousel Content</v-card-title>
+                        Edit Carousel Content</v-card-title>
                      </v-card>
                   </div>
                </v-row>
@@ -221,15 +221,13 @@ export default {
       ],
       carousel_image: null,
       resize_image: "",
-      resize_rules: [
-         (v) => !!v || "Resize Parameter is required"
-      ],
+      // resize_rules: [
+      //    (v) => !!v || "Resize Parameter is required"
+      // ],
    }),
-
    components: {
       AdminLoading
    },
-
    methods: {
       select_file(file){
          // console.log(file)

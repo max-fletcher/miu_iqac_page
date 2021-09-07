@@ -147,6 +147,9 @@
                       ></v-text-field>
                       <!-- End Member Cell Number Field -->
 
+                        <div class="text-body-2 red--text text-uppercase font-weight-bold mb-2 text-center">
+                           If no image is provided, the previous image will be deleted and set to "No Image"
+                        </div>
                         <!-- File Upload -->
                         <v-file-input
                            truncate-length="15"

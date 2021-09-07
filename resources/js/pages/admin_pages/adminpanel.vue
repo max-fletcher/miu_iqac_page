@@ -286,7 +286,34 @@
                      </v-list-item-content>
                   </v-list-item>
 
-                  <v-list-item to="/adminpanel/resources" exact-path-active-class="lighten-1" class="pl-2" link>
+                  <v-list-item to="/adminpanel/resource_types" exact-path-active-class="lighten-1" class="pl-2" link>
+                     <v-list-item-icon>
+                        <v-icon>mdi-archive-outline</v-icon>
+                     </v-list-item-icon>
+                     <v-list-item-content>
+                        <v-list-item-title> Resources </v-list-item-title>
+                     </v-list-item-content>
+                  </v-list-item>
+
+                  <v-list-item to="/adminpanel/publication_types" exact-path-active-class="lighten-1" class="pl-2" link>
+                     <v-list-item-icon>
+                        <v-icon>mdi-file</v-icon>
+                     </v-list-item-icon>
+                     <v-list-item-content>
+                        <v-list-item-title> Publications </v-list-item-title>
+                     </v-list-item-content>
+                  </v-list-item>
+
+                  <v-list-item to="/adminpanel/gallery" exact-path-active-class="lighten-1" class="pl-2" link>
+                     <v-list-item-icon>
+                        <v-icon>mdi-camera</v-icon>
+                     </v-list-item-icon>
+                     <v-list-item-content>
+                        <v-list-item-title> Photo Galleries </v-list-item-title>
+                     </v-list-item-content>
+                  </v-list-item>
+
+                  <v-list-item to="/adminpanel/contact_us" exact-path-active-class="lighten-1" class="pl-2" link>
                      <v-list-item-icon>
                         <v-icon>mdi-phone</v-icon>
                      </v-list-item-icon>
@@ -303,6 +330,7 @@
                         <v-list-item-title>Logout</v-list-item-title>
                      </v-list-item-content>
                   </v-list-item>
+
                </v-list>
             </v-navigation-drawer>
             <!-- End For Larger Screens -->

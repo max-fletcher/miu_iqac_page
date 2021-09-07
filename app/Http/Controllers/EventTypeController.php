@@ -46,7 +46,7 @@ class EventTypeController extends Controller
     {
         $event_type = EventType::where('id', $id)->select('id', 'event_type', 'created_at')->with([
             'events' => function($query) {
-                return $query->select(['id', 'event_type_id', 'event_name', 'event_description', 'event_image', 'event_date', 'created_at']);
+                return $query->select(['id', 'event_type_id', 'event_name', 'event_description', 'event_image', 'event_date', 'created_at'])->orderBy('event_date', 'desc');
         }])->first();
         if($event_type){
             return response()->json($event_type, 200);

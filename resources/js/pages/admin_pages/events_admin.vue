@@ -1,8 +1,7 @@
 <template>
    <div>
-      
-         {{ events }}
-         {{ event_type }}
+         <!-- {{ events }}
+         {{ event_type }} -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>
@@ -92,8 +91,30 @@
          <div v-else v-for="(event, index) in events" :key="index">
             <v-card tile outlined class="mx-auto px-1 py-2">
 
+               <!-- {{moment(event.event_date).format('YYYY-MM-DD')}} <br> -->
+               <!-- {{moment().format('YYYY-MM-DD')}} -->
                <v-card-text class="text-body-1 font-weight-medium py-0 black--text">
                   Event Name: {{ event.event_name }}
+                     <v-chip
+                        v-if="moment(event.event_date).format('YYYY-MM-DD') >= moment().format('YYYY-MM-DD')"
+                        small
+                        color="green"
+                        outlined
+                        pill
+                        class="ml-1"
+                     >
+                        Upcoming
+                     </v-chip>
+                     <v-chip
+                        v-else
+                        small
+                        color="red"
+                        outlined
+                        pill
+                        class="ml-1"
+                     >
+                        Passed
+                     </v-chip>
                </v-card-text>
 
                <v-card-text class="text-body-1 font-weight-medium py-0 black--text">
@@ -195,7 +216,7 @@ export default {
       }
    },
 
-   created() {
+   created(){
       axios.get("/api/events/types/show_with_events/"+ this.$route.params.event_type_id)
          .then((response) => {
             console.log("response");

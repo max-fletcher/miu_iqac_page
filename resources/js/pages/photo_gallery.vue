@@ -13,8 +13,8 @@
             <v-container fill-height fluid>
                <v-row align="center" justify="center">
                   <div class="text-center">
-                     <h1>No Galleries Has Been Added Yet !!</h1>
-                     <h2>Add Galleries From The Admin Panel.</h2>
+                     <h1>No Galleries Has Been Added Yet</h1>
+                     <h2>Add Galleries From The Admin Panel</h2>
                   </div>
                </v-row>
             </v-container>

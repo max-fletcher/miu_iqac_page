@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
-// use App\Models\EventType;
-// use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 Use Illuminate\Support\Facades\File;
@@ -32,6 +30,7 @@ class EventController extends Controller
 
             $request->validate([
                 'event_image' => ['required', 'image', 'max:2000', new noimage],
+                'resize_image' => ['required', 'numeric', 'integer'],
             ]);
 
             //get filename with extension
@@ -103,6 +102,7 @@ class EventController extends Controller
 
                 $request->validate([
                     'event_image' => ['required', 'image', 'max:2000', new noimage],
+                    'resize_image' => ['required', 'numeric', 'integer'],
                 ]);
 
                 if($event->event_image != "noimage.jpg")

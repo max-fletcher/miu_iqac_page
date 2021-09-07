@@ -19,9 +19,9 @@
                <v-row align="center" justify="center">
                   <div class="text-center">
                      <h1>
-                        No Resources For This Section Has Been Added Yet !!
+                        No Resources For This Section Has Been Added Yet
                      </h1>
-                     <h2>Add Resources From The Admin Panel.</h2>
+                     <h2>Add Resources From The Admin Panel</h2>
                   </div>
                </v-row>
             </v-container>

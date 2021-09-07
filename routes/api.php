@@ -93,7 +93,7 @@ Route::get('/people/members/show/{id}', [App\Http\Controllers\MemberController::
 Route::patch('/people/members/update/{id}', [App\Http\Controllers\MemberController::class, 'update']);
 // BE
 Route::delete('/people/members/destroy/{id}', [App\Http\Controllers\MemberController::class, 'destroy']);
-Route::get('/people/members/membersbypeopleid/{id}', [App\Http\Controllers\MemberController::class, 'find_all_members_by_people_id']);
+// Route::get('/people/members/membersbypeopleid/{id}', [App\Http\Controllers\MemberController::class, 'find_all_members_by_people_id']);
 
 // Event Types Controller
 // FE
@@ -107,29 +107,36 @@ Route::get('/events/types/show/{id}', [App\Http\Controllers\EventTypeController:
 Route::get('/events/types/show_with_events/{id}', [App\Http\Controllers\EventTypeController::class, 'show_with_events']);
 // BE
 Route::patch('/events/types/update/{id}', [App\Http\Controllers\EventTypeController::class, 'update']);
+// BE
 Route::delete('/events/types/destroy/{id}', [App\Http\Controllers\EventTypeController::class, 'destroy']);
 // FE
 Route::get('/events/types/show_sorted/{id}', [App\Http\Controllers\EventTypeController::class, 'show_sorted']);
 
 // Event Controller
 Route::get('/events/index', [App\Http\Controllers\EventController::class, 'index']);
+// BE
 Route::post('/events/store', [App\Http\Controllers\EventController::class, 'store']);
 // FE
 Route::get('/events/show/{id}', [App\Http\Controllers\EventController::class, 'show']);
 // BE
 Route::patch('/events/update/{id}', [App\Http\Controllers\EventController::class, 'update']);
+// BE
 Route::delete('/events/destroy/{id}', [App\Http\Controllers\EventController::class, 'destroy']);
-Route::get('/events/upcoming/eventsbyeventtypeid/{id}', [App\Http\Controllers\EventController::class, 'upcoming_events_by_event_type_id']);
-Route::get('/events/passed/eventsbyeventtypeid/{id}', [App\Http\Controllers\EventController::class, 'passed_events_by_event_type_id']);
+// Route::get('/events/upcoming/eventsbyeventtypeid/{id}', [App\Http\Controllers\EventController::class, 'upcoming_events_by_event_type_id']);
+// Route::get('/events/passed/eventsbyeventtypeid/{id}', [App\Http\Controllers\EventController::class, 'passed_events_by_event_type_id']);
 
 // News Controller
+// BE
 Route::get('/news/index', [App\Http\Controllers\NewsController::class, 'index']);
 // FE
 Route::get('/news/frontend_index', [App\Http\Controllers\NewsController::class, 'frontend_index']);
+// BE
 Route::post('/news/store', [App\Http\Controllers\NewsController::class, 'store']);
 // FE
 Route::get('/news/show/{id}', [App\Http\Controllers\NewsController::class, 'show']);
+// BE
 Route::patch('/news/update/{id}', [App\Http\Controllers\NewsController::class, 'update']);
+// BE
 Route::delete('/news/destroy/{id}', [App\Http\Controllers\NewsController::class, 'destroy']);
 
 // Resource Types Controller
