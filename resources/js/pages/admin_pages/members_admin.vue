@@ -80,7 +80,7 @@
             <v-container fill-height fluid>
                <v-row align="center" justify="center">
                   <div class="text-center">
-                     <h1>No Members Has Been Added Yet</h1>
+                     <h1>No Members For This Section Has Been Added Yet</h1>
                      <h2>Add Memebers By Clicking the "Create New" Button Above</h2>
                   </div>
                </v-row>
@@ -140,7 +140,7 @@
                               </v-btn>
 
                               <!-- Delete Button With v-menu -->
-                              <MemberSectionDialog :member_id="member.id" @member_deleted="people_update($event)" @member_delete_failed="member_delete_failed($event)" />
+                              <ContentDeleteDialog axios_path="/api/people/members/destroy/" :content_id="member.id" @content_deleted="members_update($event)" @content_delete_failed="member_delete_failed($event)" />
                       </v-row>
 
                   </v-list-item>
@@ -155,7 +155,7 @@
 <script>
 import moment from 'moment'
 import AdminLoading from "./admin_components/admin_loading"
-import MemberSectionDialog from "./admin_components/member_section_dialog"
+import ContentDeleteDialog from "./admin_components/content_delete_dialog.vue"
 export default {
    data: () => ({
       moment: moment,
@@ -170,11 +170,11 @@ export default {
       // dialog: false,
    }),
    components: {
-      AdminLoading, MemberSectionDialog
+      AdminLoading, ContentDeleteDialog
    },
    methods: {
 
-      people_update(deleted){
+      members_update(deleted){
             this.members.members = this.members.members.filter(function(obj) {
             return obj.id !== deleted.deleted_id; // Or whatever value you want to use
          })

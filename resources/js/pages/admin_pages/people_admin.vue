@@ -138,7 +138,7 @@
                            </v-btn>
 
                            <!-- Delete Button With v-menu -->
-                           <PeopleSectionDialog :people_section_id="people.id" @people_section_deleted="people_update($event)" @people_section_delete_failed="people_section_delete_failed($event)" />
+                           <ContentDeleteDialog axios_path="/api/people/destroy/" :content_id="people.id" @content_deleted="people_update($event)" @content_delete_failed="people_section_delete_failed($event)" />
 
                      </v-row>
 
@@ -153,7 +153,7 @@
 <script>
 import moment from 'moment'
 import AdminLoading from "./admin_components/admin_loading"
-import PeopleSectionDialog from "./admin_components/people_section_dialog"
+import ContentDeleteDialog from "./admin_components/content_delete_dialog.vue"
 export default {
    data: () => ({
       moment: moment,
@@ -168,7 +168,7 @@ export default {
       // dialog: false,
    }),
    components: {
-      AdminLoading, PeopleSectionDialog
+      AdminLoading, ContentDeleteDialog
    },
    methods: {
       people_update(deleted){

@@ -135,7 +135,7 @@
                           </v-btn>
 
                           <!-- Delete Button With v-menu -->
-                          <NewsDialog :news_id="news.id" @news_deleted="news_update($event)" @news_delete_failed="news_delete_failed($event)" />
+                          <ContentDeleteDialog axios_path="/api/news/destroy/" :content_id="news.id" @content_deleted="news_update($event)" @content_delete_failed="news_delete_failed($event)" />
                       </v-row>
 
                   </v-list-item>
@@ -150,7 +150,7 @@
 <script>
 import moment from 'moment'
 import AdminLoading from "./admin_components/admin_loading"
-import NewsDialog from "./admin_components/news_dialog"
+import ContentDeleteDialog from "./admin_components/content_delete_dialog.vue"
 export default {
    data: () => ({
       moment: moment,
@@ -165,7 +165,7 @@ export default {
       // dialog: false,
    }),
    components: {
-      AdminLoading, NewsDialog
+      AdminLoading, ContentDeleteDialog
    },
    methods: {
       news_update(deleted){

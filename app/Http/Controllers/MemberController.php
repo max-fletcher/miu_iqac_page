@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\People;
 use Illuminate\Http\Request;
-// use App\Models\PeopleMember;
+use App\Models\PeopleMember;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 Use Illuminate\Support\Facades\File;

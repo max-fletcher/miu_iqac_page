@@ -131,9 +131,8 @@
                                  </v-icon>
                                  EDIT
                            </v-btn>
-
                            <!-- Delete Button With v-menu -->
-                           <EventTypesDialog :event_type_id="event_type.id" @event_type_deleted="event_types_update($event)" @event_type_delete_failed="event_type_delete_failed($event)" />
+                           <ContentDeleteDialog axios_path="/api/events/types/destroy/" :content_id="event_type.id" @content_deleted="event_types_update($event)" @content_delete_failed="event_type_delete_failed($event)" />
                       </v-row>
 
                   </v-list-item>
@@ -148,7 +147,7 @@
 <script>
 import moment from 'moment'
 import AdminLoading from "./admin_components/admin_loading"
-import EventTypesDialog from "./admin_components/event_types_dialog"
+import ContentDeleteDialog from "./admin_components/content_delete_dialog.vue"
 export default {
    data: () => ({
       moment: moment,
@@ -163,7 +162,7 @@ export default {
       // dialog: false,
    }),
    components: {
-      AdminLoading, EventTypesDialog
+      AdminLoading, ContentDeleteDialog
    },
    methods: {
       event_types_update(deleted){

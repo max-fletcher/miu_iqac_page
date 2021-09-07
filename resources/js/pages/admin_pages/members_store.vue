@@ -325,7 +325,7 @@ export default {
                console.log(error)
                this.error_message = error.response.data.message
                this.error_snackbar = true
-               this.errors = error.response.data.errors
+               this.errors = error.response.data.error
                this.form_disabled = false
                this.form_loading = false
             });

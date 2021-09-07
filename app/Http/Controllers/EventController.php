@@ -83,7 +83,7 @@ class EventController extends Controller
             return response()->json( $event, 200);
         }
 
-        return response()->json('The Provided ID doesn\'t match any Events !!', 404);
+        return response()->json('The Provided ID Doesn\'t Match Any Events !!', 404);
     }
 
     public function update(Request $request, $id)
@@ -146,10 +146,10 @@ class EventController extends Controller
             $event->event_image = $filenameToStore;
             $event->event_date = $request->event_date;
             $event->save();
-            return response()->json('Event Updated Successfully !', 201);
+            return response()->json('Event Updated Successfully !!', 201);
         }
 
-        return response()->json('The Provided ID doesn\'t match any Events !!', 404);
+        return response()->json('The Provided ID Doesn\'t Match Any Events !!', 404);
     }
 
     public function destroy($id)
@@ -159,10 +159,10 @@ class EventController extends Controller
             if($event->event_image != "noimage.jpg")
                 File::delete(public_path('storage/event_images/'.$event->event_image));  //deletes file
             $event->delete();
-            return response()->json('Event Deleted Successfully !', 201);
+            return response()->json('Event Deleted Successfully !!', 201);
         }
 
-        return response()->json('The Provided ID doesn\'t match any Events !!', 404);
+        return response()->json('The Provided ID Doesn\'t Match Any Events !!', 404);
     }
 
     // public function upcoming_events_by_event_type_id($id)
@@ -173,7 +173,7 @@ class EventController extends Controller
     //         return response()->json($events, 200);
     //     }
 
-    //     return response()->json('The Provided ID doesn\'t match any Events !!', 404);
+    //     return response()->json('The Provided ID Doesn\'t Match Any Events !!', 404);
     // }
 
     // public function passed_events_by_event_type_id($id)
@@ -184,6 +184,6 @@ class EventController extends Controller
     //         return response()->json($events, 200);
     //     }
 
-    //     return response()->json('The Provided ID doesn\'t match any Events !!', 404);
+    //     return response()->json('The Provided ID Doesn\'t Match Any Events !!', 404);
     // }
 }

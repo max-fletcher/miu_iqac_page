@@ -135,8 +135,7 @@
                            </v-btn>
 
                            <!-- Delete Button With v-menu -->
-                           <CarouselContentDialog :carousel_content_id="carousel_content.id" @carousel_content_deleted="carousel_content_update($event)" @carousel_content_delete_failed="carousel_content_delete_failed($event)" />
-
+                           <ContentDeleteDialog axios_path="/api/carouselcontent/destroy/" :content_id="carousel_content.id" @content_deleted="carousel_content_update($event)" @content_delete_failed="carousel_content_delete_failed($event)" />
                      </v-row>
 
                   </v-list-item>
@@ -150,7 +149,7 @@
 <script>
 import moment from 'moment'
 import AdminLoading from "./admin_components/admin_loading"
-import CarouselContentDialog from "./admin_components/carousel_content_dialog"
+import ContentDeleteDialog from "./admin_components/content_delete_dialog.vue"
 export default {
    data: () => ({
       moment: moment,
@@ -165,7 +164,7 @@ export default {
       // dialog: false,
    }),
    components: {
-      AdminLoading, CarouselContentDialog
+      AdminLoading, ContentDeleteDialog
    },
    methods: {
       // logout() {
