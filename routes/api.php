@@ -157,9 +157,13 @@ Route::delete('/resource_type/destroy/{id}', [App\Http\Controllers\ResourceTypeC
 
 // Resource Controller
 // Route::get('/resource/index', [App\Http\Controllers\ResourceController::class, 'index']);
+// BE
 Route::post('/resource/store', [App\Http\Controllers\ResourceController::class, 'store']);
+// FE
 Route::get('/resource/show/{id}', [App\Http\Controllers\ResourceController::class, 'show']);
+// BE
 Route::patch('/resource/update/{id}', [App\Http\Controllers\ResourceController::class, 'update']);
+// BE
 Route::delete('/resource/destroy/{id}', [App\Http\Controllers\ResourceController::class, 'destroy']);
 
 // Contact Us Controller

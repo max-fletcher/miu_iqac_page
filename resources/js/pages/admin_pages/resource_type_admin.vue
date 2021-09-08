@@ -185,6 +185,11 @@ export default {
    },
 
    created() {
+      if(this.$route.query.nodata == "nodatafound"){
+         this.error_message = "The Requested Data Was Not Found !!"
+         this.error_snackbar = true
+      }
+
       this.loading_content = true,
       axios.get("/api/resource_type/index")
          .then((response) => {

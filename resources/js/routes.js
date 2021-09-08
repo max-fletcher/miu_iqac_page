@@ -55,11 +55,12 @@ import ResourceTypeEdit from "./pages/admin_pages/resource_type_edit"
 import ResourcesAdmin from "./pages/admin_pages/resources_admin"
 import ResourcesStore from "./pages/admin_pages/resources_store"
 import ResourcesEdit from "./pages/admin_pages/resources_edit"
+// Galleries
+import GalleryAdmin from "./pages/admin_pages/gallery_admin"
+import GalleryPhotoAdmin from "./pages/admin_pages/gallery_photo_admin"
 
 import PublicationTypeAdmin from "./pages/admin_pages/publication_type_admin"
 import PublicationAdmin from "./pages/admin_pages/publication_admin"
-import GalleryAdmin from "./pages/admin_pages/gallery_admin"
-import galleryPhotoAdmin from "./pages/admin_pages/gallery_photo_admin"
 import ContactUsAdmin from "./pages/admin_pages/contact_us_admin"
 
 import MainAdmin from "./pages/admin_pages/main_admin"
@@ -317,13 +318,10 @@ export default{
                component: ResourceTypeEdit,
                meta: { title: 'Admin Panel - Edit Resource Types' },
             },
-
-
-            
             {
                path: 'resource_types/:resource_type_id/resources',
                component: ResourcesAdmin,
-               meta: { title: 'Admin Panel - All Resources For Type' },
+               meta: { title: 'Admin Panel - All Resources' },
             },
             {
                path: 'resource_types/:resource_type_id/resources/store',
@@ -340,6 +338,19 @@ export default{
 
 
             {
+               path: 'all_galleries',
+               component: GalleryAdmin,
+               meta: { title: 'Admin Panel - All Photo Galleries' },
+            },
+            {
+               path: 'gallery',
+               component: GalleryPhotoAdmin,
+               meta: { title: 'Admin Panel - All Gallery Photos' },
+            },
+
+
+
+            {
                path: 'publication_types',
                component: PublicationTypeAdmin,
                meta: { title: 'Admin Panel - All Publication Types' },
@@ -348,16 +359,6 @@ export default{
                path: 'publications',
                component: PublicationAdmin,
                meta: { title: 'Admin Panel - All Publications' },
-            },
-            {
-               path: 'all_galleries',
-               component: GalleryAdmin,
-               meta: { title: 'Admin Panel - All Photo Galleries' },
-            },
-            {
-               path: 'gallery',
-               component: galleryPhotoAdmin,
-               meta: { title: 'Admin Panel - All Gallery Photos' },
             },
             {
                path: 'contact_us',

@@ -304,7 +304,7 @@
                      </v-list-item-content>
                   </v-list-item>
 
-                  <v-list-item to="/adminpanel/gallery" exact-path-active-class="lighten-1" class="pl-2" link>
+                  <v-list-item to="/adminpanel/all_galleries" exact-path-active-class="lighten-1" class="pl-2" link>
                      <v-list-item-icon>
                         <v-icon>mdi-camera</v-icon>
                      </v-list-item-icon>

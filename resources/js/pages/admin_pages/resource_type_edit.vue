@@ -202,7 +202,7 @@ export default {
       this.loading_content = true
       axios.get("/api/resource_type/show_without_relations/" + this.$route.params.id)
          .then((res) => {
-            console.log(res.data)
+            // console.log(res.data)
             this.resource_type_name = res.data.resource_type_name
             this.form_disabled = false
             this.form_loading = false
@@ -210,13 +210,14 @@ export default {
             // this.$refs.edit_resource_type.reset()
          })
          .catch((error) => {
-            console.log(error)
-            this.error_message = error.response.data.message
-            this.error_snackbar = true
-            this.errors = error.response.data.errors
-            this.form_disabled = false
-            this.form_loading = false
-            this.loading_content = false
+            this.$router.push('/adminpanel/resource_types?nodata=nodatafound')
+            // console.log(error)
+            // this.error_message = error.response.data.message
+            // this.error_snackbar = true
+            // this.errors = error.response.data.errors
+            // this.form_disabled = false
+            // this.form_loading = false
+            // this.loading_content = false
          })
   }
 };

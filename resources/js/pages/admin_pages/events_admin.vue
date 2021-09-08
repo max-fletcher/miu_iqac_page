@@ -217,12 +217,28 @@ export default {
    },
 
    created(){
+      if(this.$route.query.nodata == "nodatafound"){
+         this.error_message = "The Requested Data Was Not Found !!"
+         this.error_snackbar = true
+      }
+
+      this.loading_content = true
       axios.get("/api/events/types/show_with_events/"+ this.$route.params.event_type_id)
-         .then((response) => {
-            console.log("response");
-            this.event_type = response.data.event_type
-            this.events = response.data.events
+         .then((res) => {
+            // console.log(response.data);
+            this.event_type = res.data.event_type
+            this.events = res.data.events
             this.loading_content = false
+         })
+         .catch((error) => {
+            this.$router.push('/adminpanel/event_types?nodata=nodatafound')
+            // console.log(error)
+            // this.error_message = error.response.data.message
+            // this.error_snackbar = true
+            // this.errors = error.response.data.errors
+            // this.form_disabled = false
+            // this.form_loading = false
+            // this.loading_content = false
          })
    },
 }

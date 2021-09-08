@@ -1,6 +1,6 @@
 <template>
    <div>
-      {{ resources }}
+      <!-- {{ resources }} -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>
@@ -63,7 +63,7 @@
 
                <v-spacer></v-spacer>
                <v-btn
-                  :to="'/adminpanel/resource_types/'+ this.$route.params.resource_type_id +'/resource/store'"
+                  :to="'/adminpanel/resource_types/'+ this.$route.params.resource_type_id +'/resources/store'"
                   :disabled="disable_buttons"
                   elevation="2"
                   class="ma-1 orange darken-3 rounded-1 white--text mt-4 mr-5"
@@ -92,11 +92,11 @@
                <!-- {{moment(event.event_date).format('YYYY-MM-DD')}} <br> -->
                <!-- {{moment().format('YYYY-MM-DD')}} -->
                <v-card-text class="text-body-1 font-weight-medium py-0 black--text">
-                  Event Name: {{ resource.resource_name }}
+                  Resource Name: {{ resource.resource_name }}
                </v-card-text>
 
                <v-card-text class="text-body-1 font-weight-medium py-0 black--text">
-                  Event Type: {{ resource.resource_file }}
+                  Resource File: {{ resource.resource_file }}
                </v-card-text>
 
                <v-card-text class="text-caption font-weight-medium py-0">
@@ -111,7 +111,7 @@
                           align="end"
                       >
                               <v-btn
-                                  :to="'/adminpanel/resourcess/'+ $route.params.resources_id +'/resource/edit/' + resource.id"
+                                  :to="'/adminpanel/resource_types/'+ $route.params.resource_type_id +'/resources/edit/' + resource.id"
                                   :disabled="disable_buttons"
                                   elevation="2"
                                   class="ma-1 indigo darken-3 rounded-1 white--text"
@@ -166,7 +166,6 @@ export default {
 
          this.delete_success_message = deleted.delete_message
          this.delete_success_snackbar = true
-
       },
 
       resource_delete_failed($deleted_id)
@@ -177,12 +176,27 @@ export default {
    },
 
    created(){
+      if(this.$route.query.nodata == "nodatafound"){
+         this.error_message = "The Requested Data Was Not Found !!"
+         this.error_snackbar = true
+      }
+
       axios.get("/api/resource_type/show/"+ this.$route.params.resource_type_id)
-         .then((response) => {
-            console.log(response.data)
-            this.resources = response.data.resources
-            this.resource_type = response.data.resource_type_name
+         .then((res) => {
+            // console.log(res.data)
+            this.resources = res.data.resources
+            this.resource_type = res.data.resource_type_name
             this.loading_content = false
+         })
+         .catch((error) => {
+            this.$router.push('/adminpanel/resource_types?nodata=nodatafound')
+            // console.log(error)
+            // this.error_message = error.response.data.message
+            // this.error_snackbar = true
+            // this.errors = error.response.data.errors
+            // this.form_disabled = false
+            // this.form_loading = false
+            // this.loading_content = false
          })
    },
 }

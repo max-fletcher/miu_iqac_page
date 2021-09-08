@@ -225,8 +225,8 @@ export default {
       success_message: "",
       success_snackbar: false,
       timeout: 3000,
-      event_type: "",
       loading_content: false,
+      event_type: "",
       event_name: "",
       event_name_rules: [
          (v) => !!v || "Event name is required",
@@ -326,7 +326,17 @@ export default {
          // console.log(res.data)
          this.event_type = res.data
          this.loading_content = false
-      });
+      })
+      .catch((error) => {
+         this.$router.push('/adminpanel/event_types?nodata=nodatafound')
+         // console.log(error)
+         // this.error_message = error.response.data.message
+         // this.error_snackbar = true
+         // this.errors = error.response.data.errors
+         // this.form_disabled = false
+         // this.form_loading = false
+         // this.loading_content = false
+      })
    }
 };
 </script>

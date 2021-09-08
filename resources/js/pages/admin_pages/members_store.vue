@@ -345,11 +345,21 @@ export default {
     created(){
         this.loading_content = true
         axios.get("/api/people/show_without_relations/" + this.$route.params.people_id)
-         .then((response) => {
-            console.log("response");
-            this.people_section = response.data
+         .then((res) => {
+            // // console.log(res.data)
+            this.people_section = res.data
             this.loading_content = false
-         });
+         })
+         .catch((error) => {
+            this.$router.push('/adminpanel/people?nodata=nodatafound')
+            // console.log(error)
+            // this.error_message = error.response.data.message
+            // this.error_snackbar = true
+            // this.errors = error.response.data.errors
+            // this.form_disabled = false
+            // this.form_loading = false
+            // this.loading_content = false
+         })
     }
 };
 </script>

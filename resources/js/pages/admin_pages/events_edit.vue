@@ -133,6 +133,7 @@
                         <div class="text-body-2 red--text text-uppercase font-weight-bold mb-2 text-center">
                            If no image is provided, the previous image will be deleted and set to "No Image"
                         </div>
+                        
                         <!-- File Upload -->
                         <v-file-input
                            truncate-length="15"
@@ -228,8 +229,8 @@ export default {
       success_message: "",
       success_snackbar: false,
       timeout: 3000,
-      event_type: "",
       loading_content: false,
+      event_type: "",
       event_name: "",
       event_name_rules: [
          (v) => !!v || "Event name is required",
@@ -327,6 +328,8 @@ export default {
       axios.get("/api/events/show/" + this.$route.params.id)
       .then((res) => {
          // console.log(res.data)
+         if( this.$route.params.event_type_id != res.data.event_type.id )
+            this.$router.push('/adminpanel/event_types/' + res.data.event_type.id + '/events/?nodata=nodatafound')
          this.event_type = res.data.event_type.event_type
          this.event_name = res.data.event_name
          this.event_description = res.data.event_description
@@ -334,7 +337,17 @@ export default {
          this.form_disabled = false
          this.form_loading = false
          this.loading_content = false
-      });
+      })
+      .catch((error) => {
+         this.$router.push('/adminpanel/event_types/' + this.$route.params.event_type_id + '/events/?nodata=nodatafound')
+         // console.log(error)
+         // this.error_message = error.response.data.message
+         // this.error_snackbar = true
+         // this.errors = error.response.data.errors
+         // this.form_disabled = false
+         // this.form_loading = false
+         // this.loading_content = false
+      })
    }
 };
 </script>

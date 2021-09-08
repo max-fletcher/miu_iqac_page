@@ -49,7 +49,7 @@ class ResourceController extends Controller
 
     public function show($id)
     {
-        $resource = Resource::where('id', $id)->with('resource_type')->get();
+        $resource = Resource::where('id', $id)->with('resource_type')->first();
         if($resource){
             return response()->json($resource, 200);
         }
@@ -61,28 +61,40 @@ class ResourceController extends Controller
     {
         $request->validate([
             'resource_type_id' => ['required','numeric', 'integer', 'exists:resource_types,id'],
-            'resource_name' => ['required', 'string', 'max:255'],
-            'resource_file' => ['required', 'file', 'mimetypes:application/pdf', 'max:50000']
+            'resource_name' => ['required', 'string', 'max:255']
         ]);
-
-            //get filename with extension
-            $filenameWithExt = $request->file('resource_file')->getClientOriginalName();
-            //get just file name (using standard php function)
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            //get just extension
-            $extension = $request->file('resource_file')->getClientOriginalExtension();
-            //filename to store(uses a time php function to get current time)
-            //this string is a unique name so that file with duplicate name do not get uploaded and
-            //cause problems when viewing(same problem that occured in CISV photo gallery)
-            $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-            //upload image
-            $request->file('resource_file')->storeAs('public/resource_files', $filenameToStore);
 
         $resource = Resource::find($id);
         if($resource){
+
+            if($request->hasFile('resource_file')) {
+
+                $request->validate([
+                    'resource_file' => ['required', 'file', 'mimetypes:application/pdf', 'max:50000']
+                ]);
+
+                Storage::delete('public/resource_files/'.$resource->resource_file);
+
+                //get filename with extension
+                $filenameWithExt = $request->file('resource_file')->getClientOriginalName();
+                //get just file name (using standard php function)
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                //get just extension
+                $extension = $request->file('resource_file')->getClientOriginalExtension();
+                //filename to store(uses a time php function to get current time)
+                //this string is a unique name so that file with duplicate name do not get uploaded and
+                //cause problems when viewing(same problem that occured in CISV photo gallery)
+                $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
+                //upload image
+                $request->file('resource_file')->storeAs('public/resource_files', $filenameToStore);
+
+            }
+            else{
+                $filenameToStore = $resource->resource_file;
+            }
+            
             $resource->resource_type_id = $request->resource_type_id;
-            $resource->resource_name = $request->resource_name;            
-            Storage::delete('public/resource_files/'.$resource->resource_file);
+            $resource->resource_name = $request->resource_name;
             $resource->resource_file = $filenameToStore;
             $resource->save();
             return response()->json( "Resource Updated Successfully !!" ,201);

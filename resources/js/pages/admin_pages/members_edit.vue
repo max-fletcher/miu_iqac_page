@@ -26,7 +26,7 @@
                               text--darken-3
                            "
                         >
-                           Edit Member Data -({{ people_section.name }}) </v-card-title>
+                           Edit Member Data -({{ people_section }}) </v-card-title>
                      </v-card>
                   </div>
                </v-row>
@@ -338,15 +338,12 @@ export default {
    },
    created(){
          this.loading_content = true
-         axios.get("/api/people/show_without_relations/" + this.$route.params.people_id)
-            .then((response) => {
-                  console.log("response");
-               this.people_section = response.data
-            });
-
          axios.get("/api/people/members/show/" + this.$route.params.id)
             .then((res) => {
-               console.log(res.data)
+               if( this.$route.params.people_id != res.data.people_id )
+                  this.$router.push('/adminpanel/people/' + res.data.people_id + '/members/?nodata=nodatafound')
+               // console.log(res.data)
+               this.people_section = res.data.people.name
                this.name = res.data.name
                this.designation = res.data.designation
                this.cell_number = res.data.cell_number
@@ -357,13 +354,14 @@ export default {
                // this.$refs.edit_member_data.reset()
             })
             .catch((error) => {
-               console.log(error)
-               this.error_message = error.response.data.message
-               this.error_snackbar = true
-               this.errors = error.response.data.errors
-               this.form_disabled = false
-               this.form_loading = false
-               this.loading_content = false
+               this.$router.push('/adminpanel/people/' + this.$route.params.people_id + '/members?nodata=nodatafound')
+               // console.log(error)
+               // this.error_message = error.response.data.message
+               // this.error_snackbar = true
+               // this.errors = error.response.data.errors
+               // this.form_disabled = false
+               // this.form_loading = false
+               // this.loading_content = false
             })
    }
 }

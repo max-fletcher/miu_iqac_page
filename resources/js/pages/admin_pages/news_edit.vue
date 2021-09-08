@@ -312,13 +312,14 @@ export default {
             // this.$refs.edit_carousel_content.reset()
         })
         .catch((error) => {
-            console.log(error)
-            this.error_message = error.response.data.message
-            this.error_snackbar = true
-            this.errors = error.response.data.errors
-            this.form_disabled = false
-            this.form_loading = false
-            this.loading_content = false
+            this.$router.push('/adminpanel/news?nodata=nodatafound')
+            // console.log(error)
+            // this.error_message = error.response.data.message
+            // this.error_snackbar = true
+            // this.errors = error.response.data.errors
+            // this.form_disabled = false
+            // this.form_loading = false
+            // this.loading_content = false
         })
   }
 };
