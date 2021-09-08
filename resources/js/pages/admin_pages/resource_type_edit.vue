@@ -1,6 +1,6 @@
 <template>
    <div>
-      <!-- event_type: {{event_type}} <br>
+      <!-- resource_type_name: {{resource_type_name}} <br>
       {{ errors }} <br> -->
       <div v-if="loading_content">
          <AdminLoading />
@@ -20,14 +20,14 @@
                               text--darken-3
                            "
                         >
-                           Edit Event Type</v-card-title>
+                           Edit Resource Type</v-card-title>
                      </v-card>
                   </div>
                </v-row>
                <v-row>
                   <v-col class="mb-3">
                      <!-- Contact us Form -->
-                     <v-form ref="edit_about_content" :disabled="form_disabled" lazy-validation>
+                     <v-form ref="edit_resource_type" :disabled="form_disabled" lazy-validation>
 
                      <!-- Snackbar For successful Form Submission -->
                      <v-snackbar
@@ -83,10 +83,10 @@
 
                       <!-- People Section Name Field -->
                       <v-text-field
-                          v-model="event_type"
-                          :rules="event_type_rules"
-                          :error="errors && errors.event_type"
-                          :error-messages="errors.event_type"
+                          v-model="resource_type_name"
+                          :rules="resource_type_name_rules"
+                          :error="errors && errors.resource_type_name"
+                          :error-messages="errors.resource_type_name"
                           label="Title"
                           placeholder="Enter Title Here"
                           prepend-inner-icon="mdi-format-title"
@@ -141,10 +141,10 @@ export default {
       success_snackbar: false,
       timeout: 3000,
       loading_content: false,
-      event_type: "",
-      event_type_rules: [
-         (v) => !!v || "Event Name is required",
-         (v) => (v && v.length <= 255) || 'Event Name must be less than 255 characters',
+      resource_type_name: "",
+      resource_type_name_rules: [
+         (v) => !!v || "Resource type name is required",
+         (v) => (v && v.length <= 255) || 'Resource type name must be less than 255 characters',
       ],
    }),
 
@@ -155,7 +155,7 @@ export default {
    methods: {
       submitForm() {
          console.log("trigger 1")
-         if(this.$refs.edit_about_content.validate()) {
+         if(this.$refs.edit_resource_type.validate()) {
             this.form_disabled = true
             this.form_loading = true
             
@@ -164,13 +164,13 @@ export default {
             this.error_message = "";
 
             const formData  = new FormData()
-            formData.append('event_type', this.event_type)
+            formData.append('resource_type_name', this.resource_type_name)
             formData.append('_method', 'PATCH')
 
             console.log("trigger 3")
             // console.log(formData);
 
-            axios.post("/api/events/types/update/" + this.$route.params.id, formData)
+            axios.post("/api/resource_type/update/" + this.$route.params.id, formData)
             .then((res) => {
                console.log(res.data)
                this.success_message = res.data
@@ -188,26 +188,26 @@ export default {
             });
          } else {
             //false
-            this.$refs.edit_about_content.validate()
+            this.$refs.edit_resource_type.validate()
          }
       },
       // reset() {
-      //    this.$refs.edit_about_content.reset()
+      //    this.$refs.edit_resource_type.reset()
       // },
       // resetValidation() {
-      //    this.$refs.edit_about_content.resetValidation()
+      //    this.$refs.edit_resource_type.resetValidation()
       // },
    },
    created(){
       this.loading_content = true
-      axios.get("/api/events/types/show/" + this.$route.params.id)
+      axios.get("/api/resource_type/show_without_relations/" + this.$route.params.id)
          .then((res) => {
             console.log(res.data)
-            this.event_type = res.data.event_type
+            this.resource_type_name = res.data.resource_type_name
             this.form_disabled = false
             this.form_loading = false
             this.loading_content = false
-            // this.$refs.edit_about_content.reset()
+            // this.$refs.edit_resource_type.reset()
          })
          .catch((error) => {
             console.log(error)

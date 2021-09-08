@@ -1,6 +1,6 @@
 <template>
    <div>
-      {{ resources }}
+      <!-- {{resource_types}} -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>
@@ -59,11 +59,12 @@
          <!-- End Snackbar For Internal Server Error -->
 
          <v-card flat tile outlined width="100%" class="d-flex">
-            <v-card-title> Resource - ({{ resource_type }})  </v-card-title>
+            <v-card-title> Resource Types </v-card-title>
 
                <v-spacer></v-spacer>
+
                <v-btn
-                  :to="'/adminpanel/resource_types/'+ this.$route.params.resource_type_id +'/resource/store'"
+                  to="/adminpanel/resource_types/store"
                   :disabled="disable_buttons"
                   elevation="2"
                   class="ma-1 orange darken-3 rounded-1 white--text mt-4 mr-5"
@@ -75,62 +76,72 @@
                </v-btn>
          </v-card>
 
-         <v-card flat v-if="resources.length === 0" height="480" min-height="300">
+         <v-card flat v-if="resource_types.length === 0" height="480" min-height="300">
             <v-container fill-height fluid>
                <v-row align="center" justify="center">
                   <div class="text-center">
-                     <h1>No Resources For This Resource Type Has Been Added Yet</h1>
-                     <h2>Add Resources For This Resource Type By Clicking the "Create New" Button Above</h2>
+                     <h1>No Resource Types Has Been Added Yet</h1>
+                     <h2>Add Resource Types By Clicking the "Create New" Button Above</h2>
                   </div>
                </v-row>
             </v-container>
          </v-card>
 
-         <div v-else v-for="(resource, index) in resources" :key="index">
+         <div v-else v-for="(resource_type, index) in resource_types" :key="index">
             <v-card tile outlined class="mx-auto px-1 py-2">
-
-               <!-- {{moment(event.event_date).format('YYYY-MM-DD')}} <br> -->
-               <!-- {{moment().format('YYYY-MM-DD')}} -->
-               <v-card-text class="text-body-1 font-weight-medium py-0 black--text">
-                  Event Name: {{ resource.resource_name }}
-               </v-card-text>
-
-               <v-card-text class="text-body-1 font-weight-medium py-0 black--text">
-                  Event Type: {{ resource.resource_file }}
-               </v-card-text>
+               <v-card-title class="py-0">
+                  <span class="text-h6 font-weight-medium">
+                     Resource Type: {{ resource_type.resource_type_name }}
+                  </span>
+               </v-card-title>
 
                <v-card-text class="text-caption font-weight-medium py-0">
-                  Created At: {{ moment(resource.created_at).format('MMMM Do YYYY, h:mm a') }}
+                  Created At: {{ moment(resource_types.created_at).format('MMMM Do YYYY, h:mm a') }}
                </v-card-text>
 
                <v-card-actions class="py-0">
                   <v-list-item class="grow">
 
-                      <v-row
-                          justify="end"
-                          align="end"
-                      >
-                              <v-btn
-                                  :to="'/adminpanel/resourcess/'+ $route.params.resources_id +'/resource/edit/' + resource.id"
-                                  :disabled="disable_buttons"
-                                  elevation="2"
-                                  class="ma-1 indigo darken-3 rounded-1 white--text"
-                              >
-                                  <v-icon left color="white">
-                                    mdi-clipboard-edit
-                                  </v-icon>
-                                  EDIT
-                              </v-btn>
+                     <v-row
+                        align="start"
+                        align-sm="center"
+                        justify="start"
+                        justify-sm="end"
+                        class="mt-0 mb-1 mt-sm-0 mb-sm-0"
+                     >
+                           <v-btn
+                              :to="'/adminpanel/resource_types/' + resource_type.id + '/resources'"
+                              :disabled="disable_buttons"
+                              elevation="2"
+                              class="ma-1 green darken-1 rounded-1 white--text"
+                           >
+                              <v-icon left color="white">
+                                 mdi-account
+                              </v-icon>
+                              View Members
+                           </v-btn>
 
-                              <!-- Delete Button With v-menu -->
-                              <ContentDeleteDialog axios_path="/api/resource/destroy/" :content_id="resource.id" @content_deleted="resource_update($event)" @content_delete_failed="resource_delete_failed($event)" />
-                      </v-row>
+                           <v-btn
+                              :to="'/adminpanel/resource_types/edit/' + resource_type.id"
+                              :disabled="disable_buttons"
+                              elevation="2"
+                              class="ma-1 indigo darken-3 rounded-1 white--text"
+                           >
+                              <v-icon left color="white">
+                                 mdi-clipboard-edit
+                              </v-icon>
+                              EDIT
+                           </v-btn>
+
+                           <!-- Delete Button With v-menu -->
+                           <ContentDeleteDialog axios_path="/api/resource_type/destroy/" :content_id="resource_type.id" @content_deleted="resource_type_update($event)" @content_delete_failed="resource_type_delete_failed($event)" />
+
+                     </v-row>
 
                   </v-list-item>
                </v-card-actions>
             </v-card>
          </div>
-         
       </v-card>
    </div>
 </template>
@@ -142,9 +153,8 @@ import ContentDeleteDialog from "./admin_components/content_delete_dialog.vue"
 export default {
    data: () => ({
       moment: moment,
-      resources: [],
-      resource_type: "",
-      loading_content: true,
+      resource_types: [],
+      loading_content: false,
       disable_buttons: false,
       timeout: 3000,
       error_snackbar: false,
@@ -157,10 +167,8 @@ export default {
       AdminLoading, ContentDeleteDialog
    },
    methods: {
-
-      resource_update(deleted){
-         console.log("delete from admin")
-            this.resources = this.resources.filter(function(obj) {
+      resource_type_update(deleted){
+            this.resource_types = this.resource_types.filter(function(obj) {
             return obj.id !== deleted.deleted_id; // Or whatever value you want to use
          })
 
@@ -169,21 +177,21 @@ export default {
 
       },
 
-      resource_delete_failed($deleted_id)
+      resource_type_delete_failed($deleted_id)
       {
         this.error_message = "Server Error !! Failed to Delete Content with ID: " + $deleted_id + "."
         this.error_snackbar = true
       }
    },
 
-   created(){
-      axios.get("/api/resource_type/show/"+ this.$route.params.resource_type_id)
+   created() {
+      this.loading_content = true,
+      axios.get("/api/resource_type/index")
          .then((response) => {
-            console.log(response.data)
-            this.resources = response.data.resources
-            this.resource_type = response.data.resource_type_name
+            console.log("response");
+            this.resource_types = response.data
             this.loading_content = false
-         })
+         });
    },
 }
 </script>

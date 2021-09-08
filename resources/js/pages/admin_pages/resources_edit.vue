@@ -1,7 +1,7 @@
 <template>
-  <div>
-     Edit Resources Page Admin
-  </div>
+   <div>
+      Edit Resources
+   </div>
 </template>
 
 <script>

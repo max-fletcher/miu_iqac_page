@@ -11,11 +11,11 @@ use Illuminate\Support\Facades\DB;
 
 class ResourceController extends Controller
 {
-    public function index()
-    {        
-        $resources = Resource::select('id', 'resource_type_id', 'resource_name', 'resource_file', 'created_at')->get();
-        return response()->json($resources ,200);
-    }
+    // public function index()
+    // {        
+    //     $resources = Resource::select('id', 'resource_type_id', 'resource_name', 'resource_file', 'created_at')->get();
+    //     return response()->json($resources ,200);
+    // }
 
     public function store(Request $request)
     {

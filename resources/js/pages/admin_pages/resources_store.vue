@@ -1,7 +1,7 @@
 <template>
-  <div>
-     Store Resources Page Admin
-  </div>
+   <div>
+      Store Resources
+   </div>
 </template>
 
 <script>

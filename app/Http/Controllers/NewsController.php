@@ -34,7 +34,7 @@ class NewsController extends Controller
         if($request->hasFile('news_image')) {
 
             $request->validate([
-                'news_image' => [ 'image', 'sometimes', 'max:2000', new noimage],
+                'news_image' => ['required', 'image', 'max:2000', new noimage],
                 'resize_image' => ['required', 'numeric', 'integer'],
             ]);
 

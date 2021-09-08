@@ -13,13 +13,13 @@ class ResourceTypeController extends Controller
         return response()->json($resource_types, 200);
     }
 
-    public function frontend_index()
-    {        
-        $resource_types = ResourceType::select('id', 'resource_type_name', 'created_at')->with(['resources' => function($query) {
-            return $query->select(['id', 'resource_type_id', 'resource_name', 'resource_file', 'created_at']);
-        }])->get();
-        return response()->json($resource_types, 200);
-    }
+    // public function frontend_index()
+    // {        
+    //     $resource_types = ResourceType::select('id', 'resource_type_name', 'created_at')->with(['resources' => function($query) {
+    //         return $query->select(['id', 'resource_type_id', 'resource_name', 'resource_file', 'created_at']);
+    //     }])->get();
+    //     return response()->json($resource_types, 200);
+    // }
 
     public function store(Request $request)
     {
@@ -46,6 +46,16 @@ class ResourceTypeController extends Controller
         return response()->json('Resource Type Not Found !!', 404);
     }
 
+    public function show_without_relations($id)
+    {
+        $resource_type = ResourceType::where('id', $id)->select('id', 'resource_type_name', 'created_at')->first();
+        if($resource_type){
+            return response()->json($resource_type, 200);
+        }
+
+        return response()->json('Resource Type Not Found !!', 404);
+    }
+
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -58,7 +68,7 @@ class ResourceTypeController extends Controller
             $resource_type->resource_type_name = $request->resource_type_name;
             $resource_type->save();
     
-            return response()->json('Resource Type Updated Successfully', 201);
+            return response()->json('Resource Type Updated Successfully !!', 201);
         }
 
         return response()->json('Resource Type With ID Not Found !!', 404);
@@ -71,7 +81,7 @@ class ResourceTypeController extends Controller
         if($resource_type){        
             $resource_type->delete();
     
-            return response()->json('Resource Type Deleted Successfully', 201);
+            return response()->json('Resource Type Deleted Successfully !!', 201);
         }
 
         return response()->json('Resource Type With ID Not Found !!', 404);

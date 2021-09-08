@@ -215,7 +215,7 @@ export default {
          (v) => (v && v.length <= 65000) || 'Name must be less than 65000 characters',
       ],
       news_image: null,
-      news_image_rules: [ (v) => !!v || "Image is required" ],
+      // news_image_rules: [ (v) => !!v || "Image is required" ],
       resize_image: "",
       // resize_rules: [
       //    (v) => !!v || "Resize Parameter is required"

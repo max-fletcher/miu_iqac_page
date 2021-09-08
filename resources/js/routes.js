@@ -47,10 +47,14 @@ import EventsEdit from "./pages/admin_pages/events_edit"
 import NewsAdmin from "./pages/admin_pages/news_admin"
 import NewsStore from "./pages/admin_pages/news_store"
 import NewsEdit from "./pages/admin_pages/news_edit"
+// ResourceTypes
+import ResourceTypeAdmin from "./pages/admin_pages/resource_type_admin"
+import ResourceTypeStore from "./pages/admin_pages/resource_type_store"
+import ResourceTypeEdit from "./pages/admin_pages/resource_type_edit"
 // Resources
 import ResourcesAdmin from "./pages/admin_pages/resources_admin"
+import ResourcesStore from "./pages/admin_pages/resources_store"
 import ResourcesEdit from "./pages/admin_pages/resources_edit"
-
 
 import PublicationTypeAdmin from "./pages/admin_pages/publication_type_admin"
 import PublicationAdmin from "./pages/admin_pages/publication_admin"
@@ -298,17 +302,38 @@ export default{
                component: NewsEdit,
                meta: { title: 'Admin Panel - Edit News' },
             },
-
-
             {
                path: 'resource_types',
-               component: ResourcesAdmin,
-               meta: { title: 'Admin Panel - All Resources Content' },
+               component: ResourceTypeAdmin,
+               meta: { title: 'Admin Panel - All Resource Types' },
+            },
+            {
+               path: 'resource_types/store',
+               component: ResourceTypeStore,
+               meta: { title: 'Admin Panel - Store Resource Types' },
             },
             {
                path: 'resource_types/edit/:id',
+               component: ResourceTypeEdit,
+               meta: { title: 'Admin Panel - Edit Resource Types' },
+            },
+
+
+            
+            {
+               path: 'resource_types/:resource_type_id/resources',
                component: ResourcesAdmin,
-               meta: { title: 'Admin Panel - All Resources Content' },
+               meta: { title: 'Admin Panel - All Resources For Type' },
+            },
+            {
+               path: 'resource_types/:resource_type_id/resources/store',
+               component: ResourcesStore,
+               meta: { title: 'Admin Panel - Store Resource' },
+            },
+            {
+               path: 'resource_types/:resource_type_id/resources/edit/:id',
+               component: ResourcesEdit,
+               meta: { title: 'Admin Panel - Edit Resource' },
             },
 
 
