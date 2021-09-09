@@ -7,6 +7,7 @@ use App\Models\GalleryName;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Resources\GalleryNameResource;
+use App\Rules\noimage;
 
 class GalleryNameController extends Controller
 {
@@ -21,26 +22,22 @@ class GalleryNameController extends Controller
     {
         $request->validate([
             'gallery_name' => ['required', 'string', 'max:255'],
-            'gallery_cover_photo' => [ 'image', 'sometimes', 'max:2000'],
+            'gallery_cover_photo' => ['required', 'image', 'max:3000', new noimage],
+            'resize_image' => ['required', 'numeric', 'integer'],
         ]);
 
-        if($request->hasFile('gallery_cover_photo')) {
-            //get filename with extension
-            $filenameWithExt = $request->file('gallery_cover_photo')->getClientOriginalName();
-            //get just file name (using standard php function)
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            //get just extension
-            $extension = $request->file('gallery_cover_photo')->getClientOriginalExtension();
-            //filename to store(uses a time php function to get current time)
-            //this string is a unique name so that file with duplicate name do not get uploaded and
-            //cause problems when viewing(same problem that occured in CISV photo gallery)
-            $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-            //upload image
-            $request->file('gallery_cover_photo')->storeAs('public/gallery_cover_photos', $filenameToStore);
-        }
-        else{
-            $filenameToStore = 'noimage.jpg';
-        }
+        //get filename with extension
+        $filenameWithExt = $request->file('gallery_cover_photo')->getClientOriginalName();
+        //get just file name (using standard php function)
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        //get just extension
+        $extension = $request->file('gallery_cover_photo')->getClientOriginalExtension();
+        //filename to store(uses a time php function to get current time)
+        //this string is a unique name so that file with duplicate name do not get uploaded and
+        //cause problems when viewing(same problem that occured in CISV photo gallery)
+        $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
+        //upload image
+        $request->file('gallery_cover_photo')->storeAs('public/gallery_cover_photos', $filenameToStore);
 
         GalleryName::Create([
             'gallery_name' => $request->gallery_name,
@@ -68,29 +65,31 @@ class GalleryNameController extends Controller
     {
         $request->validate([
             'gallery_name' => ['required', 'string', 'max:255'],
-            'gallery_cover_photo' => [ 'image', 'sometimes', 'max:2000'],
+            'gallery_cover_photo' => [ 'image', 'sometimes', 'max:3000'],
         ]);
-
-        if($request->hasFile('gallery_cover_photo')) {
-            //get filename with extension
-            $filenameWithExt = $request->file('gallery_cover_photo')->getClientOriginalName();
-            //get just file name (using standard php function)
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            //get just extension
-            $extension = $request->file('gallery_cover_photo')->getClientOriginalExtension();
-            //filename to store(uses a time php function to get current time)
-            //this string is a unique name so that file with duplicate name do not get uploaded and
-            //cause problems when viewing(same problem that occured in CISV photo gallery)
-            $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-            //upload image
-            $request->file('gallery_cover_photo')->storeAs('public/gallery_cover_photos', $filenameToStore);
-        }
-        else{
-            $filenameToStore = 'noimage.jpg';
-        }
 
         $gallery_name = GalleryName::find($id);        
         if($gallery_name){
+
+            if($request->hasFile('gallery_cover_photo')) {
+                //get filename with extension
+                $filenameWithExt = $request->file('gallery_cover_photo')->getClientOriginalName();
+                //get just file name (using standard php function)
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                //get just extension
+                $extension = $request->file('gallery_cover_photo')->getClientOriginalExtension();
+                //filename to store(uses a time php function to get current time)
+                //this string is a unique name so that file with duplicate name do not get uploaded and
+                //cause problems when viewing(same problem that occured in CISV photo gallery)
+                $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
+                //upload image
+                $request->file('gallery_cover_photo')->storeAs('public/gallery_cover_photos', $filenameToStore);
+            }
+            else{
+                $filenameToStore = 'noimage.jpg';
+            }
+
+
             $gallery_name->gallery_name = $request->gallery_name;
             if($request->hasFile('gallery_cover_photo')){     //works if there is a new image uploaded
                 Storage::delete('public/gallery_cover_photos/'.$gallery_name->gallery_cover_photo);  //deletes previous image

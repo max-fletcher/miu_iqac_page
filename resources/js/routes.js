@@ -55,9 +55,17 @@ import ResourceTypeEdit from "./pages/admin_pages/resource_type_edit"
 import ResourcesAdmin from "./pages/admin_pages/resources_admin"
 import ResourcesStore from "./pages/admin_pages/resources_store"
 import ResourcesEdit from "./pages/admin_pages/resources_edit"
+
+
 // Galleries
 import GalleryAdmin from "./pages/admin_pages/gallery_admin"
+import GalleryStore from "./pages/admin_pages/gallery_store"
+import GalleryEdit from "./pages/admin_pages/gallery_edit"
+
 import GalleryPhotoAdmin from "./pages/admin_pages/gallery_photo_admin"
+
+
+
 
 import PublicationTypeAdmin from "./pages/admin_pages/publication_type_admin"
 import PublicationAdmin from "./pages/admin_pages/publication_admin"
@@ -206,7 +214,7 @@ export default{
             {
                path: 'carousel_content/store',
                component: CarouselContentStore,
-               meta: { title: 'Admin Panel - Store Carousel Content' },
+               meta: { title: 'Admin Panel - Create New Carousel Content' },
             },
             {
                path: 'carousel_content/edit/:id',
@@ -221,7 +229,7 @@ export default{
             {
                path: 'about_content/store',
                component: AboutContentStore,
-               meta: { title: 'Admin Panel - Store About Content' },
+               meta: { title: 'Admin Panel - Create New About Content' },
             },
             {
                path: 'about_content/edit/:id',
@@ -236,7 +244,7 @@ export default{
             {
                path: 'people/store',
                component: PeopleStore,
-               meta: { title: 'Admin Panel - Store People Section' },
+               meta: { title: 'Admin Panel - Create New People Section' },
             },
             {
                path: 'people/edit/:id',
@@ -251,12 +259,12 @@ export default{
             {
                path: 'people/:people_id/members/store',
                component: MembersStore,
-               meta: { title: 'Admin Panel - Store Members Section' },
+               meta: { title: 'Admin Panel - Create New Member' },
             },
             {
                path: 'people/:people_id/members/edit/:id',
                component: MembersEdit,
-               meta: { title: 'Admin Panel - Edit Members Section' },
+               meta: { title: 'Admin Panel - Edit Member' },
             },
             {
                path: 'event_types',
@@ -266,7 +274,7 @@ export default{
             {
                path: 'event_types/store',
                component: EventTypesStore,
-               meta: { title: 'Admin Panel - Store Event Types' },
+               meta: { title: 'Admin Panel - Create New Event Types' },
             },
             {
                path: 'event_types/edit/:id',
@@ -281,7 +289,7 @@ export default{
             {
                path: 'event_types/:event_type_id/events/store',
                component: EventsStore,
-               meta: { title: 'Admin Panel - Store Events' },
+               meta: { title: 'Admin Panel - Create New Events' },
             },
             {
                path: 'event_types/:event_type_id/events/edit/:id',
@@ -296,7 +304,7 @@ export default{
             {
                path: 'news/store',
                component: NewsStore,
-               meta: { title: 'Admin Panel - Store News' },
+               meta: { title: 'Admin Panel - Create New News' },
             },
             {
                path: 'news/edit/:id',
@@ -311,7 +319,7 @@ export default{
             {
                path: 'resource_types/store',
                component: ResourceTypeStore,
-               meta: { title: 'Admin Panel - Store Resource Types' },
+               meta: { title: 'Admin Panel - Create New Resource Types' },
             },
             {
                path: 'resource_types/edit/:id',
@@ -326,7 +334,7 @@ export default{
             {
                path: 'resource_types/:resource_type_id/resources/store',
                component: ResourcesStore,
-               meta: { title: 'Admin Panel - Store Resource' },
+               meta: { title: 'Admin Panel - Create New Resource' },
             },
             {
                path: 'resource_types/:resource_type_id/resources/edit/:id',
@@ -336,12 +344,22 @@ export default{
 
 
 
-
             {
                path: 'all_galleries',
                component: GalleryAdmin,
                meta: { title: 'Admin Panel - All Photo Galleries' },
             },
+            {
+               path: 'gallery/store',
+               component: GalleryStore,
+               meta: { title: 'Admin Panel - Create New Gallery' },
+            },
+            {
+               path: 'gallery/edit/:id',
+               component: GalleryEdit,
+               meta: { title: 'Admin Panel - Edit Gallery' },
+            },
+
             {
                path: 'gallery',
                component: GalleryPhotoAdmin,
