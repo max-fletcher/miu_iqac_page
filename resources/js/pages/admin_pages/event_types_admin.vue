@@ -81,7 +81,7 @@
                <v-row align="center" justify="center">
                   <div class="text-center">
                      <h1>No Event Types Has Been Added Yet</h1>
-                     <h2>Add MEvent Types By Clicking the "Create New" Button Above</h2>
+                     <h2>Add Event Types By Clicking the "Create New" Button Above</h2>
                   </div>
                </v-row>
             </v-container>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PublicationTypeInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Rules\NoWhitespace;
 
 class PublicationTypeInfoController extends Controller
 {
@@ -22,7 +23,7 @@ class PublicationTypeInfoController extends Controller
     {
         $request->validate([
             'publication_type_name' => ['required', 'string', 'max:255', 'unique:publication_type_infos'],
-            'publication_password' => ['required', 'string', 'min:8' ,'max:255', 'confirmed'],
+            'publication_password' => ['required', 'string', 'min:8' ,'max:255', 'confirmed', new NoWhitespace],
         ]);
 
         PublicationTypeInfo::create([
@@ -58,18 +59,26 @@ class PublicationTypeInfoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'publication_type_name' => ['required', 'string', 'max:255', 'unique:publication_type_infos'],
-            'publication_password' => ['required', 'string','min:8' ,'max:255', 'confirmed'],
+            'publication_type_name' => ['required', 'string', 'max:255'],
+            'publication_password' => ['required', 'min:8' ,'max:255', 'confirmed', new NoWhitespace],
         ]);
 
-        $publication_type = PublicationTypeInfo::find($id);        
+        $publication_type = PublicationTypeInfo::find($id);
+        $duplicate_publication = PublicationTypeInfo::where('publication_type_name', $request->publication_type_name)->where('id', '!=' ,$publication_type->id)->first();
+
+        // return response()->json($publication_type, 201);
+        // return response()->json($duplicate_publication, 201);
 
         if($publication_type){
-            $publication_type->publication_type_name = $request->publication_type_name;
-            $publication_type->publication_password = Hash::make($request->publication_password);
-            $publication_type->save();
-    
-            return response()->json('Publication Type Updated Successfully', 201);
+            if(!$duplicate_publication){
+                $publication_type->publication_type_name = $request->publication_type_name;
+                $publication_type->publication_password = Hash::make($request->publication_password);
+                $publication_type->save();
+                return response()->json('Publication Type Updated Successfully !!', 201);
+            }
+            else{
+                return response()->json('Publication Type with this name already exists !!', 422);
+            }
         }
 
         return response()->json('Publication Type With ID Not Found !!', 404);
@@ -82,7 +91,7 @@ class PublicationTypeInfoController extends Controller
         if($publication_type){        
             $publication_type->delete();
     
-            return response()->json('Publication Type Deleted Successfully', 201);
+            return response()->json('Publication Type Deleted Successfully !!', 201);
         }
 
         return response()->json('Publication Type With ID Not Found !!', 404);

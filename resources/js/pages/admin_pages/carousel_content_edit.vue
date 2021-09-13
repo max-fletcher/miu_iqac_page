@@ -116,7 +116,7 @@
                         <!-- End Carousel Subtitle Field -->
 
                         <div class="text-body-2 red--text font-weight-bold mb-2 text-center">
-                           **If no image is provided, the previous image will be maintained as default
+                           **If no image is provided, the previous image will be retained as default
                         </div>
 
                         <!-- File Upload -->

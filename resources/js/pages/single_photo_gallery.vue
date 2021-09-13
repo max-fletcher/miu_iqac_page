@@ -34,6 +34,9 @@
                            text-uppercase
                         "
                      >{{ photos.gallery_name }}</v-card-subtitle>
+                        <div class="text-body-2 red--text font-weight-bold mb-2 text-center mt-4">
+                           Click On the Images For Full Size View
+                        </div>
                   </v-card>
                </v-col>
             </v-row>

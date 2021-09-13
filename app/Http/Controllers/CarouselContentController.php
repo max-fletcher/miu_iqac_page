@@ -89,13 +89,13 @@ class CarouselContentController extends Controller
         $carousel_content = CarouselContent::find($id);
         if($carousel_content){
 
+            
             if($request->hasFile('carousel_image')) {
-
+                
                 $request->validate([
                     'carousel_image' => ['required', 'image', 'max:3000', new noimage],
                     'resize_image' => ['required', 'numeric', 'integer'],
                 ]);
-                
                 // deletes previous file
                 if($carousel_content->carousel_image != "noimage.jpg")
                     File::delete(public_path('storage/carousel_images/'.$carousel_content->carousel_image));
@@ -134,7 +134,6 @@ class CarouselContentController extends Controller
                 $filenameToStore = $carousel_content->carousel_image;
             }
 
-            
             $carousel_content->carousel_title = $request->carousel_title;
             $carousel_content->carousel_subtitle = $request->carousel_subtitle;
             $carousel_content->carousel_image = $filenameToStore;

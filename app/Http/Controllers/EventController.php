@@ -98,13 +98,14 @@ class EventController extends Controller
         $event = Event::find($id);
         if ($event) {
 
+            
             if($request->hasFile('event_image')) {
-
+                
                 $request->validate([
                     'event_image' => ['required', 'image', 'max:2000', new noimage],
                     'resize_image' => ['required', 'numeric', 'integer'],
                 ]);
-
+                
                 if($event->event_image != "noimage.jpg")
                     File::delete(public_path('storage/event_images/'.$event->event_image));  //deletes previous file
 

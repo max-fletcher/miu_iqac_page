@@ -106,35 +106,97 @@
                <v-card-actions class="py-0">
                   <v-list-item class="grow">
 
-                      <v-list-item-avatar color="grey darken-3" tile width="300" height="150">
-                        <v-img
-                          class="elevation-6"
-                          :src="'/storage/gallery_cover_photos/' + gallery.gallery_cover_photo"
-                          alt=""
-                          position="center center"
-                          aspect-ratio="2"
-                        ></v-img>
-                      </v-list-item-avatar>
+                     <!-- Image and Buttons For Xs Screens -->
+                     <div class="hidden-sm-and-up">
+                        <div>
+                              <v-list-item-avatar color="grey darken-3" tile width="300" height="150">
+                                 <v-img
+                                 class="elevation-6"
+                                 :src="'/storage/gallery_cover_photos/' + gallery.gallery_cover_photo"
+                                 alt=""
+                                 position="center center"
+                                 aspect-ratio="2"
+                                 ></v-img>
+                              </v-list-item-avatar>
+                        </div>
 
-                      <v-row
-                          justify="end"
-                          align="end"
-                      >
+                        <v-row class="my-1 mx-auto">
                               <v-btn
-                                  :to="'/adminpanel/gallery/edit/' + gallery.id"
-                                  :disabled="disable_buttons"
-                                  elevation="2"
-                                  class="ma-1 indigo darken-3 rounded-1 white--text"
+                                 :to="'/adminpanel/all_galleries/' + gallery.id + '/gallery'"
+                                 :disabled="disable_buttons"
+                                 elevation="2"
+                                 class="ma-1 green darken-1 rounded-1 white--text"
                               >
-                                  <v-icon left color="white">
+                                 <v-icon left color="white">
+                                    mdi-image-multiple
+                                 </v-icon>
+                                 View Photos
+                              </v-btn>
+
+                              <v-btn
+                                 :to="'/adminpanel/gallery/edit/' + gallery.id"
+                                 :disabled="disable_buttons"
+                                 elevation="2"
+                                 class="ma-1 indigo darken-3 rounded-1 white--text"
+                              >
+                                 <v-icon left color="white">
                                     mdi-clipboard-edit
-                                  </v-icon>
-                                  EDIT
+                                 </v-icon>
+                                 EDIT
                               </v-btn>
 
                               <!-- Delete Button With v-menu -->
-                              <ContentDeleteDialog axios_path="/api/gallery/name/destroy/" :content_id="gallery.id" @content_deleted="event_update($event)" @content_delete_failed="event_delete_failed($event)" />
-                      </v-row>
+                              <ContentDeleteDialog axios_path="/api/gallery/name/destroy/" :content_id="gallery.id" @content_deleted="gallery_update($event)" @content_delete_failed="gallery_deleted_failed($event)" />
+                        </v-row>
+                     </div>
+                     <!-- End Image and Buttons For Xs Screens -->
+
+                     <!-- Image and Buttons For Sm and Up Screens -->
+                     <v-list-item-avatar color="grey darken-3" tile width="300" height="150" class="hidden-xs-only">
+                        <v-img
+                        class="elevation-6"
+                        :src="'/storage/gallery_cover_photos/' + gallery.gallery_cover_photo"
+                        alt=""
+                        position="center center"
+                        aspect-ratio="2"
+                        ></v-img>
+                     </v-list-item-avatar>
+
+                     <v-row
+                        align="start"
+                        align-sm="center"
+                        justify="start"
+                        justify-sm="end"
+                        class="mt-0 mb-1 mt-sm-0 mb-sm-0 hidden-xs-only"
+                     >
+                           <v-btn
+                              :to="'/adminpanel/all_galleries/' + gallery.id + '/gallery'"
+                              :disabled="disable_buttons"
+                              elevation="2"
+                              class="ma-1 green darken-1 rounded-1 white--text"
+                           >
+                              <v-icon left color="white">
+                                 mdi-image-multiple
+                              </v-icon>
+                              View Photos
+                           </v-btn>
+
+                           <v-btn
+                              :to="'/adminpanel/gallery/edit/' + gallery.id"
+                              :disabled="disable_buttons"
+                              elevation="2"
+                              class="ma-1 indigo darken-3 rounded-1 white--text"
+                           >
+                              <v-icon left color="white">
+                                 mdi-clipboard-edit
+                              </v-icon>
+                              EDIT
+                           </v-btn>
+
+                           <!-- Delete Button With v-menu -->
+                           <ContentDeleteDialog axios_path="/api/gallery/name/destroy/" :content_id="gallery.id" @content_deleted="gallery_update($event)" @content_delete_failed="gallery_deleted_failed($event)" />
+                     </v-row>
+                     <!-- End Image and Buttons For Sm and Up Screens -->
 
                   </v-list-item>
                </v-card-actions>
@@ -167,7 +229,7 @@ export default {
    },
    methods: {
 
-      event_update(deleted){
+      gallery_update(deleted){
          console.log("delete from admin")
             this.galleries = this.galleries.filter(function(obj) {
             return obj.id !== deleted.deleted_id; // Or whatever value you want to use
@@ -177,7 +239,7 @@ export default {
          this.delete_success_snackbar = true
       },
 
-      event_deleted_failed($deleted_id)
+      gallery_deleted_failed($deleted_id)
       {
         this.error_message = "Server Error !! Failed to Delete Content with ID: " + $deleted_id + "."
         this.error_snackbar = true

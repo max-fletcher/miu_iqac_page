@@ -165,20 +165,20 @@ export default {
          (v) => !!v || "Password Confirmation is required",
          (v) => (!!v && password === v) || "Passwords do not match",
          (v) => (v && v.length <= 255) || "Confirmation Password must not be more than 255 characters",
-      ],      
+      ],
       // dummy: "",
       // validation: "",
    }),
    methods: {
       validate() {
-         this.$refs.form.validate();
+         this.$refs.form.validate()
       },
       reset() {
-         this.$refs.form.reset();
+         this.$refs.form.reset()
          // this.dummy = "";
       },
       resetValidation() {
-         this.$refs.form.resetValidation();
+         this.$refs.form.resetValidation()
          // this.dummy = "";
       },
       submitForm() {

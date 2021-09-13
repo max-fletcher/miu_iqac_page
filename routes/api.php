@@ -178,17 +178,24 @@ Route::delete('/contact_us/destroy/{id}', [App\Http\Controllers\ContactUsControl
 // FE
 Route::get('/gallery/name/index', [App\Http\Controllers\GalleryNameController::class, 'index']);
 Route::get('/gallery/name/frontend_index', [App\Http\Controllers\GalleryNameController::class, 'frontend_index']);
+// BE
 Route::post('/gallery/name/store', [App\Http\Controllers\GalleryNameController::class, 'store']);
 // FE
 Route::get('/gallery/name/show/{id}', [App\Http\Controllers\GalleryNameController::class, 'show']);
+Route::get('/gallery/name/show_without_relations/{id}', [App\Http\Controllers\GalleryNameController::class, 'show_without_relations']);
+// BE
 Route::patch('/gallery/name/update/{id}', [App\Http\Controllers\GalleryNameController::class, 'update']);
+// BE
 Route::delete('/gallery/name/destroy/{id}', [App\Http\Controllers\GalleryNameController::class, 'destroy']);
 
 // Gallery Photos Controller
 Route::get('/gallery/photos/index', [App\Http\Controllers\GalleryPhotoController::class, 'index']);
+// BE
 Route::post('/gallery/photos/store', [App\Http\Controllers\GalleryPhotoController::class, 'store']);
 Route::get('/gallery/photos/show/{id}', [App\Http\Controllers\GalleryPhotoController::class, 'show']);
+// BE
 Route::patch('/gallery/photos/update/{id}', [App\Http\Controllers\GalleryPhotoController::class, 'update']);
+// BE
 Route::delete('/gallery/photos/destroy/{id}', [App\Http\Controllers\GalleryPhotoController::class, 'destroy']);
 Route::get('/gallery/photos/photosbygalleryid/{id}', [App\Http\Controllers\GalleryPhotoController::class, 'photos_by_gallery_name_id']);
 

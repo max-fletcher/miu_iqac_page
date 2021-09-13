@@ -110,6 +110,42 @@
                         ></v-file-input>
                         <!-- End File Upload -->
 
+                        <div class="text-caption red--text">
+                           **Selecting "Yes" below uses an auto-resizer to resize the image to have a dimension of 2000x1150.
+                           It is applicable for most cell phone photos.
+                           However, if you select "No" it is recommended that you resize your image to an aspect ratio of about
+                           1.74 for it to display correctly on the page.
+                           Otherwise, part of your image might be cropped out from the front-end.
+                        </div>
+
+                        <!-- Resize Image Radio Buttons -->
+                        <v-container fluid class="pt-0">
+                           <v-radio-group
+                              v-model="resize_image"
+                              mandatory
+                              column
+                              :error="errors && errors.resize_image"
+                              :error-messages="errors.resize_image"
+                              :disabled="!gallery_cover_photo"
+                           >
+                           
+                              <template v-slot:label>
+                                 <div> Do You Want to Resize Image ?? </div>
+                              </template>
+                              <v-radio value="1">
+                                 <template v-slot:label>
+                                    <div> Yes </div>
+                                 </template>
+                              </v-radio>
+                              <v-radio value="0">
+                                 <template v-slot:label>
+                                    <div> No </div>
+                                 </template>
+                              </v-radio>
+                           </v-radio-group>
+                        </v-container>
+                        <!-- End Resize Image Radio Buttons -->
+
                         <!-- Validate and Submit -->
                         <v-row class="">
                            <div class="d-flex flex-row mx-auto">
@@ -160,6 +196,10 @@ export default {
       ],
       gallery_cover_photo: null,
       gallery_cover_photo_rules: [ (v) => !!v || "Image is required" ],
+      resize_image: "",
+      resize_rules: [
+         (v) => !!v || "Resize Parameter is required"
+      ],
    }),
 
    methods: {
@@ -189,6 +229,7 @@ export default {
             const formData  = new FormData()
             formData.append('gallery_name', this.gallery_name)
             formData.append('gallery_cover_photo', this.gallery_cover_photo)
+            formData.append('resize_image', this.resize_image)
 
             console.log("trigger 3")
             // console.log(formData)

@@ -66,38 +66,41 @@ class GalleryPhotoController extends Controller
         $request->validate([
             'gallery_name_id' => ['required', 'numeric', 'integer', 'exists:gallery_names,id'],
             'photo_title' => ['required', 'string', 'max:255'],
-            'photo_image' => [ 'required', 'image', 'max:2000'],
         ]);
-
-        if($request->hasFile('photo_image')) {
-            //get filename with extension
-            $filenameWithExt = $request->file('photo_image')->getClientOriginalName();
-            //get just file name (using standard php function)
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            //get just extension
-            $extension = $request->file('photo_image')->getClientOriginalExtension();
-            //filename to store(uses a time php function to get current time)
-            //this string is a unique name so that file with duplicate name do not get uploaded and
-            //cause problems when viewing(same problem that occured in CISV photo gallery)
-            $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-            //upload image
-            $request->file('photo_image')->storeAs('public/photo_gallery_images', $filenameToStore);
-        }
-        else{
-            $filenameToStore = 'noimage.jpg';
-        }
 
         $photo = GalleryPhoto::find($id);
         if ($photo) {
-            $photo->gallery_name_id = $request->gallery_name_id;
-            $photo->photo_title = $request->photo_title;            
-            if($request->hasFile('photo_image')){     //works if there is a new image uploaded
+
+            if($request->hasFile('photo_image')) {
+
+                $request->validate([
+                    'photo_image' => [ 'required', 'image', 'max:2000'],
+                ]);
+
                 Storage::delete('public/photo_gallery_images/'.$photo->photo_image);  //deletes previous image
-                //needs to use Illuminate\Support\Facades\Storage;
+
+                //get filename with extension
+                $filenameWithExt = $request->file('photo_image')->getClientOriginalName();
+                //get just file name (using standard php function)
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                //get just extension
+                $extension = $request->file('photo_image')->getClientOriginalExtension();
+                //filename to store(uses a time php function to get current time)
+                //this string is a unique name so that file with duplicate name do not get uploaded and
+                //cause problems when viewing(same problem that occured in CISV photo gallery)
+                $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
+                //upload image
+                $request->file('photo_image')->storeAs('public/photo_gallery_images', $filenameToStore);
             }
+            else{
+                $filenameToStore = $photo->photo_image;
+            }
+
+            $photo->gallery_name_id = $request->gallery_name_id;
+            $photo->photo_title = $request->photo_title;
             $photo->photo_image = $filenameToStore;
             $photo->save();
-            return response()->json('Photo Updated Successfully !', 201);
+            return response()->json('Photo Updated Successfully !!', 201);
         }
 
         return response()->json('The Provided ID doesn\'t match any Photos !!', 404);
@@ -109,7 +112,7 @@ class GalleryPhotoController extends Controller
         if ($photo) {
             Storage::delete('public/photo_gallery_images/'.$photo->photo_image);  //deletes image
             $photo->delete();
-            return response()->json('Photo Deleted Successfully !', 201);
+            return response()->json('Photo Deleted Successfully !!', 201);
         }
 
         return response()->json('The Provided ID doesn\'t match any Photos !!', 404);

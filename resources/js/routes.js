@@ -1,4 +1,4 @@
-// Pages
+// Frontend
 import Home from "./pages/home"
 import About from "./pages/about"
 import Events from "./pages/events"
@@ -20,7 +20,7 @@ import PublicationsAuth from "./pages/auth/publications_auth"
 // Admin Pages
 import AdminPanel from "./pages/admin_pages/adminpanel"
 // Carousel
-import CarouselContent from "./pages/admin_pages/carousel_content"
+import CarouselContent from "./pages/admin_pages/carousel_content_admin"
 import CarouselContentStore from "./pages/admin_pages/carousel_content_store"
 import CarouselContentEdit from "./pages/admin_pages/carousel_content_edit"
 // About
@@ -55,20 +55,26 @@ import ResourceTypeEdit from "./pages/admin_pages/resource_type_edit"
 import ResourcesAdmin from "./pages/admin_pages/resources_admin"
 import ResourcesStore from "./pages/admin_pages/resources_store"
 import ResourcesEdit from "./pages/admin_pages/resources_edit"
-
-
 // Galleries
 import GalleryAdmin from "./pages/admin_pages/gallery_admin"
 import GalleryStore from "./pages/admin_pages/gallery_store"
 import GalleryEdit from "./pages/admin_pages/gallery_edit"
-
+// Single Gallery
 import GalleryPhotoAdmin from "./pages/admin_pages/gallery_photo_admin"
+import GalleryPhotoStore from "./pages/admin_pages/gallery_photo_store"
+import GalleryPhotoEdit from "./pages/admin_pages/gallery_photo_edit"
 
 
-
-
+// Publication Types
 import PublicationTypeAdmin from "./pages/admin_pages/publication_type_admin"
-import PublicationAdmin from "./pages/admin_pages/publication_admin"
+import PublicationTypeStore from "./pages/admin_pages/publication_type_store"
+import PublicationTypeEdit from "./pages/admin_pages/publication_type_edit"
+// Publications
+import PublicationsAdmin from "./pages/admin_pages/publications_admin"
+import PublicationsStore from "./pages/admin_pages/publications_store"
+import PublicationsEdit from "./pages/admin_pages/publications_edit"
+
+
 import ContactUsAdmin from "./pages/admin_pages/contact_us_admin"
 
 import MainAdmin from "./pages/admin_pages/main_admin"
@@ -341,9 +347,6 @@ export default{
                component: ResourcesEdit,
                meta: { title: 'Admin Panel - Edit Resource' },
             },
-
-
-
             {
                path: 'all_galleries',
                component: GalleryAdmin,
@@ -359,25 +362,57 @@ export default{
                component: GalleryEdit,
                meta: { title: 'Admin Panel - Edit Gallery' },
             },
-
             {
-               path: 'gallery',
+               path: 'all_galleries/:gallery_id/gallery',
                component: GalleryPhotoAdmin,
                meta: { title: 'Admin Panel - All Gallery Photos' },
             },
-
-
-
+            {
+               path: 'all_galleries/:gallery_id/gallery/store',
+               component: GalleryPhotoStore,
+               meta: { title: 'Admin Panel - Create New Photo' },
+            },
+            {
+               path: 'all_galleries/:gallery_id/gallery/edit/:id',
+               component: GalleryPhotoEdit,
+               meta: { title: 'Admin Panel - Edit Photo Data' },
+            },
             {
                path: 'publication_types',
                component: PublicationTypeAdmin,
                meta: { title: 'Admin Panel - All Publication Types' },
             },
             {
-               path: 'publications',
-               component: PublicationAdmin,
+               path: 'publication_types/store',
+               component: PublicationTypeStore,
+               meta: { title: 'Admin Panel - Create New Publication Type' },
+            },
+            {
+               path: 'publication_types/edit/:id',
+               component: PublicationTypeEdit,
+               meta: { title: 'Admin Panel - Edit Publication Type' },
+            },
+
+
+            
+            {
+               path: 'publication_types/:publication_type_id/all_publications',
+               component: PublicationsAdmin,
                meta: { title: 'Admin Panel - All Publications' },
             },
+            {
+               path: 'publication_types/:publication_type_id/publications/store',
+               component: PublicationsStore,
+               meta: { title: 'Admin Panel - Create New Publications' },
+            },
+            {
+               path: 'publication_types/:publication_type_id/publications/edit/:id',
+               component: PublicationsEdit,
+               meta: { title: 'Admin Panel - All Publications' },
+            },
+
+
+
             {
                path: 'contact_us',
                component: ContactUsAdmin,
