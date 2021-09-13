@@ -44,7 +44,7 @@ class ContactUsController extends Controller
             return response()->json($contact_us, 200);
         }
 
-        return response()->json("The Provided ID doesn't match any Carousel Content Records !!", 404);
+        return response()->json("The Provided ID doesn't match any Contact Us Records !!", 404);
     }
 
     public function update(Request $request, $id){
@@ -55,7 +55,7 @@ class ContactUsController extends Controller
             'message' => ['required', 'string'],
         ]);
 
-        $contact_us = ContactUs::find($id);        
+        $contact_us = ContactUs::find($id);
         if($contact_us){
             $contact_us->name = $request->name;
             $contact_us->email = $request->email;
@@ -69,7 +69,7 @@ class ContactUsController extends Controller
             return response()->json("Contact Us Updated Successfully !!", 201);
         }
 
-        return response()->json("The Provided ID doesn't match any Carousel Content Records !!", 404);
+        return response()->json("The Provided ID doesn't match any Contact Us Records !!", 404);
     }
 
     public function destroy($id){
@@ -80,6 +80,6 @@ class ContactUsController extends Controller
             return response()->json("Contact Us Deleted Successfully !!", 201);
         }
 
-        return response()->json("The Provided ID doesn't match any Carousel Content Records !!", 404);
+        return response()->json("The Provided ID doesn't match any Contact Us Records !!", 404);
     }
 }

@@ -167,11 +167,14 @@ Route::patch('/resource/update/{id}', [App\Http\Controllers\ResourceController::
 Route::delete('/resource/destroy/{id}', [App\Http\Controllers\ResourceController::class, 'destroy']);
 
 // Contact Us Controller
+// BE
 Route::get('/contact_us/index', [App\Http\Controllers\ContactUsController::class, 'index']);
 // FE
 Route::post('/contact_us/store', [App\Http\Controllers\ContactUsController::class, 'store']);
 Route::get('/contact_us/show/{id}', [App\Http\Controllers\ContactUsController::class, 'show']);
+// BE
 Route::patch('/contact_us/update/{id}', [App\Http\Controllers\ContactUsController::class, 'update']);
+// BE
 Route::delete('/contact_us/destroy/{id}', [App\Http\Controllers\ContactUsController::class, 'destroy']);
 
 // Gallery Name Controller
@@ -200,22 +203,29 @@ Route::delete('/gallery/photos/destroy/{id}', [App\Http\Controllers\GalleryPhoto
 Route::get('/gallery/photos/photosbygalleryid/{id}', [App\Http\Controllers\GalleryPhotoController::class, 'photos_by_gallery_name_id']);
 
 // Publication Types Controller
+// BE
 Route::get('/publication_type_info/index', [App\Http\Controllers\PublicationTypeInfoController::class, 'index']);
 // FE
 Route::get('/publication_type_info/frontend_index', [App\Http\Controllers\PublicationTypeInfoController::class, 'frontend_index']);
+// BE
 Route::post('/publication_type_info/store', [App\Http\Controllers\PublicationTypeInfoController::class, 'store']);
 // FE
 Route::get('/publication_type_info/show/{id}', [App\Http\Controllers\PublicationTypeInfoController::class, 'show']);
 // FE
 Route::get('/publication_type_info/show_with_publications/{id}', [App\Http\Controllers\PublicationTypeInfoController::class, 'show_with_publications']);
+// BE
 Route::patch('/publication_type_info/update/{id}', [App\Http\Controllers\PublicationTypeInfoController::class, 'update']);
+// BE
 Route::delete('/publication_type_info/destroy/{id}', [App\Http\Controllers\PublicationTypeInfoController::class, 'destroy']);
 
 // Publications Controller
 Route::get('/publications/index', [App\Http\Controllers\PublicationController::class, 'index']);
+// BE
 Route::post('/publications/store', [App\Http\Controllers\PublicationController::class, 'store']);
 Route::get('/publications/show/{id}', [App\Http\Controllers\PublicationController::class, 'show']);
+// BE
 Route::patch('/publications/update/{id}', [App\Http\Controllers\PublicationController::class, 'update']);
+// BE
 Route::delete('/publications/destroy/{id}', [App\Http\Controllers\PublicationController::class, 'destroy']);
 
 //Publication Token

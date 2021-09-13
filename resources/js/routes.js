@@ -73,9 +73,11 @@ import PublicationTypeEdit from "./pages/admin_pages/publication_type_edit"
 import PublicationsAdmin from "./pages/admin_pages/publications_admin"
 import PublicationsStore from "./pages/admin_pages/publications_store"
 import PublicationsEdit from "./pages/admin_pages/publications_edit"
-
-
+// Contact Us
 import ContactUsAdmin from "./pages/admin_pages/contact_us_admin"
+import ContactUsEdit from "./pages/admin_pages/contact_us_edit"
+
+
 
 import MainAdmin from "./pages/admin_pages/main_admin"
 // scrapped components
@@ -392,9 +394,6 @@ export default{
                component: PublicationTypeEdit,
                meta: { title: 'Admin Panel - Edit Publication Type' },
             },
-
-
-            
             {
                path: 'publication_types/:publication_type_id/all_publications',
                component: PublicationsAdmin,
@@ -418,6 +417,14 @@ export default{
                component: ContactUsAdmin,
                meta: { title: 'Admin Panel - All Contact Us Info' },
             },
+            {
+               path: 'contact_us/edit/:id',
+               component: ContactUsEdit,
+               meta: { title: 'Admin Panel - Edit Contact Us Info' },
+            },
+
+
+
 
          ],
          // To confirm if user is logged in or not
