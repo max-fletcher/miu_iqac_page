@@ -180,7 +180,7 @@ export default {
 
    methods: {
       select_file(file){
-         // console.log(file)
+         this.errors.resource_file = null
          this.resource_file = file
       },
 

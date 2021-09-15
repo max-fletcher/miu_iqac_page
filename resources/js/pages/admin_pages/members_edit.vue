@@ -281,7 +281,7 @@ export default {
    
    methods: {
       select_file(file){
-         // console.log(file)
+         this.errors.member_image = null
          this.member_image = file
       },
 

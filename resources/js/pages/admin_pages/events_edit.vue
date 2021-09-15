@@ -255,7 +255,7 @@ export default {
 
    methods: {
       select_file(file){
-         // console.log(file)
+         this.errors.event_image = null
          this.event_image = file
       },
 

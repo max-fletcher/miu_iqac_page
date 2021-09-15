@@ -226,7 +226,7 @@ export default {
 
    methods: {
       select_file(file){
-         // console.log(file)
+         this.errors.carousel_image = null
          this.carousel_image = file
       },
 

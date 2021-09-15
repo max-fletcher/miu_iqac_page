@@ -239,7 +239,7 @@ export default {
     
     methods: {
       select_file(file){
-         // console.log(file)
+         this.errors.news_image = null
          this.news_image = file
       },
 

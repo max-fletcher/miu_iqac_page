@@ -203,7 +203,7 @@ export default {
 
    methods: {
       select_file(file){
-         // console.log(file)
+         this.errors.gallery_cover_photo = null
          this.gallery_cover_photo = file
       },
 

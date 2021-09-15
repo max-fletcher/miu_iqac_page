@@ -218,7 +218,7 @@ export default {
 
    methods: {
       select_file(file){
-         // console.log(file)
+         this.errors.photo_image = null
          this.photo_image = file
       },
 
