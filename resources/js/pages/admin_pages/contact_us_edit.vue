@@ -1,10 +1,9 @@
 <template>
    <div>
-      name: {{name}} <br>
+      <!-- name: {{name}} <br>
       email: {{email}} <br>
       message: {{message}} <br>
-      {{ errors }} <br>
-
+      {{ errors }} <br> -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>

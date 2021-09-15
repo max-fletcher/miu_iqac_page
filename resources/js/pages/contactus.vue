@@ -1,7 +1,5 @@
 <template>
    <div>
-      <TopBar />
-
       <v-sheet class="mx-4 mb-3 mt-5 mt-md-3" min-height="450">
          <v-sheet class="mt-3 pt-6 pb-2 px-8">
             <v-row class="mb-4 mx-sm-10">
@@ -300,7 +298,6 @@
 </template>
 
 <script>
-import TopBar from "./components/topbar";
 export default {
    data: () => ({
       errors: [],
@@ -320,10 +317,6 @@ export default {
       message: "",
       messageRules: [(v) => !!v || "A message is required"],
    }),
-
-   components: {
-      TopBar,
-   },
 
    methods: {
       submitForm() {

@@ -409,9 +409,6 @@ export default{
                component: PublicationsEdit,
                meta: { title: 'Admin Panel - All Publications' },
             },
-
-
-
             {
                path: 'contact_us',
                component: ContactUsAdmin,
@@ -422,10 +419,6 @@ export default{
                component: ContactUsEdit,
                meta: { title: 'Admin Panel - Edit Contact Us Info' },
             },
-
-
-
-
          ],
          // To confirm if user is logged in or not
          beforeEnter: ( to, from, next) => {

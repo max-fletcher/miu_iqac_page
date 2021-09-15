@@ -1,9 +1,9 @@
 <template>
    <div>
       <v-app id="inspire">
-        <!-- <div v-show="hideTopBar">
+        <div v-show="hideTopBar">
            <TopBar />
-        </div> -->
+        </div>
 
          <!-- v-main is the main content area e.g background -->
          <v-main class="grey lighten-3">
@@ -19,11 +19,11 @@
 </template>
 
 <script>
-// import TopBar from './components/topbar';
+import TopBar from './components/topbar';
 import Footer from './components/footer';
 export default {
    components: {
-      Footer
+      Footer, TopBar
    },
    data: () => ({
        hideTopBar: true,

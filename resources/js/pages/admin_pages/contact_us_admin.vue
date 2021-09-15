@@ -1,6 +1,6 @@
 <template>
    <div>
-      {{ all_contact_us }}
+      <!-- {{ all_contact_us }} -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>

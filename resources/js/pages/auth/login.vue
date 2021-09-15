@@ -1,8 +1,5 @@
 <template>
    <div>
-
-      <TopBar />
-
       <v-sheet class="mx-4 mb-3 mt-5 mt-md-3" min-height="450">
 
       <v-form
@@ -121,7 +118,6 @@
 </template>
 
 <script>
-import TopBar from "../components/topbar";
 export default {
    data: () => ({
       unauthenticated: false,
@@ -145,9 +141,6 @@ export default {
       dummy: "",
       validation: "",
    }),
-   components: {
-      TopBar,
-   },
    methods: {
       validate() {
          this.$refs.form.validate();

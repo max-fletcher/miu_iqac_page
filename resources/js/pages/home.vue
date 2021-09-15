@@ -1,7 +1,5 @@
 <template>
    <div>
-      <TopBar />
-
       <v-sheet class="mx-4 mb-3 mt-5 mt-md-3" min-height="450">
          <div class="pt-3 pb-7 mx-md-16">
             <v-row>
@@ -168,7 +166,6 @@
 </template>
 
 <script>
-import TopBar from "./components/topbar";
 import QuickLinks from "./components/quicklinks";
 import Loading from "./components/loading";
 // import TopNav from './topnav'
@@ -180,7 +177,6 @@ export default {
    components: {
       QuickLinks,
       Loading,
-      TopBar,
    },
    created() {
       axios.get("/api/publication_token/clear_tokens");

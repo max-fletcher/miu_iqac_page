@@ -1,8 +1,5 @@
 <template>
    <div>
-
-      <TopBar />
-
       <v-sheet class="mx-4 mb-3 mt-5 mt-md-3" min-height="450">
 
       <div v-if="loading">
@@ -80,12 +77,11 @@
 
 <script>
 // Import Vue Easy Lightbox Component
-import TopBar from "./components/topbar";
 import VueEasyLightbox from "vue-easy-lightbox";
 import Loading from "./components/loading";
 export default {
    components: {
-      VueEasyLightbox, Loading, TopBar
+      VueEasyLightbox, Loading
    },
    data() {
       return {

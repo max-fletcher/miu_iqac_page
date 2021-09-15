@@ -1,8 +1,5 @@
 <template>
   <div>
-
-    <TopBar />
-
     <v-sheet class="mx-4 mb-3 mt-5 mt-md-3" min-height="450">
 
     <v-card height="480" min-height="300">
@@ -23,11 +20,8 @@
 </template>
 
 <script>
-import TopBar from "./components/topbar";
 export default {
-  components: {
-    TopBar
-  },
+
 }
 </script>
 
