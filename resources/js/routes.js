@@ -63,8 +63,6 @@ import GalleryEdit from "./pages/admin_pages/gallery_edit"
 import GalleryPhotoAdmin from "./pages/admin_pages/gallery_photo_admin"
 import GalleryPhotoStore from "./pages/admin_pages/gallery_photo_store"
 import GalleryPhotoEdit from "./pages/admin_pages/gallery_photo_edit"
-
-
 // Publication Types
 import PublicationTypeAdmin from "./pages/admin_pages/publication_type_admin"
 import PublicationTypeStore from "./pages/admin_pages/publication_type_store"
@@ -76,18 +74,16 @@ import PublicationsEdit from "./pages/admin_pages/publications_edit"
 // Contact Us
 import ContactUsAdmin from "./pages/admin_pages/contact_us_admin"
 import ContactUsEdit from "./pages/admin_pages/contact_us_edit"
-
-
-
+// Main Admin Template
 import MainAdmin from "./pages/admin_pages/main_admin"
 // scrapped components
-import Topnav from "./pages/components/scrapped/topnav"
-import Tabsnav from "./pages/components/scrapped/tabsnav"
-import QuickLinksAccordion from "./pages/components/scrapped/quicklinksaccordion"
-import CarouselText from "./pages/components/scrapped/carouseltext"
-import OverlayCarousel from "./pages/components/scrapped/overlay_carousel"
-import Bars from "./pages/components/scrapped/bars"
-import Sandbox from "./pages/components/scrapped/sandbox"
+// import Topnav from "./pages/components/scrapped/topnav"
+// import Tabsnav from "./pages/components/scrapped/tabsnav"
+// import QuickLinksAccordion from "./pages/components/scrapped/quicklinksaccordion"
+// import CarouselText from "./pages/components/scrapped/carouseltext"
+// import OverlayCarousel from "./pages/components/scrapped/overlay_carousel"
+// import Bars from "./pages/components/scrapped/bars"
+// import Sandbox from "./pages/components/scrapped/sandbox"
 
 export default{
    mode: 'history',
@@ -434,45 +430,45 @@ export default{
             })
          }
       },
-      // Scrapped Components pages
-      {
-         path: '/topnav',
-         component: Topnav,
-         meta: { title: 'Scrapped Topnav' }
-      },
-      {
-         path: '/tabsnav',
-         component: Tabsnav,
-         meta: { title: 'Scrapped Tabsnav' }
-      },
-      {
-         path: '/quicklinksaccordion',
-         component: QuickLinksAccordion,
-         meta: { title: 'Scrapped Quick Links Accordion' }
-      },
-      {
-         path: '/carouseltext',
-         component: CarouselText,
-         meta: { title: 'Scrapped Carousel Text' }
-      },
-      {
-         path: '/overlay-carousel/:id',
-         component: OverlayCarousel,
-         name: 'OverlayCarousel',
-         meta: { title: 'Scrapped Overlay Carousel for Photo Gallery' }
-      },
-      {
-         path: '/bars',
-         component: Bars,
-         name: 'Bars',
-         meta: { title: 'Scrapped Bars' }
-      },
-      {
-         path: '/sandbox',
-         component: Sandbox,
-         name: 'Sandbox',
-         meta: { title: 'Scrapped Sandbox' }
-      },
+      // // Scrapped Components pages
+      // {
+      //    path: '/topnav',
+      //    component: Topnav,
+      //    meta: { title: 'Scrapped Topnav' }
+      // },
+      // {
+      //    path: '/tabsnav',
+      //    component: Tabsnav,
+      //    meta: { title: 'Scrapped Tabsnav' }
+      // },
+      // {
+      //    path: '/quicklinksaccordion',
+      //    component: QuickLinksAccordion,
+      //    meta: { title: 'Scrapped Quick Links Accordion' }
+      // },
+      // {
+      //    path: '/carouseltext',
+      //    component: CarouselText,
+      //    meta: { title: 'Scrapped Carousel Text' }
+      // },
+      // {
+      //    path: '/overlay-carousel/:id',
+      //    component: OverlayCarousel,
+      //    name: 'OverlayCarousel',
+      //    meta: { title: 'Scrapped Overlay Carousel for Photo Gallery' }
+      // },
+      // {
+      //    path: '/bars',
+      //    component: Bars,
+      //    name: 'Bars',
+      //    meta: { title: 'Scrapped Bars' }
+      // },
+      // {
+      //    path: '/sandbox',
+      //    component: Sandbox,
+      //    name: 'Sandbox',
+      //    meta: { title: 'Scrapped Sandbox' }
+      // },
    ],
    scrollBehavior (to, from, savedPosition) {
       if (savedPosition) {

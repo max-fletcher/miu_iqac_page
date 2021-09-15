@@ -11,10 +11,10 @@ use App\Http\Resources\GalleryPhotoResource;
 
 class GalleryPhotoController extends Controller
 {
-    public function index()
-    {
-        return response()->json( GalleryPhoto::select('id', 'gallery_name_id', 'photo_title', 'photo_image', 'created_at')->with('gallery_name')->get(), 200);
-    }
+    // public function index()
+    // {
+    //     return response()->json( GalleryPhoto::select('id', 'gallery_name_id', 'photo_title', 'photo_image', 'created_at')->with('gallery_name')->get(), 200);
+    // }
 
     public function store(Request $request)
     {

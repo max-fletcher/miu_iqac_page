@@ -12,10 +12,10 @@ use App\Rules\noimage;
 
 class EventController extends Controller
 {
-    public function index()
-    {
-        return response()->json( Event::orderBy('created_at', 'desc')->get(), 200);
-    }
+    // public function index()
+    // {
+    //     return response()->json( Event::orderBy('created_at', 'desc')->get(), 200);
+    // }
 
     public function store(Request $request)
     {
