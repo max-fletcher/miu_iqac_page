@@ -118,14 +118,14 @@
             >Register</v-btn
          >
 
-         <v-btn color="success" class="mt-4" @click="validate">Validate</v-btn>
+         <!-- <v-btn color="success" class="mt-4" @click="validate">Validate</v-btn>
 
          <v-btn color="warning" class="mt-4" @click="reset">Reset Form</v-btn>
 
          <v-btn color="info" class="mt-4" @click="resetValidation"
             >Reset Validation</v-btn
-         >
-         <br />
+         > -->
+
       </v-form>
    </div>
 </template>
@@ -170,17 +170,17 @@ export default {
       // validation: "",
    }),
    methods: {
-      validate() {
-         this.$refs.form.validate()
-      },
-      reset() {
-         this.$refs.form.reset()
-         // this.dummy = "";
-      },
-      resetValidation() {
-         this.$refs.form.resetValidation()
-         // this.dummy = "";
-      },
+      // validate() {
+      //    this.$refs.form.validate()
+      // },
+      // reset() {
+      //    this.$refs.form.reset()
+      //    // this.dummy = "";
+      // },
+      // resetValidation() {
+      //    this.$refs.form.resetValidation()
+      //    // this.dummy = "";
+      // },
       submitForm() {
          if (this.$refs.form.validate()) {
             this.form_loading = true

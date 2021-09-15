@@ -5,6 +5,7 @@
    <div v-if="loading">
       <Loading />
    </div>
+   
    <div v-else class="pb-4">
       <v-card flat v-if="news.length === 0" height="480" min-height="300">
          <v-container fill-height fluid>

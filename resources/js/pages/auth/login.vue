@@ -1,123 +1,149 @@
 <template>
    <div>
-      <v-sheet class="mx-4 mb-3 mt-5 mt-md-3" min-height="450">
 
-      <v-form
-         ref="form"
-         :disabled="form_disabled"
-         lazy-validation
-         class="px-10 pt-8"
-      >
-         <!-- Snackbar For Unauthenticated -->
-         <v-snackbar
-            v-model="unauthenticated"
-            color="red"
-            :timeout="timeout"                             
-            top
-            right
+      <v-sheet class="mx-4 mb-3 mt-5 mt-md-3" min-height="350">
+
+      <div v-if="loading">
+         <Loading />
+      </div>
+
+      <div v-else>
+
+         <v-card flat tile class="mx-auto px-0 pt-6">
+            <v-card-subtitle
+               class="
+                  text-center text-h3
+                  blue--text
+                  text--darken-4
+                  py-0                           
+                  mb-2
+                  pl-lg-4
+                  text-uppercase
+               "
+            >administrator login</v-card-subtitle>
+         </v-card>
+
+         <v-form
+            ref="form"
+            :disabled="form_disabled"
+            lazy-validation
+            class="px-10 pt-8 pb-10"
          >
-         <v-icon left>
-            mdi-alert-octagon-outline
-         </v-icon>
-            You Are Not Authenticated !!
-
-            <template v-slot:action="{ attrs }">
-            <v-btn
-               color="white"
-               text
-               v-bind="attrs"
-               @click="unauthenticated = ''"
+            <!-- Snackbar For Unauthenticated -->
+            <v-snackbar
+               v-model="unauthenticated"
+               color="red"
+               :timeout="timeout"                             
+               top
+               right
             >
-               Close
-            </v-btn>
-            </template>
-         </v-snackbar>
-         <!-- End Snackbar For Unauthenticated -->
-         
-         <!-- Snackbar For backend validation failure -->
-         <v-snackbar
-            v-model="error_snackbar"
-            color="red"
-            :timeout="timeout"
-            top
-            right
-         >
-         <v-icon left>
-            mdi-alert-octagon-outline
-         </v-icon>
-            {{error_message}}
+            <v-icon left>
+               mdi-alert-octagon-outline
+            </v-icon>
+               You Are Not Authenticated !!
 
-            <template v-slot:action="{ attrs }">
-            <v-btn
-               color="white"
-               text
-               v-bind="attrs"
-               @click="error_snackbar = false"
+               <template v-slot:action="{ attrs }">
+               <v-btn
+                  color="white"
+                  text
+                  v-bind="attrs"
+                  @click="unauthenticated = ''"
+               >
+                  Close
+               </v-btn>
+               </template>
+            </v-snackbar>
+            <!-- End Snackbar For Unauthenticated -->
+            
+            <!-- Snackbar For backend validation failure -->
+            <v-snackbar
+               v-model="error_snackbar"
+               color="red"
+               :timeout="timeout"
+               top
+               right
             >
-               Close
-            </v-btn>
-            </template>
-         </v-snackbar>
-         <!-- End Snackbar For Failed Form Submission -->
+            <v-icon left>
+               mdi-alert-octagon-outline
+            </v-icon>
+               {{error_message}}
 
-         <v-text-field
-            v-model="email"
-            :rules="emailRules"
-            :error-messages="errors.email"
-            label="E-mail"
-            type="email"
-            required
-            outlined
-         ></v-text-field>
-         <!-- <span v-if="errors.email">{{ errors.email[0] }}</span> -->
+               <template v-slot:action="{ attrs }">
+               <v-btn
+                  color="white"
+                  text
+                  v-bind="attrs"
+                  @click="error_snackbar = false"
+               >
+                  Close
+               </v-btn>
+               </template>
+            </v-snackbar>
+            <!-- End Snackbar For Failed Form Submission -->
 
-         <v-text-field
-            v-model="password"
-            :rules="passwordRules"
-            :error-messages="errors.password"
-            label="Password"
-            type="password"
-            required
-            outlined
-         ></v-text-field>
-         <!-- <span v-if="errors.password">{{ errors.password[0] }}</span> -->
+            <v-text-field
+               v-model="email"
+               :rules="emailRules"
+               :error-messages="errors.email"
+               label="E-mail"
+               type="email"
+               required
+               outlined
+            ></v-text-field>
+            <!-- <span v-if="errors.email">{{ errors.email[0] }}</span> -->
 
-         <div class="mt-2">
-            <v-btn
-               color="success"
-               :loading="form_loading"
-               :disabled="form_loading"
-               @click.prevent="submitForm"
-               type="submit"
-               >Login</v-btn
-            >
+            <v-text-field
+               v-model="password"
+               :rules="passwordRules"
+               :error-messages="errors.password"
+               label="Password"
+               type="password"
+               required
+               outlined
+            ></v-text-field>
+            <!-- <span v-if="errors.password">{{ errors.password[0] }}</span> -->
 
-            <v-btn color="success" @click="validate">Validate</v-btn>
+            <div class="mt-2">
+               <v-btn
+                  color="success"
+                  :loading="form_loading"
+                  :disabled="form_loading"
+                  @click.prevent="submitForm"
+                  type="submit"
+                  class="mx-auto"
+               >
+               Login</v-btn>
 
-            <v-btn color="warning" @click="reset">Reset Form</v-btn>
+               <!-- <v-btn color="success" @click="validate">Validate</v-btn>
 
-            <v-btn color="info" @click="resetValidation"
-               >Reset Validation</v-btn
-            >
-         </div>
-         <br />
-         <div>
-            <span>{{ this.dummy }}</span>
-            <br />
-            <span>{{ this.validation }}</span>
-            <br />
-            <span>{{ this.email }}</span>
-            <br />
-            <span>{{ this.password }}</span>
-            <br />
-         </div>
-      </v-form>
+               <v-btn color="warning" @click="reset">Reset Form</v-btn>
+
+               <v-btn color="info" @click="resetValidation"
+                  >Reset Validation</v-btn
+               > -->
+
+            </div>
+            <!-- <div>
+               <span>{{ this.dummy }}</span>
+               <br />
+               <span>{{ this.validation }}</span>
+               <br />
+               <span>{{ this.email }}</span>
+               <br />
+               <span>{{ this.password }}</span>
+               <br />
+            </div> -->
+         </v-form>
+
+      </div>
 
       </v-sheet>
+
    </div>
 </template>
 
 <script>
+import Loading from "../components/loading";
 export default {
    data: () => ({
       unauthenticated: false,
@@ -140,19 +166,25 @@ export default {
       ],
       dummy: "",
       validation: "",
+      loading: true,
    }),
+
+   components: {
+      Loading
+   },
+
    methods: {
-      validate() {
-         this.$refs.form.validate();
-      },
-      reset() {
-         this.$refs.form.reset();
-         this.dummy = "";
-      },
-      resetValidation() {
-         this.$refs.form.resetValidation();
-         this.dummy = "";
-      },
+      // validate() {
+      //    this.$refs.form.validate();
+      // },
+      // reset() {
+      //    this.$refs.form.reset();
+      //    this.dummy = "";
+      // },
+      // resetValidation() {
+      //    this.$refs.form.resetValidation();
+      //    this.dummy = "";
+      // },
       submitForm() {
          if (this.$refs.form.validate()) {
             this.form_loading = true;
@@ -193,6 +225,15 @@ export default {
       },
    },
    created() {
+      axios.get('/api/authenticated')
+         .then(()=>{
+            this.$router.push('/adminpanel/main')
+         })
+         .catch(()=>{
+            // console.log("Rejected")
+            this.loading = false
+         })
+
       // console.log(this.$route.query.message)
       if (this.$route.query.message) {
          this.unauthenticated = true;
