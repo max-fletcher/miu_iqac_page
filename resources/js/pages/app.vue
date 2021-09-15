@@ -37,16 +37,16 @@ export default {
       },      
    },
    created() {
-   // Created method for disabling TopBar when name of component is AdminPanel
-    const unwatch = this.$watch(
-      () => this.$route,
-      (route, prevRoute) => {
-      //   console.log(this.$route)
-        if(this.$route.name == 'AdminPanel'){
-           this.hideTopBar = false
-        }
-        unwatch();
-      });
+   // // Created method for disabling TopBar when name of component is AdminPanel
+   //  const unwatch = this.$watch(
+   //    () => this.$route,
+   //    (route, prevRoute) => {
+   //    //   console.log(this.$route)
+   //      if(this.$route.name == 'AdminPanel'){
+   //         this.hideTopBar = false
+   //      }
+   //      unwatch();
+   //    });
    }
 };
 </script>

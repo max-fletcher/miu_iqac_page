@@ -170,6 +170,7 @@ export default {
       // validation: "",
    }),
    methods: {
+
       // validate() {
       //    this.$refs.form.validate()
       // },
@@ -181,6 +182,7 @@ export default {
       //    this.$refs.form.resetValidation()
       //    // this.dummy = "";
       // },
+      
       submitForm() {
          if (this.$refs.form.validate()) {
             this.form_loading = true

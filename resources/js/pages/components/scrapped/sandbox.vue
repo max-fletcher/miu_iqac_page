@@ -67,6 +67,19 @@
             </v-alert>
         </v-card>
 
+        <!-- Button that correctly assesses path to be enabled -->
+        <v-btn
+            v-if="isAdmin && !/adminpanel/.test(this.$route.path)"
+            to="/adminpanel/main"
+            elevation="2"
+            class="ma-1 indigo darken-3 rounded-1 white--text mt-3 ml-4"
+        >
+            <v-icon left color="white">
+                mdi-clipboard-edit
+            </v-icon>
+            GO TO ADMIN PANEL
+        </v-btn>
+
     </div>
 </template>
 

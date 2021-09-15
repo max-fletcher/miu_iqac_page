@@ -1,6 +1,5 @@
 <template>
    <div>
-
       <v-sheet class="mx-4 mb-3 mt-5 mt-md-3" min-height="350">
 
       <div v-if="loading">

@@ -1,5 +1,5 @@
 <template>
-   <div>
+   <div class="mb-2">
       <!-- For Smaller screens -->
       <v-navigation-drawer v-model="admin_drawer" absolute temporary class="hidden-md-and-up">
          <v-sheet color="grey lighten-4" class="pa-4">
@@ -343,7 +343,6 @@
                   mdi-format-list-bulleted-square
                </v-icon>
             </v-btn>
-
                <router-view></router-view>
             <!-- <v-row>
                <v-col v-for="card in cards" :key="card" cols="12">
