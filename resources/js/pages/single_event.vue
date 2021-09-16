@@ -59,7 +59,7 @@
                      <v-img
                         width="auto"
                         :src="'/storage/event_images/' + single_event.event_image"
-                        alt=""
+                        :alt="'Image - ' + single_event.event_image"
                         position="center center"
                         aspect-ratio="2"
                         max-height="700"

@@ -111,6 +111,7 @@
             <v-col v-for="(photo, index) in photos" :key="index" cols="12" sm="6" md="4">               
                <v-img
                :src="'/storage/photo_gallery_images/' + photo.photo_image"
+               :alt="'Image - ' + photo.photo_image"
                @click="show_image(photo.photo_image, index)"
                height="400"
                width="auto"

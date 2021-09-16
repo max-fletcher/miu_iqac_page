@@ -203,6 +203,7 @@
       >
          <v-img
             src="/images/logo.png"
+            alt="MIU logo"
             width="auto"
             height="auto"
             min-width="50px"

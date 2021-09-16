@@ -112,7 +112,7 @@
                         <v-img
                           class="elevation-6"
                           :src="'/storage/news_images/' + news.news_image"
-                          alt=""
+                          :alt="'Image - ' + news.news_image"
                           position="center center"
                           aspect-ratio="2"
                         ></v-img>

@@ -48,6 +48,7 @@
                   <v-card flat>
                      <v-img
                         :src="photo.src"
+                        :alt="'Image - ' + photo.src"
                         @click="showSingle(photo.src, photo.title, index)"
                         aspect-ratio="1"
                      >

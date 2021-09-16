@@ -26,6 +26,7 @@
                         :key="index"
                      >
                         <v-img
+                           :alt="item.carousel_image"
                            :src="
                               '/storage/carousel_images/' + item.carousel_image
                            "

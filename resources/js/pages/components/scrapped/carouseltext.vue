@@ -6,6 +6,7 @@
                     <v-carousel-item v-for="(item, i) in items" :key="i">
                         <v-img
                             :src="item.src"
+                            :alt="'Image - ' + item.src"
                             aspect-ratio="1.77"
                             max-height="500"
                         >

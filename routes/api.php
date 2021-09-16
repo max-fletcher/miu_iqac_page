@@ -172,6 +172,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // BE
     Route::delete('/publications/destroy/{id}', [App\Http\Controllers\PublicationController::class, 'destroy']);
 });
+// End Sanctum Middleware
 
 // Authentication Controllers
 // FE
@@ -199,6 +200,8 @@ Route::get('/people/show/{id}', [App\Http\Controllers\PeopleController::class, '
 // FE
 Route::get('/people/members/index', [App\Http\Controllers\MemberController::class, 'index']);
 // Route::get('/people/members/membersbypeopleid/{id}', [App\Http\Controllers\MemberController::class, 'find_all_members_by_people_id']);
+// KE
+Route::get('/people/people_notice/people_in_university/people_needing_assistance', [App\Http\Controllers\LoginController::class, 'authenticate_with_user_credentials']);
 
 // Event Types Controller
 // FE

@@ -140,7 +140,7 @@
                         <v-img
                           class="elevation-6"
                           :src="'/storage/event_images/' + event.event_image"
-                          alt=""
+                          :alt="'Image of - ' + event.event_image"
                           position="center center"
                           aspect-ratio="2"
                         ></v-img>

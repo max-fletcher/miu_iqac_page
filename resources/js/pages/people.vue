@@ -48,7 +48,7 @@
                         width="auto"
                         class="mx-auto"
                         :src="'/storage/member_images/' + member.member_image"
-                        alt=""
+                        :alt="member.member_image"
                         position="center center"
                         aspect-ratio="0.9"
                      ></v-img>

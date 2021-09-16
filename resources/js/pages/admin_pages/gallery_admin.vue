@@ -113,7 +113,7 @@
                                  <v-img
                                  class="elevation-6"
                                  :src="'/storage/gallery_cover_photos/' + gallery.gallery_cover_photo"
-                                 alt=""
+                                 :alt="'Image - ' + gallery.gallery_cover_photo"
                                  position="center center"
                                  aspect-ratio="2"
                                  ></v-img>
@@ -156,7 +156,7 @@
                         <v-img
                         class="elevation-6"
                         :src="'/storage/gallery_cover_photos/' + gallery.gallery_cover_photo"
-                        alt=""
+                        :alt="'Image of - ' + gallery.gallery_cover_photo"
                         position="center center"
                         aspect-ratio="2"
                         ></v-img>

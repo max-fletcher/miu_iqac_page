@@ -31,11 +31,11 @@
                      {{ single_news.news_title }}
                   </v-card-title>
 
-                  <v-img                     
+                  <v-img
                      width="auto"
                      max-height="700"
                      :src="'/storage/news_images/' + single_news.news_image"
-                     alt=""
+                     :alt="'Image - ' + single_news.news_image"
                      position="center center"
                      aspect-ratio="2"
                   ></v-img>

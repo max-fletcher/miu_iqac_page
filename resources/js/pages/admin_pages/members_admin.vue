@@ -117,7 +117,7 @@
                         <v-img
                           class="elevation-6"
                           :src="'/storage/member_images/' + member.member_image"
-                          alt=""
+                          :alt="'Image - ' + member.member_image"
                           position="center center"
                           aspect-ratio="0.9"
                         ></v-img>

@@ -112,7 +112,7 @@
                         <v-img
                            class="elevation-6"
                            :src="'/storage/carousel_images/' + carousel_content.carousel_image"
-                           alt=""
+                           :alt="'Image - ' + carousel_content.carousel_image"
                            position="center center"
                            aspect-ratio="2"
                         ></v-img>

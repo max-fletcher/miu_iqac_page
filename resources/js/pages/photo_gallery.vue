@@ -43,7 +43,8 @@
                      :to="'/single-gallery/' + photo_gallery.id"
                   >
                      <v-img
-                        :src="'/storage/gallery_cover_photos/' + photo_gallery.gallery_cover_photo"                           
+                        :alt="'Image - ' + photo_gallery.gallery_cover_photo"
+                        :src="'/storage/gallery_cover_photos/' + photo_gallery.gallery_cover_photo"
                         width="auto"
                         aspect-ratio="1.77"
                      ></v-img>

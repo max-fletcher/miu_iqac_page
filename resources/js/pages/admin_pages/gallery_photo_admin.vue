@@ -110,7 +110,7 @@
                         <v-img
                            class="elevation-6"
                            :src="gallery_photos.src"
-                           alt=""
+                           :alt="'Image - ' + gallery_photos.src"
                            position="center center"
                            aspect-ratio="2"
                         ></v-img>
