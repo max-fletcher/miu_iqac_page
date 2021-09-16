@@ -337,12 +337,15 @@ export default {
                   this.$refs.contact_us_form.reset();
                })
                .catch((error) => {
-                  console.log(error);
+                  console.log(error.response.status);
+                  if(error.response.status)
+                     this.error_message = "Too many requests have been submitted. Please try again tomorrow.";
+                  else
+                     this.error_message = error.response.data.message;
+                  // this.errors = error.response.data.errors;
                   this.form_disabled = false;
                   this.form_loading = false;
                   this.error_snackbar = true;
-                  this.error_message = error.response.data.message;
-                  this.errors = error.response.data.errors;
                });
          } else {
             //false
