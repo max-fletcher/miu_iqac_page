@@ -7,8 +7,6 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Resource;
 
-use Illuminate\Support\Facades\DB;
-
 class ResourceController extends Controller
 {
     // public function index()
@@ -25,17 +23,10 @@ class ResourceController extends Controller
             'resource_file' => ['required', 'file', 'mimetypes:application/pdf', 'max:50000']
         ]);
         
-        //get filename with extension
         $filenameWithExt = $request->file('resource_file')->getClientOriginalName();
-        //get just file name (using standard php function)
         $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        //get just extension
         $extension = $request->file('resource_file')->getClientOriginalExtension();
-        //filename to store(uses a time php function to get current time)
-        //this string is a unique name so that file with duplicate name do not get uploaded and
-        //cause problems when viewing(same problem that occured in CISV photo gallery)
         $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-        //upload image
         $request->file('resource_file')->storeAs('public/resource_files', $filenameToStore);
 
         Resource::Create([
@@ -75,17 +66,10 @@ class ResourceController extends Controller
 
                 Storage::delete('public/resource_files/'.$resource->resource_file);
 
-                //get filename with extension
                 $filenameWithExt = $request->file('resource_file')->getClientOriginalName();
-                //get just file name (using standard php function)
                 $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-                //get just extension
                 $extension = $request->file('resource_file')->getClientOriginalExtension();
-                //filename to store(uses a time php function to get current time)
-                //this string is a unique name so that file with duplicate name do not get uploaded and
-                //cause problems when viewing(same problem that occured in CISV photo gallery)
                 $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-                //upload image
                 $request->file('resource_file')->storeAs('public/resource_files', $filenameToStore);
 
             }

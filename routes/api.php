@@ -214,8 +214,6 @@ Route::get('/events/types/show_sorted/{id}', [App\Http\Controllers\EventTypeCont
 // Route::get('/events/index', [App\Http\Controllers\EventController::class, 'index']);
 // FE
 Route::get('/events/show/{id}', [App\Http\Controllers\EventController::class, 'show']);
-// Route::get('/events/upcoming/eventsbyeventtypeid/{id}', [App\Http\Controllers\EventController::class, 'upcoming_events_by_event_type_id']);
-// Route::get('/events/passed/eventsbyeventtypeid/{id}', [App\Http\Controllers\EventController::class, 'passed_events_by_event_type_id']);
 
 // News Controller
 // FE

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-// use App\Events\NewContactUsWasSubmittedEvent;
 use App\Mail\ContactUsMail;
 use Illuminate\Http\Request;
 use App\Models\ContactUs;
@@ -28,10 +27,6 @@ class ContactUsController extends Controller
             'message' => $request->message,
         ]);
 
-        // This needs terminal in the server to run php artisan queue:work so its not gonna work for MIU server
-        // event(new NewContactUsWasSubmittedEvent($mail_data));
-
-        // Send Mail To Admin
         Mail::to("amar.naam.machine@gmail.com")->send(new ContactUsMail($mail_data));
 
         return response()->json("Mail Sent Successfully !!", 201);
@@ -62,7 +57,6 @@ class ContactUsController extends Controller
             $contact_us->message = $request->message;
             $contact_us->save();
 
-            // Resend Mail
             $mail_data = $contact_us;
             Mail::to("amar.naam.machine@gmail.com")->send(new ContactUsMail($mail_data));
             

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\People;
 use Illuminate\Http\Request;
 use App\Models\PeopleMember;
 use Illuminate\Support\Str;
@@ -35,25 +34,16 @@ class MemberController extends Controller
                 'resize_image' => ['required', 'numeric', 'integer'],
             ]);
 
-            //get filename with extension
             $filenameWithExt = $request->file('member_image')->getClientOriginalName();
-            //get just file name (using standard php function)
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            //get just extension
             $extension = $request->file('member_image')->getClientOriginalExtension();
-            //filename to store(uses a time php function to get current time)
-            //this string is a unique name so that file with duplicate name do not get uploaded and
-            //cause problems when viewing(same problem that occured in CISV photo gallery)
             $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
 
-            // Make Folder if it doesn't exist
             $path = public_path('storage/member_images');
             if(!File::isDirectory($path)){
                     File::makeDirectory($path, 0777, true, true);
             }
 
-            // Resize image if needed and store it in $image variable
-            // Save image to designated folder inside storage
             if($request->resize_image == 1){
                 // Aspect ratio of 0.56
                 $image = Image::make($request->file('member_image'))->resize(1500, 3000)->crop(1500, 1700);
@@ -77,7 +67,6 @@ class MemberController extends Controller
             'member_image' => $filenameToStore
         ]);
 
-        //$request->file('member_image')->store('public/member_images');
         return response()->json('Member Created Successfully !!', 201);
     }
 
@@ -111,30 +100,19 @@ class MemberController extends Controller
                     'resize_image' => ['required', 'numeric', 'integer'],
                 ]);
 
-                  //deletes previous image
                 if($member->member_image != "noimage.jpg")
                     File::delete(public_path('storage/member_images/'.$member->member_image));
-                // Storage::delete('public/member_images/'.$member->member_image);
 
-                //get filename with extension
                 $filenameWithExt = $request->file('member_image')->getClientOriginalName();
-                //get just file name (using standard php function)
                 $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-                //get just extension
                 $extension = $request->file('member_image')->getClientOriginalExtension();
-                //filename to store(uses a time php function to get current time)
-                //this string is a unique name so that file with duplicate name do not get uploaded and
-                //cause problems when viewing(same problem that occured in CISV photo gallery)
                 $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-                
-                // Make Folder if it doesn't exist
+
                 $path = public_path('storage/member_images');
                 if(!File::isDirectory($path)){
                         File::makeDirectory($path, 0777, true, true);
                 }
 
-                // Resize image if needed and store it in $image variable
-                // Save image to designated folder inside storage
                 if($request->resize_image == 1){
                     // Aspect ratio of 0.56
                     $image = Image::make($request->file('member_image'))->resize(1500, 3000)->crop(1500, 1700);
@@ -145,8 +123,6 @@ class MemberController extends Controller
                 
                 $image->save(public_path('storage/member_images/'. $filenameToStore));
                 
-                //upload image
-                // $request->file('member_image')->storeAs('public/member_images', $filenameToStore);
             }
             else{
                 $filenameToStore = 'noimage.jpg';
@@ -169,9 +145,6 @@ class MemberController extends Controller
     {
         $member = PeopleMember::find($id);
         if ($member) {
-            // using this instead of Storage::delete since in create method, intervention image doesn't work with
-            // storeAs method (uses GD library) so used File facade there as well as here to maintain consistency
-            // Storage::delete('public/member_images/'.$member->member_image);  //deletes iamge
             if($member->member_image != "noimage.jpg")
                 File::delete(public_path('storage/member_images/'.$member->member_image));
             $member->delete();

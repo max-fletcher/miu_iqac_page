@@ -8,9 +8,7 @@ use App\Models\GalleryName;
 use App\Models\GalleryPhoto;
 use Intervention\Image\Facades\Image;
 Use Illuminate\Support\Facades\File;
-// use App\Http\Resources\GalleryNameResource;
 use App\Http\Resources\GalleryPhotoResource;
-// use App\Rules\noimage;
 
 class GalleryNameController extends Controller
 {
@@ -29,27 +27,16 @@ class GalleryNameController extends Controller
             'resize_image' => ['required', 'numeric', 'integer'],
         ]);
 
-        //get filename with extension
         $filenameWithExt = $request->file('gallery_cover_photo')->getClientOriginalName();
-        //get just file name (using standard php function)
         $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        //get just extension
         $extension = $request->file('gallery_cover_photo')->getClientOriginalExtension();
-        //filename to store(uses a time php function to get current time)
-        //this string is a unique name so that file with duplicate name do not get uploaded and
-        //cause problems when viewing(same problem that occured in CISV photo gallery)
         $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-        // //upload image
-        // $request->file('gallery_cover_photo')->storeAs('public/gallery_cover_photos', $filenameToStore);
 
-        // Make Folder if it doesn't exist
         $path = public_path('storage/gallery_cover_photos');
         if(!File::isDirectory($path)){
             File::makeDirectory($path, 0777, true, true);
         }
 
-        // Resize image if needed and store it in $image variable
-        // Save image to designated folder inside storage
         if($request->resize_image == 1){
             $image = Image::make($request->file('gallery_cover_photo'))->resize(2000, 1150);
         }
@@ -69,9 +56,6 @@ class GalleryNameController extends Controller
 
     public function show($id)
     {
-        // $gallery_name = new GalleryNameResource(GalleryName::where('id', $id)->select('id', 'gallery_name','gallery_cover_photo' , 'created_at')->with(['gallery_photos' => function($query) {
-        //     return $query->select(['id', 'gallery_name_id', 'photo_title', 'photo_image', 'created_at']);
-        // }])->first());
 
         $gallery_name = GalleryName::where('id', $id)->select('id', 'gallery_name','gallery_cover_photo' , 'created_at')->first();
 
@@ -110,30 +94,18 @@ class GalleryNameController extends Controller
                     'gallery_cover_photo' => ['required', 'image', 'max:3000'],
                     'resize_image' => ['required', 'numeric', 'integer'],
                 ]);
-                // deletes previous file
-                // if($gallery_name->gallery_cover_photo != "noimage.jpg")
                 File::delete( public_path('storage/gallery_cover_photos/'.$gallery_name->gallery_cover_photo));
-                // Storage::delete('public/carousel_images/'.$carousel_content->carousel_image);
             
-                //get filename with extension
                 $filenameWithExt = $request->file('gallery_cover_photo')->getClientOriginalName();
-                //get just file name (using standard php function)
                 $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-                //get just extension
                 $extension = $request->file('gallery_cover_photo')->getClientOriginalExtension();
-                //filename to store(uses a time php function to get current time)
-                //this string is a unique name so that file with duplicate name do not get uploaded and
-                //cause problems when viewing(same problem that occured in CISV photo gallery)
                 $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
 
-                // Make Folder if it doesn't exist
                 $path = public_path('storage/gallery_cover_photos');
                 if(!File::isDirectory($path)){
                     File::makeDirectory($path, 0777, true, true);
                 }
 
-                // Resize image if needed and store it in $image variable
-                // Save image to designated folder inside storage
                 if($request->resize_image == 1){
                     $image = Image::make($request->file('gallery_cover_photo'))->resize(2000, 1150);
                 }
@@ -143,8 +115,6 @@ class GalleryNameController extends Controller
 
                 $image->save(public_path('storage/gallery_cover_photos/'. $filenameToStore));
 
-                //upload image
-                // $request->file('gallery_cover_photo')->storeAs('public/gallery_cover_photos', $filenameToStore);
             }
             else{
                 $filenameToStore = $gallery_name->gallery_cover_photo;

@@ -33,25 +33,16 @@ class EventController extends Controller
                 'resize_image' => ['required', 'numeric', 'integer'],
             ]);
 
-            //get filename with extension
             $filenameWithExt = $request->file('event_image')->getClientOriginalName();
-            //get just file name (using standard php function)
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            //get just extension
             $extension = $request->file('event_image')->getClientOriginalExtension();
-            //filename to store(uses a time php function to get current time)
-            //this string is a unique name so that file with duplicate name do not get uploaded and
-            //cause problems when viewing(same problem that occured in CISV photo gallery)
             $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
             
-            // Make Folder if it doesn't exist
             $path = public_path('storage/event_images');
             if(!File::isDirectory($path)){
                     File::makeDirectory($path, 0777, true, true);
             }
 
-            // Resize image if needed and store it in $image variable
-            // Save image to designated folder inside storage
             if($request->resize_image == 1){
                 $image = Image::make($request->file('event_image'))->resize(2000, 1000);
             }
@@ -109,25 +100,16 @@ class EventController extends Controller
                 if($event->event_image != "noimage.jpg")
                     File::delete(public_path('storage/event_images/'.$event->event_image));  //deletes previous file
 
-                //get filename with extension
                 $filenameWithExt = $request->file('event_image')->getClientOriginalName();
-                //get just file name (using standard php function)
                 $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-                //get just extension
                 $extension = $request->file('event_image')->getClientOriginalExtension();
-                //filename to store(uses a time php function to get current time)
-                //this string is a unique name so that file with duplicate name do not get uploaded and
-                //cause problems when viewing(same problem that occured in CISV photo gallery)
                 $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
 
-                // Make Folder if it doesn't exist
                 $path = public_path('storage/event_images');
                 if(!File::isDirectory($path)){
                         File::makeDirectory($path, 0777, true, true);
                 }
 
-                // Resize image if needed and store it in $image variable
-                // Save image to designated folder inside storage
                 if($request->resize_image == 1){
                     $image = Image::make($request->file('event_image'))->resize(2000, 1000);
                 }
@@ -165,26 +147,4 @@ class EventController extends Controller
 
         return response()->json('The Provided ID Doesn\'t Match Any Events !!', 404);
     }
-
-    // public function upcoming_events_by_event_type_id($id)
-    // {        
-    //     $event_type = EventType::find($id);
-    //     if($event_type){
-    //         $events = Event::with('event_type')->where('event_type_id', $id)->where('event_date', '>=', Carbon::now())->orderBy('event_date', 'desc')->get();
-    //         return response()->json($events, 200);
-    //     }
-
-    //     return response()->json('The Provided ID Doesn\'t Match Any Events !!', 404);
-    // }
-
-    // public function passed_events_by_event_type_id($id)
-    // {      
-    //     $event_type = EventType::find($id);
-    //     if($event_type){
-    //         $events = Event::with('event_type')->where('event_type_id', $id)->where('event_date', '<', Carbon::now())->orderBy('event_date', 'desc')->get();
-    //         return response()->json($events, 200);
-    //     }
-
-    //     return response()->json('The Provided ID Doesn\'t Match Any Events !!', 404);
-    // }
 }

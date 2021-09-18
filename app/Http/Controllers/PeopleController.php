@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\People;
-use GuzzleHttp\Promise\Create;
 
 class PeopleController extends Controller
 {

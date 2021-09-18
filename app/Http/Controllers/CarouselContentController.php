@@ -31,26 +31,15 @@ class CarouselContentController extends Controller
             'resize_image' => ['required', 'numeric', 'integer'],
         ]);
 
-        //get filename with extension
         $filenameWithExt = $request->file('carousel_image')->getClientOriginalName();
-        //get just file name (using standard php function)
         $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        //get just extension
         $extension = $request->file('carousel_image')->getClientOriginalExtension();
-        //filename to store(uses a time php function to get current time)
-        //this string is a unique name so that file with duplicate name do not get uploaded and
-        //cause problems when viewing(same problem that occured in CISV photo gallery)
         $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-        //upload image
-
-        // Make Folder if it doesn't exist
         $path = public_path('storage/carousel_images');
         if(!File::isDirectory($path)){
             File::makeDirectory($path, 0777, true, true);
         }
 
-        // Resize image if needed and store it in $image variable
-        // Save image to designated folder inside storage
         if($request->resize_image == 1){
             $image = Image::make($request->file('carousel_image'))->resize(2000, 1150);
         }
@@ -96,30 +85,20 @@ class CarouselContentController extends Controller
                     'carousel_image' => ['required', 'image', 'max:3000', new noimage],
                     'resize_image' => ['required', 'numeric', 'integer'],
                 ]);
-                // deletes previous file
+
                 if($carousel_content->carousel_image != "noimage.jpg")
                     File::delete(public_path('storage/carousel_images/'.$carousel_content->carousel_image));
-                // Storage::delete('public/carousel_images/'.$carousel_content->carousel_image);
 
-                //get filename with extension
                 $filenameWithExt = $request->file('carousel_image')->getClientOriginalName();
-                //get just file name (using standard php function)
                 $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-                //get just extension
                 $extension = $request->file('carousel_image')->getClientOriginalExtension();
-                //filename to store(uses a time php function to get current time)
-                //this string is a unique name so that file with duplicate name do not get uploaded and
-                //cause problems when viewing(same problem that occured in CISV photo gallery)
                 $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
 
-                // Make Folder if it doesn't exist
                 $path = public_path('storage/carousel_images');
                 if(!File::isDirectory($path)){
                     File::makeDirectory($path, 0777, true, true);
                 }
 
-                // Resize image if needed and store it in $image variable
-                // Save image to designated folder inside storage
                 if($request->resize_image == 1){
                     $image = Image::make($request->file('carousel_image'))->resize(2000, 1150);
                 }
@@ -127,7 +106,6 @@ class CarouselContentController extends Controller
                     $image = Image::make($request->file('carousel_image'));
                 }
 
-                // Save image to designated folder inside storage
                 $image->save(public_path('storage/carousel_images/'. $filenameToStore));
             }
             else{
@@ -149,9 +127,6 @@ class CarouselContentController extends Controller
     {
         $carousel_content = CarouselContent::find($id);
         if($carousel_content){
-            // using this instead of Storage::delete since in create method, intervention image doesn't work with
-            // storeAs method (uses GD library) so used File facade there as well as here to maintain consistency
-            // Storage::delete('public/carousel_images/'.$carousel_content->carousel_image);  //deletes iamge
             if($carousel_content->carousel_image != "noimage.jpg")
                 File::delete(public_path('storage/carousel_images/'.$carousel_content->carousel_image));
             $carousel_content->delete();

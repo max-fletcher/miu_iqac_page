@@ -66,9 +66,6 @@ class PublicationTypeInfoController extends Controller
         $publication_type = PublicationTypeInfo::find($id);
         $duplicate_publication = PublicationTypeInfo::where('publication_type_name', $request->publication_type_name)->where('id', '!=' ,$publication_type->id)->first();
 
-        // return response()->json($publication_type, 201);
-        // return response()->json($duplicate_publication, 201);
-
         if($publication_type){
             if(!$duplicate_publication){
                 $publication_type->publication_type_name = $request->publication_type_name;

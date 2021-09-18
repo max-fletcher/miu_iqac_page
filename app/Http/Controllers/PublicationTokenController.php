@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PublicationTypeInfo;
 use App\Models\PublicationToken;
-use GuzzleHttp\Psr7\Message;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 
@@ -47,7 +46,6 @@ class PublicationTokenController extends Controller
         $tokens = PublicationToken::select('id')->get();
         
         if($tokens->count() > 100){
-            // Delete all records and reset id auto-increment to zero
             PublicationToken::truncate();
             return response()->json('Cleared', 201);
         }

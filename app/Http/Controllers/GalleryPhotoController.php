@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GalleryName;
 use Illuminate\Http\Request;
 use App\Models\GalleryPhoto;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Resources\GalleryPhotoResource;
 
 class GalleryPhotoController extends Controller
 {
@@ -25,17 +23,10 @@ class GalleryPhotoController extends Controller
         ]);
 
         if($request->hasFile('photo_image')) {
-            //get filename with extension
             $filenameWithExt = $request->file('photo_image')->getClientOriginalName();
-            //get just file name (using standard php function)
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            //get just extension
             $extension = $request->file('photo_image')->getClientOriginalExtension();
-            //filename to store(uses a time php function to get current time)
-            //this string is a unique name so that file with duplicate name do not get uploaded and
-            //cause problems when viewing(same problem that occured in CISV photo gallery)
             $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-            //upload image
             $request->file('photo_image')->storeAs('public/photo_gallery_images', $filenameToStore);
         }
         else{
@@ -79,17 +70,10 @@ class GalleryPhotoController extends Controller
 
                 Storage::delete('public/photo_gallery_images/'.$photo->photo_image);  //deletes previous image
 
-                //get filename with extension
                 $filenameWithExt = $request->file('photo_image')->getClientOriginalName();
-                //get just file name (using standard php function)
                 $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-                //get just extension
                 $extension = $request->file('photo_image')->getClientOriginalExtension();
-                //filename to store(uses a time php function to get current time)
-                //this string is a unique name so that file with duplicate name do not get uploaded and
-                //cause problems when viewing(same problem that occured in CISV photo gallery)
                 $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-                //upload image
                 $request->file('photo_image')->storeAs('public/photo_gallery_images', $filenameToStore);
             }
             else{

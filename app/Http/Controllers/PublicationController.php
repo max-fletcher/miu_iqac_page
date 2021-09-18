@@ -22,15 +22,9 @@ class PublicationController extends Controller
             'publication_file' => ['required', 'file', 'mimetypes:application/pdf', 'max:50000']
         ]);
 
-        //get filename with extension
         $filenameWithExt = $request->file('publication_file')->getClientOriginalName();
-        //get just file name (using standard php function)
         $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        //get just extension
         $extension = $request->file('publication_file')->getClientOriginalExtension();
-        //filename to store(uses a time php function to get current time)
-        //this string is a unique name so that file with duplicate name do not get uploaded and
-        //cause problems when viewing(same problem that occured in CISV photo gallery)
         $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
         //upload image
         $request->file('publication_file')->storeAs('public/publication_files', $filenameToStore);
@@ -73,17 +67,10 @@ class PublicationController extends Controller
                 ]);
                 
                 Storage::delete('public/publication_files/'.$publication->publication_file);
-                //get filename with extension
                 $filenameWithExt = $request->file('publication_file')->getClientOriginalName();
-                //get just file name (using standard php function)
                 $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-                //get just extension
                 $extension = $request->file('publication_file')->getClientOriginalExtension();
-                //filename to store(uses a time php function to get current time)
-                //this string is a unique name so that file with duplicate name do not get uploaded and
-                //cause problems when viewing(same problem that occured in CISV photo gallery)
                 $filenameToStore= $filename.'_'.time().'.'.Str::lower($extension);
-                //upload image
                 $request->file('publication_file')->storeAs('public/publication_files', $filenameToStore);
             }
             else{
