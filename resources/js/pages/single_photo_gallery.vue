@@ -60,7 +60,6 @@
                </v-col>
             </v-row>
 
-            <!-- all props & events -->
             <vue-easy-lightbox
                escDisabled
                moveDisabled
@@ -77,7 +76,6 @@
 </template>
 
 <script>
-// Import Vue Easy Lightbox Component
 import VueEasyLightbox from "vue-easy-lightbox";
 import Loading from "./components/loading";
 export default {
@@ -86,11 +84,11 @@ export default {
    },
    data() {
       return {
-         photos: "", // Img Url , string or Array of string
+         photos: "",
          single_photo: "",
          title: "",
          visible: false,
-         index: 0, // default: 0         
+         index: 0,
          loading: true,         
       };
    },
@@ -114,14 +112,10 @@ export default {
       axios
          .get("/api/gallery/name/show/" + this.$route.params.id)
          .then((res) => {
-            // console.log(res)
             this.photos = res.data;
             this.loading = false;
          })
          .catch((error) => {
-            // console.log(error);
-            // this.errors = error.response.data.errors
-            // this.loading2 = false;
             this.$router.push({ name: 'ResourceNotFound' })
          });
    },

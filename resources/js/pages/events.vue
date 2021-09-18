@@ -258,13 +258,10 @@ export default {
             "/api/events/types/show_sorted/" + this.$route.params.id
          )
          .then((res) => {
-            // console.log(res);
             this.events = res.data;
             this.loading = false;
          })
          .catch((error) => {
-            // console.log(error);
-            // this.errors = error.response.data.errors
             this.$router.push({ name: 'ResourceNotFound' })
          });
    },

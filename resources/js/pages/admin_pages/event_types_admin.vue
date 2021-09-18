@@ -1,12 +1,10 @@
 <template>
    <div>
-      <!-- {{ event_types }} -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>
 
       <v-card v-else>
-          <!-- Snackbar For successful Deletion -->
           <v-snackbar
               v-model="delete_success_snackbar"
               color="green"
@@ -30,9 +28,7 @@
                </v-btn>
             </template>
           </v-snackbar>
-          <!-- End Snackbar For successful Deletion -->
 
-         <!-- Snackbar For Internal Server Error -->
          <v-snackbar
               v-model="error_snackbar"
               color="red"
@@ -56,7 +52,6 @@
               </v-btn>
               </template>
          </v-snackbar>
-         <!-- End Snackbar For Internal Server Error -->
 
          <v-card flat tile outlined width="100%" class="d-flex">
             <v-card-title> Event Types </v-card-title>
@@ -131,7 +126,6 @@
                                  </v-icon>
                                  EDIT
                            </v-btn>
-                           <!-- Delete Button With v-menu -->
                            <ContentDeleteDialog axios_path="/api/events/types/destroy/" :content_id="event_type.id" @content_deleted="event_types_update($event)" @content_delete_failed="event_type_delete_failed($event)" />
                       </v-row>
 
@@ -159,7 +153,6 @@ export default {
       error_message: "",
       delete_success_snackbar: false,
       delete_success_message: ""
-      // dialog: false,
    }),
    components: {
       AdminLoading, ContentDeleteDialog

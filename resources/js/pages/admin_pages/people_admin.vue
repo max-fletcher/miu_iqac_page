@@ -1,12 +1,10 @@
 <template>
    <div>
-      <!-- {{people}} -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>
 
       <v-card v-else>
-          <!-- Snackbar For successful Deletion -->
           <v-snackbar
               v-model="delete_success_snackbar"
               color="green"
@@ -30,9 +28,7 @@
               </v-btn>
               </template>
           </v-snackbar>
-          <!-- End Snackbar For successful Deletion -->
 
-         <!-- Snackbar For Internal Server Error -->
          <v-snackbar
               v-model="error_snackbar"
               color="red"
@@ -56,7 +52,6 @@
               </v-btn>
               </template>
          </v-snackbar>
-         <!-- End Snackbar For Internal Server Error -->
 
          <v-card flat tile outlined width="100%" class="d-flex">
             <v-card-title> People Section </v-card-title>
@@ -137,7 +132,6 @@
                               EDIT
                            </v-btn>
 
-                           <!-- Delete Button With v-menu -->
                            <ContentDeleteDialog axios_path="/api/people/destroy/" :content_id="people.id" @content_deleted="people_update($event)" @content_delete_failed="people_section_delete_failed($event)" />
 
                      </v-row>
@@ -165,7 +159,6 @@ export default {
       error_message: "",
       delete_success_snackbar: false,
       delete_success_message: ""
-      // dialog: false,
    }),
    components: {
       AdminLoading, ContentDeleteDialog
@@ -173,7 +166,6 @@ export default {
    methods: {
       people_update(deleted){
             this.people = this.people.filter(function(obj) {
-            return obj.id !== deleted.deleted_id; // Or whatever value you want to use
          })
 
          this.delete_success_message = deleted.delete_message

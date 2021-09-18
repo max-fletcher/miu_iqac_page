@@ -1,12 +1,10 @@
 <template>
   <div>
-    <!-- {{ publication_types }} -->
     <div v-if="loading_content">
         <AdminLoading />
     </div>
 
     <v-card v-else>
-        <!-- Snackbar For successful Deletion -->
         <v-snackbar
             v-model="delete_success_snackbar"
             color="green"
@@ -30,9 +28,7 @@
               </v-btn>
           </template>
         </v-snackbar>
-        <!-- End Snackbar For successful Deletion -->
 
-        <!-- Snackbar For Internal Server Error -->
         <v-snackbar
             v-model="error_snackbar"
             color="red"
@@ -56,7 +52,6 @@
             </v-btn>
             </template>
         </v-snackbar>
-        <!-- End Snackbar For Internal Server Error -->
 
         <v-card flat tile outlined width="100%" class="d-flex">
           <v-card-title> Publication Types </v-card-title>
@@ -131,7 +126,6 @@
                               </v-icon>
                               EDIT
                         </v-btn>
-                        <!-- Delete Button With v-menu -->
                         <ContentDeleteDialog axios_path="/api/publication_type_info/destroy/" :content_id="publication_type.id" @content_deleted="publication_types_update($event)" @content_delete_failed="event_type_delete_failed($event)" />
                     </v-row>
 
@@ -159,7 +153,6 @@ export default {
       error_message: "",
       delete_success_snackbar: false,
       delete_success_message: ""
-      // dialog: false,
    }),
    components: {
       AdminLoading, ContentDeleteDialog
@@ -192,7 +185,6 @@ export default {
       this.loading_content = true,
       axios.get("/api/publication_type_info/index")
          .then((response) => {
-            // console.log("response");
             this.publication_types = response.data
             this.loading_content = false
          })

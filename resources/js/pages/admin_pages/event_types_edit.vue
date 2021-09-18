@@ -1,7 +1,5 @@
 <template>
    <div>
-      <!-- event_type: {{event_type}} <br>
-      {{ errors }} <br> -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>
@@ -26,10 +24,8 @@
                </v-row>
                <v-row>
                   <v-col class="mb-3">
-                     <!-- Contact us Form -->
                      <v-form ref="edit_about_content" :disabled="form_disabled" lazy-validation>
 
-                     <!-- Snackbar For successful Form Submission -->
                      <v-snackbar
                         v-model="success_snackbar"
                         color="green"                        
@@ -53,9 +49,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                     <!-- Snackbar For backend validation failure -->
                      <v-snackbar
                         v-model="error_snackbar"
                         color="red"
@@ -79,9 +73,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                      <!-- People Section Name Field -->
                       <v-text-field
                           v-model="event_type"
                           :rules="event_type_rules"
@@ -94,9 +86,7 @@
                           outlined
                           class="mb-1"
                       ></v-text-field>
-                      <!-- End People Section Name Field -->
 
-                        <!-- Validate and Submit -->
                         <v-row class="">
                            <div class="d-flex flex-row mx-auto">
                               <v-btn
@@ -108,14 +98,6 @@
                               >
                                  Submit
                               </v-btn>
-                              <!-- Reset From -->
-                              <!-- <v-btn color="error" class="mx-2" @click="reset">
-                                 Reset Form
-                              </v-btn> -->
-                              <!-- Reset validation -->
-                              <!-- <v-btn color="warning" class="mx-2" @click="resetValidation">
-                                 Reset Validation
-                              </v-btn> -->
                            </div>
                         </v-row>
                      </v-form>
@@ -168,7 +150,6 @@ export default {
             formData.append('_method', 'PATCH')
 
             console.log("trigger 3")
-            // console.log(formData);
 
             axios.post("/api/events/types/update/" + this.$route.params.id, formData)
             .then((res) => {
@@ -187,16 +168,9 @@ export default {
                this.form_loading = false
             });
          } else {
-            //false
             this.$refs.edit_about_content.validate()
          }
       },
-      // reset() {
-      //    this.$refs.edit_about_content.reset()
-      // },
-      // resetValidation() {
-      //    this.$refs.edit_about_content.resetValidation()
-      // },
    },
    created(){
       this.loading_content = true
@@ -207,17 +181,9 @@ export default {
             this.form_disabled = false
             this.form_loading = false
             this.loading_content = false
-            // this.$refs.edit_about_content.reset()
          })
          .catch((error) => {
             this.$router.push('/adminpanel/event_types?nodata=nodatafound')
-            // console.log(error)
-            // this.error_message = error.response.data.message
-            // this.error_snackbar = true
-            // this.errors = error.response.data.errors
-            // this.form_disabled = false
-            // this.form_loading = false
-            // this.loading_content = false
          })
   }
 };

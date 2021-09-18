@@ -1,12 +1,10 @@
 <template>
    <div>
-      <!-- {{gallery_photos}} -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>
 
       <v-card v-else>
-         <!-- Snackbar For successful Deletion -->
           <v-snackbar
               v-model="delete_success_snackbar"
               color="green"
@@ -30,9 +28,7 @@
                 </v-btn>
               </template>
           </v-snackbar>
-          <!-- End Snackbar For successful Deletion -->
 
-         <!-- Snackbar For Internal Server Error -->
          <v-snackbar
               v-model="error_snackbar"
               color="red"
@@ -56,7 +52,6 @@
               </v-btn>
               </template>
          </v-snackbar>
-         <!-- End Snackbar For Internal Server Error -->
 
           <v-card flat tile outlined width="100%" class="d-flex">
             <v-card-title> List of Photos - {{ gallery_photos.gallery_name }} </v-card-title>
@@ -132,7 +127,6 @@
                               EDIT
                            </v-btn>
 
-                           <!-- Delete Button With v-menu -->
                            <ContentDeleteDialog axios_path="/api/gallery/photos/destroy/" :content_id="gallery_photos.id" @content_deleted="gallery_photos_update($event)" @content_delete_failed="gallery_photos_delete_failed($event)" />
                      </v-row>
 
@@ -197,13 +191,6 @@ export default {
          })
          .catch((error) => {
             this.$router.push('/adminpanel/all_galleries?nodata=nodatafound')
-            // console.log(error)
-            // this.error_message = error.response.data.message
-            // this.error_snackbar = true
-            // this.errors = error.response.data.errors
-            // this.form_disabled = false
-            // this.form_loading = false
-            // this.loading_content = false
          })
    },
 }

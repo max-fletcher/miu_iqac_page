@@ -1,9 +1,5 @@
 <template>
    <div>
-      <!-- publication_type_name: {{publication_type_name}} <br>
-      publication_password: {{ publication_password }} <br>
-      publication_password_confirmation: {{ publication_password_confirmation }} <br>
-      {{ errors }} <br> -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>
@@ -28,10 +24,8 @@
                </v-row>
                <v-row>
                   <v-col class="mb-3">
-                     <!-- Contact us Form -->
                      <v-form ref="store_about_content" :disabled="form_disabled" lazy-validation>
 
-                     <!-- Snackbar For successful Form Submission -->
                      <v-snackbar
                         v-model="success_snackbar"
                         color="green"                        
@@ -55,9 +49,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                     <!-- Snackbar For backend validation failure -->
                      <v-snackbar
                         v-model="error_snackbar"
                         color="red"
@@ -81,9 +73,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                      <!-- Publication Type Name Field -->
                       <v-text-field
                           v-model="publication_type_name"
                           :rules="publication_type_name_rules"
@@ -96,9 +86,7 @@
                           outlined
                           class="mb-1"
                       ></v-text-field>
-                      <!-- End Publication Type Password Field -->
 
-                      <!-- Publication Password Field -->
                       <v-text-field
                           v-model="publication_password"
                           :rules="publication_password_rules"
@@ -111,10 +99,8 @@
                           outlined
                           class="mb-1"
                       ></v-text-field>
-                      <!-- End Publication Password Field -->
 
 
-                      <!-- Publication Password Confirmation Field -->
                       <v-text-field
                           v-model="publication_password_confirmation"
                           :rules="[publication_password_confirmation_rules, passwordConfirmationRule]"
@@ -127,9 +113,7 @@
                           outlined
                           class="mb-1"
                       ></v-text-field>
-                      <!-- End Publication Password Confirmation Field -->
 
-                        <!-- Validate and Submit -->
                         <v-row class="">
                            <div class="d-flex flex-row mx-auto">
                               <v-btn
@@ -141,14 +125,6 @@
                               >
                                  Submit
                               </v-btn>
-                              <!-- Reset From -->
-                              <!-- <v-btn color="error" class="mx-2" @click="reset">
-                                 Reset Form
-                              </v-btn> -->
-                              <!-- Reset validation -->
-                              <!-- <v-btn color="warning" class="mx-2" @click="resetValidation">
-                                 Reset Validation
-                              </v-btn> -->
                            </div>
                         </v-row>
                      </v-form>
@@ -214,7 +190,6 @@ export default {
             formData.append('publication_password_confirmation', this.publication_password_confirmation)
 
             console.log("trigger 3")
-            // console.log(formData);
 
             axios.post("/api/publication_type_info/store/" , formData)
             .then((res) => {
@@ -233,16 +208,9 @@ export default {
                this.form_loading = false
             });
          } else {
-            //false
             this.$refs.store_about_content.validate()
          }
       },
-      // reset() {
-      //    this.$refs.store_about_content.reset()
-      // },
-      // resetValidation() {
-      //    this.$refs.store_about_content.resetValidation()
-      // },
    },
     computed: {
       passwordConfirmationRule() {

@@ -1,10 +1,5 @@
 <template>
-   <div>      
-      <!-- news_title: {{news_title}} <br>
-      news_text: {{news_text}} <br>
-      news_image: {{news_image}} <br> -->
-      <!-- {{ errors }} -->
-
+   <div>
       <div v-if="loading_content">
          <AdminLoading />
       </div>
@@ -29,10 +24,8 @@
                </v-row>
                <v-row>
                   <v-col class="mb-3">
-                     <!-- Contact us Form -->
                      <v-form ref="edit_news_data" :disabled="form_disabled" lazy-validation>
 
-                     <!-- Snackbar For successful Form Submission -->
                      <v-snackbar
                         v-model="success_snackbar"
                         color="green"                        
@@ -43,7 +36,6 @@
                      <v-icon left>
                         mdi-check-circle
                      </v-icon>
-                        <!-- Content Saved Successfully !! -->
                         {{ success_message }}
 
                         <template v-slot:action="{ attrs }">
@@ -57,9 +49,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                     <!-- Snackbar For backend validation failure -->
                      <v-snackbar
                         v-model="error_snackbar"
                         color="red"
@@ -83,9 +73,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                     <!-- Carousel Title Field -->
                         <v-text-field
                            v-model="news_title"
                            :rules="news_title_rules"
@@ -98,9 +86,7 @@
                            outlined
                            class="mb-2"
                         ></v-text-field>
-                        <!-- End Carousel Title Field -->
 
-                        <!-- Carousel Subtitle Field -->
                         <v-textarea
                            v-model="news_text"
                            :rules="news_text_rules"
@@ -114,13 +100,11 @@
                            auto-grow
                            class="mb-2"
                         ></v-textarea>
-                        <!-- End Carousel Subtitle Field -->
 
 
                         <div class="text-body-2 red--text text-uppercase font-weight-bold mb-2 text-center">
                            If no image is provided, the previous image will be deleted and set to "No Image"
                         </div>
-                        <!-- File Upload -->
                         <v-file-input
                            truncate-length="15"
                            label="Select New Image"
@@ -133,7 +117,6 @@
                            outlined
                            class="mb-2"
                         ></v-file-input>
-                        <!-- End File Upload -->
 
                         <div class="text-caption red--text">
                            **Selecting "Yes" below uses an auto-resizer to resize the image to have a dimension of 2000x1000.
@@ -143,7 +126,6 @@
                            Otherwise, part of your image might be cropped out from the front-end.
                         </div>
 
-                        <!-- Resize Image Radio Buttons -->
                         <v-container fluid class="pt-0">
                            <v-radio-group
                               v-model="resize_image"
@@ -169,9 +151,7 @@
                               </v-radio>
                            </v-radio-group>
                         </v-container>
-                        <!-- End Resize Image Radio Buttons -->
 
-                        <!-- Validate and Submit -->
                         <v-row class="">
                            <div class="d-flex flex-row mx-auto">
                               <v-btn
@@ -183,14 +163,6 @@
                               >
                                  Submit
                               </v-btn>
-                              <!-- Reset From -->
-                              <!-- <v-btn color="error" class="mx-2" @click="reset">
-                                 Reset Form
-                              </v-btn> -->
-                              <!-- Reset validation -->
-                              <!-- <v-btn color="warning" class="mx-2" @click="resetValidation">
-                                 Reset Validation
-                              </v-btn> -->
                            </div>
                         </v-row>
                      </v-form>
@@ -227,11 +199,7 @@ export default {
           (v) => (v && v.length <= 65000) || 'Name must be less than 65000 characters',
         ],
         news_image: null,
-        // news_image_rules: [ (v) => !!v || "Image is required" ],
         resize_image: "",
-        // resize_rules: [
-        //    (v) => !!v || "Resize Parameter is required"
-        // ],
     }),
     components: {
       AdminLoading
@@ -250,12 +218,6 @@ export default {
               this.form_loading = true
               
               console.log("trigger 2")
-              // if (!this.news_image) {
-              //    this.error_message = "Please select a file!";
-              //    this.form_disabled = false
-              //    this.form_loading = false
-              //    return;
-              // }
 
               console.log("trigger 3")
 
@@ -269,7 +231,6 @@ export default {
               formData.append('_method', 'PATCH')
 
               console.log("trigger 3")
-              // console.log(formData);
 
               axios.post("/api/news/update/" + this.$route.params.id, formData)
               .then((res) => {

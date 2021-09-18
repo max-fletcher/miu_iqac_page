@@ -32,7 +32,7 @@ class PeopleController extends Controller
             'name' => $request->name
         ]);
 
-        return response()->json('People Section Created Successfully !', 201);
+        return response()->json('People Section Created Successfully !!', 201);
     }
 
     public function show($id)
@@ -79,7 +79,7 @@ class PeopleController extends Controller
         $people = People::find($id);
         if($people){            
             $people->delete();
-            return response()->json('People Section Deleted Successfully !', 201);
+            return response()->json('People Section Deleted Successfully !!', 201);
         }
 
         return response()->json('Can\'t Delete Because Provided ID Doesn\'t Match Any People Records !!', 404);

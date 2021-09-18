@@ -7,17 +7,6 @@
       </div>
 
       <div class="px-6 pb-2 pt-2 pt-md-2" v-else>
-         <!-- <v-card flat v-if="publication_type.length === 0" height="480" min-height="300">
-            <v-container fill-height fluid>
-               <v-row align="center" justify="center">
-                  <div class="text-center">
-                     <h2> 404 Error !</h2>
-                     <h1> Publication With This ID Does Not Exist. </h1>
-                  </div>
-               </v-row>
-            </v-container>
-         </v-card>
-         <div v-else> -->
             <v-row>
                <v-card flat tile class="mx-auto mb-2 mt-2">
                   <v-card-title class="text-center text-sm-h3 text-h4 blue--text text--darken-4 text-uppercase">
@@ -40,7 +29,7 @@
                            text-sibtitle-1
                            font-weight-bold
                            blue-grey--text
-                           text--darken-3                           
+                           text--darken-3
                            pb-0
                         "
                      >
@@ -98,7 +87,7 @@
                      transition="scale-transition"
                      class="mt-2"
                   >                        
-                     Access Denied ! Please Provide Password to Continue !!
+                     Access Denied !! Please Provide Password to Continue !!
                   </v-alert>
 
                   <v-alert
@@ -118,8 +107,6 @@
             <v-row class="pt-0" no-gutters>
                <v-col class="mb-3 px-4 px-sm-10">
                   <v-form ref="contact_us_form" :disabled="form_disabled" lazy-validation>
-                     <!-- Password Field -->
-                     <!-- {{ errors.publication_password[0] }} -->
 
                      <v-card-subtitle
                         class="
@@ -133,7 +120,7 @@
                            ml-n3
                         "
                      >
-                        *Refreshing the page causes tokens to expire. If your token expires for any reason, just re-enter password.
+                        *Refreshing the page causes login tokens to expire. If your login token expires for any reason, just re-enter password.
                      </v-card-subtitle>
                      <v-text-field
                         v-model="password"
@@ -147,9 +134,7 @@
                         required
                         outlined                        
                      ></v-text-field>
-                     <!-- End Password Field -->
 
-                     <!-- Validate and Submit -->
                      <v-row class="mt-4 mt-sm-3 mt-md-1 mb-1">
                         <div class="d-flex flex-row mx-auto">
                            <v-btn
@@ -161,25 +146,12 @@
                            >
                               Submit
                            </v-btn>
-                           <!-- Reset From -->
-                           <!-- <v-btn color="error" class="mx-2" @click="reset">
-                              Reset Form
-                           </v-btn> -->
-                           <!-- Reset validation -->
-                           <!-- <v-btn color="warning" class="mx-2" @click="resetValidation">
-                              Reset Validation
-                           </v-btn> -->
                         </div>
                      </v-row>                                                                   
-                     <!-- {{password}} <br>
-                     {{this.$route.params.id}} <br>
-                     {{ this.$store.state.authenticated.publication_tokens }} <br>
-                     {{this.$route.params.authfail}} <br> -->
 
                   </v-form>
                </v-col>
             </v-row>
-         <!-- </div> -->
       </div>
       </v-sheet>
    </div>
@@ -193,7 +165,6 @@ export default {
       moment: moment,
       loading: true,
       timeout: 3000,
-      // loading2: true,
       token_fail_type: null,
       publication_type: [],
       errors:[],
@@ -221,16 +192,10 @@ export default {
                publication_password: this.password
             })
             .then((res) => {
-               // console.log(res.data)
-               // use an action to commit data to a state in vuex store (authenticated.js)
                this.$store.dispatch('authenticated/create_token', res.data)
-               // Redirect to publications page
                this.$router.push('/publications/' + this.$route.params.id)
-               // this.$router.push({ name: 'Publications', params: { id: this.$route.params.id } })
-               // Might not be needed
                this.form_disabled = false
                this.form_loading = false
-               // this.$refs.contact_us_form.reset()
             })
             .catch((error) => {
                this.error_message_snackbar = true
@@ -241,7 +206,6 @@ export default {
                this.password_alert = true
             });
          } else {
-            //false
             this.$refs.contact_us_form.validate()
          }
       },
@@ -258,17 +222,12 @@ export default {
 
    },
    created(){
-      // if "fail" query string existse i.e via redirect after failing to find token so message can be displayed\
       if(this.$route.query.fail)
          this.token_fail_type = this.$route.query.fail
 
-      // Check if token exists in vuex store. If not, redirect to publication_auth
       if( this.$store.state.authenticated.publication_tokens.length > 0 ){
-         // Find token by publication_type_info_id using looping
          for (var i = 0; i < this.$store.state.authenticated.publication_tokens.length; i++){
-            // look for the entry with a matching `id` value
             if (this.$store.state.authenticated.publication_tokens[i].publication_type_info_id == this.$route.params.id){
-               // check if token matches in DB
                axios
                   .post("/api/publication_token/token_exists", this.$store.state.authenticated.publication_tokens[i])
                   .then((res) => {
@@ -277,27 +236,20 @@ export default {
                      }
                   })
                   .catch((error) => {
-                     // console.log(error)
                      this.$store.dispatch('authenticated/reset_state')
                      this.token_fail_type = 'notokenmatch'
-                     // this.loading2 = false
                   });
             }
-         }         
-         // this.loading2 = false
+         }
       }
 
       axios
          .get("/api/publication_type_info/show/" + this.$route.params.id)
          .then((res) => {
-            // console.log(res)
             this.publication_type = res.data
             this.loading = false
          })
          .catch((error) => {
-            // console.log(error)
-            // this.errors = error.response.data.errors
-            // this.loading = false
             this.$router.push({ name: 'ResourceNotFound' })
          });
    },

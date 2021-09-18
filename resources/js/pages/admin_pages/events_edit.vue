@@ -1,14 +1,5 @@
 <template>
    <div>
-      <!-- event_name: {{ event_name }} <br>
-      event_description: {{ event_description }} <br>
-      event_date: {{ event_date }} <br>
-      Date Final {{ moment(this.event_date, "YYYY-MM-DD").format("YYYY-MM-DD") }} <br>
-      From Postman {{ moment().add(10, 'days').format(("YYYY-MM-DD h:mm:ss")) }}
-      {{ error_message }} <br>
-      {{ errors }} <br> <br>
-      {{ event_type }} -->
-
       <div v-if="loading_content">
          <AdminLoading />
       </div>
@@ -33,10 +24,8 @@
                </v-row>
                <v-row>
                   <v-col class="mb-3">
-                     <!-- Contact us Form -->
                      <v-form ref="edit_event_data" :disabled="form_disabled" lazy-validation>
 
-                     <!-- Snackbar For successful Form Submission -->
                      <v-snackbar
                         v-model="success_snackbar"
                         color="green"                        
@@ -47,7 +36,6 @@
                      <v-icon left>
                         mdi-check-circle
                      </v-icon>
-                        <!-- Content Saved Successfully !! -->
                         {{ success_message }}
 
                         <template v-slot:action="{ attrs }">
@@ -61,9 +49,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                     <!-- Snackbar For backend validation failure -->
                      <v-snackbar
                         v-model="error_snackbar"
                         color="red"
@@ -87,9 +73,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                        <!-- Event Name Field -->
                         <v-text-field
                            v-model="event_name"
                            :rules="event_name_rules"
@@ -102,9 +86,7 @@
                            outlined
                            class="mb-1"
                         ></v-text-field>
-                        <!-- End Event Name Field -->
 
-                        <!-- Event Description Field -->
                         <v-textarea
                            v-model="event_description"
                            :rules="event_description_rules"
@@ -118,9 +100,7 @@
                            auto-grow
                            class="mb-1"
                         ></v-textarea>
-                        <!-- End Event Description Field -->
 
-                        <!-- Event Date Picker -->
                            <v-date-picker
                               v-model="event_date"
                               :show-current="moment().format('YYYY-MM-DD')"
@@ -128,13 +108,11 @@
                               full-width
                               class="px-16"
                            ></v-date-picker>
-                        <!-- End Event Date Picker -->
 
                         <div class="text-body-2 red--text text-uppercase font-weight-bold mb-2 text-center">
                            If no image is provided, the previous image will be deleted and set to "No Image"
                         </div>
                         
-                        <!-- File Upload -->
                         <v-file-input
                            truncate-length="15"
                            label="Select New Image"
@@ -145,7 +123,6 @@
                            :error-messages="errors.event_image"
                            outlined
                         ></v-file-input>
-                        <!-- End File Upload -->
 
                         <div class="text-caption red--text">
                            **Selecting "Yes" below uses an auto-resizer to resize the image to have a dimension of 2000x1000.
@@ -155,7 +132,6 @@
                            Otherwise, part of your image might be cropped out from the front-end.
                         </div>
 
-                        <!-- Resize Image Radio Buttons -->
                         <v-container fluid class="pt-0">
                            <v-radio-group
                               v-model="resize_image"
@@ -181,9 +157,7 @@
                               </v-radio>
                            </v-radio-group>
                         </v-container>
-                        <!-- End Resize Image Radio Buttons -->
 
-                        <!-- Validate and Submit -->
                         <v-row class="">
                            <div class="d-flex flex-row mx-auto">
                               <v-btn
@@ -195,14 +169,6 @@
                               >
                                  Submit
                               </v-btn>
-                              <!-- Reset From -->
-                              <!-- <v-btn color="error" class="mx-2" @click="reset">
-                                 Reset Form
-                              </v-btn> -->
-                              <!-- Reset validation -->
-                              <!-- <v-btn color="warning" class="mx-2" @click="resetValidation">
-                                 Reset Validation
-                              </v-btn> -->
                            </div>
                         </v-row>
                      </v-form>
@@ -244,9 +210,6 @@ export default {
       event_image: null,
       event_date: "",
       resize_image: "",
-      // resize_rules: [
-      //    (v) => !!v || "Resize Parameter is required"
-      // ],
    }),
 
    components: {
@@ -265,13 +228,6 @@ export default {
             this.form_disabled = true
             this.form_loading = true
 
-            // console.log("trigger 2")
-            // if (!this.event_image) {
-            //    this.error_message = "Please select a file!";
-            //    this.form_disabled = false
-            //    this.form_loading = false
-            //    return;
-            // }
 
             console.log("trigger 2")
 
@@ -289,7 +245,6 @@ export default {
             formData.append('_method', 'PATCH')
 
             console.log("trigger 3")
-            // console.log(formData)
             console.log(...formData)
 
             axios.post("/api/events/update/"+ this.$route.params.id, formData)
@@ -314,12 +269,6 @@ export default {
             this.$refs.edit_event_data.validate()
          }
       },
-      // reset() {
-      //    this.$refs.edit_event_data.reset()
-      // },
-      // resetValidation() {
-      //    this.$refs.edit_event_data.resetValidation()
-      // },
    },
 
    created(){
@@ -327,7 +276,6 @@ export default {
       this.loading_content = true
       axios.get("/api/events/show/" + this.$route.params.id)
       .then((res) => {
-         // console.log(res.data)
          if( this.$route.params.event_type_id != res.data.event_type.id )
             this.$router.push('/adminpanel/event_types/' + res.data.event_type.id + '/events/?nodata=nodatafound')
          this.event_type = res.data.event_type.event_type
@@ -340,13 +288,6 @@ export default {
       })
       .catch((error) => {
          this.$router.push('/adminpanel/event_types/' + this.$route.params.event_type_id + '/events/?nodata=nodatafound')
-         // console.log(error)
-         // this.error_message = error.response.data.message
-         // this.error_snackbar = true
-         // this.errors = error.response.data.errors
-         // this.form_disabled = false
-         // this.form_loading = false
-         // this.loading_content = false
       })
    }
 };

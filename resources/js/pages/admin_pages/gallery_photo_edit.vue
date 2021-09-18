@@ -1,9 +1,5 @@
 <template>
    <div>
-      <!-- photo_title: {{ photo_title }} <br>
-      {{ error_message }} <br>
-      {{ errors }} <br> <br>
-      {{ gallery_name }} -->
 
       <div v-if="loading_content">
          <AdminLoading />
@@ -29,10 +25,8 @@
                </v-row>
                <v-row>
                   <v-col class="mb-3">
-                     <!-- Contact us Form -->
                      <v-form ref="edit_photo_data" :disabled="form_disabled" lazy-validation>
 
-                     <!-- Snackbar For successful Form Submission -->
                      <v-snackbar
                         v-model="success_snackbar"
                         color="green"                        
@@ -43,7 +37,6 @@
                      <v-icon left>
                         mdi-check-circle
                      </v-icon>
-                        <!-- Content Saved Successfully !! -->
                         {{ success_message }}
 
                         <template v-slot:action="{ attrs }">
@@ -57,9 +50,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                     <!-- Snackbar For backend validation failure -->
                      <v-snackbar
                         v-model="error_snackbar"
                         color="red"
@@ -83,9 +74,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                        <!-- Photo Title Field -->
                         <v-text-field
                            v-model="photo_title"
                            :rules="photo_title_rules"
@@ -98,7 +87,6 @@
                            outlined
                            class="mb-1"
                         ></v-text-field>
-                        <!-- End Photo Title Field -->
 
                         <div class="text-body-2 red--text text-uppercase font-weight-bold mb-2 text-center">
                            No Image Resizer is used with this upload module. Please upload resized images only so that the web page view
@@ -110,7 +98,6 @@
                            **If no image is provided, the previous image will be retained as default
                         </div>
 
-                        <!-- File Upload -->
                         <v-file-input
                            truncate-length="15"
                            label="Select New Image"
@@ -122,37 +109,10 @@
                            outlined
                            class="mb-2"
                         ></v-file-input>
-                        <!-- End File Upload -->
 
-                        <!-- Resize Image Radio Buttons -->
-                        <!-- <v-container fluid class="pt-0">
-                           <v-radio-group
-                              v-model="resize_image"
-                              mandatory
-                              column
-                              :error="errors && errors.resize_image"
-                              :error-messages="errors.resize_image"
-                              :disabled="!photo_image"
                            >
                            
-                              <template v-slot:label>
-                                 <div> Do You Want to Resize Image ?? </div>
-                              </template>
-                              <v-radio value="1">
-                                 <template v-slot:label>
-                                    <div> Yes </div>
-                                 </template>
-                              </v-radio>
-                              <v-radio value="0">
-                                 <template v-slot:label>
-                                    <div> No </div>
-                                 </template>
-                              </v-radio>
-                           </v-radio-group>
-                        </v-container> -->
-                        <!-- End Resize Image Radio Buttons -->
 
-                        <!-- Validate and Submit -->
                         <v-row class="">
                            <div class="d-flex flex-row mx-auto">
                               <v-btn
@@ -164,14 +124,6 @@
                               >
                                  Submit
                               </v-btn>
-                              <!-- Reset From -->
-                              <!-- <v-btn color="error" class="mx-2" @click="reset">
-                                 Reset Form
-                              </v-btn> -->
-                              <!-- Reset validation -->
-                              <!-- <v-btn color="warning" class="mx-2" @click="resetValidation">
-                                 Reset Validation
-                              </v-btn> -->
                            </div>
                         </v-row>
                      </v-form>
@@ -205,11 +157,6 @@ export default {
          (v) => (v && v.length <= 255) || 'Photo title must be less than 255 characters',
       ],
       photo_image: null,
-      // photo_image_rules: [ (v) => !!v || "Image is required" ],
-      // resize_image: "",
-      // resize_rules: [
-      //    (v) => !!v || "Resize Parameter is required"
-      // ],
    }),
 
    components: {
@@ -228,13 +175,6 @@ export default {
             this.form_disabled = true
             this.form_loading = true
 
-            // console.log("trigger 2")
-            // if (!this.photo_image) {
-            //    this.error_message = "Please select a file!";
-            //    this.form_disabled = false
-            //    this.form_loading = false
-            //    return;
-            // }
 
             console.log("trigger 2")
 
@@ -245,10 +185,8 @@ export default {
             formData.append('photo_title', this.photo_title)
             formData.append('photo_image', this.photo_image)
             formData.append('_method', 'PATCH')
-            // formData.append('resize_image', this.resize_image)
 
             console.log("trigger 3")
-            // console.log(formData)
             console.log(...formData)
 
             axios.post("/api/gallery/photos/update/" + this.$route.params.id, formData)
@@ -258,7 +196,6 @@ export default {
                this.success_snackbar = true
                this.form_disabled = false
                this.form_loading = false
-               // this.$refs.edit_photo_data.reset()
             })
             .catch((error) => {
                console.log(error)
@@ -270,23 +207,15 @@ export default {
             });
 
          } else {
-            //false
             this.$refs.edit_photo_data.validate()
          }
       },
-      // reset() {
-      //    this.$refs.edit_photo_data.reset()
-      // },
-      // resetValidation() {
-      //    this.$refs.edit_photo_data.resetValidation()
-      // },
    },
 
    created(){
       this.loading_content = true
       axios.get("/api/gallery/photos/show/" + this.$route.params.id)
       .then((res) => {
-         // console.log(res.data)
          if( this.$route.params.gallery_id != res.data.gallery_name.id )
             this.$router.push('/adminpanel/all_galleries/'+ res.data.gallery_name.id +'/gallery?nodata=nodatafound')
          this.gallery_name = res.data.gallery_name.gallery_name
@@ -295,13 +224,6 @@ export default {
       })
       .catch((error) => {
          this.$router.push('/adminpanel/all_galleries/'+ this.$route.params.gallery_id +'/gallery?nodata=nodatafound')
-         // console.log(error)
-         // this.error_message = error.response.data.message
-         // this.error_snackbar = true
-         // this.errors = error.response.data.errors
-         // this.form_disabled = false
-         // this.form_loading = false
-         // this.loading_content = false
       })
    }
 };

@@ -35,7 +35,7 @@ class AboutContentController extends Controller
             'icon' => $request->icon,
         ]);
 
-        return response()->json('About Content Created Successfully !', 201);
+        return response()->json('About Content Created Successfully !!', 201);
     }
 
     public function show($id)
@@ -68,7 +68,7 @@ class AboutContentController extends Controller
             $about_content->content = $request->content;
             $about_content->icon = $request->icon;
             $about_content->save();
-            return response()->json('About Content Updated Successfully !', 201);
+            return response()->json('About Content Updated Successfully !!', 201);
         }
 
         return response()->json('The Provided ID Doesn\'t Match Any Content Records !!', 404);
@@ -79,7 +79,7 @@ class AboutContentController extends Controller
         $about_content = AboutContent::find($id);
         if($about_content){            
             $about_content->delete();
-            return response()->json('About Content Destroyed Successfully !', 201);
+            return response()->json('About Content Destroyed Successfully !!', 201);
         }
 
         return response()->json('Can\'t Delete Because Provided ID Doesn\'t Match Any Content Records !!', 404);

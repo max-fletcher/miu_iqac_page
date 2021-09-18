@@ -1,13 +1,10 @@
 <template>
    <div>
-         <!-- {{ events }}
-         {{ event_type }} -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>
 
       <v-card v-else>
-          <!-- Snackbar For successful Deletion -->
           <v-snackbar
               v-model="delete_success_snackbar"
               color="green"
@@ -31,9 +28,7 @@
               </v-btn>
               </template>
           </v-snackbar>
-          <!-- End Snackbar For successful Deletion -->
 
-         <!-- Snackbar For Internal Server Error -->
          <v-snackbar
               v-model="error_snackbar"
               color="red"
@@ -57,7 +52,6 @@
               </v-btn>
               </template>
          </v-snackbar>
-         <!-- End Snackbar For Internal Server Error -->
 
          <v-card flat tile outlined width="100%" class="d-flex">
             <v-card-title> Events Section - {{ event_type }} </v-card-title>
@@ -91,8 +85,6 @@
          <div v-else v-for="(event, index) in events" :key="index">
             <v-card tile outlined class="mx-auto px-1 py-2">
 
-               <!-- {{moment(event.event_date).format('YYYY-MM-DD')}} <br> -->
-               <!-- {{moment().format('YYYY-MM-DD')}} -->
                <v-card-text class="text-body-1 font-weight-medium py-0 black--text">
                   Event Name: {{ event.event_name }}
                      <v-chip
@@ -162,7 +154,6 @@
                                   EDIT
                               </v-btn>
 
-                              <!-- Delete Button With v-menu -->
                               <ContentDeleteDialog axios_path="/api/events/destroy/" :content_id="event.id" @content_deleted="event_update($event)" @content_delete_failed="event_delete_failed($event)" />
                       </v-row>
 
@@ -191,7 +182,6 @@ export default {
       error_message: "",
       delete_success_snackbar: false,
       delete_success_message: ""
-      // dialog: false,
    }),
    components: {
       AdminLoading, ContentDeleteDialog
@@ -225,20 +215,12 @@ export default {
       this.loading_content = true
       axios.get("/api/events/types/show_with_events/"+ this.$route.params.event_type_id)
          .then((res) => {
-            // console.log(response.data);
             this.event_type = res.data.event_type
             this.events = res.data.events
             this.loading_content = false
          })
          .catch((error) => {
             this.$router.push('/adminpanel/event_types?nodata=nodatafound')
-            // console.log(error)
-            // this.error_message = error.response.data.message
-            // this.error_snackbar = true
-            // this.errors = error.response.data.errors
-            // this.form_disabled = false
-            // this.form_loading = false
-            // this.loading_content = false
          })
    },
 }

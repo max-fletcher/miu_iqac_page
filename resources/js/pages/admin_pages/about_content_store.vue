@@ -1,12 +1,6 @@
 <template>
    <div>
       <v-sheet class="mt-3 pb-2 px-8">
-         name: {{name}} <br>
-         icon: {{icon}} <br>
-         content: {{ content }} <br>
-         {{ errors }} <br>
-         {{ error_message }} <br>
-         {{ name_rules }}
          <v-row class="mb-4 mx-sm-10">
             <v-col>
                <v-row>
@@ -26,10 +20,8 @@
                </v-row>
                <v-row>
                   <v-col class="mb-3">
-                     <!-- Contact us Form -->
                      <v-form ref="store_about_content" :disabled="form_disabled" lazy-validation>
 
-                     <!-- Snackbar For successful Form Submission -->
                      <v-snackbar
                         v-model="success_snackbar"
                         color="green"                        
@@ -53,9 +45,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                     <!-- Snackbar For backend validation failure -->
                      <v-snackbar
                         v-model="error_snackbar"
                         color="red"
@@ -79,9 +69,7 @@
                            </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                     <!-- About Content Title Field -->
                         <v-text-field
                            v-model="name"
                            :rules="name_rules"
@@ -94,7 +82,6 @@
                            outlined
                            class="mb-1"
                         ></v-text-field>
-                        <!-- End About Content Title Field -->
 
                         <div class="text-caption red--text pb-3 px-2">
                            **This application uses mdi icons.
@@ -104,7 +91,6 @@
                            e.g if an icon is named "account" you should enter "mdi-account" into this field and submit.
                         </div>
 
-                        <!-- Icon Field -->
                         <v-text-field
                            v-model="icon"
                            :rules="icon_rules"
@@ -117,9 +103,7 @@
                            outlined
                            class="mb-2"
                         ></v-text-field>
-                        <!-- End Icon Field -->
 
-                        <!-- Paragraph Field -->
                         <v-textarea
                            v-model="content"
                            :rules="content_rules"
@@ -133,9 +117,7 @@
                            outlined
                            class="mb-2"
                         ></v-textarea>
-                        <!-- End Paragraph Field -->
 
-                        <!-- Validate and Submit -->
                         <v-row class="">
                            <div class="d-flex flex-row mx-auto">
                               <v-btn
@@ -147,14 +129,6 @@
                               >
                                  Submit
                               </v-btn>
-                              <!-- Reset From -->
-                              <!-- <v-btn color="error" class="mx-2" @click="reset">
-                                 Reset Form
-                              </v-btn> -->
-                              <!-- Reset validation -->
-                              <!-- <v-btn color="warning" class="mx-2" @click="resetValidation">
-                                 Reset Validation
-                              </v-btn> -->
                            </div>
                         </v-row>
                      </v-form>
@@ -211,7 +185,6 @@ export default {
             formData.append('content', this.content)
 
             console.log("trigger 3")
-            // console.log(formData);
 
             axios.post("/api/about/content/store", formData)
             .then((res) => {
@@ -235,12 +208,6 @@ export default {
             this.$refs.store_about_content.validate()
          }
       },
-      // reset() {
-      //    this.$refs.store_about_content.reset()
-      // },
-      // resetValidation() {
-      //    this.$refs.store_about_content.resetValidation()
-      // },
    },
 };
 </script>

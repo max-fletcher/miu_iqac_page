@@ -28,7 +28,6 @@
             lazy-validation
             class="px-10 pt-8 pb-10"
          >
-            <!-- Snackbar For Unauthenticated -->
             <v-snackbar
                v-model="unauthenticated"
                color="red"
@@ -52,9 +51,7 @@
                </v-btn>
                </template>
             </v-snackbar>
-            <!-- End Snackbar For Unauthenticated -->
             
-            <!-- Snackbar For backend validation failure -->
             <v-snackbar
                v-model="error_snackbar"
                color="red"
@@ -78,7 +75,6 @@
                </v-btn>
                </template>
             </v-snackbar>
-            <!-- End Snackbar For Failed Form Submission -->
 
             <v-text-field
                v-model="email"
@@ -89,7 +85,6 @@
                required
                outlined
             ></v-text-field>
-            <!-- <span v-if="errors.email">{{ errors.email[0] }}</span> -->
 
             <v-text-field
                v-model="password"
@@ -100,7 +95,6 @@
                required
                outlined
             ></v-text-field>
-            <!-- <span v-if="errors.password">{{ errors.password[0] }}</span> -->
 
             <div class="mt-2">
                <v-btn
@@ -113,25 +107,7 @@
                >
                Login</v-btn>
 
-               <!-- <v-btn color="success" @click="validate">Validate</v-btn>
-
-               <v-btn color="warning" @click="reset">Reset Form</v-btn>
-
-               <v-btn color="info" @click="resetValidation"
-                  >Reset Validation</v-btn
-               > -->
-
             </div>
-            <!-- <div>
-               <span>{{ this.dummy }}</span>
-               <br />
-               <span>{{ this.validation }}</span>
-               <br />
-               <span>{{ this.email }}</span>
-               <br />
-               <span>{{ this.password }}</span>
-               <br />
-            </div> -->
          </v-form>
 
       </div>
@@ -173,23 +149,11 @@ export default {
    },
 
    methods: {
-      // validate() {
-      //    this.$refs.form.validate();
-      // },
-      // reset() {
-      //    this.$refs.form.reset();
-      //    this.dummy = "";
-      // },
-      // resetValidation() {
-      //    this.$refs.form.resetValidation();
-      //    this.dummy = "";
-      // },
       submitForm() {
          if (this.$refs.form.validate()) {
             this.form_loading = true;
             this.form_disabled = true;
             axios.get("/sanctum/csrf-cookie").then((response) => {
-               // Login...
                axios
                   .post("/api/login", {
                      email: this.email,
@@ -199,7 +163,6 @@ export default {
                      this.form_loading = false
                      this.form_disabled = false
                      console.log("Login Post Request Sent Successfully !!")
-                     // console.log(res);
                      this.$router.push({ path: "/adminpanel/main" })
                   })
                   .catch((error) => {
@@ -212,7 +175,6 @@ export default {
                   });
             });
          } else {
-            //false
             this.$refs.form.validate();
          }
       },
@@ -229,11 +191,9 @@ export default {
             this.$router.push('/adminpanel/main')
          })
          .catch(()=>{
-            // console.log("Rejected")
             this.loading = false
          })
 
-      // console.log(this.$route.query.message)
       if (this.$route.query.message) {
          this.unauthenticated = true;
          this.message = this.$route.query.message;

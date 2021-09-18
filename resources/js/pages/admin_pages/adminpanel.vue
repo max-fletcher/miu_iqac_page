@@ -1,6 +1,5 @@
 <template>
    <div class="mb-2">
-      <!-- For Smaller screens -->
       <v-navigation-drawer v-model="admin_drawer" absolute temporary class="hidden-md-and-up">
          <v-sheet color="grey lighten-4" class="pa-4">
             <div v-if="loading_user">
@@ -151,11 +150,9 @@
             
          </v-list>
       </v-navigation-drawer>
-      <!-- End For Smaller screens -->
 
       <div class="d-flex">
          <div class="blue hidden-sm-and-down">
-            <!-- For Larger Screens -->
             <v-navigation-drawer permanent class="hidden-sm-and-down">
                <v-sheet color="grey lighten-4 pa-3">
                   <div v-if="loading_user">
@@ -333,7 +330,6 @@
 
                </v-list>
             </v-navigation-drawer>
-            <!-- End For Larger Screens -->
          </div>
 
          <v-card class="pa-5" width="100%">
@@ -344,36 +340,7 @@
                </v-icon>
             </v-btn>
                <router-view></router-view>
-            <!-- <v-row>
-               <v-col v-for="card in cards" :key="card" cols="12">
-                  <v-card>
-                     <v-subheader>{{ card }}</v-subheader>
 
-                     <v-list two-line>
-                        <template v-for="n in 6">
-                           <v-list-item :key="n">
-
-                              <v-list-item-content>
-                                 <v-list-item-title>
-                                    Message
-                                    {{ n }}
-                                 </v-list-item-title>
-
-                                 <v-list-item-subtitle>
-                                    Lorem ipsum dolor sit amet,
-                                    consectetur adipisicing elit.
-                                    Nihil repellendus distinctio
-                                    similique
-                                 </v-list-item-subtitle>
-                              </v-list-item-content>
-                           </v-list-item>
-
-                           <v-divider v-if="n !== 6" :key="`divider-${n}`"></v-divider>
-                        </template>
-                     </v-list>
-                  </v-card>
-               </v-col>
-            </v-row> -->
 
          </v-card>
       </div>
@@ -384,7 +351,6 @@
 export default {
    data: () => ({
       user: '',
-      // cards: ["Today", "Yesterday"],
       admin_drawer: false,
       loading_user: false,
    }),

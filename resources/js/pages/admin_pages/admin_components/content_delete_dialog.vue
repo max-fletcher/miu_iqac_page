@@ -17,8 +17,6 @@
             <v-card-title class="text-h6">
                Are you sure you want to delete this entry ??
             </v-card-title>
-            <!-- <v-card-text class="text-subtitle-1">
-            </v-card-text> -->
 
             <v-card-actions>
                <v-spacer></v-spacer>
@@ -56,12 +54,6 @@ export default {
       disable_buttons: false,
    }),
       methods: {
-      // logout() {
-      //    axios.post("/api/carouselcontent/index")
-      //    .then((response) => {
-      //       this.carousel_content = response.data
-      //    });
-      // },
       delete_content(axios_path, id) {
          console.log( " Delete From Dialog "+ id )
          this.disable_buttons = true
@@ -79,9 +71,6 @@ export default {
                this.$emit('content_delete_failed', id)
             })
 
-            // this.carousel_content = this.carousel_content.filter(function(obj) {
-            //    return obj.id !== id; // Or whatever value you want to use
-            // });
          
       }
    },

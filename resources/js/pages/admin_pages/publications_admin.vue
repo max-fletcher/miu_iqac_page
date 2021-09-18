@@ -1,12 +1,10 @@
 <template>
    <div>
-      <!-- {{ publication_type }}  -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>
 
       <v-card v-else>
-          <!-- Snackbar For successful Deletion -->
           <v-snackbar
               v-model="delete_success_snackbar"
               color="green"
@@ -30,9 +28,7 @@
               </v-btn>
               </template>
           </v-snackbar>
-          <!-- End Snackbar For successful Deletion -->
 
-         <!-- Snackbar For Internal Server Error -->
          <v-snackbar
               v-model="error_snackbar"
               color="red"
@@ -56,7 +52,6 @@
               </v-btn>
               </template>
          </v-snackbar>
-         <!-- End Snackbar For Internal Server Error -->
 
          <v-card flat tile outlined width="100%" class="d-flex">
             <v-card-title> Publications For - {{ publication_type.publication_type_name }} </v-card-title>
@@ -120,7 +115,6 @@
                                  EDIT
                            </v-btn>
 
-                           <!-- Delete Button With v-menu -->
                            <ContentDeleteDialog axios_path="/api/publications/destroy/" :content_id="publication.id" @content_deleted="publication_update($event)" @content_delete_failed="publication_delete_failed($event)" />
                       </v-row>
 
@@ -149,7 +143,6 @@ export default {
       error_message: "",
       delete_success_snackbar: false,
       delete_success_message: ""
-      // dialog: false,
    }),
    components: {
       AdminLoading, ContentDeleteDialog
@@ -157,9 +150,7 @@ export default {
    methods: {
 
       publication_update(deleted){
-         // console.log("delete from admin")
             this.publication_type.publications = this.publication_type.publications.filter(function(obj) {
-            return obj.id !== deleted.deleted_id; // Or whatever value you want to use
          })
 
          this.delete_success_message = deleted.delete_message
@@ -183,19 +174,11 @@ export default {
       this.loading_content = true
       axios.get("/api/publication_type_info/show_with_publications/"+ this.$route.params.publication_type_id)
          .then((res) => {
-            // console.log(response.data);
             this.publication_type = res.data
             this.loading_content = false
          })
          .catch((error) => {
             this.$router.push('/adminpanel/publication_types?nodata=nodatafound')
-            // console.log(error)
-            // this.error_message = error.response.data.message
-            // this.error_snackbar = true
-            // this.errors = error.response.data.errors
-            // this.form_disabled = false
-            // this.form_loading = false
-            // this.loading_content = false
          })
    },
 }

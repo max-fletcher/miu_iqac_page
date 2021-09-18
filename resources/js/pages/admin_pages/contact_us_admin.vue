@@ -1,12 +1,10 @@
 <template>
    <div>
-      <!-- {{ all_contact_us }} -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>
 
       <v-card v-else>
-          <!-- Snackbar For successful Deletion -->
           <v-snackbar
               v-model="delete_success_snackbar"
               color="green"
@@ -30,9 +28,7 @@
                </v-btn>
             </template>
           </v-snackbar>
-          <!-- End Snackbar For successful Deletion -->
 
-         <!-- Snackbar For Internal Server Error -->
          <v-snackbar
               v-model="error_snackbar"
               color="red"
@@ -56,24 +52,9 @@
               </v-btn>
               </template>
          </v-snackbar>
-         <!-- End Snackbar For Internal Server Error -->
 
          <v-card flat tile outlined width="100%" class="d-flex">
-            <v-card-title> Contact Us </v-card-title>
-
-               <!-- <v-spacer></v-spacer>
-
-               <v-btn
-                  :to="'/adminpanel/all_contact_us/store'"
-                  :disabled="disable_buttons"
-                  elevation="2"
-                  class="ma-1 orange darken-3 rounded-1 white--text mt-4 mr-5"
-               >
-                  <v-icon left color="white">
-                     mdi-plus
-                  </v-icon>
-                  CREATE NEW
-               </v-btn> -->
+            <v-card-title> Contact Us</v-card-title>
          </v-card>
 
          <v-card flat v-if="all_contact_us.length === 0" height="480" min-height="300">
@@ -128,7 +109,6 @@
                                 EDIT
                           </v-btn>
 
-                          <!-- Delete Button With v-menu -->
                           <ContentDeleteDialog axios_path="/api/contact_us/destroy/" :content_id="contact_us.id" @content_deleted="all_contact_us_update($event)" @content_delete_failed="contact_us_delete_failed($event)" />
                     </v-row>
 
@@ -156,7 +136,6 @@ export default {
       error_message: "",
       delete_success_snackbar: false,
       delete_success_message: ""
-      // dialog: false,
    }),
    components: {
       AdminLoading, ContentDeleteDialog

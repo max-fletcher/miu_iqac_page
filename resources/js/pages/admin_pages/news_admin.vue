@@ -1,13 +1,10 @@
 <template>
    <div>
-         <!-- {{ news }}
-         {{ news }} -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>
 
       <v-card v-else>
-          <!-- Snackbar For successful Deletion -->
           <v-snackbar
               v-model="delete_success_snackbar"
               color="green"
@@ -31,9 +28,7 @@
               </v-btn>
               </template>
           </v-snackbar>
-          <!-- End Snackbar For successful Deletion -->
 
-         <!-- Snackbar For Internal Server Error -->
          <v-snackbar
               v-model="error_snackbar"
               color="red"
@@ -57,7 +52,6 @@
               </v-btn>
               </template>
          </v-snackbar>
-         <!-- End Snackbar For Internal Server Error -->
 
          <v-card flat tile outlined width="100%" class="d-flex">
             <v-card-title> News Section </v-card-title>
@@ -91,8 +85,6 @@
          <div v-else v-for="(news, index) in news" :key="index">
             <v-card tile outlined class="mx-auto px-1 py-2">
 
-               <!-- {{moment(news.news_date).format('YYYY-MM-DD')}} <br> -->
-               <!-- {{moment().format('YYYY-MM-DD')}} -->
                <v-card-text class="text-body-1 font-weight-medium py-0 black--text">
                   News Title: {{ news.news_title }}
                </v-card-text>
@@ -134,7 +126,6 @@
                               EDIT
                           </v-btn>
 
-                          <!-- Delete Button With v-menu -->
                           <ContentDeleteDialog axios_path="/api/news/destroy/" :content_id="news.id" @content_deleted="news_update($event)" @content_delete_failed="news_delete_failed($event)" />
                       </v-row>
 
@@ -162,7 +153,6 @@ export default {
       error_message: "",
       delete_success_snackbar: false,
       delete_success_message: ""
-      // dialog: false,
    }),
    components: {
       AdminLoading, ContentDeleteDialog

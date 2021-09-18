@@ -1,11 +1,5 @@
 <template>
-   <div>      
-      <!-- carousel_title: {{carousel_title}} <br>
-      carousel_subtitle: {{carousel_subtitle}} <br>
-      carousel_image: {{carousel_image}} <br>
-      resize_image: {{resize_image}} <br> -->
-      <!-- {{ errors }} -->
-
+   <div>
       <v-sheet class="mt-3 pb-2 px-8">
          <v-row class="mb-4 mx-sm-10">
             <v-col>
@@ -26,10 +20,8 @@
                </v-row>
                <v-row>
                   <v-col class="mb-3">
-                     <!-- Contact us Form -->
                      <v-form ref="store_carousel_image" :disabled="form_disabled" lazy-validation>
 
-                     <!-- Snackbar For successful Form Submission -->
                      <v-snackbar
                         v-model="success_snackbar"
                         color="green"                        
@@ -40,7 +32,6 @@
                      <v-icon left>
                         mdi-check-circle
                      </v-icon>
-                        <!-- Content Saved Successfully !! -->
                         {{ success_message }}
 
                         <template v-slot:action="{ attrs }">
@@ -54,9 +45,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                     <!-- Snackbar For backend validation failure -->
                      <v-snackbar
                         v-model="error_snackbar"
                         color="red"
@@ -80,9 +69,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                     <!-- Carousel Title Field -->
                         <v-text-field
                            v-model="carousel_title"
                            :rules="carousel_title_rules"
@@ -95,9 +82,7 @@
                            outlined
                            class="mb-2"
                         ></v-text-field>
-                        <!-- End Carousel Title Field -->
 
-                        <!-- Carousel Subtitle Field -->
                         <v-text-field
                            v-model="carousel_subtitle"
                            :rules="carousel_subtitle_rules"
@@ -110,9 +95,7 @@
                            outlined
                            class="mb-2"
                         ></v-text-field>
-                        <!-- End Carousel Subtitle Field -->
 
-                        <!-- File Upload -->
                         <v-file-input
                            truncate-length="15"
                            label="Select New Image"
@@ -125,7 +108,6 @@
                            outlined
                            class="mb-2"
                         ></v-file-input>
-                        <!-- End File Upload -->
 
                         <div class="text-caption red--text">
                            **Selecting "Yes" below uses an auto-resizer to resize the image to have a dimension of 2000x1150.
@@ -135,7 +117,6 @@
                            Otherwise, part of your image might be cropped out from the front-end.
                         </div>
 
-                        <!-- Resize Image Radio Buttons -->
                         <v-container fluid class="pt-0">
                            <v-radio-group
                               v-model="resize_image"
@@ -161,9 +142,7 @@
                               </v-radio>
                            </v-radio-group>
                         </v-container>
-                        <!-- End Resize Image Radio Buttons -->
 
-                        <!-- Validate and Submit -->
                         <v-row class="">
                            <div class="d-flex flex-row mx-auto">
                               <v-btn
@@ -175,14 +154,6 @@
                               >
                                  Submit
                               </v-btn>
-                              <!-- Reset From -->
-                              <!-- <v-btn color="error" class="mx-2" @click="reset">
-                                 Reset Form
-                              </v-btn> -->
-                              <!-- Reset validation -->
-                              <!-- <v-btn color="warning" class="mx-2" @click="resetValidation">
-                                 Reset Validation
-                              </v-btn> -->
                            </div>
                         </v-row>
                      </v-form>
@@ -255,7 +226,6 @@ export default {
             formData.append('resize_image', this.resize_image)
 
             console.log("trigger 3")
-            // console.log(formData);
 
             axios.post("/api/carouselcontent/store", formData)
             .then((res) => {
@@ -275,16 +245,9 @@ export default {
                this.form_loading = false
             });
          } else {
-            //false
             this.$refs.store_carousel_image.validate()
          }
       },
-      // reset() {
-      //    this.$refs.store_carousel_image.reset()
-      // },
-      // resetValidation() {
-      //    this.$refs.store_carousel_image.resetValidation()
-      // },
    },
 }
 </script>

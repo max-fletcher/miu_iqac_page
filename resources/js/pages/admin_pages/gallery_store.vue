@@ -1,9 +1,5 @@
 <template>
    <div>
-      <!-- gallery_name: {{ gallery_name }} <br>
-      {{ error_message }} <br>
-      {{ errors }} <br> -->
-
       <v-sheet class="mt-3 pb-2 px-8">
          <v-row class="mb-4 mx-sm-10">
             <v-col>
@@ -24,10 +20,8 @@
                </v-row>
                <v-row>
                   <v-col class="mb-3">
-                     <!-- Contact us Form -->
                      <v-form ref="store_gallery" :disabled="form_disabled" lazy-validation>
 
-                     <!-- Snackbar For successful Form Submission -->
                      <v-snackbar
                         v-model="success_snackbar"
                         color="green"                        
@@ -38,7 +32,6 @@
                      <v-icon left>
                         mdi-check-circle
                      </v-icon>
-                        <!-- Content Saved Successfully !! -->
                         {{ success_message }}
 
                         <template v-slot:action="{ attrs }">
@@ -52,9 +45,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                     <!-- Snackbar For backend validation failure -->
                      <v-snackbar
                         v-model="error_snackbar"
                         color="red"
@@ -78,9 +69,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                        <!-- Gallery Name Field -->
                         <v-text-field
                            v-model="gallery_name"
                            :rules="gallery_name_rules"
@@ -93,9 +82,7 @@
                            outlined
                            class="mb-1"
                         ></v-text-field>
-                        <!-- End Gallery Name Field -->
 
-                        <!-- File Upload -->
                         <v-file-input
                            truncate-length="15"
                            label="Select New Image"
@@ -108,7 +95,6 @@
                            outlined
                            class="mb-2"
                         ></v-file-input>
-                        <!-- End File Upload -->
 
                         <div class="text-caption red--text">
                            **Selecting "Yes" below uses an auto-resizer to resize the image to have a dimension of 2000x1150.
@@ -118,7 +104,6 @@
                            Otherwise, part of your image might be cropped out from the front-end.
                         </div>
 
-                        <!-- Resize Image Radio Buttons -->
                         <v-container fluid class="pt-0">
                            <v-radio-group
                               v-model="resize_image"
@@ -144,9 +129,7 @@
                               </v-radio>
                            </v-radio-group>
                         </v-container>
-                        <!-- End Resize Image Radio Buttons -->
 
-                        <!-- Validate and Submit -->
                         <v-row class="">
                            <div class="d-flex flex-row mx-auto">
                               <v-btn
@@ -158,14 +141,6 @@
                               >
                                  Submit
                               </v-btn>
-                              <!-- Reset From -->
-                              <!-- <v-btn color="error" class="mx-2" @click="reset">
-                                 Reset Form
-                              </v-btn> -->
-                              <!-- Reset validation -->
-                              <!-- <v-btn color="warning" class="mx-2" @click="resetValidation">
-                                 Reset Validation
-                              </v-btn> -->
                            </div>
                         </v-row>
                      </v-form>
@@ -209,20 +184,16 @@ export default {
       },
 
       submitForm() {
-        //  console.log("trigger 1")
          if (this.$refs.store_gallery.validate()) {
             this.form_disabled = true
             this.form_loading = true
 
-            // console.log("trigger 2")
             if (!this.gallery_cover_photo) {
                this.error_message = "Please select a file!"
                this.form_disabled = false
                this.form_loading = false
                return;
             }
-
-            // console.log("trigger 3")
 
             this.error_message = ""
 
@@ -232,7 +203,6 @@ export default {
             formData.append('resize_image', this.resize_image)
 
             console.log("trigger 3")
-            // console.log(formData)
             console.log(...formData)
 
             axios.post("/api/gallery/name/store", formData)
@@ -258,12 +228,6 @@ export default {
             this.$refs.store_gallery.validate()
          }
       },
-      // reset() {
-      //    this.$refs.store_gallery.reset()
-      // },
-      // resetValidation() {
-      //    this.$refs.store_gallery.resetValidation()
-      // },
    },
 };
 </script>

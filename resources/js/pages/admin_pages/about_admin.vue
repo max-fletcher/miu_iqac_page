@@ -7,7 +7,6 @@
 
       <v-card v-else>
 
-         <!-- Snackbar For successful Deletion -->
             <v-snackbar
                v-model="delete_success_snackbar"
                color="green"
@@ -31,9 +30,7 @@
                </v-btn>
                </template>
             </v-snackbar>
-         <!-- End Snackbar For successful Deletion -->
 
-          <!-- Snackbar For Internal Server Error -->
           <v-snackbar
               v-model="error_snackbar"
               color="red"
@@ -57,7 +54,6 @@
               </v-btn>
               </template>
           </v-snackbar>
-          <!-- End Snackbar For Internal Server Error -->
 
          <v-card flat tile outlined width="100%" class="d-flex">
             <v-card-title style="word-break: break-word"> About Page Contents </v-card-title>
@@ -140,7 +136,6 @@
                               EDIT
                            </v-btn>
 
-                           <!-- Delete Button With v-menu -->
                            <ContentDeleteDialog axios_path="/api/about/content/destroy/" :content_id="about_content.id" @content_deleted="about_content_update($event)" @content_delete_failed="about_content_delete_failed($event)" />
 
                      </v-row>
@@ -168,43 +163,17 @@ export default {
       error_message: "",
       delete_success_snackbar: false,
       delete_success_message: ""
-      // dialog: false,
    }),
    components: {
       AdminLoading, ContentDeleteDialog
    },
    methods: {
-      // logout() {
-      //    axios.post("/api/carouselcontent/index")
-      //    .then((response) => {
-      //       this.about_content = response.data
-      //    });
-      // },
-
-      // delete_about_content(id) {
-      //    console.log(id)
-      //    this.disable_buttons = true
-      //    // axios
-      //    //    .delete("/api/form/destroy/" + id)
-      //    //    .then((res) => {
-      //    //       console.log(res.data);
-      //    //    }).catch(error => {
-      //    //       alert('Internal Error ! Cannot Delete Contact !!');
-      //    //    })
-
-      //    //    this.about_content = this.about_content.filter(function(obj) {
-      //    //       return obj.id !== id; // Or whatever value you want to use
-      //    //    });
-      //    this.disable_buttons = false
-      //    this.dialog = false
-      // }
 
       about_content_update(deleted){
         this.about_content = this.about_content.filter(function(obj) {
           return obj.id !== deleted.deleted_id; // Or whatever value you want to use
         })
 
-         // console.log(deleted)
          this.delete_success_message = deleted.delete_message
          this.delete_success_snackbar = true
       },

@@ -1,9 +1,5 @@
 <template>
    <div>
-      <!-- name: {{name}} <br>
-      email: {{email}} <br>
-      message: {{message}} <br>
-      {{ errors }} <br> -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>
@@ -31,7 +27,6 @@
                      <!-- Contact us Form -->
                      <v-form ref="edit_contact_us_info" :disabled="form_disabled" lazy-validation>
 
-                     <!-- Snackbar For successful Form Submission -->
                      <v-snackbar
                         v-model="success_snackbar"
                         color="green"                        
@@ -55,9 +50,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                     <!-- Snackbar For backend validation failure -->
                      <v-snackbar
                         v-model="error_snackbar"
                         color="red"
@@ -81,9 +74,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                      <!-- Name Field -->
                       <v-text-field
                           v-model="name"
                           :rules="name_rules"
@@ -96,9 +87,7 @@
                           outlined
                           class="mb-1"
                       ></v-text-field>
-                      <!-- End Name Field -->
 
-                     <!-- Email Field -->
                       <v-text-field
                           v-model="email"
                           :rules="email_rules"
@@ -111,9 +100,7 @@
                           outlined
                           class="mb-1"
                       ></v-text-field>
-                      <!-- End Email Field -->
 
-                     <!-- Message Field -->
                       <v-text-field
                           v-model="message"
                           :rules="message_rules"
@@ -126,9 +113,7 @@
                           outlined
                           class="mb-1"
                       ></v-text-field>
-                      <!-- End Message Field -->
 
-                        <!-- Validate and Submit -->
                         <v-row class="">
                            <div class="d-flex flex-row mx-auto">
                               <v-btn
@@ -140,14 +125,6 @@
                               >
                                  Submit
                               </v-btn>
-                              <!-- Reset From -->
-                              <!-- <v-btn color="error" class="mx-2" @click="reset">
-                                 Reset Form
-                              </v-btn> -->
-                              <!-- Reset validation -->
-                              <!-- <v-btn color="warning" class="mx-2" @click="resetValidation">
-                                 Reset Validation
-                              </v-btn> -->
                            </div>
                         </v-row>
                      </v-form>
@@ -212,7 +189,6 @@ export default {
             formData.append('_method', 'PATCH')
 
             console.log("trigger 3")
-            // console.log(formData);
 
             axios.post("/api/contact_us/update/" + this.$route.params.id, formData)
             .then((res) => {
@@ -235,18 +211,11 @@ export default {
             this.$refs.edit_contact_us_info.validate()
          }
       },
-      // reset() {
-      //    this.$refs.edit_contact_us_info.reset()
-      // },
-      // resetValidation() {
-      //    this.$refs.edit_contact_us_info.resetValidation()
-      // },
    },
    created(){
       this.loading_content = true
       axios.get("/api/contact_us/show/" + this.$route.params.id)
          .then((res) => {
-            // console.log(res.data)
             this.name = res.data.name
             this.email = res.data.email
             this.message = res.data.message
@@ -254,17 +223,9 @@ export default {
             this.form_disabled = false
             this.form_loading = false
             this.loading_content = false
-            // this.$refs.edit_contact_us_info.reset()
          })
          .catch((error) => {
             this.$router.push('/adminpanel/contact_us?nodata=nodatafound')
-            // console.log(error)
-            // this.error_message = error.response.data.message
-            // this.error_snackbar = true
-            // this.errors = error.response.data.errors
-            // this.form_disabled = false
-            // this.form_loading = false
-            // this.loading_content = false
          })
   }
 };

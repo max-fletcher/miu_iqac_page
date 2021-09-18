@@ -118,7 +118,7 @@
                               <v-icon left color="white">
                                  mdi-account
                               </v-icon>
-                              View Members
+                              View Resources
                            </v-btn>
 
                            <v-btn

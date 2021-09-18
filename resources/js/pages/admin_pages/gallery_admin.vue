@@ -1,12 +1,10 @@
 <template>
    <div>
-      <!-- {{ galleries }} -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>
 
       <v-card v-else>
-          <!-- Snackbar For successful Deletion -->
           <v-snackbar
               v-model="delete_success_snackbar"
               color="green"
@@ -30,9 +28,7 @@
               </v-btn>
               </template>
           </v-snackbar>
-          <!-- End Snackbar For successful Deletion -->
 
-         <!-- Snackbar For Internal Server Error -->
          <v-snackbar
               v-model="error_snackbar"
               color="red"
@@ -56,7 +52,6 @@
               </v-btn>
               </template>
          </v-snackbar>
-         <!-- End Snackbar For Internal Server Error -->
 
          <v-card flat tile outlined width="100%" class="d-flex">
             <v-card-title> List of Galleries </v-card-title>
@@ -90,8 +85,6 @@
          <div v-else v-for="(gallery, index) in galleries" :key="index">
             <v-card tile outlined class="mx-auto px-1 py-2">
 
-               <!-- {{moment(event.event_date).format('YYYY-MM-DD')}} <br> -->
-               <!-- {{moment().format('YYYY-MM-DD')}} -->
                <v-card-text class="text-body-1 font-weight-medium py-0 black--text">
                   Gallery Name: {{ gallery.gallery_name}}
                </v-card-text>
@@ -106,7 +99,6 @@
                <v-card-actions class="py-0">
                   <v-list-item class="grow">
 
-                     <!-- Image and Buttons For Xs Screens -->
                      <div class="hidden-sm-and-up">
                         <div>
                               <v-list-item-avatar color="grey darken-3" tile width="300" height="150">
@@ -145,13 +137,10 @@
                                  EDIT
                               </v-btn>
 
-                              <!-- Delete Button With v-menu -->
                               <ContentDeleteDialog axios_path="/api/gallery/name/destroy/" :content_id="gallery.id" @content_deleted="gallery_update($event)" @content_delete_failed="gallery_deleted_failed($event)" />
                         </v-row>
                      </div>
-                     <!-- End Image and Buttons For Xs Screens -->
 
-                     <!-- Image and Buttons For Sm and Up Screens -->
                      <v-list-item-avatar color="grey darken-3" tile width="300" height="150" class="hidden-xs-only">
                         <v-img
                         class="elevation-6"
@@ -193,10 +182,8 @@
                               EDIT
                            </v-btn>
 
-                           <!-- Delete Button With v-menu -->
                            <ContentDeleteDialog axios_path="/api/gallery/name/destroy/" :content_id="gallery.id" @content_deleted="gallery_update($event)" @content_delete_failed="gallery_deleted_failed($event)" />
                      </v-row>
-                     <!-- End Image and Buttons For Sm and Up Screens -->
 
                   </v-list-item>
                </v-card-actions>
@@ -222,7 +209,6 @@ export default {
       error_message: "",
       delete_success_snackbar: false,
       delete_success_message: ""
-      // dialog: false,
    }),
    components: {
       AdminLoading, ContentDeleteDialog

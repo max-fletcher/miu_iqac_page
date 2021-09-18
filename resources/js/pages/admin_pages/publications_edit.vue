@@ -1,10 +1,5 @@
 <template>
    <div>
-      publication_type_name: {{ publication_type_name }} <br>
-      publication_name: {{ publication_name }} <br>
-      {{ error_message }} <br>
-      {{ errors }} <br>
-
       <div v-if="loading_content">
          <AdminLoading />
       </div>

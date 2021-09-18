@@ -8,11 +8,6 @@
                </v-col>
 
                <v-col v-else cols="12" class="px-6 pt-3">
-                  <!-- <v-row class="mx-1">
-               <v-col md="3" lg="2" class="hidden-sm-and-down">
-                  <QuickLinks />
-               </v-col>
-               <v-col cols="12" md="9" lg="10"> -->
 
                   <v-carousel
                      height="auto"
@@ -37,7 +32,6 @@
                            <v-container fill-height fluid class="px-0 py-0">
                               <v-layout fill-height align-end>
                                  <v-flex>
-                                    <!-- For sm and up devices -->
                                     <v-alert
                                        text
                                        color="black darken-2"
@@ -72,7 +66,6 @@
                                        </div>
                                     </v-alert>
 
-                                    <!-- For xs devices -->
                                     <v-alert
                                        text
                                        color="black darken-2"
@@ -110,8 +103,6 @@
                         </v-img>
                      </v-carousel-item>
                   </v-carousel>
-                  <!-- </v-col>
-            </v-row> -->
                </v-col>
             </v-row>
             <v-row
@@ -169,7 +160,6 @@
 <script>
 import QuickLinks from "./components/quicklinks";
 import Loading from "./components/loading";
-// import TopNav from './topnav'
 export default {
    data: () => ({
       items: [],
@@ -185,13 +175,10 @@ export default {
       axios
          .get("/api/carouselcontent/frontend_index")
          .then((res) => {
-            // console.log(res);
             this.items = res.data;
             this.loading = false;
          })
          .catch((error) => {
-            // console.log(error);
-            // this.errors = error.response.data.errors
             this.loading = false;
          });
    },

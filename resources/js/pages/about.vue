@@ -83,13 +83,10 @@ export default {
       axios
          .get("/api/about/content/frontend_index")
          .then((res) => {
-            // console.log(res)
             this.about_items = res.data;
             this.loading = false;
          })
          .catch((error) => {
-            // console.log(error)
-            // this.errors = error.response.data.errors
             this.loading = false;
          });
    },

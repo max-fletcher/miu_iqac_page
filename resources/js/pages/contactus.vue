@@ -25,13 +25,11 @@
                   </v-row>
                   <v-row>
                      <v-col class="mb-3">
-                        <!-- Contact us Form -->
                         <v-form
                            ref="contact_us_form"
                            :disabled="form_disabled"
                            lazy-validation
                         >
-                           <!-- Snackbar For successful Form Submission -->
                            <v-snackbar
                               v-model="success_snackbar"
                               color="green"
@@ -53,9 +51,7 @@
                                  </v-btn>
                               </template>
                            </v-snackbar>
-                           <!-- End Snackbar For successful Form Submission -->
 
-                           <!-- Snackbar For backend validation failure -->
                            <v-snackbar
                               v-model="error_snackbar"
                               color="red"
@@ -77,9 +73,7 @@
                                  </v-btn>
                               </template>
                            </v-snackbar>
-                           <!-- End Snackbar For Failed Form Submission -->
 
-                           <!-- Name Field -->
                            <v-text-field
                               v-model="name"
                               @input="name_alert = false"
@@ -92,9 +86,7 @@
                               required
                               outlined
                            ></v-text-field>
-                           <!-- End Name Field -->
 
-                           <!-- Email Field With Alert -->
                            <v-text-field
                               v-model="email"
                               @input="email_alert = false"
@@ -108,9 +100,7 @@
                               required
                               outlined
                            ></v-text-field>
-                           <!-- End Email Field -->
 
-                           <!-- Message Field With Alert -->
                            <v-textarea
                               v-model="message"
                               @input="message_alert = false"
@@ -124,9 +114,7 @@
                               auto-grow
                               outlined
                            ></v-textarea>
-                           <!-- End Message Field With Alert -->
 
-                           <!-- Validate and Submit -->
                            <v-row class="">
                               <div class="d-flex flex-row mx-auto">
                                  <v-btn
@@ -139,14 +127,6 @@
                                  >
                                     Submit
                                  </v-btn>
-                                 <!-- Reset From -->
-                                 <!-- <v-btn color="error" class="mx-2" @click="reset">
-                                 Reset Form
-                              </v-btn> -->
-                                 <!-- Reset validation -->
-                                 <!-- <v-btn color="warning" class="mx-2" @click="resetValidation">
-                                 Reset Validation
-                              </v-btn> -->
                               </div>
                            </v-row>
                         </v-form>
@@ -190,7 +170,6 @@
                         </v-card>
                      </v-col>
 
-                     <!-- Map Component -->
                      <v-col
                         cols="12"
                         sm="12"
@@ -260,7 +239,6 @@
                         </v-card>
                      </v-col>
 
-                     <!-- Map Component -->
                      <v-col
                         cols="12"
                         sm="12"
@@ -342,22 +320,14 @@ export default {
                      this.error_message = "Too many requests have been submitted. Please try again tomorrow.";
                   else
                      this.error_message = error.response.data.message;
-                  // this.errors = error.response.data.errors;
                   this.form_disabled = false;
                   this.form_loading = false;
                   this.error_snackbar = true;
                });
          } else {
-            //false
             this.$refs.contact_us_form.validate();
          }
       },
-      // reset() {
-      //    this.$refs.contact_us_form.reset()
-      // },
-      // resetValidation() {
-      //    this.$refs.contact_us_form.resetValidation()
-      // },
    },
 };
 </script>

@@ -1,12 +1,10 @@
 <template>
    <div>
-      <!-- {{ resources }} -->
       <div v-if="loading_content">
          <AdminLoading />
       </div>
 
       <v-card v-else>
-          <!-- Snackbar For successful Deletion -->
           <v-snackbar
               v-model="delete_success_snackbar"
               color="green"
@@ -30,9 +28,7 @@
               </v-btn>
               </template>
           </v-snackbar>
-          <!-- End Snackbar For successful Deletion -->
 
-         <!-- Snackbar For Internal Server Error -->
          <v-snackbar
               v-model="error_snackbar"
               color="red"
@@ -56,10 +52,9 @@
               </v-btn>
               </template>
          </v-snackbar>
-         <!-- End Snackbar For Internal Server Error -->
 
          <v-card flat tile outlined width="100%" class="d-flex">
-            <v-card-title> Resource - ({{ resource_type }})  </v-card-title>
+            <v-card-title> Resource - {{ resource_type }}  </v-card-title>
 
                <v-spacer></v-spacer>
                <v-btn
@@ -89,8 +84,6 @@
          <div v-else v-for="(resource, index) in resources" :key="index">
             <v-card tile outlined class="mx-auto px-1 py-2">
 
-               <!-- {{moment(event.event_date).format('YYYY-MM-DD')}} <br> -->
-               <!-- {{moment().format('YYYY-MM-DD')}} -->
                <v-card-text class="text-body-1 font-weight-medium py-0 black--text">
                   Resource Name: {{ resource.resource_name }}
                </v-card-text>
@@ -122,7 +115,6 @@
                                   EDIT
                               </v-btn>
 
-                              <!-- Delete Button With v-menu -->
                               <ContentDeleteDialog axios_path="/api/resource/destroy/" :content_id="resource.id" @content_deleted="resource_update($event)" @content_delete_failed="resource_delete_failed($event)" />
                       </v-row>
 
@@ -151,7 +143,6 @@ export default {
       error_message: "",
       delete_success_snackbar: false,
       delete_success_message: ""
-      // dialog: false,
    }),
    components: {
       AdminLoading, ContentDeleteDialog
@@ -161,7 +152,7 @@ export default {
       resource_update(deleted){
          console.log("delete from admin")
             this.resources = this.resources.filter(function(obj) {
-            return obj.id !== deleted.deleted_id; // Or whatever value you want to use
+            return obj.id !== deleted.deleted_id;
          })
 
          this.delete_success_message = deleted.delete_message
@@ -190,13 +181,6 @@ export default {
          })
          .catch((error) => {
             this.$router.push('/adminpanel/resource_types?nodata=nodatafound')
-            // console.log(error)
-            // this.error_message = error.response.data.message
-            // this.error_snackbar = true
-            // this.errors = error.response.data.errors
-            // this.form_disabled = false
-            // this.form_loading = false
-            // this.loading_content = false
          })
    },
 }

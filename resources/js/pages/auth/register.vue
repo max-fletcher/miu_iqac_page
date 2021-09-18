@@ -1,146 +1,140 @@
 <template>
-   <div class="pt-3 pb-1">
-      <!-- <div>
-         <span>{{ this.dummy }}</span>
-         <br />
-         <span>{{ this.validation }}</span>
-         <br />
-         <span>{{ this.name }}</span>
-         <br />
-         <span>{{ this.email }}</span>
-         <br />
-         <span>{{ this.password }}</span>
-         <br />
-         <span>{{ this.password_confirmation }}</span>
-         <br />
-         <span>{{ this.errors }}</span>
-      </div> -->
+<div>
+   <v-sheet class="mx-4 mb-3 mt-5 mt-md-3 pb-7" min-height="350">
 
-      <v-form ref="form" :disabled="form_disabled" lazy-validation class="px-10 pt-5">
+      <div v-if="loading">
+         <Loading />
+      </div>
 
-         <!-- Snackbar For successful Form Submission -->
-         <v-snackbar
-            v-model="success_snackbar"
-            color="green"                        
-            :timeout="timeout"
-            top
-            right
-         >
-         <v-icon left>
-            mdi-check-circle
-         </v-icon>
-            Registration Successful !!
-            <template v-slot:action="{ attrs }">
-            <v-btn
-               color="white"
-               text
-               v-bind="attrs"
-               @click="success_snackbar = false"
-            >
-               Close
-            </v-btn>
-            </template>
-         </v-snackbar>
-         <!-- End Snackbar For successful Form Submission -->
+      <div v-else>
 
-         <!-- Snackbar For backend validation failure -->
-         <v-snackbar
-            v-model="error_snackbar"
-            color="red"
-            :timeout="timeout"
-            top
-            right
-         >
-         <v-icon left>
-            mdi-alert-octagon-outline
-         </v-icon>
-            {{error_message}}
+         <v-card flat tile class="mx-auto px-0 pt-6">
+            <v-card-subtitle
+               class="
+                  text-center text-h3
+                  blue--text
+                  text--darken-4
+                  py-0                           
+                  mb-2
+                  pl-lg-4
+                  text-uppercase
+               "
+            >administrator registration</v-card-subtitle>
+         </v-card>
 
-            <template v-slot:action="{ attrs }">
-            <v-btn
-               color="white"
-               text
-               v-bind="attrs"
-               @click="error_snackbar = false"
-            >
-               Close
-            </v-btn>
-            </template>
-         </v-snackbar>
-         <!-- End Snackbar For Failed Form Submission -->
+            <v-form ref="form" :disabled="form_disabled" lazy-validation class="px-10 pt-5">
 
-         <v-text-field
-            v-model="name"
-            :rules="nameRules"
-            :error-messages="errors.name"
-            label="Name"
-            required
-            outlined
-         ></v-text-field>
-         <!-- <span v-if="errors.name">{{ errors.name[0] }}</span> -->
+               <v-snackbar
+                  v-model="success_snackbar"
+                  color="green"                        
+                  :timeout="timeout"
+                  top
+                  right
+               >
+               <v-icon left>
+                  mdi-check-circle
+               </v-icon>
+                  Registration Successful !!
+                  <template v-slot:action="{ attrs }">
+                  <v-btn
+                     color="white"
+                     text
+                     v-bind="attrs"
+                     @click="success_snackbar = false"
+                  >
+                     Close
+                  </v-btn>
+                  </template>
+               </v-snackbar>
 
-         <v-text-field
-            v-model="email"
-            :rules="emailRules"
-            :error-messages="errors.email"
-            label="E-mail"
-            type="email"
-            required
-            outlined
-         ></v-text-field>
+               <v-snackbar
+                  v-model="error_snackbar"
+                  color="red"
+                  :timeout="timeout"
+                  top
+                  right
+               >
+               <v-icon left>
+                  mdi-alert-octagon-outline
+               </v-icon>
+                  {{error_message}}
 
-         <v-text-field
-            v-model="password"
-            :rules="passwordRules"
-            :error-messages="errors.password"
-            label="Password"
-            type="password"
-            required
-            outlined
-         ></v-text-field>         
+                  <template v-slot:action="{ attrs }">
+                  <v-btn
+                     color="white"
+                     text
+                     v-bind="attrs"
+                     @click="error_snackbar = false"
+                  >
+                     Close
+                  </v-btn>
+                  </template>
+               </v-snackbar>
 
-         <v-text-field
-            v-model="password_confirmation"
-            :rules="[confirmPasswordRules, passwordConfirmationRule]"
-            label="Confirm Password"
-            type="password"
-            required
-            outlined
-         ></v-text-field>
-         
-         <v-btn
-            color="green"
-            class="mt-4 white--text"
-            @click.prevent="submitForm"
-            type="submit"
-            :loading="form_loading"
-            :disabled="form_loading"
-            >Register</v-btn
-         >
+               <v-text-field
+                  v-model="name"
+                  :rules="nameRules"
+                  :error-messages="errors.name"
+                  label="Name"
+                  required
+                  outlined
+               ></v-text-field>
 
-         <!-- <v-btn color="success" class="mt-4" @click="validate">Validate</v-btn>
+               <v-text-field
+                  v-model="email"
+                  :rules="emailRules"
+                  :error-messages="errors.email"
+                  label="E-mail"
+                  type="email"
+                  required
+                  outlined
+               ></v-text-field>
 
-         <v-btn color="warning" class="mt-4" @click="reset">Reset Form</v-btn>
+               <v-text-field
+                  v-model="password"
+                  :rules="passwordRules"
+                  :error-messages="errors.password"
+                  label="Password"
+                  type="password"
+                  required
+                  outlined
+               ></v-text-field>         
 
-         <v-btn color="info" class="mt-4" @click="resetValidation"
-            >Reset Validation</v-btn
-         > -->
+               <v-text-field
+                  v-model="password_confirmation"
+                  :rules="[confirmPasswordRules, passwordConfirmationRule]"
+                  label="Confirm Password"
+                  type="password"
+                  required
+                  outlined
+               ></v-text-field>
+               
+               <v-btn
+                  color="green"
+                  class="mt-4 white--text"
+                  @click.prevent="submitForm"
+                  type="submit"
+                  :loading="form_loading"
+                  :disabled="form_loading"
+                  >Register</v-btn
+               >
+            </v-form>
 
-      </v-form>
-   </div>
+      </div>
+   </v-sheet>
+</div>
 </template>
 
 <script>
+import Loading from "../components/loading";
 export default {
    data: () => ({
       errors: [],
       error_message: '',
-      //diasble form submission or sending request
       form_loading: false,
       form_disabled: false,
       success_snackbar: false,
       error_snackbar: false,
-      // data and validation
       name: "",
       nameRules: [
          (v) => !!v || "Name is required",
@@ -166,23 +160,13 @@ export default {
          (v) => (!!v && password === v) || "Passwords do not match",
          (v) => (v && v.length <= 255) || "Confirmation Password must not be more than 255 characters",
       ],
-      // dummy: "",
-      // validation: "",
    }),
-   methods: {
 
-      // validate() {
-      //    this.$refs.form.validate()
-      // },
-      // reset() {
-      //    this.$refs.form.reset()
-      //    // this.dummy = "";
-      // },
-      // resetValidation() {
-      //    this.$refs.form.resetValidation()
-      //    // this.dummy = "";
-      // },
-      
+   components: {
+      Loading
+   },
+
+   methods: {
       submitForm() {
          if (this.$refs.form.validate()) {
             this.form_loading = true
@@ -199,12 +183,7 @@ export default {
                   this.form_loading = false
                   this.form_disabled = false
                   this.$refs.form.reset()
-                  // this.dummy = "Post Request Sent Successfully !!"
                   console.log("Post Request Sent Successfully !!")
-                  // this.$router.push({name: 'AdminPanel'})
-                  // this.$router.push('/about')
-                  // same as this.$router.push({ name: 'About'}) where the name is defined in router.js so its a named
-                  // route
                })
                .catch((error) => {
                   this.form_loading = false
@@ -212,13 +191,10 @@ export default {
                   this.errors = error.response.data.errors
                   this.error_message = error.response.data.message
                   this.error_snackbar = true
-                  // this.dummy = "Request Failed !!"
                   console.log("Error Response !!")
                });
 
-            //this.$router.push()
          } else {
-            //false
             this.$refs.form.validate();
          }
       },

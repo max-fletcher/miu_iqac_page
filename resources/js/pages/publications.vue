@@ -17,7 +17,7 @@
          </v-container>
       </v-card>
       <div v-else class="mx-6 mx-md-8">
-         <v-row class="mx-2 mt-2" no-gutters>
+         <v-row class="mx-2 pt-4" no-gutters>
             <v-col cols="12">
                <v-card flat tile class="mx-auto px-0">
                   <v-card-subtitle
@@ -73,9 +73,7 @@ export default {
    },
    created() {
       if( this.$store.state.authenticated.publication_tokens.length > 0 ){
-         // Find token by publication_type_info_id using looping
          for (var i = 0; i < this.$store.state.authenticated.publication_tokens.length; i++){
-            // look for the entry with a matching `code` value
             if (this.$store.state.authenticated.publication_tokens[i].publication_type_info_id == this.$route.params.id){
                axios
                   .post("/api/publication_token/token_exists", this.$store.state.authenticated.publication_tokens[i])
@@ -101,14 +99,10 @@ export default {
       axios
          .get("/api/publication_type_info/show_with_publications/" + this.$route.params.id)
          .then((res) => {
-            // console.log(res)
             this.publications = res.data;
             this.loading = false;
          })
          .catch((error) => {
-            // console.log(error);
-            // this.errors = error.response.data.errors
-            // this.loading = false;
             this.$router.push({ name: 'ResourceNotFound' })
          });
    },

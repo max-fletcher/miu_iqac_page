@@ -1,10 +1,5 @@
 <template>
    <div>
-      <!-- carousel_title: {{carousel_title}} <br>
-      carousel_subtitle: {{carousel_subtitle}} <br>
-      carousel_image: {{carousel_image}} <br>
-      resize_image: {{resize_image}} <br> -->
-      <!-- {{ errors }} -->
 
       <div v-if="loading_content">
          <AdminLoading />
@@ -30,10 +25,8 @@
                </v-row>
                <v-row>
                   <v-col class="mb-3">
-                     <!-- Contact us Form -->
                      <v-form ref="edit_carousel_content" :disabled="form_disabled" lazy-validation>
 
-                     <!-- Snackbar For successful Form Submission -->
                      <v-snackbar
                         v-model="success_snackbar"
                         color="green"                        
@@ -57,9 +50,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                     <!-- Snackbar For backend validation failure -->
                      <v-snackbar
                         v-model="error_snackbar"
                         color="red"
@@ -83,9 +74,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                     <!-- Carousel Title Field -->
                         <v-text-field
                            v-model="carousel_title"
                            :rules="carousel_title_rules"
@@ -98,9 +87,7 @@
                            outlined
                            class="mb-2"
                         ></v-text-field>
-                        <!-- End Carousel Title Field -->
 
-                        <!-- Carousel Subtitle Field -->
                         <v-text-field
                            v-model="carousel_subtitle"
                            :rules="carousel_subtitle_rules"
@@ -113,13 +100,11 @@
                            outlined
                            class="mb-2"
                         ></v-text-field>
-                        <!-- End Carousel Subtitle Field -->
 
                         <div class="text-body-2 red--text font-weight-bold mb-2 text-center">
                            **If no image is provided, the previous image will be retained as default
                         </div>
 
-                        <!-- File Upload -->
                         <v-file-input
                            truncate-length="15"
                            label="Select New Image"
@@ -131,7 +116,6 @@
                            outlined
                            class="mb-2"
                         ></v-file-input>
-                        <!-- End File Upload -->
 
                         <div class="text-caption red--text">
                            **Selecting "Yes" below uses an auto-resizer to resize the image to have a dimension of 2000x1150.
@@ -141,7 +125,6 @@
                            Otherwise, part of your image might be cropped out from the front-end.
                         </div>
 
-                        <!-- Gender Radio Buttons -->
                         <v-container fluid class="pt-0">
                            <v-radio-group
                               v-model="resize_image"
@@ -166,9 +149,7 @@
                               </v-radio>
                            </v-radio-group>
                         </v-container>
-                        <!-- End Gender Radio Buttons -->
 
-                        <!-- Validate and Submit -->
                         <v-row class="">
                            <div class="d-flex flex-row mx-auto">
                               <v-btn
@@ -180,14 +161,6 @@
                               >
                                  Submit
                               </v-btn>
-                              <!-- Reset From -->
-                              <!-- <v-btn color="error" class="mx-2" @click="reset">
-                                 Reset Form
-                              </v-btn> -->
-                              <!-- Reset validation -->
-                              <!-- <v-btn color="warning" class="mx-2" @click="resetValidation">
-                                 Reset Validation
-                              </v-btn> -->
                            </div>
                         </v-row>
                      </v-form>
@@ -225,8 +198,6 @@ export default {
       ],
       carousel_image: null,
       resize_image: "",
-      // resize_rules: [
-      //    (v) => !!v || "Resize Parameter is required"
       // ],
    }),
    components: {
@@ -245,12 +216,6 @@ export default {
             this.form_loading = true
             
             console.log("trigger 2")
-            // if (!this.carousel_image) {
-            //    this.error_message = "Please select a file!";
-            //    this.form_disabled = false
-            //    this.form_loading = false
-            //    return;
-            // }
 
             this.error_message = "";
 
@@ -262,7 +227,6 @@ export default {
             formData.append('_method', 'PATCH')
 
             console.log("trigger 3")
-            // console.log(formData);
 
             axios.post("/api/carouselcontent/update/" + this.$route.params.id, formData)
             .then((res) => {
@@ -285,12 +249,6 @@ export default {
             this.$refs.edit_carousel_content.validate()
          }
       },
-      // reset() {
-      //    this.$refs.edit_carousel_content.reset()
-      // },
-      // resetValidation() {
-      //    this.$refs.edit_carousel_content.resetValidation()
-      // },
    },
    created(){
       this.loading_content = true
@@ -302,17 +260,9 @@ export default {
             this.form_disabled = false
             this.form_loading = false
             this.loading_content = false
-            // this.$refs.edit_carousel_content.reset()
          })
          .catch((error) => {
             this.$router.push('/adminpanel/carousel_content?nodata=nodatafound')
-            // console.log(error)
-            // this.error_message = error.response.data.message
-            // this.error_snackbar = true
-            // this.errors = error.response.data.errors
-            // this.form_disabled = false
-            // this.form_loading = false
-            // this.loading_content = false
          })
   }
 };

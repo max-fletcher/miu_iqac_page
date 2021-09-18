@@ -1,13 +1,5 @@
 <template>
    <div>
-     <!-- Name: {{ name }} <br>
-     Designation: {{ designation }} <br>
-     Contact No: {{ cell_number }} <br>
-     Email: {{ email }} <br>
-     {{ error_message }} <br>
-     {{ errors }} <br> <br>
-     {{ people_section }} -->
-
       <div v-if="loading_content">
          <AdminLoading />
       </div>
@@ -32,10 +24,8 @@
                </v-row>
                <v-row>
                   <v-col class="mb-3">
-                     <!-- Contact us Form -->
                      <v-form ref="store_member_data" :disabled="form_disabled" lazy-validation>
 
-                     <!-- Snackbar For successful Form Submission -->
                      <v-snackbar
                         v-model="success_snackbar"
                         color="green"                        
@@ -46,7 +36,6 @@
                      <v-icon left>
                         mdi-check-circle
                      </v-icon>
-                        <!-- Content Saved Successfully !! -->
                         {{ success_message }}
 
                         <template v-slot:action="{ attrs }">
@@ -60,9 +49,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                     <!-- Snackbar For backend validation failure -->
                      <v-snackbar
                         v-model="error_snackbar"
                         color="red"
@@ -86,9 +73,7 @@
                         </v-btn>
                         </template>
                      </v-snackbar>
-                     <!-- End Snackbar For successful Form Submission -->
 
-                       <!-- Member Name Field -->
                       <v-text-field
                           v-model="name"
                           :rules="name_rules"
@@ -101,9 +86,7 @@
                           outlined
                           class="mb-1"
                       ></v-text-field>
-                      <!-- End Member Name Field -->
 
-                      <!-- Member Designation Field -->
                       <v-text-field
                           v-model="designation"
                           :rules="designation_rules"
@@ -116,9 +99,7 @@
                           outlined
                           class="mb-1"
                       ></v-text-field>
-                      <!-- End Member Designation Field -->
 
-                      <!-- Member Email Field -->
                       <v-text-field
                           v-model="email"
                           :rules="email_rules"
@@ -131,9 +112,7 @@
                           outlined
                           class="mb-1"
                       ></v-text-field>
-                      <!-- End Member Email Field -->
 
-                      <!-- Member Cell Number Field -->
                       <v-text-field
                           v-model="cell_number"
                           :rules="cell_number_rules"
@@ -146,9 +125,7 @@
                           outlined
                           class="mb-1"
                       ></v-text-field>
-                      <!-- End Member Cell Number Field -->
 
-                        <!-- File Upload -->
                         <v-file-input
                            truncate-length="15"
                            label="Select New Image"
@@ -160,7 +137,6 @@
                            outlined
                            class="mb-2"
                         ></v-file-input>
-                        <!-- End File Upload -->
 
                         <div class="text-caption red--text">
                            **Selecting "Yes" below uses an auto-resizer to resize the image to have a dimension of 1500x3000
@@ -171,7 +147,6 @@
                            Otherwise, part of your image might be cropped out from the front-end.
                         </div>
 
-                        <!-- Resize Image Radio Buttons -->
                         <v-container fluid class="pt-0">
                            <v-radio-group
                               v-model="resize_image"
@@ -197,9 +172,7 @@
                               </v-radio>
                            </v-radio-group>
                         </v-container>
-                        <!-- End Resize Image Radio Buttons -->
 
-                        <!-- Validate and Submit -->
                         <v-row class="">
                            <div class="d-flex flex-row mx-auto">
                               <v-btn
@@ -211,14 +184,6 @@
                               >
                                  Submit
                               </v-btn>
-                              <!-- Reset From -->
-                              <!-- <v-btn color="error" class="mx-2" @click="reset">
-                                 Reset Form
-                              </v-btn> -->
-                              <!-- Reset validation -->
-                              <!-- <v-btn color="warning" class="mx-2" @click="resetValidation">
-                                 Reset Validation
-                              </v-btn> -->
                            </div>
                         </v-row>
                      </v-form>
@@ -268,9 +233,6 @@ export default {
         ],
         member_image: null,
         resize_image: "",
-        // resize_rules: [
-        //    (v) => !!v || "Resize Parameter is required"
-        // ],
    }),
     components: {
       AdminLoading
@@ -288,13 +250,6 @@ export default {
             this.form_disabled = true
             this.form_loading = true
             
-            // console.log("trigger 2")
-            // if (!this.member_image) {
-            //    this.error_message = "Please select a file!";
-            //    this.form_disabled = false
-            //    this.form_loading = false
-            //    return;
-            // }
 
             console.log("trigger 2")
 
@@ -310,7 +265,6 @@ export default {
             formData.append('resize_image', this.resize_image)
 
             console.log("trigger 3")
-            // console.log(formData);
 
             axios.post("/api/people/members/store", formData)
             .then((res) => {
@@ -330,35 +284,20 @@ export default {
                this.form_loading = false
             });
          } else {
-            //false
             this.$refs.store_member_data.validate()
          }
       },
-      // reset() {
-      //    this.$refs.store_member_data.reset()
-      // },
-      // resetValidation() {
-      //    this.$refs.store_member_data.resetValidation()
-      // },
    },
 
     created(){
         this.loading_content = true
         axios.get("/api/people/show_without_relations/" + this.$route.params.people_id)
          .then((res) => {
-            // // console.log(res.data)
             this.people_section = res.data
             this.loading_content = false
          })
          .catch((error) => {
             this.$router.push('/adminpanel/people?nodata=nodatafound')
-            // console.log(error)
-            // this.error_message = error.response.data.message
-            // this.error_snackbar = true
-            // this.errors = error.response.data.errors
-            // this.form_disabled = false
-            // this.form_loading = false
-            // this.loading_content = false
          })
     }
 };

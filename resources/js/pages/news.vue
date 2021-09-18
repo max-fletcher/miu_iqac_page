@@ -59,19 +59,15 @@
                            </v-avatar>
 
                            <div>
-                           <!-- Title For Xs -->
                               <v-card-title class="text-subtitle-1 font-weight-bold d-flex d-sm-none text-wrap">
                                  {{ single_news.news_title | truncate_title_xs }}
                               </v-card-title>
-                           <!-- Title For Sm -->
                               <v-card-title class="text-subtitle-1 font-weight-bold d-none d-sm-flex d-md-none text-wrap">
                                  {{ single_news.news_title | truncate_title_sm }}
                               </v-card-title>
-                           <!-- Title For Md -->
                               <v-card-title class="text-subtitle-1 font-weight-bold d-none d-md-flex d-lg-none text-wrap">
                                  {{ single_news.news_title | truncate_title_md }}
                               </v-card-title>
-                           <!-- Title For XL and up -->
                               <v-card-title class="text-subtitle-1 font-weight-bold d-none d-lg-flex d-xl-none text-wrap">
                                  {{ single_news.news_title }}
                               </v-card-title>
@@ -118,8 +114,6 @@ export default {
             this.loading = false;
          })
          .catch((error) => {
-            // console.log(error);
-            // this.errors = error.response.data.errors
             this.loading = false;
          });
    },
