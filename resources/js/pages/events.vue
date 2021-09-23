@@ -41,7 +41,7 @@
                   >
                      <v-card-title>
                         <v-icon left color="green accent-4">
-                           mdi-calendar-star
+                           mdi-calendar
                         </v-icon>
                         Upcoming Events
                      </v-card-title>
@@ -123,6 +123,104 @@
                            >
                               Date :
                               {{ moment( upcoming_event.event_date).format("MMMM Do YYYY, h:mm a") }}
+                           </div>
+                        </v-col>
+                     </v-row>
+                  </v-alert>
+               </v-card>
+
+               <v-card rounded="0" class="mb-2">
+                  <v-alert
+                     color="blue accent-4"
+                     class="px-0 py-0 mx-0 my-0"
+                     rounded="0"
+                     outlined
+                     text
+                  >
+                     <v-card-title>
+                        <v-icon left color="blue accent-4">
+                           mdi-calendar-star
+                        </v-icon>
+                        Today's Events
+                     </v-card-title>
+                  </v-alert>
+               </v-card>
+
+               <v-card
+                  v-if="events.todays_events.length === 0"
+                  rounded="0"
+                  class="mb-3 mx-3"
+               >
+                  <v-alert
+                     color="blue accent-4"
+                     class="px-3 py-4 mx-0 my-0"
+                     rounded="0"
+                     outlined
+                     text
+                  >
+                     <v-row>
+                        <v-col cols="12" class="pt-0 pb-0">
+                           <div
+                              class="
+                                 text-subtitle-1
+                                 font-weight-medium
+                                 text-center
+                              "
+                           >
+                              <v-icon left color="blue accent-4">
+                                 mdi-close
+                              </v-icon>
+                              No Events Today
+                           </div>
+                        </v-col>
+                     </v-row>
+                  </v-alert>
+               </v-card>
+
+               <v-card
+                  v-else
+                  v-for="(todays_event, index) in events.todays_events"
+                  :key="index"
+                  :to="'/events/single_event/' + todays_event.id"
+                  rounded="0"
+                  class="mb-3 mx-3"
+               >
+                  <v-alert
+                     color="blue accent-4"
+                     class="px-3 py-4 mx-0 my-0"
+                     rounded="0"
+                     outlined
+                     text
+                  >
+                     <v-row justify="space-between">
+                        <v-col cols="12" sm="6" class="pt-0 pb-0">
+                           <div
+                              class="
+                                 text-subtitle-1
+                                 font-weight-medium
+                              "
+                           >
+                              <v-icon
+                                 left
+                                 color="blue accent-4"
+                                 small
+                              >
+                                 mdi-calendar-export
+                              </v-icon>
+                              {{ todays_event.event_name }}
+                           </div>
+                        </v-col>
+                        
+                        <v-col cols="12" sm="6" class="pt-0 pb-0">
+                           <div
+                              class="
+                                 text-subtitle-1
+                                 font-weight-medium                                                
+                                 text-sm-right
+                              "
+                           >
+                              Date :
+                              {{ moment( todays_event.event_date).format("MMMM Do YYYY, h:mm a") }}
                            </div>
                         </v-col>
                      </v-row>

@@ -107,48 +107,37 @@
             </v-row>
             <v-row
                v-if="!loading"
-               class
-               justify="space-around ml-1 ml-md-0 mr-1 mr-md-3"
+               class="mx-1 ml-md-0 mr-md-3"
+               justify="space-around"
             >
                <v-col cols="3">
                   <QuickLinks />
                </v-col>
+
                <v-col cols="12" md="9" class="black mt-0 mt-md-3">
                   <v-card class="pl-0 ml-0 mt-md-0">
-                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                     Aut eaque eius alias fugit cum obcaecati aliquam nihil
-                     facilis itaque dignissimos quis explicabo, voluptatem
-                     repudiandae et! Quod hic architecto fugit qui. Lorem ipsum
-                     dolor sit, amet consectetur adipisicing elit. Aut eaque
-                     eius alias fugit cum obcaecati aliquam nihil facilis itaque
-                     dignissimos quis explicabo, voluptatem repudiandae et! Quod
-                     hic architecto fugit qui. Lorem ipsum dolor sit, amet
-                     consectetur adipisicing elit. Aut eaque eius alias fugit
-                     cum obcaecati aliquam nihil facilis itaque dignissimos quis
-                     explicabo, voluptatem repudiandae et! Quod hic architecto
-                     fugit qui. Lorem ipsum dolor sit, amet consectetur
-                     adipisicing elit. Aut eaque eius alias fugit cum obcaecati
-                     aliquam nihil facilis itaque dignissimos quis explicabo,
-                     voluptatem repudiandae et! Quod hic architecto fugit qui.
-                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                     Aut eaque eius alias fugit cum obcaecati aliquam nihil
-                     facilis itaque dignissimos quis explicabo, voluptatem
-                     repudiandae et! Quod hic architecto fugit qui. Lorem ipsum
-                     dolor sit, amet consectetur adipisicing elit. Aut eaque
-                     eius alias fugit cum obcaecati aliquam nihil facilis itaque
-                     dignissimos quis explicabo, voluptatem repudiandae et! Quod
-                     hic architecto fugit qui. Lorem ipsum dolor sit, amet
-                     consectetur adipisicing elit. Aut eaque eius alias fugit
-                     cum obcaecati aliquam nihil facilis itaque dignissimos quis
-                     explicabo, voluptatem repudiandae et! Quod hic architecto
-                     fugit qui. Lorem ipsum dolor sit, amet consectetur
-                     adipisicing elit. Aut eaque eius alias fugit cum obcaecati
-                     aliquam nihil facilis itaque dignissimos quis explicabo,
-                     voluptatem repudiandae et! Quod hic architecto fugit qui.
-                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                     Aut eaque eius alias fugit cum obcaecati aliquam nihil
-                     facilis itaque dignissimos quis explicabo, voluptatem
-                     repudiandae et! Quod hic architecto fugit qui.
+
+
+
+                     <div class="d-flex flex-row blue">
+                        <v-img
+                           max-width="300"
+                           min-width="150"
+                           class=""
+                           src="/images/head.jpg"
+                           alt=""
+                           position="center center"
+                           aspect-ratio="1.5">
+                        </v-img>
+
+                        <div class="green">
+                           Message From The Head Of The IQAC
+                        </div>
+                     </div>
+
+
+
+
                   </v-card>
                </v-col>
             </v-row>

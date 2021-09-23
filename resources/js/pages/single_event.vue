@@ -52,7 +52,8 @@
                      >
                         EVENT TYPE:
                      </v-card-text>
-                     <v-card-title class="text-subtitle-1 mb-1 pt-0">
+
+                     <v-card-title class="text-subtitle-1 mb-1 pt-0 font-weight-medium text-uppercase">
                         {{ single_event.event_type.event_type }}
                      </v-card-title>
 
@@ -69,11 +70,9 @@
                         class="text-subtitle-1 orange--text text--darken-3"
                      >
                         Event Date:
-                        {{
-                           moment(single_event.event_date).format(
-                              "MMMM Do YYYY, h:mm a"
-                           )
-                        }}
+                        <span class="text--bold black--text font-weight-medium">
+                           {{ moment(single_event.event_date).format( "MMMM Do YYYY" ) }}
+                        </span>
                      </v-card-subtitle>
 
                      <v-card-text

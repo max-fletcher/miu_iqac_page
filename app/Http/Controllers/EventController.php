@@ -136,7 +136,7 @@ class EventController extends Controller
     }
 
     public function destroy($id)
-    {        
+    {
         $event = Event::find($id);
         if ($event) {
             if($event->event_image != "noimage.jpg")

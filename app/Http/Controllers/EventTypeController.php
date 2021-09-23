@@ -90,10 +90,13 @@ class EventTypeController extends Controller
     {   
         $event_type = EventType::where('id', $id)->select('id', 'event_type', 'created_at')->with([
         'passed_events' => function($query) {
-            return $query->select(['id', 'event_type_id', 'event_name', 'event_description', 'event_image', 'created_at']);
+            return $query->select(['id', 'event_type_id', 'event_name', 'event_description', 'event_image', 'event_date', 'created_at']);
+        },
+        'todays_events' => function($query) {
+            return $query->select(['id', 'event_type_id', 'event_name', 'event_description', 'event_image', 'event_date', 'created_at']);
         },
         'upcoming_events' => function($query) {
-            return $query->select(['id', 'event_type_id', 'event_name', 'event_description', 'event_image', 'created_at']);
+            return $query->select(['id', 'event_type_id', 'event_name', 'event_description', 'event_image', 'event_date', 'created_at']);
         }])->first();
         
         if($event_type){

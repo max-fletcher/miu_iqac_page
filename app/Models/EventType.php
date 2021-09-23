@@ -17,11 +17,14 @@ class EventType extends Model
     }
 
     public function passed_events(){
-        return $this->events()->where('event_date', '<', Carbon::now());
+        return $this->events()->whereDate('event_date', '<', Carbon::today());
+    }
+
+    public function todays_events(){
+        return $this->events()->whereDate('event_date', Carbon::today());
     }
 
     public function upcoming_events(){
-        return $this->events()->where('event_date', '>', Carbon::now());
+        return $this->events()->whereDate('event_date', '>', Carbon::today());
     }
-    
 }

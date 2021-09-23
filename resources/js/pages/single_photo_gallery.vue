@@ -62,7 +62,6 @@
 
             <vue-easy-lightbox
                escDisabled
-               moveDisabled
                :visible="visible"
                :imgs="photos.gallery_photos"
                :index="index"
