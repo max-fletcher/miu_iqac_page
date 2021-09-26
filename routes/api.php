@@ -235,7 +235,7 @@ Route::get('/resource/show/{id}', [App\Http\Controllers\ResourceController::clas
 
 // Contact Us Controller
 // FE
-Route::post('/contact_us/store', [App\Http\Controllers\ContactUsController::class, 'store'])->middleware('throttle:5,1440');
+Route::post('/contact_us/store', [App\Http\Controllers\ContactUsController::class, 'store']);//->middleware('throttle:5,1440');
 
 // Gallery Name Controller
 // FE

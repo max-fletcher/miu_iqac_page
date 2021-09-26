@@ -107,37 +107,43 @@
             </v-row>
             <v-row
                v-if="!loading"
-               class="mx-1 ml-md-0 mr-md-3"
+               class="mx-1 ml-md-0 mt-n8 mt-md-1 mb-n5"
                justify="space-around"
             >
                <v-col cols="3">
                   <QuickLinks />
                </v-col>
 
-               <v-col cols="12" md="9" class="black mt-0 mt-md-3">
+               <v-col cols="12" md="9" class="">
                   <v-card class="pl-0 ml-0 mt-md-0">
-
-
-
-                     <div class="d-flex flex-row blue">
+                     <div class="d-flex flex-sm-row flex-column pa-3">
                         <v-img
-                           max-width="300"
-                           min-width="150"
-                           class=""
+                           max-width="500"
+                           min-width="250"
+                           class="rounded-md"
                            src="/images/head.jpg"
                            alt=""
                            position="center center"
-                           aspect-ratio="1.5">
+                           aspect-ratio="1.18">
                         </v-img>
-
-                        <div class="green">
-                           Message From The Head Of The IQAC
+                        
+                        <div class="ml-0 ml-sm-2 pa-2">
+                           <div>
+                              <div class="font-weight-bold blue--text text--darken-4 text-h6">
+                                 Message From The Head Of The IQAC
+                              </div>
+                              <div class="font-weight-medium blue--text text--darken-4">
+                                 Head and Professor
+                              </div>
+                              <div class="font-weight-medium blue--text text--darken-4">
+                                 Institutional Quality Assurance Cell
+                              </div>
+                           </div>
+                           <div class="mt-3 font-weight-medium blue-grey--text text--darken-3">
+                              I take this opportunity to welcome all the students of the School of Business & Economics and their guardians for choosing Manarat International University (MIU) as the highest seat of learning. MIU has been established with the noble objective of building a knowledge-based society by imparting world class education. I realize that you have many choices and choosing where you will complete your BBA/MBA program can be an overwhelming experience. Our endeavor is to provide you with important information regarding BBA/MBA and the School of Business & Economics of MIU.
+                           </div>
                         </div>
                      </div>
-
-
-
-
                   </v-card>
                </v-col>
             </v-row>
@@ -174,4 +180,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+</style>
